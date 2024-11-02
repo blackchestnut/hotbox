@@ -1,3 +1,8 @@
+<script setup>
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import 'swiper/swiper-bundle.css';
+</script>
+
 <template>
   <div class="system-wrapper">
     <div class="system">
@@ -43,64 +48,63 @@
   </div>
 </template>
 
-  <script>
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-  import 'swiper/swiper-bundle.css';
-  
-  export default {
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
-    data() {
-      return {
-        slides: [
-          'ПАКУ 500 кВт 1К (Н/Р)',
-          'БМАК 1000 кВт 2К',
-          'БМАК 1040 кВт 1К',
-          'БМАК 1200 кВт 1К',
-          'БМАК 1400 кВт 1К',
-          'БМАК 1600 кВт 1К',
-          'БМАК 4800 кВт 2К',
-          'БМАК 6000 кВт 2К',
-          'БМАК 6100 кВт 2К',
-          'БМАК 7400 кВт 2К',
-        ],
-        swiperInstance: null,
-        currentPage: 0,
-      };
-    },
-    computed: {
+<script>
+const ITEMS_ON_PAGE = 3;
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  data() {
+    return {
+      slides: [
+        'ПАКУ 500 кВт 1К (Н/Р)',
+        'БМАК 1000 кВт 2К',
+        'БМАК 1040 кВт 1К',
+        'БМАК 1200 кВт 1К',
+        'БМАК 1400 кВт 1К',
+        'БМАК 1600 кВт 1К',
+        'БМАК 4800 кВт 2К',
+        'БМАК 6000 кВт 2К',
+        'БМАК 6100 кВт 2К',
+        'БМАК 7400 кВт 2К',
+      ],
+      swiperInstance: null,
+      currentPage: 0,
+    };
+  },
+  computed: {
     totalPages() {
-      return Math.ceil(this.slides.length / 3); // Количество страниц
-      },
+      return Math.ceil(this.slides.length / ITEMS_ON_PAGE); // Количество страниц
     },
-    methods: {
-      onSwiper(swiper) {
-        this.swiperInstance = swiper; // Сохраняем экземпляр Swiper
-      },
-      goToNextSlide() {
-        if (this.swiperInstance) {
-          this.swiperInstance.slideNext();
-        }
-      },
-      goToPrevSlide() {
-        if (this.swiperInstance) {
-          this.swiperInstance.slidePrev();
-        }
-      },
-      goToPage(index) {
-          if (this.swiperInstance) {
-              this.swiperInstance.slideTo(index * 3); // Переход на первую карточку страницы
-              this.currentPage = index; // Обновляем текущую страницу
-          }
-      },
-      showDetails(index) {
-        console.log(this.slides[index]);
+  },
+  methods: {
+    onSwiper(swiper) {
+      this.swiperInstance = swiper; // Сохраняем экземпляр Swiper
+    },
+    goToNextSlide() {
+      if (this.swiperInstance) {
+        this.swiperInstance.slideNext();
       }
     },
-  };
-  </script>
+    goToPrevSlide() {
+      if (this.swiperInstance) {
+        this.swiperInstance.slidePrev();
+      }
+    },
+    goToPage(index) {
+        if (this.swiperInstance) {
+            this.swiperInstance.slideTo(index * ITEMS_ON_PAGE); // Переход на первую карточку страницы
+            this.currentPage = index; // Обновляем текущую страницу
+        }
+    },
+    showDetails(index) {
+      console.log(this.slides[index]);
+    }
+  },
+};
+</script>
   
 <style scoped>
   .system {
