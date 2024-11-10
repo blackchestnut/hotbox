@@ -24,8 +24,10 @@
             @swiper="onSwiper">
             <swiper-slide v-for="(slide, index) in slides" :key="index">
               <div class="slide-inner">
-                <div class="label">{{ slide }}</div>
-                <button class="details-button" @click="showDetails(index)">Подробнее</button>
+                <img :src="slide.image" alt="Slide Image" class="slide-image" />
+                <div class="label">{{ slide.text }}</div>
+                <div class="description">{{ slide.description }}</div>
+                <button class="details-button" @click="showDetails(index)">ПОДРОБНЕЕ</button>
               </div>
             </swiper-slide>
           </swiper>
@@ -42,6 +44,7 @@
             </div>
             <button class="b-slider-next" @click="goToNextSlide"><img src="\src\assets\images\Vector1.svg"></button>
           </div>
+          <button class="full-catalog">ПОЛНЫЙ КАТАЛОГ</button>
         </div>
       </div>
     </div>
@@ -60,7 +63,7 @@ export default {
     return {
       slides: [
         'ПАКУ 500 кВт 1К (Н/Р)',
-        'БМАК 1000 кВт 2К',
+        { text: 'БМАК 1000 кВт 2К', image: '/src/assets/images/bmak-1000.png', description: 'Котельная 1,0 МВт, 2 котла' },
         'БМАК 1040 кВт 1К',
         'БМАК 1200 кВт 1К',
         'БМАК 1400 кВт 1К',
@@ -107,104 +110,144 @@ export default {
 </script>
   
 <style scoped>
-  .system {
-      height: 1031px;
-      width: 1160px;
-      margin: 0 auto;
-      text-align: center;
-      justify-content: center;
-      background-color: #f9f9f9;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-    .header {
-      margin-top: 100px;
-      text-align: center;
-    }
-    .subheadline {
-      margin-top: 60px;
-      font-family: 'Regular', sans-serif;
-      font-size: 30px;
-    }
-    .background {
-      margin-top: 30px;
-    }
-    .slide-inner {
-      justify-content: center;
-      width: 357px;
-      height: 525px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-    .label {
-      font-size: 20px;
-      font-weight: bold;
-      color: #333;
-    }
-    .slider-navigation {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-    .b-slider-prev,
-    .b-slider-next {
-      width: 40px;
-      height: 40px;
-      background-color: #000000;
-      border-radius: 8px;
-      border-color: #000000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-    }
-    .b-slider-prev:hover,
-    .b-slider-next:hover {
-      background-color: #474a4d;
-      border-color: #474a4d;
-    }
-    .b-slider-prev:active,
-    .b-slider-next:active {
-      background-color: #474a4d;
-      border-color: #696770;
-      color: white;
-    }
+.system {
+height: 1031px;
+width: 1160px;
+margin: 0 auto;
+text-align: center;
+justify-content: center;
+
+border-radius: 10px;
+}
+.header {
+margin-top: 100px;
+text-align: center;
+}
+.subheadline {
+margin-top: 60px;
+font-family: 'Regular', sans-serif;
+font-size: 30px;
+}
+.background {
+margin-top: 30px;
+}
+.slide-inner {
+justify-content: center;
+width: 357px;
+height: 525px;
+background-color: #EBEBEB;
+border-radius: 10px;
+transition: transform 0.3s ease;
+}
+.label {
+font-size: 20px;
+font-weight: bold;
+color: #333;
+}
+.slider-navigation {
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+}
+.b-slider-prev,
+.b-slider-next {
+width: 40px;
+height: 40px;
+background-color: #000000;
+border-radius: 8px;
+border-color: #000000;
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+}
+.b-slider-prev:hover,
+.b-slider-next:hover {
+background-color: #474a4d;
+border-color: #474a4d;
+}
+.b-slider-prev:active,
+.b-slider-next:active {
+background-color: #474a4d;
+border-color: #696770;
+color: white;
+}
 
 
-    .pagination-buttons {
-    display: flex;
-    justify-content: center;
-    }
-    .pagination-button {
-      margin: 0 5px;
-      width: 40px;
-      height: 40px;
-      background-color: #ffffff; 
-      color: black;
-      border-color:#ffffff; 
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-    .pagination-button:hover {
-      background-color: #474a4d;
-      border-color: #474a4d;
-    }
-    .pagination-button:active {
-      background-color: black;
-      border-color: black;
-      color: white;
-    } 
+.pagination-buttons {
+display: flex;
+justify-content: center;
+}
+.pagination-button {
+margin: 0 5px;
+width: 40px;
+height: 40px;
+background-color: #ffffff; 
+color: black;
+border-color:#ffffff; 
+border-radius: 8px;
+transition: background-color 0.3s ease;
+}
+.pagination-button:hover {
+background-color: #474a4d;
+border-color: #474a4d;
+}
+.pagination-button:active {
+background-color: black;
+border-color: black;
+color: white;
+} 
 
-    .details-button {
-      background-color: #000000;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .details-button:hover {
-      background-color: #474a4d;
+.details-button {
+width: 132px;
+height: 40px;
+background-color: #fff;
+color: #3b3b3b;
+border-color: #3b3b3b;
+border-radius: 8px;
+border: 2px solid #3b3b3b;
+transition: background-color 0.3s ease;
+font-family: 'Lato', sans-serif;
+font-size: 15px;
+}
+.details-button:hover {
+border-color:#000000;
+color:#000000;
+}
+.details-button:active {
+border-color:#696770;
+color:#696770;
+}
+.slide-image {
+width: 357px; 
+height: 359px; 
+border-radius: 8px;
+}
+.full-catalog {
+width: 238px;
+height: 50px;
+color: white;
+background-color: #000000;
+border: 3px solid #000000;
+font-family: 'Lato', sans-serif;
+font-size: 20px;
+}
+.full-catalog:hover {
+width: 238px;
+height: 50px;
+color: white;
+background-color: #474a4d;
+border-color: #474a4d;
+font-family: 'Lato', sans-serif;
+font-size: 20px;
+}
+.full-catalog:active {
+width: 238px;
+height: 50px;
+color: white;
+background-color: #474a4d;
+border-color: #696770;
+font-family: 'Lato', sans-serif;
+font-size: 20px;
 }
 </style>
