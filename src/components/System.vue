@@ -62,16 +62,16 @@ export default {
   data() {
     return {
       slides: [
-        'ПАКУ 500 кВт 1К (Н/Р)',
+        { text:'ПАКУ 500 кВт 1К (Н/Р)', image: '/src/assets/images/pacu-500.png', description:'Установка 0,5 МВт, 1 котел' },
         { text: 'БМАК 1000 кВт 2К', image: '/src/assets/images/bmak-1000.png', description: 'Котельная 1,0 МВт, 2 котла' },
-        'БМАК 1040 кВт 1К',
-        'БМАК 1200 кВт 1К',
-        'БМАК 1400 кВт 1К',
-        'БМАК 1600 кВт 1К',
-        'БМАК 4800 кВт 2К',
-        'БМАК 6000 кВт 2К',
-        'БМАК 6100 кВт 2К',
-        'БМАК 7400 кВт 2К',
+        { text: 'БМАК 1040 кВт 1К', image: '/src/assets/images/bmak-1040.png', description: 'Котельная 1,04 МВт, 1 котел' },
+        { text: 'БМАК 1200 кВт 1К', image: '/src/assets/images/bmak-1000.png', description: 'Котельная 1,2 МВт, 1 котел' },
+        { text: 'БМАК 1400 кВт 1К', image: '/src/assets/images/bmak-1000.png', description: 'Котельная 1,4 МВт, 1 котел' },
+        { text: 'БМАК 1600 кВт 1К', image: '/src/assets/images/bmak-1000.png', description: 'Котельная 1,6 МВт, 1 котел' },
+        { text: 'БМАК 4800 кВт 2К', image: '/src/assets/images/bmak-4800.png', description: 'Котельная 4,8 МВт, 2 котла' },
+        { text: 'БМАК 6000 кВт 2К', image: '/src/assets/images/bmak-4800.png', description: 'Котельная 6 МВт, 2 котла' },
+        { text: 'БМАК 6100 кВт 2К', image: '/src/assets/images/bmak-4800.png', description: 'Котельная 6,1 МВт, 2 котла' },
+        { text: 'БМАК 7400 кВт 2К', image: '/src/assets/images/bmak-4800.png', description: 'Котельная 7,4 МВт, 2 котла' },
       ],
       swiperInstance: null,
       currentPage: 0,
@@ -146,8 +146,9 @@ color: #333;
 }
 .slider-navigation {
 display: flex;
-justify-content: space-between;
-margin-top: 20px;
+justify-content: center;
+padding-top: 43px;
+padding-bottom: 43px;
 }
 .b-slider-prev,
 .b-slider-next {
