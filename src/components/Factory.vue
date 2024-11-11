@@ -12,8 +12,11 @@
                     <div class="head-two">
                         <p>Компактные передвижные станции теплоснабжения</p>
                         <p>с полным удаленным управлением</p>
+                        <img src="\src\assets\images\award.svg" alt="Award Logo" class="award-logo" />
                     </div>
+
                 </div>
+
                 <div class="button-container">
                         <button class="transparent-button"><img src="\src\assets\images\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br><p>Котельные блочно-модульные</p></button>
                         <button class="transparent-button"><img src="\src\assets\images\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br><p>Аренда</p></button>
@@ -28,6 +31,11 @@
 </template>
 
 <style scoped>
+.award-logo {
+margin-left: 610px;
+margin-top: -140px;
+  
+}
 .factory-wrapper {
 display: flex;
 height: 957px;

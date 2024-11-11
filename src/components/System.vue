@@ -136,13 +136,14 @@ justify-content: center;
 width: 357px;
 height: 525px;
 background-color: #EBEBEB;
-border-radius: 10px;
-transition: transform 0.3s ease;
+border-radius: 8px;
+transition: transform 0.3s ease,
 }
 .label {
 font-size: 20px;
 font-weight: bold;
 color: #333;
+margin-top: 10px;
 }
 .slider-navigation {
 display: flex;
@@ -173,8 +174,6 @@ background-color: #474a4d;
 border-color: #696770;
 color: white;
 }
-
-
 .pagination-buttons {
 display: flex;
 justify-content: center;
@@ -221,8 +220,7 @@ color:#696770;
 }
 .slide-image {
 width: 357px; 
-height: 359px; 
-border-radius: 8px;
+height: 359px;
 }
 .full-catalog {
 width: 238px;
@@ -251,4 +249,9 @@ border-color: #696770;
 font-family: 'Lato', sans-serif;
 font-size: 20px;
 }
+.description {
+padding-top: 25px;
+padding-bottom: 25px;
+}
+
 </style>
