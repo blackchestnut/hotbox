@@ -29,7 +29,7 @@
       </div>
       <div class="footer-divider" />
       <div class="footer-bottom">
-        <img src="D:\github.com\hotbox\src\components\icons\footer-logo.svg" alt="footer-logo" class="footer-logo" />
+        <div class="footer-logo" />
         <p>© Все права защищены. АО НТЦ «Техтелеком-АС».</p>
       </div>
     </footer>
@@ -37,6 +37,13 @@
 </template>
 
 <style scoped>
+.footer-logo {
+  height: 53px;
+  width: 180px;
+  background-image: url(".\icons\footer-logo.svg");
+  background-size: cover;
+}
+
 h3 {
   color: rgba(255, 255, 255, 0.6);
 }
@@ -102,11 +109,6 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center; /* Центрирует элементы по вертикали */
-}
-
-.footer-logo {
-  width: 180px; /* Ширина центрального логотипа */
-  height: auto; /* Автоматическая высота */
 }
 
 @media (max-width: 1024px) {
