@@ -1,3 +1,4 @@
+
 <template>
     <div class="factory-wrapper">
         <div class="factory">
@@ -23,7 +24,12 @@
                         <button class="transparent-button"><img src="\src\assets\images\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br><p>Ремонт и обслуживание</p></button>
                         <button class="transparent-button"><img src="\src\assets\images\car-logo.svg" alt="Car Logo" class="car-logo" /><br><p>Котельные мобильные</p> <p>автоматизированные</p></button>
                         <button class="transparent-button"><img src="\src\assets\images\hook-logo.svg" alt="Hook Logo" class="hook-logo" /><br><p>Производство</p></button>
-                        <button class="transparent-button"><img src="\src\assets\images\news-logo.svg" alt="News Logo" class="news-logo" /><br><p>Новости</p></button>
+                        <router-link to="/news">
+                            <button class="transparent-button">
+                                <img src="/src/assets/images/news-logo.svg" alt="News Logo" class="news-logo" /><br>
+                                <p>Новости</p>
+                            </button>
+                        </router-link>
                 </div>
             </div>
         </div>
