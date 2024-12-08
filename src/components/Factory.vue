@@ -22,8 +22,17 @@
                         <button class="transparent-button"><img src="\src\assets\images\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br><p>Котельные блочно-модульные</p></button>
                         <button class="transparent-button"><img src="\src\assets\images\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br><p>Аренда</p></button>
                         <button class="transparent-button"><img src="\src\assets\images\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br><p>Ремонт и обслуживание</p></button>
-                        <button class="transparent-button"><img src="\src\assets\images\car-logo.svg" alt="Car Logo" class="car-logo" /><br><p>Котельные мобильные</p> <p>автоматизированные</p></button>
+
+                     
+                        <router-link to="/car">
+                            <button class="transparent-button">
+                                <img src="\src\assets\images\car-logo.svg" alt="Car Logo" class="car-logo" /><br>
+                                <p>Котельные мобильные</p> <p>автоматизированные</p>
+                            </button>
+                        </router-link>
+
                         <button class="transparent-button"><img src="\src\assets\images\hook-logo.svg" alt="Hook Logo" class="hook-logo" /><br><p>Производство</p></button>
+
                         <router-link to="/news">
                             <button class="transparent-button">
                                 <img src="/src/assets/images/news-logo.svg" alt="News Logo" class="news-logo" /><br>

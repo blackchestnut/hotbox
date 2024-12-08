@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/views/HomePage.vue'; // Импортируйте вашу домашнюю страницу
 import NewsPage from '@/views/NewsPage.vue'; // Импортируйте компонент страницы новостей
+import CarPage from '@/views/CarPage.vue';
+
 
 const routes = [
     {
@@ -13,15 +15,12 @@ const routes = [
         name: 'news',
         component: NewsPage, // Укажите компонент для страницы новостей
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
     // Другие маршруты...
+    {
+        path: '/car',
+        name: 'car',
+        component: CarPage,
+    },
 ];
 
 const router = createRouter({
