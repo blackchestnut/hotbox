@@ -1,5 +1,8 @@
-
+<script setup>
+import Menu from '@/components/Menu.vue';
+</script>
 <template>
+    <Menu/>
     <div class="news">
         <div class="first-row">
             <h1 class="h1">Новости компании</h1>

@@ -6,7 +6,6 @@ import MenuComponent from '@/components/Menu.vue';
 
 <template>
     <TopBarComponent/>
-    <MenuComponent/>
     <RouterView />
     <FooterComponent />
 </template>
