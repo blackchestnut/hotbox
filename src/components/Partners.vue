@@ -1,6 +1,6 @@
 <template>
     <div class="partners-wrapper">
-            <div class="partners">
+        <div class="partners">
             <div class="production">
                 В производстве мы используем оборудование только
                 проверенных производителей

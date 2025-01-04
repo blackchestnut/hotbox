@@ -6,8 +6,7 @@
       :to="button.path"
       class="button"
       :class="{ active: selectedButton === index }"
-      @click="selectButton(index)"
-    >
+      @click="selectButton(index)">
       {{ button.label }}
     </router-link>
   </div>
@@ -20,10 +19,10 @@ export default {
       buttons: [
         { label: 'ГЛАВНАЯ', class: 'home-button', path: '/' },
         { label: 'КОТЕЛЬНЫЕ', class: 'boiler-button'},
-        { label: 'УСЛУГИ', class: 'services-button'},
+        { label: 'УСЛУГИ', class: 'services-button', path: '/service'},
         { label: 'МОБИЛЬНАЯ КОТЕЛЬНАЯ УСТАНОВКА', class: 'mobile-boiler-button', path: '/car' },
         { label: 'НОВОСТИ', class: 'news-button', path: '/news' },
-        { label: 'О НАС', class: 'about-button'},
+        { label: 'О НАС', class: 'about-button', path: '/us'},
       ],
       selectedButton: null,
     };
@@ -39,10 +38,12 @@ export default {
 <style scoped>
 .topbar {
   display: flex;
-  justify-content: space-around;;
-  background-color: white;
+  justify-content: space-around; /* Распределяет элементы по горизонтали */
+  align-items: center; /* Центрирует элементы по вертикали */
+  background-color: rgb(255, 255, 255);
   margin: auto;
   width: 1280px;
+  height: 70px;
 }
 
 .button {
@@ -53,14 +54,16 @@ export default {
   color: #757575;
   font-family: 'Lato', sans-serif; 
   font-weight: bold;               
-  font-size: 16px; 
+  font-size: 16px;
+  text-decoration: none;
+  border: 3px; 
 }
 
-button.active {
+.button.active {
   background-color: white;
-  border-bottom-color: red;
+  border-color: red;
+  border: 3px;
 }
-
 
 .home-button {
   width: 164px;
@@ -86,7 +89,6 @@ button.active {
   width: 164px;
   height: 70px;
 }
-
 .about-button {
   width: 164px;
   height: 70px;

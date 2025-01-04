@@ -5,7 +5,7 @@ import Menu from '@/components/Menu.vue';
     <Menu/>
     <div class="car-wrapper">
         <div class="title">
-            <h1>Мобильная котельная установка на базе фургона Ford Transit</h1>
+            <h1 style="font-size: 40px;">Мобильная котельная установка на базе фургона Ford Transit</h1>
             <p>Мобильность автомобиля позволяет оперативно приехать и подать тепло на объекты с высоким уровнем стесненности.</p>
             <p>В производстве применяются только проверенные и надежные комплектующие для безотказной работы при аварийных ситуациях на объектах, требующих срочной подачи тепла.</p>
         </div>
@@ -54,11 +54,13 @@ export default {
 .title {
     width: 1127px;
     margin: auto;
+    font-family: 'Inter', sans-serif; 
+    font-size: 30px; 
 }
 .car-wrapper {
     width: 1280px;
     margin: auto;
-    justify-content: center; 
+    justify-content: center;
 }
 .row {
     display: flex; 

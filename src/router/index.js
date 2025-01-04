@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/views/HomePage.vue'; // Импортируйте вашу домашнюю страницу
 import NewsPage from '@/views/NewsPage.vue'; // Импортируйте компонент страницы новостей
 import CarPage from '@/views/CarPage.vue';
+import AboutUsPage from '@/views/AboutUsPage.vue';
+import ServicePage from '@/views/ServicePage.vue';
 
 
 const routes = [
@@ -21,6 +23,16 @@ const routes = [
         name: 'car',
         component: CarPage,
     },
+    {
+        path: '/us',
+        name: 'us',
+        component: AboutUsPage,
+    },
+    {
+        path: '/service',
+        name: 'service',
+        component: ServicePage,
+    }
 ];
 
 const router = createRouter({

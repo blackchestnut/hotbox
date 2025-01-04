@@ -19,6 +19,7 @@
                 </div>
 
                 <div class="button-container">
+                                        
                         <button class="transparent-button"><img src="\src\assets\images\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br><p>Котельные блочно-модульные</p></button>
                         <button class="transparent-button"><img src="\src\assets\images\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br><p>Аренда</p></button>
                         <button class="transparent-button"><img src="\src\assets\images\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br><p>Ремонт и обслуживание</p></button>
