@@ -44,6 +44,7 @@ export default {
   margin: auto;
   width: 1280px;
   height: 70px;
+  margin-bottom: 60px;
 }
 
 .button {
