@@ -140,7 +140,7 @@ label {
     color: #FFFFFF; 
     font-size: 20px; 
     position: absolute; 
-    left: 4px; 
+    left: 5px; 
     top: 1px; 
     line-height: 26px; 
     font-weight: bold; 

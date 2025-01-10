@@ -113,6 +113,6 @@ p {
     height: 54px;
 }
 .button-container {
-    padding-bottom: 60px;
+    padding-bottom: 30px;
 }
 </style>

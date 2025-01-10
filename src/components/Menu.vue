@@ -56,34 +56,20 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(255, 255, 255);
-  margin: auto;
-  width: 1280px;
-  height: 70px;
   margin-bottom: 60px;
+  border-bottom: 1px solid #BEBEBE;
 }
 
 .button {
-  position: relative;
-  border-color: white;
-  border-radius: 0px;
-  background-color: transparent;
-  transition: color 0.3s;
   color: #757575;
-  font-family: 'Lato', sans-serif; 
   font-weight: bold;               
   font-size: 16px;
   text-decoration: none;
-  border: 3px; 
+  border-bottom: 4px solid #fff;
+  padding: 26px 20px 20px 20px;
 }
 
-.button.active::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 3px;
-  background-color: red;
+.button.active {
+  border-bottom-color: #ff0000;
 }
 </style>
