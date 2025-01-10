@@ -2,11 +2,11 @@
   <div class="topbar">
     <router-link
       v-for="(button, index) in buttons"
-      :key="index"
+      :key="button.path"
       :to="button.path"
       class="button"
       :class="{ active: selectedButton === index }"
-      @click="selectButton(index)">
+      @click.prevent="selectButton(index)">
       {{ button.label }}
     </router-link>
   </div>
@@ -18,18 +18,34 @@ export default {
     return {
       buttons: [
         { label: 'ГЛАВНАЯ', class: 'home-button', path: '/' },
-        { label: 'КОТЕЛЬНЫЕ', class: 'boiler-button'},
-        { label: 'УСЛУГИ', class: 'services-button', path: '/service'},
+        { label: 'КОТЕЛЬНЫЕ', class: 'boiler-button', path: '/boiler-room' },
+        { label: 'УСЛУГИ', class: 'services-button', path: '/service' },
         { label: 'МОБИЛЬНАЯ КОТЕЛЬНАЯ УСТАНОВКА', class: 'mobile-boiler-button', path: '/car' },
         { label: 'НОВОСТИ', class: 'news-button', path: '/news' },
-        { label: 'О НАС', class: 'about-button', path: '/us'},
+        { label: 'О НАС', class: 'about-button', path: '/us' },
       ],
       selectedButton: null,
     };
   },
+  mounted() {
+    this.updateSelectedButton();
+  },
+  watch: {
+    // Отслеживаем изменения маршрута
+    '$route'(to) {
+      this.updateSelectedButton();
+    },
+  },
   methods: {
     selectButton(index) {
       this.selectedButton = index;
+      this.$router.push(this.buttons[index].path);
+    },
+    updateSelectedButton() {
+      // Устанавливаем selectedButton в зависимости от текущего маршрута
+      const currentPath = this.$route.path;
+      const buttonIndex = this.buttons.findIndex(button => button.path === currentPath);
+      this.selectedButton = buttonIndex !== -1 ? buttonIndex : 0; // Если не найден, устанавливаем 0
     },
   },
 };
@@ -38,8 +54,8 @@ export default {
 <style scoped>
 .topbar {
   display: flex;
-  justify-content: space-around; /* Распределяет элементы по горизонтали */
-  align-items: center; /* Центрирует элементы по вертикали */
+  justify-content: space-around;
+  align-items: center;
   background-color: rgb(255, 255, 255);
   margin: auto;
   width: 1280px;
@@ -48,6 +64,7 @@ export default {
 }
 
 .button {
+  position: relative;
   border-color: white;
   border-radius: 0px;
   background-color: transparent;
@@ -60,38 +77,13 @@ export default {
   border: 3px; 
 }
 
-.button.active {
-  background-color: white;
-  border-color: red;
-  border: 3px;
-}
-
-.home-button {
-  width: 164px;
-  height: 70px;
-}
-
-.boiler-button {
-  width: 164px;
-  height: 70px;
-}
-
-.services-button {
-  width: 164px;
-  height: 70px;
-}
-
-.mobile-boiler-button {
-  width: 320px;
-  height: 70px;
-}
-
-.news-button {
-  width: 164px;
-  height: 70px;
-}
-.about-button {
-  width: 164px;
-  height: 70px;
+.button.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: red;
 }
 </style>

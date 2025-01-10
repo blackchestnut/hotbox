@@ -19,11 +19,17 @@
                 </div>
 
                 <div class="button-container">
-                                        
-                        <button class="transparent-button"><img src="\src\assets\images\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br><p>Котельные блочно-модульные</p></button>
-                        <button class="transparent-button"><img src="\src\assets\images\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br><p>Аренда</p></button>
-                        <button class="transparent-button"><img src="\src\assets\images\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br><p>Ремонт и обслуживание</p></button>
+                        <router-link to="/boiler-room">               
+                            <button class="transparent-button"><img src="\src\assets\images\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br><p>Котельные блочно-модульные</p></button>
+                        </router-link>
+                        
+                        <router-link to="/service">
+                            <button class="transparent-button"><img src="\src\assets\images\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br><p>Аренда</p></button>
+                        </router-link>
 
+                        <router-link to="/service">    
+                            <button class="transparent-button"><img src="\src\assets\images\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br><p>Ремонт и обслуживание</p></button>
+                        </router-link>
                      
                         <router-link to="/car">
                             <button class="transparent-button">
@@ -32,7 +38,9 @@
                             </button>
                         </router-link>
 
-                        <button class="transparent-button"><img src="\src\assets\images\hook-logo.svg" alt="Hook Logo" class="hook-logo" /><br><p>Производство</p></button>
+                        <router-link to="/service">
+                            <button class="transparent-button"><img src="\src\assets\images\hook-logo.svg" alt="Hook Logo" class="hook-logo" /><br><p>Производство</p></button>
+                        </router-link>
 
                         <router-link to="/news">
                             <button class="transparent-button">

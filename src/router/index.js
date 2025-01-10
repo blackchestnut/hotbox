@@ -4,6 +4,7 @@ import NewsPage from '@/views/NewsPage.vue'; // Импортируйте ком�
 import CarPage from '@/views/CarPage.vue';
 import AboutUsPage from '@/views/AboutUsPage.vue';
 import ServicePage from '@/views/ServicePage.vue';
+import BoilerRoomPage from '@/views/BoilerRoomPage.vue';
 
 
 const routes = [
@@ -32,6 +33,11 @@ const routes = [
         path: '/service',
         name: 'service',
         component: ServicePage,
+    },
+    {
+        path: '/boiler-room',
+        name: 'boiler-room',
+        component: BoilerRoomPage,
     }
 ];
 

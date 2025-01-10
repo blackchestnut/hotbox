@@ -22,8 +22,7 @@ import Menu from '@/components/Menu.vue';
             <div class="more-container">
                 <button class="more">Подробнее об установке</button>
             </div>
-            <div class="container1"></div>
-            <div class="container2"></div>
+         
         </div>
         <div class="second-row">
             <h1 class="h1">Участие в программе Московские сезоны 2024</h1>
@@ -42,8 +41,7 @@ import Menu from '@/components/Menu.vue';
             <div class="more-container">
                 <button class="more">Подробнее об установке</button>
             </div>
-            <div class="container1"></div>
-            <div class="container2"></div>
+    
         </div>
         <div class="third-row">
             <div class="description">
@@ -63,8 +61,7 @@ import Menu from '@/components/Menu.vue';
         <div class="more-container">
             <button class="more">Подробнее об установке</button>
         </div>
-        <div class="container1"></div>
-        <div class="container2"></div>
+     
     </div>
 </template>
 
@@ -99,6 +96,7 @@ export default {
     padding-bottom: 63px;
     font-family: 'Inter', sans-serif; /* Применяем шрифт Inter */
     font-size: 30px; /* Размер шрифта 30 пикселей */
+    line-height: 50px;
 }
 .more-container {
     display: flex;
@@ -130,19 +128,6 @@ export default {
     width: 1152px;
     background-size: cover;
 }
-.container1 {
-    margin-top: 30px;
-    background-image: url("/src/assets/images/twoline.svg");
-    height: 2px;
-    width: 769px;
-    background-size: cover;
-}
-.container2 {
-    background-image: url("/src/assets/images/3symbows.svg");
-    background-size: cover;
-    width: 122px;
-    height: 40px;
-}
 .container3 {
     background-image: url("/src/assets/images/bluebox.png");
     background-size: cover;
@@ -154,5 +139,6 @@ export default {
     background-size: cover;
     width: 1128px;
     height: 660px;
+    margin-bottom: 30px;
 }
 </style>

@@ -7,12 +7,12 @@ import Menu from '@/components/Menu.vue';
         <div class="service">
             <div class="head-one">
                 <h class="h">Полный комплекс услуг по работе с котельными системами</h>
-                <p class="p1">Проектирование, изготовление поставка, подключение, запуск, поставка дизельного топлива,
+                <p class="p1" style="padding-top: 30px;">Проектирование, изготовление поставка, подключение, запуск, поставка дизельного топлива,
                     мониторинг и сервисное обслуживание.</p>
             </div>
             <div class="head-two">
                 <h class="h">Аренда</h>
-                <p class="p1">Аренда автоматизированных блочно-модульных котельных установок (БМАК) для обогрева жилых и
+                <p class="p1" style="padding-top: 30px;">Аренда автоматизированных блочно-модульных котельных установок (БМАК) для обогрева жилых и
                     промышленных помещений, складов, ангаров и т. п. на дизельном топливе.</p>
                 <p>Также возможна аренда мобильной котельной установки мощностью 500 кВт на базе автомобиля Ford Transit</p>
             </div>
@@ -83,13 +83,19 @@ import Menu from '@/components/Menu.vue';
                         </div>
                     </div>
                     <div class="button-order">
-                        <button class="order">ЗАКАЗАТЬ</button>
+                        <button class="order" style="margin-top: 36px;">ЗАКАЗАТЬ</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'service',
+};
+</script>
 
 <style scoped>
 .service-wrapper {
@@ -111,7 +117,6 @@ import Menu from '@/components/Menu.vue';
     font-family: 'Inter', sans-serif; /* Использует шрифт Inter */
     font-size: 36px; /* Устанавливает размер шрифта 40 пикселей */
     font-weight: 700; /* Устанавливает жирное начертание */
-    padding-bottom: 30px;
 }
 
 .p1 {
@@ -206,6 +211,8 @@ import Menu from '@/components/Menu.vue';
     border-radius: 8px;
     font-family: 'Inter', sans-serif; /* Использует шрифт Inter */
     font-size: 30px; /* Устанавливает размер шрифта 30 пикселей */
+    margin-top: 96px;
+    margin-left: 50px;
 }
 .title-container {
     padding: 40px;
