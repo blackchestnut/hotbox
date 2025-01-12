@@ -33,3 +33,25 @@ button:active {
     background-color: hsl(0, 100%, 75%);
     border: 3px solid #FDA29B;
 }
+h1, h2 {
+    font-size: 40px; /* Устанавливает размер шрифта 40 пикселей */
+    font-weight: 600; /* Устанавливает жирное начертание */
+    line-height: 50px;
+    margin-bottom: 30px;
+}
+h1, h2 {
+    font-size: 40px; /* Устанавливает размер шрифта 40 пикселей */
+    font-weight: 600; /* Устанавливает жирное начертание */
+    line-height: 50px;
+    margin-bottom: 30px;
+}
+
+p {
+    padding-bottom: 30px;
+    font-size: 30px;
+}
+
+.page-container {
+    max-width: 1140px;
+    margin: 0 auto;
+}

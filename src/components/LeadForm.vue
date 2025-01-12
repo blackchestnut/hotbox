@@ -42,7 +42,7 @@
             </div>
 
             <div class="note">
-              Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
+              <p>Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c</p>
               <a href="https://hotboxrf.ru/politika">политикой конфиденциальности</a>
             </div>
         </div>
@@ -101,7 +101,7 @@
  }
 .leadform {
   background-color: #B12117;
-  height: 916px;
+
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -116,8 +116,6 @@
 .welcome {
   color: white;
   margin-left: 650px;
-  padding-top: 82px;
-  margin-bottom: 25px;
 }
 
 </style>

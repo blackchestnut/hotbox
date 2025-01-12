@@ -141,7 +141,7 @@ p {
     display: flex; /* Использует flexbox для выравнивания кнопок */
     align-items: center; /* Центрирует кнопки по вертикали */
     justify-content: center; /* Центрирует кнопки по горизонтали */
-    padding: 36px 0;
+    padding: 36px;
     margin-bottom: 60px;
 }
 
@@ -213,4 +213,5 @@ p {
     background-color: rgba(255, 255, 255, 0.199);
     border-radius: 8px;
 }
+
 </style>

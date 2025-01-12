@@ -38,24 +38,19 @@ top: 50%;
 left: 100px; 
 transform: translateY(-50%); 
 width: 569px; 
-height: 326px; 
+
 background-color: #fff;
 display: flex;
 border-radius: 20px;
 flex-direction: column;
 padding-left: 40px;
-padding-top: 40px;
+padding-top: 20px;
 }
-.engineer-dept {
-padding-top: 40px;
-padding-bottom: 40px;
-}
+
 .name {
 font-family: 'Inter', sans-serif;
 font-size: 20px;
 font-weight: 600;
-padding-top: 8px;
-padding-bottom: 8px;
 }
 .text {
 font-family: 'Inter', sans-serif;
