@@ -11,6 +11,24 @@
             </div>
         </div>
 
+        <!------------------------sort------------------------->
+        <div class="sort-container">
+            <div class="custom-select" @click="toggleDropdown">
+                <div class="selected">{{ selectedOption.text }}</div>
+                <div class="arrow" :class="{ 'open': isOpen }"> <img src="/src/assets/images/menu-arrow.svg"/></div>
+                <ul v-if="isOpen" class="options">
+                    <li
+                        v-for="option in options"
+                        :key="option.value"
+                        @click="selectOption(option)"
+                        :class="{ 'selected': selectedOption.value === option.value }"
+                    >
+                        {{ option.text }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <div class="fiter-items-container">
             <div class="filters">
                 <div class="checkbox-container">
@@ -43,13 +61,13 @@
             </div>
             <div class="items">
                 <router-link
-                    v-for="(item, index) in boilers"
+                    v-for="(item, index) in sortedBoilers"
                     :key="index"
                     class="item"
                     :to="item.link"
                 >
                     <div class="item-content">
-                        <img :src="item.imgSrc" class="item-img" :alt="'Кнопка ' + (index + 1)" />
+                        <img :src="item.imgSrc" class="item-img" :alt="item.type" />
                         <div class="text-container"> 
                             <div class="type">{{ item.type }}</div>
                             <div class="description">
@@ -62,9 +80,9 @@
                             </div>
                         </div>
                         <div
-                                class="amount"
-                                :style="{ backgroundColor: item.available < 3 ? '#FFA500' : '#22cb5785', color: item.available < 3 ? '#CD4000' : '#008029' }">
-                                В наличии <span class="fat">{{ item.available }} шт</span>
+                            class="amount"
+                            :style="{ backgroundColor: item.available < 3 ? '#FFA500' : '#22cb5785', color: item.available < 3 ? '#CD4000' : '#008029' }">
+                            В наличии <span class="fat">{{ item.available }} шт</span>
                         </div>
                     </div>
                 </router-link>
@@ -101,18 +119,30 @@
 
 <script setup>
 import Menu from '@/components/Menu.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-// Данные для чекбоксов
-const boilerCounts = ref([1, 2]);
-const maxPowers = ref([500, 1200, 1400, 1600, 4800, 6000, 6100, 7400]);
 
-// Состояние выбранных опций
+const boilerCounts = [1, 2];
+const maxPowers = [500, 1200, 1400, 1600, 4800, 6000, 6100, 7400];
+
+
 const selectedBoilerCounts = ref([]);
 const selectedMaxPowers = ref([]);
 
-// Данные для котлов
-const boilers = ref([
+const sortOption = ref('default'); // Переменная для хранения текущей выбранной опции сортировки
+const isOpen = ref(false);
+const selectedOption = ref({ value: 'default', text: 'По умолчанию' });
+// Опции для сортировки в массиве
+const options = [
+    { value: 'default', text: 'По умолчанию' },
+    { value: 'powerAsc', text: 'Мощность: по возрастанию' },
+    { value: 'powerDesc', text: 'Мощность: по убыванию' },
+    { value: 'priceAsc', text: 'Цена: по возрастанию' },
+    { value: 'priceDesc', text: 'Цена: по убыванию' }
+];
+
+
+const boilers = [
     {
         imgSrc: "/src/assets/images/boiler-500.png",
         type: "ПАКУ 500 кВт 1К (Н/Р)",
@@ -123,9 +153,8 @@ const boilers = ref([
         boilerCount: 1,
         power: "500 кВт",
         available: 2,
-        link: "/"
+        link: "/b-500"
     },
-   
     {
         imgSrc: "/src/assets/images/boiler-1000.png",
         type: "ПАКУ 1200 кВт 2К (Н/Р)",
@@ -138,7 +167,6 @@ const boilers = ref([
         available: 5,
         link: "/"
     },
-
     {
         imgSrc: "/src/assets/images/boiler-1200.png",
         type: "БМАК 1040 кВт 1К",
@@ -151,7 +179,6 @@ const boilers = ref([
         available: 5,
         link: "/"
     },
-
     {
         imgSrc: "/src/assets/images/boiler-1000.png",
         type: "БМАК 1200 кВт 1К",
@@ -164,7 +191,6 @@ const boilers = ref([
         available: 5,
         link: "/"
     },
-    
     {
         imgSrc: "/src/assets/images/boiler-1200.png",
         type: "БМАК 1400 кВт 1К",
@@ -177,7 +203,6 @@ const boilers = ref([
         available: 5,
         link: "/"
     },
-
     {
         imgSrc: "/src/assets/images/boiler-1000.png",
         type: "БМАК 1600 кВт 1К",
@@ -190,7 +215,6 @@ const boilers = ref([
         available: 5,
         link: "/"
     },
-
     {
         imgSrc: "/src/assets/images/boiler-1200.png",
         type: "БМАК 4800 кВт 2К",
@@ -203,7 +227,6 @@ const boilers = ref([
         available: 5,
         link: "/"
     },
-
     {
         imgSrc: "/src/assets/images/boiler-1200.png",
         type: "БМАК 6000 кВт 2К",
@@ -216,7 +239,6 @@ const boilers = ref([
         available: 5,
         link: "/"
     },
-
     {
         imgSrc: "/src/assets/images/boiler-1200.png",
         type: "БМАК 6100 кВт 2К",
@@ -229,7 +251,6 @@ const boilers = ref([
         available: 5,
         link: "/"
     },
-
     {
         imgSrc: "/src/assets/images/boiler-1200.png",
         type: "БМАК 7400 кВт 2К",
@@ -242,8 +263,53 @@ const boilers = ref([
         available: 5,
         link: "/"
     },
-]);
+];
 
+
+const sortedBoilers = computed(() => {
+    let sorted = [...boilers]; // Создаем копию массива котлов
+
+    // Фильтрация по количеству котлов
+    if (selectedBoilerCounts.value.length) {
+        sorted = sorted.filter(boiler => selectedBoilerCounts.value.includes(boiler.boilerCount));
+    }
+
+    // Фильтрация по мощности
+    if (selectedMaxPowers.value.length) {
+        sorted = sorted.filter(boiler => selectedMaxPowers.value.includes(parseInt(boiler.power)));
+    }
+
+    //  // Сортировка по выбранной опции
+    switch (sortOption.value) {
+        case 'powerAsc':
+            sorted.sort((a, b) => parseInt(a.power) - parseInt(b.power));
+            break;
+        case 'powerDesc':
+            sorted.sort((a, b) => parseInt(b.power) - parseInt(a.power));
+            break;
+        case 'priceAsc':
+            
+            break;
+        case 'priceDesc':
+           
+            break;
+        default:
+            break;
+    }
+    
+    return sorted;
+});
+
+
+const toggleDropdown = () => {
+    isOpen.value = !isOpen.value;
+};
+
+const selectOption = (option) => {
+    selectedOption.value = option;
+    isOpen.value = false;
+    sortOption.value = option.value; 
+};
 </script>
 
 <style scoped>
@@ -376,11 +442,13 @@ label {
     display: flex;
     justify-content: space-between;
     text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
 }
 .information {
     background-color: #F4F4F4;
     border-radius: 8px;
-    padding: 20px 16px 20px 16px;
+    padding: 20px 0px 20px 0px;
 }
 .line {
     height: 2px; 
@@ -388,4 +456,38 @@ label {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.custom-select {
+    padding: 12px;
+    cursor: pointer;
+    position: relative;
+    background-color: #F9F9F9;
+    border-radius: 8px;
+    max-width: 360px;
+    font-size: 16px;
+    margin-left: 800px;
+    margin-bottom: 90px;
+}
+
+.arrow {
+    position: absolute;
+    right: 12px;
+    top: 14px;
+    transition: transform 0.3s;
+}
+
+.arrow.open {
+    transform: rotate(180deg); 
+}
+
+.options {
+    border: none;
+    list-style: none;
+}
+
+.options li {
+    padding-top: 12px;
+    cursor: pointer;
+}
+
 </style>

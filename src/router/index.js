@@ -5,6 +5,7 @@ import CarPage from '@/views/CarPage.vue';
 import AboutUsPage from '@/views/AboutUsPage.vue';
 import ServicePage from '@/views/ServicePage.vue';
 import BoilerRoomPage from '@/views/BoilerRoomPage.vue';
+import Boiler500Page from '@/views/Boiler500Page.vue';
 
 
 const routes = [
@@ -38,6 +39,11 @@ const routes = [
         path: '/boiler-room',
         name: 'boiler-room',
         component: BoilerRoomPage,
+    },
+    {
+        path: '/b-500',
+        name: 'b-500',
+        component: Boiler500Page,
     }
 ];
 
