@@ -432,9 +432,7 @@ label {
     padding: 6px 10px;
     margin-left: 10px; 
 }
-.g {
-    color: #696770;
-}
+
 .fat {
     font-weight: 600;
 }
@@ -467,6 +465,7 @@ label {
     font-size: 16px;
     margin-left: 800px;
     margin-bottom: 90px;
+    
 }
 
 .arrow {
@@ -481,13 +480,24 @@ label {
 }
 
 .options {
+    position: absolute;
     border: none;
     list-style: none;
+    z-index: 10;
+    background-color: #F9F9F9;
+    width: 100%;
+    left: 0;
+    padding-bottom: 12px;
+    border-radius: 8px;
 }
 
 .options li {
     padding-top: 12px;
+    padding-left: 12px;
     cursor: pointer;
+}
+.sort-container {
+    position: relative; /* Устанавливаем позиционирование */
 }
 
 </style>

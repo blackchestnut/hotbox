@@ -8,6 +8,7 @@ import BoilerRoomPage from '@/views/BoilerRoomPage.vue';
 import Boiler500Page from '@/views/Boiler500Page.vue';
 
 
+
 const routes = [
     {
         path: '/',
@@ -44,7 +45,8 @@ const routes = [
         path: '/b-500',
         name: 'b-500',
         component: Boiler500Page,
-    }
+    },
+    
 ];
 
 const router = createRouter({

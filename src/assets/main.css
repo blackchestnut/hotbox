@@ -39,13 +39,16 @@ h1, h2 {
     line-height: 50px;
     margin-bottom: 30px;
 }
-h1, h2 {
-    font-size: 40px; /* Устанавливает размер шрифта 40 пикселей */
-    font-weight: 600; /* Устанавливает жирное начертание */
-    line-height: 50px;
+
+h3 {
+    font-size: 30px;
+    font-weight: 600;
     margin-bottom: 30px;
 }
-
+h4 {
+    font-size: 22px;
+    font-weight: 500;
+}
 p {
     padding-bottom: 30px;
     font-size: 30px;
@@ -54,4 +57,7 @@ p {
 .page-container {
     max-width: 1140px;
     margin: 0 auto;
+}
+.g {
+    color: #696770;
 }

@@ -5,8 +5,14 @@ import Menu from '@/components/Menu.vue';
 const images = [
     'src/assets/images/card500.png',
     'src/assets/images/card500_1.png',
-]; 
+];
+
 const currentImageIndex = ref(0);
+const isOrderModalVisible = ref(false);
+const selectedFuel = ref(null);
+const selectedGVS = ref(null);
+const count = ref(1);
+const isExpanded = ref(false);
 
 const nextImage = () => {
     currentImageIndex.value = (currentImageIndex.value + 1) % images.length;
@@ -16,32 +22,34 @@ const prevImage = () => {
     currentImageIndex.value = (currentImageIndex.value - 1 + images.length) % images.length;
 };
 
-</script>
+const showOrderModal = () => {
+    isOrderModalVisible.value = true;
+};
 
-<script>
-export default {
-    data() {
-        return {
-            selectedFuel: null, 
-            selectedGVS: null, 
-        };
-    },
-    methods: {
-        toggleFuel(fuel) {
-            // Если выбрано то же топливо, сбрасываем выбор
-            this.selectedFuel = (this.selectedFuel === fuel) ? null : fuel;
-        },
-        toggleGVS(gvs) {
-            // Если выбрано то же подключение, сбрасываем выбор
-            this.selectedGVS = (this.selectedGVS === gvs) ? null : gvs;
-        },
-        isActiveFuel(fuel) {
-            return this.selectedFuel === fuel; // Проверяем, совпадает ли текущее значение
-        },
-        isActiveGVS(gvs) {
-            return this.selectedGVS === gvs; // Проверяем, совпадает ли текущее значение
-        }
+const closeOrderModal = () => {
+    isOrderModalVisible.value = false;
+};
+
+const toggleFuel = (fuel) => {
+    selectedFuel.value = (selectedFuel.value === fuel) ? null : fuel;
+};
+
+const toggleGVS = (gvs) => {
+    selectedGVS.value = (selectedGVS.value === gvs) ? null : gvs;
+};
+
+const increment = () => {
+    count.value++;
+};
+
+const decrement = () => {
+    if (count.value > 1) {
+        count.value--;
     }
+};
+
+const toggleText = () => {
+    isExpanded.value = !isExpanded.value;
 };
 </script>
 
@@ -62,46 +70,170 @@ export default {
             <div class="characteristic">
                 <h1>ПАКУ 500 кВт 1К (Н/Р)</h1>
                 <p>Wiesberg Steel</p>
-                <p class="t">Вид топлива</p>
+                <div class="t">Вид топлива</div>
                 
                 <div class="fuel-container">
                     <button 
                         class="fuel" 
-                        :class="{ active: isActiveFuel('Газ') }" 
+                        :class="{ active: selectedFuel === 'Газ' }" 
                         @click="toggleFuel('Газ')">
                         Газ
                     </button>
                     <button 
                         class="fuel" 
-                        :class="{ active: isActiveFuel('Дизель') }" 
+                        :class="{ active: selectedFuel === 'Дизель' }" 
                         @click="toggleFuel('Дизель')">
                         Дизель
                     </button>
                 </div>
 
-                <p class="t">Подключение ГВС</p>
+                <div class="t">Подключение ГВС</div>
                 
                 <div class="gvs-container">
                     <button 
                         class="gvs" 
-                        :class="{ active: isActiveGVS('С подключением') }" 
+                        :class="{ active: selectedGVS === 'С подключением' }" 
                         @click="toggleGVS('С подключением')">
                         С подключением
                     </button>
                     <button 
                         class="gvs" 
-                        :class="{ active: isActiveGVS('Без подключения') }" 
+                        :class="{ active: selectedGVS === 'Без подключения' }" 
                         @click="toggleGVS('Без подключения')">
                         Без подключения
                     </button>
                 </div>
-                <p class="t" style="font-weight: bold;">Цена предоставляется по запросу</p>
+                <div class="t" style="font-weight: bold;">Цена предоставляется по запросу</div>
                 
-                <div class="button-container">
-                    <button class="buy">ЗАКАЗАТЬ</button>
+                <button class="buy" @click.prevent="showOrderModal">ЗАКАЗАТЬ</button>
+
+                <div style="font-size: 20px; padding-bottom: 16px;">ПАКУ имеет наружное размещение. Есть возможность<br>
+                каскадного подключения. Может быть оснащена ГВС.</div>
+                        
+                <div class="description" :class="{ 'expanded': isExpanded }">
+                    <div class="t" v-if="!isExpanded">
+                        Котельная предназначена для обеспечения потребителей тепловой энергией в виде теплоснабжения (отопление), а так же для растопки ледовых покрытий. Котельная автоматизирована и работает без постоянного присутствия обслуживающего персонала.
+                    </div>
+                    <div class="t" v-else>
+                        Котельная предназначена для обеспечения потребителей тепловой энергией в виде теплоснабжения (отопление), а так же для растопки ледовых покрытий. Котельная автоматизирована и работает без постоянного присутствия обслуживающего персонала.
+                        <br>
+                        После доставки котла на место установки подключение к коммуникациям занимает не более двух часов, пуск котла и выход его на номинальные параметры также занимают около двух часов.
+                        <br>
+                        В состав оборудования котельной входит котёл, горелочное устройство, насос циркуляционный фланцевый.
+                        <br>
+                        ПАКУ имеет небольшие габариты и малый вес, что позволяет устанавливать котел в кузов грузового транспортного средства (газель) и работать непосредственно с него.
+                    </div>
                 </div>
-                <p class="t">ПАКУ имеет наружное размещение. Есть возможность<br>
-                каскадного подключения. Может быть оснащена ГВС.</p>
+                <a href="#" @click.prevent="toggleText" class="show-more">
+                    {{ isExpanded ? 'Скрыть' : 'Читать полностью' }}
+                </a>
+            </div>
+        </div>
+        <div class="more-infarmation">
+            <h3>Основные характеристики</h3>
+            <div style="margin-bottom: 30px;" class="t">
+                <span class="g">Назначение: </span>Теплоснабжение<br>
+                <span class="g">Тип: </span>Блочно-модульная автоматизированная котельная наружного размещения<br>
+                <span class="g">Дата изготовления: </span>Февраль - 2023г.<br>
+                <span class="g">Котел: </span>Wiesberg Steel 501<br>
+                <span class="g">Количество котлов: </span>Количество котлов: 1<br>
+                <span class="g">Срок службы: </span>Не менее 10 лет<br>
+                <span class="g">Установленная электрическая мощность: </span>6 кВт<br>
+                <span class="g">Потребляемая электрическая мощность: </span>8 кВт<br>
+                <span class="g">Масса БМАК: </span>Не более 1,5 т.<br>
+                <span class="g">Вид топлива: </span>ГАЗ/Дизель<br>
+                <span class="g">Мощность (макс.): </span>500 кВт<br>
+                <span class="g">Расход топлива: </span>20-60 л/час.<br>
+                <span class="g">Температура теплоносителя: </span>95°С<br>
+                <span class="g">Количество горелок: </span>1<br>
+                <span class="g">Тип горелки: </span>Мазутно-дизельная двухступенчатая Baltur TBL 60P 200 - 600 кВт<br>
+                <span class="g">Давление теплоносителя: </span>0,6-0,5 МПа<br>
+                <span class="g">Топливный резервуар: </span>наружный (кубик)<br>
+                <span class="g">Теплопроизводительность: </span>0,43 Гкал/ч<br>
+                <span class="g">КПД котла: </span>93%<br>
+                <span class="g">ДxШxВ: </span>2580x1300x1900 мм
+            </div>
+            <h3>Комплект поставки</h3>
+            <div style="margin-bottom: 30px;" class="t">
+                Котельный агрегат – 1шт.<br>
+                Паспорт изделия – 1ком.<br>
+                Руководство по эксплуатации.
+            </div>
+            <h3>Охрана труда и техника безопасности</h3>
+            <div style="margin-bottom: 30px;" class="t">
+                Котельная работает в автоматизированном режиме и не имеет постоянного<br>
+                обслуживающего персонала. В целях безопасной эксплуатации котельной необходимо<br>
+                строго следовать законодательству РФ. Котельные агрегаты и вспомогательное<br>
+                оборудование оснащены в соответствии с нормами и правилами необходимой<br>
+                технологической защитой, отключающей оборудование при аварийных ситуациях,<br>
+                осуществляющей сигнализацию отклонений технологических параметров от нормы.<br>
+                Автоматика безопасности прекращает подачу топлива в котельную.<br>
+                Вращающиеся части оборудования оснащены защитными кожухами, исключающими<br>
+                травматизм обслуживающего персонала. Все токоведущие части оборудования<br>
+                изолированы. Электрооборудование подключено к проектируемому контуру защитного<br>
+                заземления. Оборудование и трубопроводы окрашиваются. Цветовая гамма, способ<br>
+                нанесения окраски и опознавательных знаков регламентирован действующими нормами.
+            </div>
+            <h3>Гарантия</h3>
+            <div style="margin-bottom: 30px;" class="t">
+                Предприятие-изготовитель гарантирует соответствие характеристик изделия<br>
+                паспортным данным, безвозмездный ремонт в случае выявления дефектов в течение<br>
+                гарантийного срока при соблюдении условий, указанных в паспорте.<br>
+                Гарантийный срок работы изделия устанавливается 12 месяцев со дня реализации. Если<br>
+                дату продажи установить невозможно, этот срок исчисляется со дня изготовления. Срок<br>
+                службы изделия составляет 10 лет.<br>
+                По вопросам качества БМАК обращаться к предприятию-изготовителю.
+            </div>
+        </div>
+        <!--------------------------------------------------------------------------------->
+        <div v-if="isOrderModalVisible" class="modal-overlay" @click="closeOrderModal">
+            <div class="modal-content" @click.stop>
+                <button class="close-window" @click="closeOrderModal">
+                    <div class="close-logo"></div>
+                </button>
+                <div class="request">   
+                    <h3>Заявка на заказ</h3>
+                    <div class="x">Наш менеджер свяжется с вами в течение дня</div>
+                    <div class="line"></div>
+                    <div class="information-container">
+                        <div class="boiler-image"></div>
+                        <div class="characteristic">
+                            <h4>ПАКУ 500 кВт 1К (Н/Р)</h4>
+                            <div class="s">
+                                Вид топлива: {{ selectedFuel || 'Не выбрано' }}<br>
+                                Подключение ГВС: {{ selectedGVS || 'Не выбрано' }}<br>
+                            </div>
+                        </div>
+                        <div class="counter">
+                            <button class="circle" @click="decrement">&#8722;</button>
+                            <div class="count">{{ count }}</div>
+                            <button class="circle" @click="increment">&#43;</button>
+                        </div>
+                    </div>
+                    <div class="form-container">
+                        <div class="name">
+                            <input id="crm_lead_client" name="crm_lead[client]"
+                            placeholder="Ваше имя" type="text">
+                        </div>
+                        <div class="email-area">
+                                <div class="email">
+                                    <input id="crm_lead_phone" name="crm_lead[email]"
+                                    placeholder="E-mail" type="email">
+                                </div>
+                        </div>            
+                        <div class="phone-area">
+                                <div class="phone">
+                                    <input id="crm_lead_phone" name="crm_lead[phone]"
+                                    placeholder="Телефон" type="tel">
+                                </div>
+                        </div>
+                    </div>
+                    <button class="confirm" type="submit">Отправить</button>
+                    <div class="politics">
+                        Нажимая на кнопку вы соглашаетесь с условиями<br>
+                        <span class="underline">политики конфиденциальности</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -143,8 +275,8 @@ export default {
 }
 
 .boiler-card {
-    width: 510px;
-    height: 510px;
+    width: 480px;
+    height: 480px;
     position: relative;
     background-size: cover;
 }
@@ -173,7 +305,7 @@ export default {
 }
 
 .arrow-button:hover {
-    background-color: #000;
+    background-color: #000000ad;
     color:#fff;
 }
 .wrapper {
@@ -184,12 +316,14 @@ export default {
 }
 .t {
     font-size: 20px;
+    line-height: 30px;
+    padding-bottom: 20px;
 }
 
 .fuel-container, .gvs-container {
   display: flex;
   gap: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .fuel, .gvs {
@@ -214,8 +348,171 @@ export default {
 .buy {
     width: 120px;
     height: 54px;
+    margin-bottom: 30px;
 }
-.button-container {
-    padding-bottom: 30px;
+
+.description {
+  overflow: hidden; 
+  max-width: 564px;
+  line-height: 30px;
+  color: #868686;
+}
+.show-more {
+    color: black; 
+    text-decoration: none; 
+    margin-bottom: 60px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; 
+}
+
+.modal-content {
+    max-width: 90%; /* Установите максимальную ширину в процентах */
+    max-height: 90vh; /* Установите максимальную высоту в 90% от высоты окна */
+    background-color: #fff; 
+    border-radius: 8px;
+    padding: 68px; /* Уменьшите отступы для лучшей адаптивности */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Позволяет прокручивать содержимое, если оно превышает высоту */
+}
+
+.close-window {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 30px;
+}
+.close-logo {
+    background-image: url("src/assets/images/close.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%; 
+    height: 100%; 
+}
+.request {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+h3 {
+    padding-bottom: 10px;
+}
+.x {
+    font-size: 24px;
+    padding-bottom: 44px;
+}
+.line {
+    border-top: 2px solid #B0B0B0;
+    padding-bottom: 44px;
+}
+.boiler-image {
+    height: 230px;
+    width: 230px;
+    background-image: url('src/assets/images/card500-buy.png');
+}
+.information-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Выравнивание по центру по вертикали */
+    padding-bottom: 60px;
+}
+.s {
+    font-size: 20px;
+}
+.characteristic 
+{
+    line-height: 28px;
+    margin-right: 20px;
+}
+.counter {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    background-color: black;
+    width: 116px;
+    height: 38px;
+    border-radius: 50px;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    border-radius: 50%; 
+    font-size: 20px; 
+    color: black; 
+    cursor: pointer;
+}
+
+.count {
+    color: white; 
+    font-size: 20px; 
+    width: 40px; 
+    text-align: center;
+    padding: 0 4px;
+}
+.confirm {
+    background-color: #000;
+    border: none;
+    font-size: 30px;
+    width: 300px;
+    height: 88px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-bottom: 60px;
+}
+
+.name, .email-area, .phone-area {
+    width: 644px;
+}
+
+input {
+    width: 100%;
+    height: 80px;
+    background-color: #EAEAEA;
+    border: none;
+    color: #3F3F3F;
+    padding-right: 24px;
+    padding-left: 24px;
+    box-sizing: border-box;
+    font-size: 30px;
+    border-radius: 8px;
+}
+
+input:focus {
+    outline: none;
+}
+input::placeholder {
+    color: #3F3F3F;
+}
+.politics {
+    padding-top: 60px;
+    font-size: 20px;
+    text-align: center;
+}
+.underline {
+    text-decoration: underline;
 }
 </style>
