@@ -185,53 +185,41 @@ const toggleText = () => {
                 По вопросам качества БМАК обращаться к предприятию-изготовителю.
             </div>
         </div>
+
         <!--------------------------------------------------------------------------------->
         <div v-if="isOrderModalVisible" class="modal-overlay" @click="closeOrderModal">
             <div class="modal-content" @click.stop>
-                <button class="close-window" @click="closeOrderModal">
-                    <div class="close-logo"></div>
-                </button>
-                <div class="request">   
-                    <h3>Заявка на заказ</h3>
-                    <div class="x">Наш менеджер свяжется с вами в течение дня</div>
-                    <div class="line"></div>
-                    <div class="information-container">
-                        <div class="boiler-image"></div>
-                        <div class="characteristic">
-                            <h4>ПАКУ 500 кВт 1К (Н/Р)</h4>
-                            <div class="s">
-                                Вид топлива: {{ selectedFuel || 'Не выбрано' }}<br>
-                                Подключение ГВС: {{ selectedGVS || 'Не выбрано' }}<br>
-                            </div>
-                        </div>
-                        <div class="counter">
-                            <button class="circle" @click="decrement">&#8722;</button>
-                            <div class="count">{{ count }}</div>
-                            <button class="circle" @click="increment">&#43;</button>
+                <a class="close" @click="closeOrderModal"></a>
+ 
+                <h3>Заявка на заказ</h3>
+                <div class="subheader">Наш менеджер свяжется с вами в течение дня</div>
+                <div class="line"></div>
+
+                <div class="information-container">
+                    <div class="boiler-image"></div>
+                    <div class="modal-boiler-info">
+                        <h4>ПАКУ 500 кВт 1К (Н/Р)</h4>
+                        <div class="modal-info-item">
+                            <span class='g'>Вид топлива: </span>{{ selectedFuel || 'Не выбрано' }}
+                        </div>                            
+                        <div class="modal-info-item">
+                            <span class='g'>Подключение ГВС: </span>{{ selectedGVS || 'Не выбрано' }}
                         </div>
                     </div>
-                    <div class="form-container">
-                        <div class="name">
-                            <input id="crm_lead_client" name="crm_lead[client]"
-                            placeholder="Ваше имя" type="text">
-                        </div>
-                        <div class="email-area">
-                                <div class="email">
-                                    <input id="crm_lead_phone" name="crm_lead[email]"
-                                    placeholder="E-mail" type="email">
-                                </div>
-                        </div>            
-                        <div class="phone-area">
-                                <div class="phone">
-                                    <input id="crm_lead_phone" name="crm_lead[phone]"
-                                    placeholder="Телефон" type="tel">
-                                </div>
-                        </div>
+                    <div class="counter">
+                        <button class="circle" @click="decrement">&#8722;</button>
+                        <div class="count">{{ count }}</div>
+                        <button class="circle" @click="increment">&#43;</button>
                     </div>
-                    <button class="confirm" type="submit">Отправить</button>
+                </div>
+                <div class="form-container">
+                    <input id="crm_lead_client" name="crm_lead[client]" placeholder="Ваше имя" type="text">
+                    <input id="crm_lead_phone" name="crm_lead[email]" placeholder="E-mail" type="email">
+                    <input id="crm_lead_phone" name="crm_lead[phone]" placeholder="Телефон" type="tel">
+                    <button class="black" type="submit">Отправить</button>
                     <div class="politics">
-                        Нажимая на кнопку вы соглашаетесь с условиями<br>
-                        <span class="underline">политики конфиденциальности</span>
+                        Нажимая на кнопку вы соглашаетесь с условиями
+                        <a href="#todo">политики конфиденциальности</a>
                     </div>
                 </div>
             </div>
@@ -317,7 +305,7 @@ const toggleText = () => {
 .t {
     font-size: 20px;
     line-height: 30px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .fuel-container, .gvs-container {
@@ -366,6 +354,8 @@ const toggleText = () => {
     font-weight: 600;
 }
 
+
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -376,79 +366,88 @@ const toggleText = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10000; 
+    z-index: 2; 
 }
 
 .modal-content {
-    max-width: 90%; /* Установите максимальную ширину в процентах */
+    max-width: 800px;
     max-height: 90vh; /* Установите максимальную высоту в 90% от высоты окна */
     background-color: #fff; 
     border-radius: 8px;
-    padding: 68px; /* Уменьшите отступы для лучшей адаптивности */
+    padding: 50px; /* Уменьшите отступы для лучшей адаптивности */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     overflow-y: auto; /* Позволяет прокручивать содержимое, если оно превышает высоту */
 }
 
-.close-window {
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    border: none;
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        padding: 30px;
+    }
+}
+
+.close {
+    width: 32px;
+    height: 32px;
     cursor: pointer;
-    outline: none;
-    margin-bottom: 30px;
-}
-.close-logo {
+    float: right;
     background-image: url("src/assets/images/close.svg");
-    background-repeat: no-repeat;
     background-size: contain;
-    width: 100%; 
-    height: 100%; 
 }
-.request {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}
-h3 {
-    padding-bottom: 10px;
-}
-.x {
-    font-size: 24px;
-    padding-bottom: 44px;
+
+.subheader {
+    font-size: 16px;
 }
 .line {
-    border-top: 2px solid #B0B0B0;
-    padding-bottom: 44px;
+    border-top: 1px solid #B0B0B0;
+    width: 100%;
+    margin: 30px 0;
 }
 .boiler-image {
-    height: 230px;
-    width: 230px;
+    height: 180px;
+    width: 180px;
+    min-width: 180px;
     background-image: url('src/assets/images/card500-buy.png');
+    background-size: cover;
 }
+@media only screen and (max-width: 600px) {
+    .boiler-image {
+        display: none;
+    }
+}
+
 .information-container {
     display: flex;
+    gap: 38px;
     justify-content: space-between;
     align-items: center; /* Выравнивание по центру по вертикали */
-    padding-bottom: 60px;
+    padding-bottom: 30px;
 }
-.s {
-    font-size: 20px;
+
+@media only screen and (max-width: 600px) {
+    .information-container {
+        flex-direction: column;
+    }
 }
-.characteristic 
-{
-    line-height: 28px;
-    margin-right: 20px;
+
+.modal-boiler-info {
+    line-height: 24px;
+    font-size: 18px;
 }
+
+@media only screen and (max-width: 800px) {
+    .modal-boiler-info {
+        width: 100%;
+    }
+}
+
 .counter {
     display: flex;
     align-items: center; 
     justify-content: center; 
     background-color: black;
-    width: 116px;
     height: 38px;
     border-radius: 50px;
+    min-width: 116px;
 }
 
 .circle {
@@ -469,50 +468,41 @@ h3 {
     text-align: center;
     padding: 0 4px;
 }
-.confirm {
-    background-color: #000;
-    border: none;
-    font-size: 30px;
-    width: 300px;
-    height: 88px;
-}
 
 .form-container {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    padding-bottom: 60px;
+    gap: 20px;
 }
 
-.name, .email-area, .phone-area {
-    width: 644px;
+@media only screen and (max-width: 600px) {
+    .form-container {
+        align-items: center;
+        text-align: center;
+    }
 }
 
 input {
-    width: 100%;
-    height: 80px;
     background-color: #EAEAEA;
     border: none;
-    color: #3F3F3F;
-    padding-right: 24px;
-    padding-left: 24px;
+    padding: 18px 22px;
     box-sizing: border-box;
-    font-size: 30px;
+    font-size: 18px;
     border-radius: 8px;
+    line-height: 20px;
+    width: 100%;
 }
 
 input:focus {
     outline: none;
 }
 input::placeholder {
-    color: #3F3F3F;
+    color: #8D8D8D;
 }
 .politics {
-    padding-top: 60px;
-    font-size: 20px;
-    text-align: center;
+    font-size: 14px;
 }
-.underline {
-    text-decoration: underline;
+.politics a {
+    color: #000;
 }
 </style>

@@ -28,11 +28,24 @@ button:hover {
     border: 3px solid hsl(0, 100%, 75%);
 }
 
-
 button:active {
     background-color: hsl(0, 100%, 75%);
     border: 3px solid #FDA29B;
 }
+
+button.black {
+    background: #000;
+    border:  3px solid #000;
+}
+button.black:hover {
+    background-color: #403F3F;
+    border: 3px solid #403F3F;
+}
+button.black:active {
+    background-color: #403F3F;
+    border: 3px solid #696770;
+}
+
 h1, h2 {
     font-size: 40px; /* Устанавливает размер шрифта 40 пикселей */
     font-weight: 600; /* Устанавливает жирное начертание */
@@ -46,8 +59,9 @@ h3 {
     margin-bottom: 30px;
 }
 h4 {
-    font-size: 22px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
 }
 p {
     padding-bottom: 30px;
