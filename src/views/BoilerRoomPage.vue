@@ -64,7 +64,7 @@
                     v-for="(item, index) in sortedBoilers"
                     :key="index"
                     class="item"
-                    :to="item.link"
+                    :to="{ name: 'boiler', params: { id: item.path } }"
                 >
                     <div class="item-content">
                         <img :src="item.imgSrc" class="item-img" :alt="item.type" />
@@ -120,7 +120,7 @@
 <script setup>
 import Menu from '@/components/Menu.vue';
 import { ref, computed } from 'vue';
-
+import { boilers } from '@/data';
 
 const boilerCounts = [1, 2];
 const maxPowers = [500, 1200, 1400, 1600, 4800, 6000, 6100, 7400];
@@ -139,130 +139,6 @@ const options = [
     { value: 'powerDesc', text: 'Мощность: по убыванию' },
     { value: 'priceAsc', text: 'Цена: по возрастанию' },
     { value: 'priceDesc', text: 'Цена: по убыванию' }
-];
-
-
-const boilers = [
-    {
-        imgSrc: "/src/assets/images/boiler-500.png",
-        type: "ПАКУ 500 кВт 1К (Н/Р)",
-        purpose: "Теплоснабжение",
-        typeDescription: "Блочно-модульная автоматизированная котельная",
-        manufactureDate: "Февраль - 2023г",
-        boiler: "Wiesberg Steel 501",
-        boilerCount: 1,
-        power: "500 кВт",
-        available: 2,
-        link: "/b-500"
-    },
-    {
-        imgSrc: "/src/assets/images/boiler-1000.png",
-        type: "ПАКУ 1200 кВт 2К (Н/Р)",
-        purpose: "Теплоснабжение",
-        typeDescription: "Блочно-модульная автоматизированная котельная",
-        manufactureDate: "Январь - 2024г",
-        boiler: "Buderus Logano SK755",
-        boilerCount: 2,
-        power: "1000 кВт",
-        available: 5,
-        link: "/"
-    },
-    {
-        imgSrc: "/src/assets/images/boiler-1200.png",
-        type: "БМАК 1040 кВт 1К",
-        purpose: "Теплоснабжение",
-        typeDescription: "Блочно-модульная автоматизированная котельная",
-        manufactureDate: "Январь - 2024г",
-        boiler: "Buderus Logano SK755",
-        boilerCount: 1,
-        power: "1040 кВт",
-        available: 5,
-        link: "/"
-    },
-    {
-        imgSrc: "/src/assets/images/boiler-1000.png",
-        type: "БМАК 1200 кВт 1К",
-        purpose: "Теплоснабжение",
-        typeDescription: "Блочно-модульная автоматизированная котельная",
-        manufactureDate: "Ноябрь - 2022г",
-        boiler: "Temron WL-1250",
-        boilerCount: 1,
-        power: "1200 кВт",
-        available: 5,
-        link: "/"
-    },
-    {
-        imgSrc: "/src/assets/images/boiler-1200.png",
-        type: "БМАК 1400 кВт 1К",
-        purpose: "Теплоснабжение",
-        typeDescription: "Блочно-модульная автоматизированная котельная",
-        manufactureDate: "Декабрь - 2022г.",
-        boiler: "Buderus Logano SK755",
-        boilerCount: 1,
-        power: "1400 кВт",
-        available: 5,
-        link: "/"
-    },
-    {
-        imgSrc: "/src/assets/images/boiler-1000.png",
-        type: "БМАК 1600 кВт 1К",
-        purpose: "Теплоснабжение",
-        typeDescription: "Автоматизированная газовая горелка",
-        manufactureDate: "Ноябрь - 2022г.",
-        boiler: "Temron WL-1750",
-        boilerCount: 1,
-        power: "1600 кВт",
-        available: 5,
-        link: "/"
-    },
-    {
-        imgSrc: "/src/assets/images/boiler-1200.png",
-        type: "БМАК 4800 кВт 2К",
-        purpose: "Теплоснабжение",
-        typeDescription: "Автоматизированная газовая горелка",
-        manufactureDate: "Ноябрь - 2022г.",
-        boiler: "Sibiria 2,5 кВт",
-        boilerCount: 2,
-        power: "4800 кВт",
-        available: 5,
-        link: "/"
-    },
-    {
-        imgSrc: "/src/assets/images/boiler-1200.png",
-        type: "БМАК 6000 кВт 2К",
-        purpose: "Теплоснабжение",
-        typeDescription: "Автоматизированная газовая горелка",
-        manufactureDate: "Ноябрь - 2022г.",
-        boiler: "Sibiria 3,0 кВт",
-        boilerCount: 2,
-        power: "6000 кВт",
-        available: 5,
-        link: "/"
-    },
-    {
-        imgSrc: "/src/assets/images/boiler-1200.png",
-        type: "БМАК 6100 кВт 2К",
-        purpose: "Теплоснабжение",
-        typeDescription: "Автоматизированная газовая горелка",
-        manufactureDate: "Ноябрь - 2022г.",
-        boiler: "Bosch UT-L24",
-        boilerCount: 2,
-        power: "6100 кВт",
-        available: 5,
-        link: "/"
-    },
-    {
-        imgSrc: "/src/assets/images/boiler-1200.png",
-        type: "БМАК 7400 кВт 2К",
-        purpose: "Теплоснабжение",
-        typeDescription: "Автоматизированная газовая горелка",
-        manufactureDate: "Ноябрь - 2022г.",
-        boiler: "Bosch UT-L28",
-        boilerCount: 2,
-        power: "7400 кВт",
-        available: 5,
-        link: "/"
-    },
 ];
 
 

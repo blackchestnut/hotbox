@@ -1,11 +1,9 @@
 <script setup>
 import { ref } from 'vue';
+import { useRoute } from 'vue-router'
+const route = useRoute();
 import Menu from '@/components/Menu.vue';
-
-const images = [
-    'src/assets/images/card500.png',
-    'src/assets/images/card500_1.png',
-];
+import { boilers } from '@/data';
 
 const currentImageIndex = ref(0);
 const isOrderModalVisible = ref(false);
@@ -13,6 +11,9 @@ const selectedFuel = ref(null);
 const selectedGVS = ref(null);
 const count = ref(1);
 const isExpanded = ref(false);
+
+const boiler = boilers.find(v => v.path === route.params.id);
+const images = boiler.images;
 
 const nextImage = () => {
     currentImageIndex.value = (currentImageIndex.value + 1) % images.length;
@@ -48,6 +49,16 @@ const decrement = () => {
     }
 };
 
+// TODO: Разбить описание на слова и брать N слов, чтобы не разрывать слово.
+//       Либо, что более правильно, скрывать часть контента просто через стили.
+const description = () => {
+    if (isExpanded.value) {
+        return boiler.fullDescription;
+    } else {
+        return boiler.fullDescription.substring(0, 237);
+    }
+}
+
 const toggleText = () => {
     isExpanded.value = !isExpanded.value;
 };
@@ -68,8 +79,8 @@ const toggleText = () => {
             </div>
 
             <div class="characteristic">
-                <h1>ПАКУ 500 кВт 1К (Н/Р)</h1>
-                <p>Wiesberg Steel</p>
+                <h1>{{ boiler.type }}</h1>
+                <p>{{ boiler.boiler }}</p>
                 <div class="t">Вид топлива</div>
                 
                 <div class="fuel-container">
@@ -111,18 +122,7 @@ const toggleText = () => {
                 каскадного подключения. Может быть оснащена ГВС.</div>
                         
                 <div class="description" :class="{ 'expanded': isExpanded }">
-                    <div class="t" v-if="!isExpanded">
-                        Котельная предназначена для обеспечения потребителей тепловой энергией в виде теплоснабжения (отопление), а так же для растопки ледовых покрытий. Котельная автоматизирована и работает без постоянного присутствия обслуживающего персонала.
-                    </div>
-                    <div class="t" v-else>
-                        Котельная предназначена для обеспечения потребителей тепловой энергией в виде теплоснабжения (отопление), а так же для растопки ледовых покрытий. Котельная автоматизирована и работает без постоянного присутствия обслуживающего персонала.
-                        <br>
-                        После доставки котла на место установки подключение к коммуникациям занимает не более двух часов, пуск котла и выход его на номинальные параметры также занимают около двух часов.
-                        <br>
-                        В состав оборудования котельной входит котёл, горелочное устройство, насос циркуляционный фланцевый.
-                        <br>
-                        ПАКУ имеет небольшие габариты и малый вес, что позволяет устанавливать котел в кузов грузового транспортного средства (газель) и работать непосредственно с него.
-                    </div>
+                    <div class="t">{{ description() }}</div>
                 </div>
                 <a href="#" @click.prevent="toggleText" class="show-more">
                     {{ isExpanded ? 'Скрыть' : 'Читать полностью' }}
@@ -132,26 +132,41 @@ const toggleText = () => {
         <div class="more-infarmation">
             <h3>Основные характеристики</h3>
             <div style="margin-bottom: 30px;" class="t">
-                <span class="g">Назначение: </span>Теплоснабжение<br>
-                <span class="g">Тип: </span>Блочно-модульная автоматизированная котельная наружного размещения<br>
-                <span class="g">Дата изготовления: </span>Февраль - 2023г.<br>
-                <span class="g">Котел: </span>Wiesberg Steel 501<br>
-                <span class="g">Количество котлов: </span>Количество котлов: 1<br>
-                <span class="g">Срок службы: </span>Не менее 10 лет<br>
-                <span class="g">Установленная электрическая мощность: </span>6 кВт<br>
-                <span class="g">Потребляемая электрическая мощность: </span>8 кВт<br>
-                <span class="g">Масса БМАК: </span>Не более 1,5 т.<br>
-                <span class="g">Вид топлива: </span>ГАЗ/Дизель<br>
-                <span class="g">Мощность (макс.): </span>500 кВт<br>
-                <span class="g">Расход топлива: </span>20-60 л/час.<br>
-                <span class="g">Температура теплоносителя: </span>95°С<br>
-                <span class="g">Количество горелок: </span>1<br>
-                <span class="g">Тип горелки: </span>Мазутно-дизельная двухступенчатая Baltur TBL 60P 200 - 600 кВт<br>
-                <span class="g">Давление теплоносителя: </span>0,6-0,5 МПа<br>
-                <span class="g">Топливный резервуар: </span>наружный (кубик)<br>
-                <span class="g">Теплопроизводительность: </span>0,43 Гкал/ч<br>
-                <span class="g">КПД котла: </span>93%<br>
-                <span class="g">ДxШxВ: </span>2580x1300x1900 мм
+                <span class="g">Назначение: </span>{{ boiler.purpose }}<br>
+                <span class="g">Тип: </span>{{ boiler.typeDescription }}<br>
+                <span class="g">Дата изготовления: </span>{{ boiler.manufactureDate }}<br>
+                <span class="g">Котел: </span>{{ boiler.boiler }}<br>
+                <span class="g">Количество котлов: </span>{{ boiler.boilerCount }}<br>
+                <span class="g">Мощность (макс.): </span>{{ boiler.power }}<br>
+                <span class="g">Срок службы: </span>{{ boiler.serviceLife }}<br>
+                <span class="g">Установленная электрическая мощность: </span>{{ boiler.electricPower }}<br>
+                <span class="g">Потребляемая электрическая мощность: </span>{{ boiler.electricalPowerConsumption }}<br>
+                <span class="g">Масса БМАК: </span>{{ boiler.weight }}<br>
+                <span class="g">Вид топлива: </span>{{ boiler.fuelType }}<br>
+                <span class="g">Расход топлива: </span>{{ boiler.fuelConsumption }}<br>
+                <span class="g">Температура теплоносителя: </span>{{ boiler.coolantTemperature }}<br>
+                <span class="g">Количество горелок: </span>{{ boiler.burnersCount }}<br>
+                <span class="g">Тип горелки: </span>{{ boiler.burnerType }}<br>
+                <span class="g">Давление теплоносителя: </span>{{ boiler.coolantPressure }}<br>
+                <span class="g">Топливный резервуар: </span>{{ boiler.fuelTank }}<br>
+                <span class="g">Теплопроизводительность: </span>{{ boiler.heatingCapacity }}<br>
+                <span class="g">Дымоход: </span> {{ boiler.stovepipe }}
+                <span class="g">Корпус БМК: </span> {{ boiler.bmkBuilding }}
+                <span class="g">Насосы: </span> {{ boiler.pump }}
+                <span class="g">КПД котла: </span>{{ boiler.boilerEfficiency }}<br>
+                <span class="g">Тип системы отопления: </span>{{ boiler.heatingSystem }}<br>
+                <span class="g">Теплоноситель котлового контура: </span>{{ boiler.boilerCircuit }}<br>
+                <span class="g">Темп. теплоносителя котлового контура: </span>{{ boiler.boilerCircuitTemperature }}<br>
+                <span class="g">Теплоноситель сетевого контура: </span>{{ boiler.heatCarrier }}<br>
+                <span class="g">Темп. теплоносителя сетевого контура: </span>{{ boiler.heatCarrierTemp }}<br>
+                <span class="g">Резервный источник эл.питания: </span>{{ boiler.backupPowerSupply }}<br>
+                <span class="g">Давление теплоносителя котлового контура: </span>{{ boiler.boilerCircuitCoolantPressure }}<br>
+                <span class="g">Давление теплоносителя сетевого контура: </span>{{ boiler.networkCircuitCoolantPressure }}<br>
+                <span class="g">Регулирование температуры: </span>{{ boiler.temperatureControl }}<br>
+                <span class="g">Пожарно-охранная сигнализация: </span>{{ boiler.fireSecurityAlarm }}<br>
+                <span class="g">Диспетчеризация: </span>{{ boiler.dispatching }}<br>
+                <span class="g">ДxШxВ: </span>{{ boiler.LxWxH }}<br>
+
             </div>
             <h3>Комплект поставки</h3>
             <div style="margin-bottom: 30px;" class="t">

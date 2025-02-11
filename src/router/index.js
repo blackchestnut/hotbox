@@ -5,7 +5,7 @@ import CarPage from '@/views/CarPage.vue';
 import AboutUsPage from '@/views/AboutUsPage.vue';
 import ServicePage from '@/views/ServicePage.vue';
 import BoilerRoomPage from '@/views/BoilerRoomPage.vue';
-import Boiler500Page from '@/views/Boiler500Page.vue';
+import BoilerPage from '@/views/BoilerPage.vue';
 
 
 
@@ -42,9 +42,9 @@ const routes = [
         component: BoilerRoomPage,
     },
     {
-        path: '/b-500',
-        name: 'b-500',
-        component: Boiler500Page,
+        path: '/kotelnye/:id',
+        name: 'boiler',
+        component: BoilerPage,
     },
     
 ];
@@ -52,6 +52,10 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes,
+    scrollBehavior(to, from, savedPosition) {
+        return { top: 0 }; // Прокручиваем к началу страницы
+    }
 });
+
 
 export default router;
