@@ -272,7 +272,8 @@ label {
 }
 .item-content {
     display: flex; 
-    align-items: flex-start;
+    justify-content: space-between; 
+    width: 100%; 
 }
 
 .item-img {
@@ -306,7 +307,11 @@ label {
     background-color: #22cb5785;
     border-radius: 8px;
     padding: 6px 10px;
-    margin-left: 10px; 
+    margin-left: 10px;
+    max-height: 24px;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
 }
 
 .fat {

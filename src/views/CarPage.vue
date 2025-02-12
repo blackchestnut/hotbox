@@ -15,25 +15,25 @@ import Menu from '@/components/Menu.vue';
             <div class="block">
                 <img src="\src\assets\images\car1.png" alt="Car1" class="car1">
                 <div class="Nameline">
-                    <h3><img src="\src\assets\images\power-logo.svg" alt="Power Logo" class="power-logo" />Мощность</h3>
-                    <p>Мощность котельной установки может варьироваться от 50 до 500 кВт,
-                        в зависимости от нужд заказчика.</p>
+                    <div class="subtitle"><img src="\src\assets\images\power-logo.svg" alt="Power Logo" class="power-logo" />Мощность</div>
+                    <div class="description">Мощность котельной установки может варьироваться от 50 до 500 кВт,
+                        в зависимости от нужд заказчика.</div>
                 </div>
             </div>
             <div class="block">
                 <img src="\src\assets\images\car2.png" alt="Car2" class="car2">
                 <div class="Nameline">
-                    <h3><img src="\src\assets\images\curcle-logo.svg" alt="Curcle Logo" class="-logo" />Область применения</h3>
-                    <p>Мобильная котельная на базе Ford Transit может применяться в МЧС для подачи тепла, в службе ЖКХ, в
-                        Вооруженных силах для отопления ангаров, казарм и т.п.</p>
+                    <div class="subtitle"><img src="\src\assets\images\curcle-logo.svg" alt="Curcle Logo" class="-logo" />Область применения</div>
+                    <div class="description">Мобильная котельная на базе Ford Transit может применяться в МЧС для подачи тепла, в службе ЖКХ, в
+                        Вооруженных силах для отопления ангаров, казарм и т.п.</div>
                 </div>
             </div>
             <div class="block">
                 <img src="\src\assets\images\car3.png" alt="Car3" class="car3">
                 <div class="Nameline">
-                    <h3><img src="\src\assets\images\arrow-logo.svg" alt="Arrow Logo" class="arrow-logo" />Варианты реализации</h3>
-                    <p>Возможна реализация проекта на другом транспорте
-                        (повышенной проходимости и большей мощности).</p>
+                    <div class="subtitle"><img src="\src\assets\images\arrow-logo.svg" alt="Arrow Logo" class="arrow-logo" />Варианты реализации</div>
+                    <div class="description">Возможна реализация проекта на другом транспорте
+                        (повышенной проходимости и большей мощности).</div>
                 </div>
             </div> 
         </div>
@@ -82,22 +82,25 @@ export default {
 }
 .Nameline {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
 h1 {
     margin-bottom: 30px;
 }
-
-h3 {
-    display: flex; 
-    align-items: center; 
+.subtitle {
+    font-size: 22px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
 }
-
-p {
-    margin-top: 30px; /* Отступ сверху для всех абзацев */
-    margin-bottom: 30px; /* Отступ снизу для всех абзацев */
+.description {
+    font-size: 20px;
+    line-height: 30px;
 }
-
 .power-logo, .-logo, .arrow-logo {
     height: 30px;
     margin-right: 10px; 

@@ -23,25 +23,25 @@ import Menu from '@/components/Menu.vue';
     <div class="row">
             <div class="block">
                 <div class="Nameline">
-                    <h3><img src="\src\assets\images\area.svg" alt="Area Logo" class="area-logo" />Сфера применения</h3>
-                    <p>БМАК предназначены для применения в сфере теплоснабжения жилых, общественных и промышленных зданий с рабочим (избыточным) давлением в системе теплоснабжения не
-                        более 1,2 МПа (12 кгс/см2) и максимальной температурой нагрева теплоносителя до 115°С.</p>
+                    <div class="subtitle"><img src="\src\assets\images\area.svg" alt="Area Logo" class="area-logo" />Сфера применения</div>
+                    <div class="description">БМАК предназначены для применения в сфере теплоснабжения жилых, общественных и промышленных зданий с рабочим (избыточным) давлением в системе теплоснабжения не
+                        более 1,2 МПа (12 кгс/см2) и максимальной температурой нагрева теплоносителя до 115°С.</div>
                 </div>
             </div>
             <div class="block">
                 <div class="Nameline">
-                    <h3><img src="\src\assets\images\format.svg" alt="Format Logo" class="format-logo" />Формат поставки</h3>
-                    <p>БМАК поставляются в виде модульных котельных и
+                    <div class="subtitle"><img src="\src\assets\images\format.svg" alt="Format Logo" class="format-logo" />Формат поставки</div>
+                    <div class="description">БМАК поставляются в виде модульных котельных и
                         могут подключаться каскадным способом, тем самым возможно добиться требуемой мощности в
-                        несколько десятков или сотен МВт.</p>
+                        несколько десятков или сотен МВт.</div>
                 </div>
             </div>
             <div class="block">
                 <div class="Nameline">
-                    <h3><img src="\src\assets\images\warranty.svg" alt="Warranty Logo" class="warranty-logo" />Гарантии</h3>
-                    <p>Все оборудование используемое при производстве БМАК тщательно отбирается и
+                    <div class="subtitle"><img src="\src\assets\images\warranty.svg" alt="Warranty Logo" class="warranty-logo" />Гарантии</div>
+                    <div class="description">Все оборудование используемое при производстве БМАК тщательно отбирается и
                         тестируется на собственном парке котельных установок. Таким образом мы уверены в
-                        надежности выпускаемой продукции и предоставляем гарантию 12 месяцев.</p>
+                        надежности выпускаемой продукции и предоставляем гарантию 12 месяцев.</div>
                 </div>
             </div> 
     </div>
@@ -67,31 +67,32 @@ import Menu from '@/components/Menu.vue';
     <div class="information-wrapper">
         <div class="content">
             <div class="full-name">
-                <h1 style="padding-bottom: 30px;">Контакты</h1>
-                <p>Полное наименование: Акционерное общество НТЦ
+                <div class="contacts">Контакты</div>
+                <div class="contac_information"><span class="appellation">Полное наименование:</span> Акционерное общество НТЦ
                     «Технологии телекоммуникаций и
-                    автоматизированных систем»</p>
+                    автоматизированных систем»</div>
             </div>
             <div class="adress">
-                <p>Юридический адрес: 141002, Московская обл., г. Мытищи
-                    ул. Колпакова, д. 2, корп. 15, офис 52</p>
+                <div class="contact_information"><span class="appellation">Юридический адрес:</span> 141002, Московская обл., г. Мытищи
+                    ул. Колпакова, д. 2, корп. 15, офис 52</div>
             </div>
             <div class="adress-factory">
-                <p>Адрес производства: Квартал № 171
-                    поселение Краснопахарское, Москва</p>
+                <div class="contact_information"><span class="appellation">Адрес производства:</span> Квартал № 171
+                    поселение Краснопахарское, Москва</div>
             </div>
             <div class="kpp">
-                <p>ОГРН - 1025003527856
-                    ИНН - 7704185209
-                    КПП - 50290100</p>
+                <div class="contact_information">
+                    ОГРН - 1025003527856<br>
+                    ИНН - 7704185209<br>
+                    КПП - 50290100</div>
             </div>
             <div class="phones">
-                <p>Телефоны:
+                <div class="contact_information"><span class="appellation">Телефоны:</span>
                     Офис: +7(977) 953-39-11
-                    Производство: +7(999) 822-11-45</p>
+                    Производство: +7(999) 822-11-45</div>
             </div>
             <div class="email">
-                <p>Email: zakaz@tehtelecom.ru</p>
+                <div class="contac_information"><span class="appellation">Email:</span> zakaz@tehtelecom.ru</div>
             </div>
         </div>
         <div class="map2"></div>
@@ -123,7 +124,18 @@ import Menu from '@/components/Menu.vue';
     background-size: cover; /* Чтобы изображение занимало весь блок */
     margin-left: 36px;
 }
-
+.subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+.description {
+    font-size: 20px;
+    line-height: 30px;
+}
 .text {
     width: 500px;
     height: 630px;
@@ -228,6 +240,7 @@ import Menu from '@/components/Menu.vue';
     margin-right: 120px; /* Отступ между текстом и изображением */
     width: 383px;
     height: 719px;
+    line-height: 30px;
 }
 
 .adress, .kpp, .email {
@@ -239,5 +252,15 @@ import Menu from '@/components/Menu.vue';
     height: 374px;
     width: 700px;
 }
-
+.contacts {
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 600;
+}
+.contact_information {
+    font-size: 20px;
+}
+.appellation {
+    font-weight: bold;
+}
 </style>
