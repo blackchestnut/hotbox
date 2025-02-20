@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="logo-center">
-            <img src="\src\assets\images\hotbox.png" alt="Center Logo" class="logo-center" />
+            <img src="\src\assets\images\red_logos/hotbox.png" alt="Center Logo" class="logo-center" />
         </div>
         <div class="button">
             <button @click="handleClick">ЗВОНОК ИНЖЕНЕРУ</button>

@@ -8,7 +8,7 @@
               <p>Укажите свои данные и мы обязательно свяжемся с</p>
               <p>вами для уточнения деталей вашего запроса</p>
             </div>
-            <img src="\src\assets\images\fire.svg" alt="Fire Logo" class="fire-logo" />
+            <img src="\src\assets\images\red_logos\fire.svg" alt="Fire Logo" class="fire-logo" />
             <div class="b-input red-background">
               <input id="crm_lead_client" name="crm_lead[client]"
               placeholder="Ваше имя" type="text">
@@ -42,7 +42,7 @@
             </div>
 
             <div class="note">
-              <p>Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c</p>
+              Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
               <a href="https://hotboxrf.ru/politika">политикой конфиденциальности</a>
             </div>
         </div>
@@ -101,12 +101,13 @@
  }
 .leadform {
   background-color: #B12117;
-
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; 
+  flex-direction: column;
+  padding-top: 60px;
+  padding-bottom: 60px; 
 }
 .fire-logo {
   position: absolute;

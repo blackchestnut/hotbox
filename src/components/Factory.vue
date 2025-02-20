@@ -11,36 +11,36 @@
                     <div class="head-two">
                         <p>Компактные передвижные станции теплоснабжения<br>
                         с полным удаленным управлением</p>
-                        <img src="\src\assets\images\award.svg" alt="Award Logo" class="award-logo" />
+                        <img src="\src\assets\images\red_logos\award.svg" alt="Award Logo" class="award-logo" />
                     </div>
                 <div class="button-container">
                         <router-link to="/boiler-room">               
-                            <button class="transparent-button"><img src="\src\assets\images\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br><p>Котельные блочно-модульные</p></button>
+                            <button class="transparent-button"><img src="\src\assets\images\white_logos\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br><p>Котельные блочно-модульные</p></button>
                         </router-link>
 
                         <router-link to="/service">
-                            <button class="transparent-button"><img src="\src\assets\images\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br><p>Аренда</p></button>
+                            <button class="transparent-button"><img src="\src\assets\images\white_logos\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br><p>Аренда</p></button>
                         </router-link>
 
                         <router-link to="/service">    
-                            <button class="transparent-button"><img src="\src\assets\images\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br><p>Ремонт и обслуживание</p></button>
+                            <button class="transparent-button"><img src="\src\assets\images\white_logos\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br><p>Ремонт и обслуживание</p></button>
                         </router-link>
                      
                         <router-link to="/car">
                             <button class="transparent-button">
-                                <img src="\src\assets\images\car-logo.svg" alt="Car Logo" class="car-logo" /><br>
+                                <img src="\src\assets\images\white_logos\car-logo.svg" alt="Car Logo" class="car-logo" /><br>
                                 <p>Котельные мобильные<br>
                                     автоматизированные</p>
                             </button>
                         </router-link>
 
                         <router-link to="/service">
-                            <button class="transparent-button"><img src="\src\assets\images\hook-logo.svg" alt="Hook Logo" class="hook-logo" /><br><p>Производство</p></button>
+                            <button class="transparent-button"><img src="\src\assets\images\white_logos\hook-logo.svg" alt="Hook Logo" class="hook-logo" /><br><p>Производство</p></button>
                         </router-link>
 
                         <router-link to="/news">
                             <button class="transparent-button">
-                                <img src="/src/assets/images/news-logo.svg" alt="News Logo" class="news-logo" /><br>
+                                <img src="/src/assets/images/white_logos/news-logo.svg" alt="News Logo" class="news-logo" /><br>
                                 <p>Новости</p>
                             </button>
                         </router-link>
@@ -56,7 +56,7 @@ margin-left: 780px;
 margin-top: -180px; 
 }
 .overlay {
-background-image: url("/src/assets/images/shadow-box.png");
+background-image: url("/src/assets/images/big_images_of_boilers/shadow-box.png");
 background-size: cover;
 color: #fff;
 padding-top: 100px;

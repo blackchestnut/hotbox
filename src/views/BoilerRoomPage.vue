@@ -15,7 +15,7 @@
         <div class="sort-container">
             <div class="custom-select" @click="toggleDropdown">
                 <div class="selected">{{ selectedOption.text }}</div>
-                <div class="arrow" :class="{ 'open': isOpen }"> <img src="/src/assets/images/menu-arrow.svg"/></div>
+                <div class="arrow" :class="{ 'open': isOpen }"> <img src="/src/assets/images/black_logos/menu-arrow.svg"/></div>
                 <ul v-if="isOpen" class="options">
                     <li
                         v-for="option in options"
@@ -278,7 +278,9 @@ label {
 
 .item-img {
     margin-right: 22px;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
+    max-width: 240px;
+    max-height: 240px;
 }
 
 .text-container {

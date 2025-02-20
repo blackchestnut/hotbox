@@ -1,6 +1,6 @@
 <script setup>
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-  import 'swiper/swiper-bundle.css';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/swiper-bundle.css';
 </script>
 
 <template>
@@ -9,8 +9,7 @@
       <div class="header">
         <h1>Котельные системы HotBox</h1>
         <div class="subheadline">
-          Это современные, полностью автономные, мобильные тепловые установки.
-          Более 10 лет мы работаем для вас
+          Это современные, полностью автономные, мобильные тепловые установки. Более 10 лет мы работаем для вас
         </div>
       </div>
       <div class="background">
@@ -21,7 +20,8 @@
             :space-between="30"
             :slides-per-group="1"
             class="mySwiper"
-            @swiper="onSwiper">
+            @swiper="onSwiper"
+          >
             <swiper-slide v-for="(slide, index) in slides" :key="index">
               <div class="slide-inner">
                 <img :src="slide.image" alt="Slide Image" class="slide-image" />
@@ -32,19 +32,26 @@
             </swiper-slide>
           </swiper>
           <div class="slider-navigation">
-            <button class="b-slider-prev" @click="goToPrevSlide"><img src="\src\assets\images\Vector.svg"></button>
+            <button class="b-slider-prev" @click="goToPrevSlide">
+              <img src="\src\assets\images\arrows\Vector.svg">
+            </button>
             <div class="pagination-buttons">
-                    <button
-                      v-for="(page, index) in totalPages"
-                      :key="index"
-                      @click="goToPage(index)"
-                      :class="['pagination-button', currentPage === index ? 'active' : '']">
-                      {{ index + 1 }}
-                    </button>
+              <button
+                v-for="(page, index) in totalPages"
+                :key="index"
+                @click="goToPage(index)"
+                :class="['pagination-button', currentPage === index ? 'active' : '']"
+              >
+                {{ index + 1 }}
+              </button>
             </div>
-            <button class="b-slider-next" @click="goToNextSlide"><img src="\src\assets\images\Vector1.svg"></button>
+            <button class="b-slider-next" @click="goToNextSlide">
+              <img src="\src\assets\images\arrows\Vector1.svg">
+            </button>
           </div>
-          <button class="full-catalog">ПОЛНЫЙ КАТАЛОГ</button>
+          <router-link to="/boiler-room">
+            <button class="full-catalog">ПОЛНЫЙ КАТАЛОГ</button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -62,16 +69,66 @@ export default {
   data() {
     return {
       slides: [
-        { text:'ПАКУ 500 кВт 1К (Н/Р)', image: '/src/assets/images/pacu-500.png', description:'Установка 0,5 МВт, 1 котел' },
-        { text: 'БМАК 1000 кВт 2К', image: '/src/assets/images/bmak-1000.png', description: 'Котельная 1,0 МВт, 2 котла' },
-        { text: 'БМАК 1040 кВт 1К', image: '/src/assets/images/bmak-1040.png', description: 'Котельная 1,04 МВт, 1 котел' },
-        { text: 'БМАК 1200 кВт 1К', image: '/src/assets/images/bmak-1000.png', description: 'Котельная 1,2 МВт, 1 котел' },
-        { text: 'БМАК 1400 кВт 1К', image: '/src/assets/images/bmak-1000.png', description: 'Котельная 1,4 МВт, 1 котел' },
-        { text: 'БМАК 1600 кВт 1К', image: '/src/assets/images/bmak-1000.png', description: 'Котельная 1,6 МВт, 1 котел' },
-        { text: 'БМАК 4800 кВт 2К', image: '/src/assets/images/bmak-4800.png', description: 'Котельная 4,8 МВт, 2 котла' },
-        { text: 'БМАК 6000 кВт 2К', image: '/src/assets/images/bmak-4800.png', description: 'Котельная 6 МВт, 2 котла' },
-        { text: 'БМАК 6100 кВт 2К', image: '/src/assets/images/bmak-4800.png', description: 'Котельная 6,1 МВт, 2 котла' },
-        { text: 'БМАК 7400 кВт 2К', image: '/src/assets/images/bmak-4800.png', description: 'Котельная 7,4 МВт, 2 котла' },
+        {
+          text: 'ПАКУ 500 кВт 1К (Н/Р)',
+          image: '/src/assets/images/pacu-500.png',
+          description: 'Установка 0,5 МВт, 1 котел',
+          link: 'kotelnye/paku-500-kvt-1k-nr'
+        },
+        {
+          text: 'БМАК 1000 кВт 2К',
+          image: '/src/assets/images/bmak-1000.png',
+          description: 'Котельная 1,0 МВт, 2 котла',
+          link: 'kotelnye/bmak-1000-kvt-2k'
+        },
+        {
+          text: 'БМАК 1040 кВт 1К',
+          image: '/src/assets/images/bmak-1040.png',
+          description: 'Котельная 1,04 МВт, 1 котел',
+          link: '/boiler-room/bmak-1040'
+        },
+        {
+          text: 'БМАК 1200 кВт 1К',
+          image: '/src/assets/images/bmak-1000.png',
+          description: 'Котельная 1,2 МВт, 1 котел',
+          link: '/boiler-room/bmak-1200'
+        },
+        {
+          text: 'БМАК 1400 кВт 1К',
+          image: '/src/assets/images/bmak-1000.png',
+          description: 'Котельная 1,4 МВт, 1 котел',
+          link: '/boiler-room/bmak-1400'
+        },
+        {
+          text: 'БМАК 1600 кВт 1К',
+          image: '/src/assets/images/bmak-1000.png',
+          description: 'Котельная 1,6 МВт, 1 котел',
+          link: '/boiler-room/bmak-1600'
+        },
+        {
+          text: 'БМАК 4800 кВт 2К',
+          image: '/src/assets/images/bmak-4800.png',
+          description: 'Котельная 4,8 МВт, 2 котла',
+          link: '/boiler-room/bmak-4800' 
+        },
+        {
+          text: 'БМАК 6000 кВт 2К',
+          image: '/src/assets/images/bmak-4800.png',
+          description: 'Котельная 6 МВт, 2 котла',
+          link: '/boiler-room/bmak-6000' 
+        },
+        {
+          text: 'БМАК 6100 кВт 2К',
+          image: '/src/assets/images/bmak-4800.png',
+          description: 'Котельная 6,1 МВт, 2 котла',
+          link: '/boiler-room/bmak-6100'
+        },
+        {
+          text: 'БМАК 7400 кВт 2К',
+          image: '/src/assets/images/bmak-4800.png',
+          description: 'Котельная 7,4 МВт, 2 котла',
+          link: '/boiler-room/bmak-7400'
+        },
       ],
       swiperInstance: null,
       currentPage: 0,
@@ -97,161 +154,149 @@ export default {
       }
     },
     goToPage(index) {
-        if (this.swiperInstance) {
-            this.swiperInstance.slideTo(index * ITEMS_ON_PAGE); // Переход на первую карточку страницы
-            this.currentPage = index; // Обновляем текущую страницу
-        }
+      if (this.swiperInstance) {
+        this.swiperInstance.slideTo(index * ITEMS_ON_PAGE); // Переход на первую карточку страницы
+        this.currentPage = index; // Обновляем текущую страницу
+      }
     },
     showDetails(index) {
-      console.log(this.slides[index]);
-    }
+      const selectedSlide = this.slides[index];
+      this.$router.push(selectedSlide.link); // Переход на указанный маршрут
+    },
   },
 };
 </script>
-  
+
 <style scoped>
 .system {
-height: 1031px;
-width: 1160px;
-margin: 0 auto;
-text-align: center;
-justify-content: center;
-
-border-radius: 10px;
+  height: 1031px;
+  width: 1160px;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
 }
 .header {
-margin-top: 100px;
-text-align: center;
+  margin-top: 100px;
+  text-align: center;
 }
 .subheadline {
-margin-top: 60px;
-font-family: 'Regular', sans-serif;
-font-size: 30px;
+  margin-top: 60px;
+  font-family: 'Regular', sans-serif;
+  font-size: 30px;
 }
 .background {
-margin-top: 30px;
+  margin-top: 30px;
+  width: 100%;
 }
 .slide-inner {
-justify-content: center;
-width: 357px;
-height: 525px;
-background-color: #EBEBEB;
-border-radius: 8px;
-transition: transform 0.3s ease,
+  justify-content: center;
+  width: 100%; /* Замените фиксированную ширину на 100% */
+  max-width: 357px; /* Если хотите сохранить максимальную ширину */
+  height: 525px;
+  background-color: #EBEBEB;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 .label {
-font-size: 20px;
-font-weight: bold;
-color: #333;
-margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
 }
 .slider-navigation {
-display: flex;
-justify-content: center;
-padding-top: 43px;
-padding-bottom: 43px;
+  display: flex;
+  justify-content: center;
+  padding-top: 43px;
+  padding-bottom: 43px;
 }
 .b-slider-prev,
 .b-slider-next {
-width: 40px;
-height: 40px;
-background-color: #000000;
-border-radius: 8px;
-border-color: #000000;
-display: flex;
-justify-content: center;
-align-items: center;
-color: white;
+  width: 40px;
+  height: 40px;
+  background-color: #000000;
+  border-radius: 8px;
+  border-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 .b-slider-prev:hover,
 .b-slider-next:hover {
-background-color: #474a4d;
-border-color: #474a4d;
+  background-color: #474a4d;
+  border-color: #474a4d;
 }
 .b-slider-prev:active,
 .b-slider-next:active {
-background-color: #474a4d;
-border-color: #696770;
-color: white;
+  background-color: #474a4d;
+  border-color: #696770;
+  color: white;
 }
 .pagination-buttons {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .pagination-button {
-margin: 0 5px;
-width: 40px;
-height: 40px;
-background-color: #ffffff; 
-color: black;
-border-color:#ffffff; 
-border-radius: 8px;
-transition: background-color 0.3s ease;
+  margin: 0 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  color: black;
+  border-color: #ffffff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 .pagination-button:hover {
-background-color: #474a4d;
-border-color: #474a4d;
+  background-color: #474a4d;
+  border-color: #474a4d;
 }
 .pagination-button:active {
-background-color: black;
-border-color: black;
-color: white;
-} 
-
+  background-color: black;
+  border-color: black;
+  color: white;
+}
 .details-button {
-width: 132px;
-height: 40px;
-background-color: #fff;
-color: #3b3b3b;
-border-color: #3b3b3b;
-border-radius: 8px;
-border: 2px solid #3b3b3b;
-transition: background-color 0.3s ease;
-font-family: 'Lato', sans-serif;
-font-size: 15px;
+  width: 132px;
+  height: 40px;
+  background-color: #fff;
+  color: #3b3b3b;
+  border-color: #3b3b3b;
+  border-radius: 8px;
+  border: 2px solid #3b3b3b;
+  transition: background-color 0.3s ease;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
 }
 .details-button:hover {
-border-color:#000000;
-color:#000000;
+  border-color: #000000;
+  color: #000000;
 }
 .details-button:active {
-border-color:#696770;
-color:#696770;
+  border-color: #696770;
+  color: #696770;
 }
 .slide-image {
-width: 357px; 
-height: 359px;
+  width: 357px;
+  height: 359px;
 }
 .full-catalog {
-width: 238px;
-height: 50px;
-color: white;
-background-color: #000000;
-border: 3px solid #000000;
-font-family: 'Lato', sans-serif;
-font-size: 20px;
+  width: 238px;
+  height: 50px;
+  color: white;
+  background-color: #000000;
+  border: 3px solid #000000;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
 }
 .full-catalog:hover {
-width: 238px;
-height: 50px;
-color: white;
-background-color: #474a4d;
-border-color: #474a4d;
-font-family: 'Lato', sans-serif;
-font-size: 20px;
+  background-color: #474a4d;
 }
 .full-catalog:active {
-width: 238px;
-height: 50px;
-color: white;
-background-color: #474a4d;
-border-color: #696770;
-font-family: 'Lato', sans-serif;
-font-size: 20px;
+  background-color: #474a4d;
 }
 .description {
-padding-top: 25px;
-padding-bottom: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
-
 </style>

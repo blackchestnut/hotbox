@@ -23,14 +23,14 @@ import Menu from '@/components/Menu.vue';
     <div class="row">
             <div class="block">
                 <div class="Nameline">
-                    <div class="subtitle"><img src="\src\assets\images\area.svg" alt="Area Logo" class="area-logo" />Сфера применения</div>
+                    <div class="subtitle"><img src="\src\assets\images\black_logos\area.svg" alt="Area Logo" class="area-logo" />Сфера применения</div>
                     <div class="description">БМАК предназначены для применения в сфере теплоснабжения жилых, общественных и промышленных зданий с рабочим (избыточным) давлением в системе теплоснабжения не
                         более 1,2 МПа (12 кгс/см2) и максимальной температурой нагрева теплоносителя до 115°С.</div>
                 </div>
             </div>
             <div class="block">
                 <div class="Nameline">
-                    <div class="subtitle"><img src="\src\assets\images\format.svg" alt="Format Logo" class="format-logo" />Формат поставки</div>
+                    <div class="subtitle"><img src="\src\assets\images\black_logos\format.svg" alt="Format Logo" class="format-logo" />Формат поставки</div>
                     <div class="description">БМАК поставляются в виде модульных котельных и
                         могут подключаться каскадным способом, тем самым возможно добиться требуемой мощности в
                         несколько десятков или сотен МВт.</div>
@@ -38,7 +38,7 @@ import Menu from '@/components/Menu.vue';
             </div>
             <div class="block">
                 <div class="Nameline">
-                    <div class="subtitle"><img src="\src\assets\images\warranty.svg" alt="Warranty Logo" class="warranty-logo" />Гарантии</div>
+                    <div class="subtitle"><img src="\src\assets\images\black_logos\warranty.svg" alt="Warranty Logo" class="warranty-logo" />Гарантии</div>
                     <div class="description">Все оборудование используемое при производстве БМАК тщательно отбирается и
                         тестируется на собственном парке котельных установок. Таким образом мы уверены в
                         надежности выпускаемой продукции и предоставляем гарантию 12 месяцев.</div>
@@ -49,18 +49,18 @@ import Menu from '@/components/Menu.vue';
     <div class="partners-wrapper">
         <h1>Наши партнеры</h1>
         <div class="pictures">
-            <img src="\src\assets\images\Bosch-logosvg.svg" alt="Bosch Logo" class="bosch-logo"/>
-            <img src="\src\assets\images\caldera-logo.png" alt="caldera Logo" class="caldera-logo"/>
-            <img src="\src\assets\images\Weishaupt-Logo.png" alt="Weishaupt Logo" class="weishaupt-logo"/>
-            <img src="\src\assets\images\Legrand-logo.png" alt="Legrand Logo" class="legrand-logo"/>
-            <img src="\src\assets\images\Schneider-Electric-l.png" alt="Schneider-Electric-l Logo" class="she-logo"/>
-            <img src="\src\assets\images\Temron-logo.png" alt="Temron Logo" class="temron-logo"/>
-            <img src="\src\assets\images\Group.png" alt="Group Logo" class="group-logo"/>
-            <img src="\src\assets\images\Siemens-logo.png" alt="Siemens Logo" class="siemens-logo"/>
-            <img src="\src\assets\images\CNP-logo.png" alt="CNP Logo" class="cnp-logo"/>
-            <img src="\src\assets\images\ABB-logo.png" alt="ABB Logo" class="abb-logo"/>
-            <img src="\src\assets\images\Vector.png" alt="Vector Logo" class="vector-logo"/>
-            <img src="\src\assets\images\Baltur-logo.png" alt="Baltur Logo" class="baltur-logo"/>
+            <img src="\src\assets\images\partners\Bosch-logosvg.svg" alt="Bosch Logo" class="bosch-logo"/>
+            <img src="\src\assets\images\partners\caldera-logo.png" alt="caldera Logo" class="caldera-logo"/>
+            <img src="\src\assets\images\partners\Weishaupt-Logo.png" alt="Weishaupt Logo" class="weishaupt-logo"/>
+            <img src="\src\assets\images\partners\Legrand-logo.png" alt="Legrand Logo" class="legrand-logo"/>
+            <img src="\src\assets\images\partners\Schneider-Electric-l.png" alt="Schneider-Electric-l Logo" class="she-logo"/>
+            <img src="\src\assets\images\partners\Temron-logo.png" alt="Temron Logo" class="temron-logo"/>
+            <img src="\src\assets\images\partners\Group.png" alt="Group Logo" class="group-logo"/>
+            <img src="\src\assets\images\partners\Siemens-logo.png" alt="Siemens Logo" class="siemens-logo"/>
+            <img src="\src\assets\images\partners\CNP-logo.png" alt="CNP Logo" class="cnp-logo"/>
+            <img src="\src\assets\images\partners\ABB-logo.png" alt="ABB Logo" class="abb-logo"/>
+            <img src="\src\assets\images\partners\Vector.png" alt="Vector Logo" class="vector-logo"/>
+            <img src="\src\assets\images\partners\Baltur-logo.png" alt="Baltur Logo" class="baltur-logo"/>
         </div>
     </div>
 
@@ -118,7 +118,7 @@ import Menu from '@/components/Menu.vue';
 }
 
 .company {
-    background-image: url("/src/assets/images/company.png");
+    background-image: url("/src/assets/images/big_images_of_boiers/company.png");
     height: 589px;
     width: 600px;
     background-size: cover; /* Чтобы изображение занимало весь блок */
@@ -248,7 +248,7 @@ import Menu from '@/components/Menu.vue';
 }
 
 .map2 {
-    background-image: url("/src/assets/images/map2.png");
+    background-image: url("/src/assets/images/maps/map2.png");
     height: 374px;
     width: 700px;
 }

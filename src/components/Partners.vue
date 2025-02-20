@@ -11,18 +11,18 @@
             </div>
         </div>
         <div class="pictures">
-            <img src="\src\assets\images\Bosch-logosvg.svg" alt="Bosch Logo" class="bosch-logo"/>
-            <img src="\src\assets\images\caldera-logo.png" alt="caldera Logo" class="caldera-logo"/>
-            <img src="\src\assets\images\Weishaupt-Logo.png" alt="Weishaupt Logo" class="weishaupt-logo"/>
-            <img src="\src\assets\images\Legrand-logo.png" alt="Legrand Logo" class="legrand-logo"/>
-            <img src="\src\assets\images\Schneider-Electric-l.png" alt="Schneider-Electric-l Logo" class="she-logo"/>
-            <img src="\src\assets\images\Temron-logo.png" alt="Temron Logo" class="temron-logo"/>
-            <img src="\src\assets\images\Group.png" alt="Group Logo" class="group-logo"/>
-            <img src="\src\assets\images\Siemens-logo.png" alt="Siemens Logo" class="siemens-logo"/>
-            <img src="\src\assets\images\CNP-logo.png" alt="CNP Logo" class="cnp-logo"/>
-            <img src="\src\assets\images\ABB-logo.png" alt="ABB Logo" class="abb-logo"/>
-            <img src="\src\assets\images\Vector.png" alt="Vector Logo" class="vector-logo"/>
-            <img src="\src\assets\images\Baltur-logo.png" alt="Baltur Logo" class="baltur-logo"/>
+            <img src="\src\assets\images\partners\Bosch-logosvg.svg" alt="Bosch Logo" class="bosch-logo"/>
+            <img src="\src\assets\images\partners\caldera-logo.png" alt="caldera Logo" class="caldera-logo"/>
+            <img src="\src\assets\images\partners\Weishaupt-Logo.png" alt="Weishaupt Logo" class="weishaupt-logo"/>
+            <img src="\src\assets\images\partners\Legrand-logo.png" alt="Legrand Logo" class="legrand-logo"/>
+            <img src="\src\assets\images\partners\Schneider-Electric-l.png" alt="Schneider-Electric-l Logo" class="she-logo"/>
+            <img src="\src\assets\images\partners\Temron-logo.png" alt="Temron Logo" class="temron-logo"/>
+            <img src="\src\assets\images\partners\Group.png" alt="Group Logo" class="group-logo"/>
+            <img src="\src\assets\images\partners\Siemens-logo.png" alt="Siemens Logo" class="siemens-logo"/>
+            <img src="\src\assets\images\partners\CNP-logo.png" alt="CNP Logo" class="cnp-logo"/>
+            <img src="\src\assets\images\partners\ABB-logo.png" alt="ABB Logo" class="abb-logo"/>
+            <img src="\src\assets\images\partners\Vector.png" alt="Vector Logo" class="vector-logo"/>
+            <img src="\src\assets\images\partners\Baltur-logo.png" alt="Baltur Logo" class="baltur-logo"/>
         </div>
     </div> 
     

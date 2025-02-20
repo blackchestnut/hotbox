@@ -187,7 +187,7 @@ p {
     font-size: 30px; /* Устанавливает размер шрифта 30 пикселей */
 }
 .plan {
-    background-image: url("/src/assets/images/plan.png");
+    background-image: url("/src/assets/images/big_images_of_boilers/plan.png");
     height: 785px;
     width: 1136px;
 }
@@ -203,7 +203,7 @@ p {
     padding-bottom: 60px;
 }
 .repair-container {
-    background-image: url("/src/assets/images/repair-background.png");
+    background-image: url("/src/assets/images/big_images_of_boilers/repair-background.png");
     background-size: cover;
     padding: 126px 40px 40px;
     color: #fff;

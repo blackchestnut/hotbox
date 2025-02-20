@@ -1,24 +1,36 @@
 <template>
     <div class="map">
-        <img src="@/assets/images/map.png" alt="Map">
+        <img src="@/assets/images/maps/map.png" alt="Map">
         <div class="overlay">
             <div class="sell-dept">
-                <h1 class="name">Отдел продаж</h1>
-                <p class="text">+7 (977) 953 39 11</p>
+                <div class="name">Отдел продаж</div>
+                +7 (977) 953 39 11
             </div>
             <div class="engineer-dept">
-                <h1 class="name">Инженер</h1>
-                <p class="text">+7 (999) 822 11 45</p>
+                <div class="name">Инженер</div>
+                +7 (999) 822 11 45
             </div>
             <div class="adress-dept">
-                <h1 class="name">Юриический адресс</h1>
-                <p class="text">г. Москва п. Краснопахарское, квартал 171</p>
+                <div class="name">Юриический адресс</div>
+                г. Москва п. Краснопахарское, квартал 171
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+.name {
+    font-size: 24px;
+    font-weight: 600px;
+    margin-bottom: 10px;
+}
+.sell-dept, .engineer-dept {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+.adress-dept {
+    font-size: 22px;
+}
 .map {
 position: relative; /* Устанавливаем относительное позиционирование для контейнера карты */
 display: flex;
@@ -37,14 +49,14 @@ position: absolute;
 top: 50%; 
 left: 100px; 
 transform: translateY(-50%); 
-width: 569px; 
-
 background-color: #fff;
 display: flex;
 border-radius: 20px;
 flex-direction: column;
 padding-left: 40px;
 padding-top: 20px;
+padding-bottom: 20px;
+padding-right: 40px;
 }
 
 .name {
