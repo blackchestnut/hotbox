@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router';
 const route = useRoute();
 import Menu from '@/components/Menu.vue';
 import { boilers } from '@/data';
@@ -11,7 +11,8 @@ const selectedFuel = ref('Газ');
 const selectedGVS = ref('С подключением'); 
 const count = ref(1);
 const isExpanded = ref(false);
-
+const selectedBoiler = ref(''); // Название выбранного котла
+const selectedImage = ref(''); // Изображение выбранного котла
 const boiler = boilers.find(v => v.path === route.params.id);
 const images = boiler.images;
 
@@ -24,6 +25,8 @@ const prevImage = () => {
 };
 
 const showOrderModal = () => {
+    selectedBoiler.value = boiler.type; // Установите название выбранного котла
+    selectedImage.value = images[currentImageIndex.value]; // Установите текущее изображение котла
     isOrderModalVisible.value = true;
 };
 
@@ -49,8 +52,7 @@ const decrement = () => {
     }
 };
 
-// TODO: Разбить описание на слова и брать N слов, чтобы не разрывать слово.
-//       Либо, что более правильно, скрывать часть контента просто через стили.
+// Описание
 const description = () => {
     if (isExpanded.value) {
         return boiler.fullDescription;
@@ -62,8 +64,9 @@ const description = () => {
 const toggleText = () => {
     isExpanded.value = !isExpanded.value;
 };
-
 </script>
+
+
 
 <template>
     <Menu />
@@ -580,9 +583,9 @@ const toggleText = () => {
                 <div class="line"></div>
 
                 <div class="information-container">
-                    <div class="boiler-image"></div>
+                    <div class="boiler-image" :style="{ backgroundImage: 'url(' + selectedImage + ')' }"></div>
                     <div class="modal-boiler-info">
-                        <h4>ПАКУ 500 кВт 1К (Н/Р)</h4>
+                        <h4>{{ selectedBoiler }}</h4>
                         <div class="modal-info-item">
                             <span class='g'>Вид топлива: </span>{{ selectedFuel || 'Не выбрано' }}
                         </div>                            
@@ -764,7 +767,6 @@ const toggleText = () => {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     overflow-y: auto; /* Позволяет прокручивать содержимое, если оно превышает высоту */
 }
-
 @media only screen and (max-width: 600px) {
     .modal-content {
         padding: 30px;
@@ -792,7 +794,12 @@ const toggleText = () => {
     height: 180px;
     width: 180px;
     min-width: 180px;
+    border-radius: 8px;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
+    background-position: center;
+    background-size: cover;
 }
+
 @media only screen and (max-width: 600px) {
     .boiler-image {
         display: none;

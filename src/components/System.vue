@@ -71,63 +71,63 @@ export default {
       slides: [
         {
           text: 'ПАКУ 500 кВт 1К (Н/Р)',
-          image: '/src/assets/images/pacu-500.png',
+          image: "/src/assets/images/boilers/paku-500-kvt-1k-nr/1.png",
           description: 'Установка 0,5 МВт, 1 котел',
           link: 'kotelnye/paku-500-kvt-1k-nr'
         },
         {
           text: 'БМАК 1000 кВт 2К',
-          image: '/src/assets/images/bmak-1000.png',
+          image: "/src/assets/images/boilers/bmak-1000-kvt-2k/1.png",
           description: 'Котельная 1,0 МВт, 2 котла',
           link: 'kotelnye/bmak-1000-kvt-2k'
         },
         {
           text: 'БМАК 1040 кВт 1К',
-          image: '/src/assets/images/bmak-1040.png',
+          image: "/src/assets/images/boilers/bmak-1040-kvt-1k/1.png",
           description: 'Котельная 1,04 МВт, 1 котел',
-          link: '/boiler-room/bmak-1040'
+          link: 'kotelnye/bmak-1040-kvt-1k'
         },
         {
           text: 'БМАК 1200 кВт 1К',
-          image: '/src/assets/images/bmak-1000.png',
+          image: "/src/assets/images/boilers/bmak-1200-kvt-1k/1.png",
           description: 'Котельная 1,2 МВт, 1 котел',
-          link: '/boiler-room/bmak-1200'
+          link: 'kotelnye/bmak-1200-kvt-1k'
         },
         {
           text: 'БМАК 1400 кВт 1К',
-          image: '/src/assets/images/bmak-1000.png',
+          image: "/src/assets/images/boilers/bmak-1400-kvt-1k/1.png",
           description: 'Котельная 1,4 МВт, 1 котел',
-          link: '/boiler-room/bmak-1400'
+          link: 'kotelnye/bmak-1400-kvt-1k'
         },
         {
           text: 'БМАК 1600 кВт 1К',
-          image: '/src/assets/images/bmak-1000.png',
+          image: "/src/assets/images/boilers/bmak-1600-kvt-1k/1.png",
           description: 'Котельная 1,6 МВт, 1 котел',
-          link: '/boiler-room/bmak-1600'
+          link: 'kotelnye/bmak-1600-kvt-1k'
         },
         {
           text: 'БМАК 4800 кВт 2К',
-          image: '/src/assets/images/bmak-4800.png',
+          image: "/src/assets/images/boilers/bmak-4800-kvt-2k/1.png",
           description: 'Котельная 4,8 МВт, 2 котла',
-          link: '/boiler-room/bmak-4800' 
+          link: 'kotelnye/bmak-4800-kvt-2k' 
         },
         {
           text: 'БМАК 6000 кВт 2К',
-          image: '/src/assets/images/bmak-4800.png',
+          image: "/src/assets/images/boilers/bmak-6000-kvt-2k/1.png",
           description: 'Котельная 6 МВт, 2 котла',
-          link: '/boiler-room/bmak-6000' 
+          link: 'kotelnye/bmak-6000-kvt-2k' 
         },
         {
           text: 'БМАК 6100 кВт 2К',
-          image: '/src/assets/images/bmak-4800.png',
+          image: "/src/assets/images/boilers/bmak-6100-kvt-2k/1.png",
           description: 'Котельная 6,1 МВт, 2 котла',
-          link: '/boiler-room/bmak-6100'
+          link: 'kotelnye/bmak-6100-kvt-2k'
         },
         {
           text: 'БМАК 7400 кВт 2К',
-          image: '/src/assets/images/bmak-4800.png',
+          image: "/src/assets/images/boilers/bmak-7400-kvt-2k/1.png",
           description: 'Котельная 7,4 МВт, 2 котла',
-          link: '/boiler-room/bmak-7400'
+          link: 'kotelnye/bmak-7400-kvt-2k'
         },
       ],
       swiperInstance: null,
@@ -291,9 +291,11 @@ export default {
 }
 .full-catalog:hover {
   background-color: #474a4d;
+  border: 3px solid #474a4d;
 }
 .full-catalog:active {
-  background-color: #474a4d;
+  background-color: #343638;
+  border: 3px solid #474a4d;
 }
 .description {
   padding-top: 25px;
