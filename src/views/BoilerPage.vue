@@ -136,415 +136,154 @@ const toggleText = () => {
         <div class="more-infarmation">
             <h3>Основные характеристики</h3>
             <div style="margin-bottom: 30px;" class="t">
-                <span class="g">Назначение: </span>{{ boiler.purpose }}<br>
-                <span class="g">Тип: </span>{{ boiler.typeDescription }}<br>
-                <span class="g">Дата изготовления: </span>{{ boiler.manufactureDate }}<br>
-                <span class="g">Котел: </span>{{ boiler.boiler }}<br>
-                <span class="g">Количество котлов: </span>{{ boiler.boilerCount }}<br>
-                <span class="g">Мощность (макс.): </span>{{ boiler.power }}<br>
+                <div v-if="boiler.typeDescription">
+                    <span class="g" >Тип:</span> {{ boiler.typeDescription }}
+                </div>
+                <div v-if="boiler.boilerCount">
+                    <span class="g">Количество котлов: </span>{{ boiler.boilerCount }}
+                </div>
+                <div v-if="boiler.boiler">
+                    <span class="g">Котел: </span>{{ boiler.boiler }}
+                </div>   
+                <div v-if="boiler.manufactureDate">
+                    <span class="g">Дата изготовления: </span>{{ boiler.manufactureDate }}
+                </div>   
+                <div v-if="boiler.purpose">
+                    <span class="g">Назначение: </span>{{ boiler.purpose }}
+                </div>                    
+                <div v-if="boiler.power">
+                    <span class="g">Мощность (макс.): </span>{{ boiler.power }}
+                </div>                    
+                <div v-if="boiler.serviceLife">
+                    <span class="g" >Срок службы: </span> {{ boiler.serviceLife }}
+                </div>
+                <div v-if="boiler.electricPower">
+                    <span class="g" >Установленная электрическая мощность: </span> {{ boiler.electricPower }}
+                </div>
+                <div v-if="boiler.electricalPowerConsumption">
+                    <span class="g" >Потребляемая электрическая мощность: </span> {{ boiler.electricalPowerConsumption }}
+                </div>
+                <div v-if="boiler.weight">
+                    <span class="g" >Масса БМАК: </span> {{ boiler.weight }}
+                </div>
+                <div v-if="boiler.weight">
+                    <span class="g" >Вид топлива: </span> {{ boiler.fuelType }}
+                </div>
+                <div v-if="boiler.fuelConsumption">
+                    <span class="g" >Расход топлива: </span> {{ boiler.fuelConsumption }}
+                </div>
+                <div v-if="boiler.coolantTemperature">
+                    <span class="g" >Температура теплоносителя: </span> {{ boiler.coolantTemperature }}
+                </div>
+                <div v-if="boiler.burnersCount">
+                    <span class="g" >Количество горелок: </span> {{ boiler.burnersCount }}
+                </div>
+                <div v-if="boiler.burnerType">
+                    <span class="g" >Тип горелки: </span> {{ boiler.burnerType }}
+                </div>
+                <div v-if="boiler.coolantPressure">
+                    <span class="g" >Давление теплоносителя: </span> {{ boiler.coolantPressure }}
+                </div>                    
+                <div v-if="boiler.fuelTank">
+                    <span class="g" >Топливный резервуар: </span> {{ boiler.fuelTank }}
+                </div>
+                <div v-if="boiler.heatingCapacity">
+                    <span class="g" >Теплопроизводительность: </span> {{ boiler.heatingCapacity }}
+                </div>
+                <div v-if="boiler.stovepipe">
+                    <span class="g" >Дымоход: </span> {{ boiler.stovepipe }}
+                </div>
+                <div v-if="boiler.bmkBuilding">
+                    <span class="g" >Корпус БМК: </span> {{ boiler.bmkBuilding }}
+                </div>
+                <div v-if="boiler.pump">
+                    <span class="g" >Насосы: </span> {{ boiler.pump }}
+                </div>
+                <div v-if="boiler.minUsingFuel">
+                    <span class="g" >Мин. потребление основного топлива: </span> {{ boiler.minUsingFuel }}
+                </div>
+                <div v-if="boiler.maxUsingFuel">
+                    <span class="g" >Макс. потребление основного топлива: </span> {{ boiler.maxUsingFuel }}
+                </div>                              
+                <div v-if="boiler.boilerEfficiency">
+                    <span class="g" >КПД котла: </span> {{ boiler.boilerEfficiency }}
+                </div>                              
+                <div v-if="boiler.heatingSystem">
+                    <span class="g" >Тип системы отопления: </span> {{ boiler.heatingSystem }}
+                </div>
+                <div v-if="boiler.boilerCircuit">
+                    <span class="g" >Теплоноситель котлового контура: </span> {{ boiler.boilerCircuit }}
+                </div>
+                <div v-if="boiler.boilerCircuitTemperature">
+                    <span class="g" >Темп. теплоносителя котлового контура: </span> {{ boiler.boilerCircuitTemperature }}
+                </div>
+                <div v-if="boiler.heatCarrier">
+                    <span class="g" >Теплоноситель сетевого контура: </span> {{ boiler.heatCarrier }}
+                </div>
+                <div v-if="boiler.heatCarrier">
+                    <span class="g" >Резервный источник эл.питания: </span> {{ boiler.backupPowerSupply }}
+                </div>
+                <div v-if="boiler.boilerCircuitCoolantPressure">
+                    <span class="g" >Давление теплоносителя котлового контура: </span> {{ boiler.boilerCircuitCoolantPressure }}
+                </div>
+                <div v-if="boiler.networkCircuitCoolantPressure">
+                    <span class="g" >Давление теплоносителя сетевого контура: </span> {{ boiler.networkCircuitCoolantPressure }}
+                </div>
+                <div v-if="boiler.temperatureControl">
+                    <span class="g" >Регулирование температуры: </span> {{ boiler.temperatureControl }}
+                </div>
+                <div v-if="boiler.fireSecurityAlarm">
+                    <span class="g" >Пожарно-охранная сигнализация: </span> {{ boiler.fireSecurityAlarm }}
+                </div>
+                <div v-if="boiler.dispatching">
+                    <span class="g" >Диспетчеризация: </span> {{ boiler.dispatching }}
+                </div>
+                <div v-if="boiler.maxUsingPowerGWS">
+                    <span class="g" >Мощность отопления при макс. нагрузке ГВ: </span> {{ boiler.maxUsingPowerGWS }}
+                </div>
+                <div v-if="boiler.LxWxH">
+                    <span class="g" >ДxШxВ: </span> {{ boiler.LxWxH }}
+                </div>
 
-                <span class="g" v-if="boiler.type === 'ПАКУ 500 кВт 1К (Н/Р)' || 
-                    boiler.type === 'БМАК 1200 кВт 1К' || 
-                    boiler.type === 'БМАК 1600 кВт 1К' || 
-                    boiler.type === 'БМАК 6000 кВт 2К' || 
-                    boiler.type === 'БМАК 6100 кВт 2К' || 
-                    boiler.type === 'БМАК 7400 кВт 2К'">Срок службы: </span>
-                <span v-if="(boiler.type === 'ПАКУ 500 кВт 1К (Н/Р)' || 
-                    boiler.type === 'БМАК 1200 кВт 1К' || 
-                    boiler.type === 'БМАК 1600 кВт 1К' || 
-                    boiler.type === 'БМАК 6000 кВт 2К' || 
-                    boiler.type === 'БМАК 6100 кВт 2К' || 
-                    boiler.type === 'БМАК 7400 кВт 2К') && boiler.serviceLife">
-                    {{ boiler.serviceLife }}<br>
-                </span>
-
-
-
-
-                <span class="g" v-if="boiler.type !== 'БМАК 4800 кВт 2К'">Установленная электрическая мощность: </span>
-                <span v-if="boiler.type !== 'БМАК 4800 кВт 2К'">{{ boiler.electricPower }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'БМАК 4800 кВт 2К'">Потребляемая электрическая мощность: </span>
-                <span v-if="boiler.type !== 'БМАК 4800 кВт 2К'">{{ boiler.electricalPowerConsumption }}<br></span>
-                
-                <span class="g" v-if="boiler.type !== 'БМАК 1600 кВт 1К'">Масса БМАК: </span>
-                <span v-if="boiler.type !== 'БМАК 1600 кВт 1К'">{{ boiler.weight }}<br></span>
-
-                <span class="g">Вид топлива: </span>{{ boiler.fuelType }}<br>
- 
-                <span class="g" v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Расход топлива: </span>
-                <span v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.fuelConsumption }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 1000 кВт 2К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Температура теплоносителя: </span>
-                <span v-if="boiler.type !== 'ПАКУ 1000 кВт 2К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.coolantTemperature }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Количество горелок: </span>
-                <span v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.burnersCount }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Тип горелки: </span>
-                <span v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.burnerType }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 1000 кВт 2К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Давление теплоносителя: </span>
-                <span v-if="boiler.type !== 'ПАКУ 1000 кВт 2К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.coolantPressure }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Топливный резервуар: </span>
-                <span v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.fuelTank }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Теплопроизводительность: </span>
-                <span v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.heatingCapacity }}<br></span>
-                
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Дымоход: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.stovepipe }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Корпус БМК: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.bmkBuilding }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Насосы: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.pump }}<br></span>
-                
-                <span class="g" v-if="boiler.type !== 'ПАКУ 1000 кВт 2К (Н/Р)'
-                && boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1040 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'">Мин. потребление основного топлива: </span>
-                <span v-if="boiler.type !== 'ПАКУ 1000 кВт 2К (Н/Р)'
-                && boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1040 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'">{{ boiler.minUsingFuel }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 1000 кВт 2К (Н/Р)'
-                && boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1040 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'">Макс. потребление основного топлива: </span>
-                <span v-if="boiler.type !== 'ПАКУ 1000 кВт 2К (Н/Р)'
-                && boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1040 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'">{{ boiler.maxUsingFuel }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">КПД котла: </span>
-                <span v-if="boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.boilerEfficiency }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Тип системы отопления: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.heatingSystem }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Теплоноситель котлового контура: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.boilerCircuit }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Темп. теплоносителя котлового контура: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.boilerCircuitTemperature }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Теплоноситель сетевого контура: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.heatCarrier }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Резервный источник эл.питания: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.backupPowerSupply }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Давление теплоносителя котлового контура: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.boilerCircuitCoolantPressure }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Давление теплоносителя сетевого контура: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.boilerCircuitCoolantPressure }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Регулирование температуры: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.temperatureControl }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Пожарно-охранная сигнализация: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.fireSecurityAlarm }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Диспетчеризация: </span>
-                <span v-if="boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 6100 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.dispatching }}<br></span>
-
-                <span class="g" v-if="boiler.type !== 'ПАКУ 1000 кВт 2К (Н/Р)'
-                && boiler.type !== 'БМАК 1040 кВт 1К'
-                && boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">Мощность отопления при макс. нагрузке ГВ: </span>
-                <span v-if="boiler.type !== 'ПАКУ 1000 кВт 2К (Н/Р)'
-                && boiler.type !== 'БМАК 1040 кВт 1К'
-                && boiler.type !== 'ПАКУ 500 кВт 1К (Н/Р)'
-                && boiler.type !== 'БМАК 1200 кВт 1К'
-                && boiler.type !== 'БМАК 1400 кВт 1К'
-                && boiler.type !=='БМАК 1600 кВт 1К'
-                && boiler.type !=='БМАК 4800 кВт 2К'
-                && boiler.type !=='БМАК 6000 кВт 2К'
-                && boiler.type !=='БМАК 7400 кВт 2К'">{{ boiler.maxUsingPowerGWS }}<br></span>
-
-                <span class="g">ДxШxВ: </span>{{ boiler.LxWxH }}<br>
             </div>
             <h3>Комплект поставки</h3>
             <div style="margin-bottom: 30px;" class="t">
-                Котельный агрегат – 1шт.<br>
-                Паспорт изделия – 1ком.<br>
-                Руководство по эксплуатации.
+                <div v-if="boiler.boilerUnit">
+                    <span class="g" >Котельный агрегат: </span> {{ boiler.boilerUnit }}
+                </div>
+                <div v-if="boiler.itemPasport">
+                    <span class="g" >Паспорт изделия: </span> {{ boiler.itemPasport }}
+                </div>
+                <div v-if="boiler.userManual">
+                    <span class="g" >Руководство по эксплуатации: </span> {{ boiler.userManual }}
+                </div>
+                <div v-if="boiler.boilerPlant">
+                    <span class="g" >Котельная установка: </span> {{ boiler.boilerPlant }}
+                </div>
+                <div v-if="boiler.boilerPassport">
+                    <span class="g" >Паспорт котла: </span> {{ boiler.boilerPassport }}
+                </div>
+                <div v-if="boiler.passportAndManualOfTheControlPanel">
+                    <span class="g" >Паспорт и руководство щита управления и вводного щита: </span> {{ boiler.passportAndManualOfTheControlPanel }}
+                </div>
+                <div v-if="boiler.bmak_1_2">
+                    <span class="g" >БМАК 1,2 МВт: </span> {{ boiler.bmak_1_2 }}
+                </div>
+                <div v-if="boiler.bmak_1_6">
+                    <span class="g" >БМАК 1,6 МВт: </span> {{ boiler.bmak_1_6 }}
+                </div>
+                <div v-if="boiler.bmak_4_8">
+                    <span class="g" >БМАК 4,8 МВт: </span> {{ boiler.bmak_4_8 }}
+                </div>
+                <div v-if="boiler.bmak_6">
+                    <span class="g" >БМАК 6 МВт: </span> {{ boiler.bmak_6 }}
+                </div>
+                <div v-if="boiler.bmak_6_GWS">
+                    <span class="g" >БМАК 6 МВт с ГВС: </span> {{ boiler.bmak_6_GWS }}
+                </div>
+                <div v-if="boiler.chimneys">
+                    <span class="g" >Дымовые трубы: </span> {{ boiler.chimneys }}
+                </div>
             </div>
             <h3>Охрана труда и техника безопасности</h3>
             <div style="margin-bottom: 30px;" class="t">
@@ -778,7 +517,7 @@ const toggleText = () => {
     height: 32px;
     cursor: pointer;
     float: right;
-    background-image: url("src/assets/images/black_logos/close.svg");
+    background-image: url("@/assets/images/black_logos/close.svg");
     background-size: contain;
 }
 
