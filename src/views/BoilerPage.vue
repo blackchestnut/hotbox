@@ -4,17 +4,17 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 import Menu from '@/components/Menu.vue';
 import { boilers } from '@/data';
-
+import BoilerOrder from '@/views/BoilerOrder.vue';
 const currentImageIndex = ref(0);
 const isOrderModalVisible = ref(false);
 const selectedFuel = ref('Газ'); 
 const selectedGVS = ref('С подключением'); 
-const count = ref(1);
 const isExpanded = ref(false);
 const selectedBoiler = ref(''); // Название выбранного котла
 const selectedImage = ref(''); // Изображение выбранного котла
 const boiler = boilers.find(v => v.path === route.params.id);
 const images = boiler.images;
+
 
 const nextImage = () => {
     currentImageIndex.value = (currentImageIndex.value + 1) % images.length;
@@ -42,15 +42,7 @@ const toggleGVS = (gvs) => {
     selectedGVS.value = (selectedGVS.value === gvs) ? null : gvs;
 };
 
-const increment = () => {
-    count.value++;
-};
 
-const decrement = () => {
-    if (count.value > 1) {
-        count.value--;
-    }
-};
 
 // Описание
 const description = () => {
@@ -322,21 +314,12 @@ const toggleText = () => {
                 <div class="line"></div>
 
                 <div class="information-container">
-                    <div class="boiler-image" :style="{ backgroundImage: 'url(' + selectedImage + ')' }"></div>
-                    <div class="modal-boiler-info">
-                        <h4>{{ selectedBoiler }}</h4>
-                        <div class="modal-info-item">
-                            <span class='g'>Вид топлива: </span>{{ selectedFuel || 'Не выбрано' }}
-                        </div>                            
-                        <div class="modal-info-item">
-                            <span class='g'>Подключение ГВС: </span>{{ selectedGVS || 'Не выбрано' }}
-                        </div>
-                    </div>
-                    <div class="counter">
-                        <button class="circle" @click="decrement">&#8722;</button>
-                        <div class="count">{{ count }}</div>
-                        <button class="circle" @click="increment">&#43;</button>
-                    </div>
+                    <BoilerOrder 
+                        :selectedBoiler="selectedBoiler" 
+                        :selectedImage="selectedImage" 
+                        :selectedFuel="selectedFuel" 
+                        :selectedGVS="selectedGVS" 
+                    />
                 </div>
                 <div class="form-container">
                     <input id="crm_lead_client" name="crm_lead[client]" placeholder="Ваше имя" type="text">
@@ -529,15 +512,6 @@ const toggleText = () => {
     width: 100%;
     margin: 30px 0;
 }
-.boiler-image {
-    height: 180px;
-    width: 180px;
-    min-width: 180px;
-    border-radius: 8px;
-    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
-    background-position: center;
-    background-size: cover;
-}
 
 @media only screen and (max-width: 600px) {
     .boiler-image {
@@ -570,34 +544,7 @@ const toggleText = () => {
     }
 }
 
-.counter {
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    background-color: black;
-    height: 38px;
-    border-radius: 50px;
-    min-width: 116px;
-}
 
-.circle {
-    width: 30px;
-    height: 30px;
-    background-color: white;
-    border: none;
-    border-radius: 50%; 
-    font-size: 20px; 
-    color: black; 
-    cursor: pointer;
-}
-
-.count {
-    color: white; 
-    font-size: 20px; 
-    width: 40px; 
-    text-align: center;
-    padding: 0 4px;
-}
 
 .form-container {
     display: flex;

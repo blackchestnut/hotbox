@@ -1,9 +1,31 @@
 <script setup>
+import { ref } from 'vue';
 import Menu from '@/components/Menu.vue';
+import { car } from '@/data';
+import CarOrder from '@/views/CarOrder.vue';
+
+const currentImageIndex = ref(0);
+const selectedCar = ref('');
+const selectedImage = ref('');
+const isOrderModalVisible = ref(false);
+const images = car[0].images;
+
+const showOrderModal = () => {
+    console.log('Opening modal...'); // Отладка
+    selectedCar.value = car[0].name;
+    selectedImage.value = images[currentImageIndex.value];
+    isOrderModalVisible.value = true;
+    console.log('isOrderModalVisible:', isOrderModalVisible.value); // Отладка
+};
+
+const closeOrderModal = () => {
+    isOrderModalVisible.value = false;
+};
 </script>
+
 <template>
     <Menu/>
-    <div class="car-wrapper">
+    <div class="page-container">
         <div class="title">
             <h1 style="font-size: 40px;">Мобильная котельная установка на базе фургона Ford Transit</h1>
             <p>Мобильность автомобиля позволяет оперативно приехать и подать тепло на объекты с высоким уровнем стесненности.</p>
@@ -37,18 +59,45 @@ import Menu from '@/components/Menu.vue';
                 </div>
             </div> 
         </div>
-        
         <div class="button-container">
-            <button class="buy">ЗАКАЗАТЬ</button>
+            <button class="buy" @click.prevent="showOrderModal">ЗАКАЗАТЬ</button>
+        </div>
+
+
+        
+
+        <!--------------------------------------------------------------------------------->
+        <div v-if="isOrderModalVisible" class="modal-overlay" @click="closeOrderModal">
+            <div class="modal-content" @click.stop>
+                <a class="close" @click="closeOrderModal"></a>
+ 
+                <h3>Заявка на заказ</h3>
+                <div class="subheader">Наш менеджер свяжется с вами в течение дня</div>
+                <div class="line"></div>
+
+                  <div class="information-container">
+                    <CarOrder 
+                        :selectedCar="selectedCar" 
+                        :selectedImage="selectedImage" 
+                    />
+                </div>
+    
+                <div class="form-container">
+                    <input id="crm_lead_client" name="crm_lead[client]" placeholder="Ваше имя" type="text">
+                    <input id="crm_lead_phone" name="crm_lead[email]" placeholder="E-mail" type="email">
+                    <input id="crm_lead_phone" name="crm_lead[phone]" placeholder="Телефон" type="tel">
+                    <button class="black" type="submit">Отправить</button>
+                    <div class="politics">
+                        Нажимая на кнопку вы соглашаетесь с условиями
+                        <a href="#todo">политики конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
-<script>
-export default {
-    name: 'CarPage',
-};
-</script>
+
 
 <style scoped>
 .title {
@@ -57,11 +106,7 @@ export default {
     font-family: 'Inter', sans-serif; 
     font-size: 30px; 
 }
-.car-wrapper {
-    width: 1280px;
-    margin: auto;
-    justify-content: center;
-}
+
 .row {
     display: flex; 
     flex-direction: row; 
@@ -86,9 +131,7 @@ export default {
     flex-direction: column;
     align-items: center;
 }
-h1 {
-    margin-bottom: 30px;
-}
+
 .subtitle {
     font-size: 22px;
     font-weight: 500;
@@ -114,8 +157,7 @@ h1 {
 .buy {
     width: 120px;
     height: 54px;
+    margin-bottom: 30px;
 }
-.button-container {
-    padding-bottom: 30px;
-}
+
 </style>

@@ -82,7 +82,7 @@
                         <div
                             class="amount"
                             :style="{ backgroundColor: item.available < 3 ? '#FFA500' : '#22cb5785', color: item.available < 3 ? '#CD4000' : '#008029' }">
-                            В наличии <span class="fat">{{ item.available }} шт</span>
+                            В наличии&nbsp; <span class="fat">{{ item.available }} шт</span>
                         </div>
                     </div>
                 </router-link>
@@ -90,28 +90,28 @@
         </div>
         <div class="merits">
             <div class="information">
-                10 лет<br>
+                <div class="time">10 лет<br></div>
                 <div class="line"></div>
-                Наш опыт работы в<br>
-                сфере теплоснабжения
+                <div class="i">Наш опыт работы в<br>
+                сфере теплоснабжения</div>
             </div>
             <div class="information">
-                48 часов<br>
+                <div class="time">48 часов<br></div>
                 <div class="line"></div>
-                Срок монтажа<br>
-                котельной на фундаменте
+                <div class="i">Срок монтажа<br>
+                котельной на фундаменте</div>
             </div>
             <div class="information">
-                60 дней<br>
+                <div class="time">60 дней<br></div>
                 <div class="line"></div>
-                Средний срок<br>
-                изготовления котельной
+                <div class="i">Средний срок<br>
+                изготовления котельной</div>
             </div>
             <div class="information">
-                12 месяцев<br>
+                <div class="time">12 месяцев<br></div>
                 <div class="line"></div>
-                Гарантийный срок со<br>
-                дня реализации
+                <div class="i">Гарантийный срок со<br>
+                дня реализации</div>
             </div>
         </div>
     </div>
@@ -129,16 +129,13 @@ const maxPowers = [500, 1200, 1400, 1600, 4800, 6000, 6100, 7400];
 const selectedBoilerCounts = ref([]);
 const selectedMaxPowers = ref([]);
 
-const sortOption = ref('default'); // Переменная для хранения текущей выбранной опции сортировки
+const sortOption = ref('powerAsc'); // Переменная для хранения текущей выбранной опции сортировки
 const isOpen = ref(false);
-const selectedOption = ref({ value: 'default', text: 'По умолчанию' });
+const selectedOption = ref({ value: 'powerAsc', text: 'Мощность: по возрастанию' });
 // Опции для сортировки в массиве
 const options = [
-    { value: 'default', text: 'По умолчанию' },
     { value: 'powerAsc', text: 'Мощность: по возрастанию' },
     { value: 'powerDesc', text: 'Мощность: по убыванию' },
-    { value: 'priceAsc', text: 'Цена: по возрастанию' },
-    { value: 'priceDesc', text: 'Цена: по убыванию' }
 ];
 
 
@@ -329,15 +326,22 @@ label {
 .information {
     background-color: #F4F4F4;
     border-radius: 8px;
-    padding: 20px 0px 20px 0px;
+    padding: 20px 10px 20px 10px;
+    position: relative; 
 }
-.line {
-    height: 2px; 
-    background-color: #000; 
+.information .line {
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0; /* Сдвигаем влево */
+    width: 100%; /* Ширина линии на 100% */
+    height: 2px; /* Высота линии */
+    background-color: #000; /* Цвет линии */
+}
+.i {
     margin-top: 10px;
+}
+.time {
     margin-bottom: 10px;
 }
-
 .custom-select {
     padding: 12px;
     cursor: pointer;

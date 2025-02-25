@@ -374,6 +374,17 @@ const boilers = [
     },
 ];
 
+const car = [
+    {
+        imgSrc: "/src/assets/images/car/car1.png",
+        images: [
+            "/src/assets/images/car/car1.png",
+        ],
+        name: "Мобильная котельная установка на базе фургона Ford Transit",
+    }
+]
+
 export {
     boilers,
+    car,
 };

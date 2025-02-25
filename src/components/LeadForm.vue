@@ -50,22 +50,22 @@
     </div>
   </template>
   
- <style scoped>
- .note {
+<style scoped>
+.note {
   margin-top: 50px;
   font-size: 18px;
   color: white;
   text-align: center;
- }
- .note a {
+}
+.note a {
   color: white;
   text-decoration: underline;
- }
- .note a:hover {
+}
+.note a:hover {
   text-decoration: underline #FDA29B;
   color: #FDA29B;
- }
- .b-input input {
+}
+.b-input input {
   padding-left: 24px;
   width: 532px;
   height: 80px;
@@ -74,12 +74,12 @@
   font-size: 30px;
   margin-left: 650px;
   border: 3px solid #ffffff;
- }
- .b-input input:focus {
+}
+.b-input input:focus {
   border-color: #FDA29B;
   outline: none;
- }
- .submit {
+}
+.submit {
   width: 320px;
   height: 88px;
   border-radius: 8px;
@@ -89,16 +89,16 @@
   margin-left: 650px;
   border: 4px solid #000000;
   cursor: pointer;
-  transition: border-color 0.3s;
- }
- .submit:hover {
-  border-color: rgba(0, 0, 0, 0.75);
-  background-color: rgba(0, 0, 0, 0.75);
- }
- .submit:active {
-  border-color: #696770;
-  background-color: rgba(0, 0, 0, 0.75) ;
- }
+
+}
+.submit:hover {
+  background-color: #343638;
+  border-color: #343638;
+}
+.submit:active {
+  background-color: #343638;
+  border-color: #474a4d;
+}
 .leadform {
   background-color: #B12117;
   margin: 0 auto;
