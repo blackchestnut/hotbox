@@ -56,8 +56,10 @@ const closeOrderModal = () => {
                     Теплоснабжение и ГВС<br>
                     Дизельное топливо<br>
                     Мощность 500 кВт<br>
-                    Доставка, демонтаж и вывоз котельной рассчитывается индивидуально<br>
-                    от 150 000 руб. / месяц
+                    Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+                    <div class="order-block">
+                        от 150 000 руб. / месяц <div class="order-arrow"></div>
+                    </div>
                 </div>
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 1,04 мВт 1К без ГВС')">
                     <div class="title">БМАК 1,04 мВт 1К без ГВС</div>
@@ -65,8 +67,10 @@ const closeOrderModal = () => {
                     Теплоснабжение<br>
                     Дизельное топливо<br>
                     Мощность 1040 кВт<br>
-                    Доставка, демонтаж и вывоз котельной рассчитывается индивидуально<br>
-                    от 250 000 руб. / месяц
+                    Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+                    <div class="order-block">
+                        от 250 000 руб. / месяц <div class="order-arrow"></div>
+                    </div>
                 </div>
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 1,0 мВт 2К без ГВС')">
                     <div class="title">БМАК 1,0 мВт 2К без ГВС</div>
@@ -77,8 +81,8 @@ const closeOrderModal = () => {
                         Мощность 1000 кВт<br>
                         Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
                     </div>
-                    <div>
-                        от 260 000 руб. / месяц
+                    <div class="order-block">
+                        от 260 000 руб. / месяц <div class="order-arrow"></div>
                     </div>
                 </div>
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 3,0 мВт 1К без ГВС')">
@@ -87,8 +91,10 @@ const closeOrderModal = () => {
                     Теплоснабжение<br>
                     Дизельное топливо<br>
                     Мощность 3000 кВт<br>
-                    Доставка, демонтаж и вывоз котельной рассчитывается индивидуально<br>
-                    от 350 000 руб. / месяц
+                    Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+                    <div class="order-block">
+                        от 350 000 руб. / месяц <div class="order-arrow"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -416,5 +422,17 @@ input::placeholder {
 
 .politics a {
     color: #000;
+}
+.order-arrow {
+    background-image: url("@/assets/images/white_logos/order-arrow.svg");
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+}
+.order-block {
+    display: flex;
 }
 </style>

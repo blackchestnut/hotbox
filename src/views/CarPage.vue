@@ -159,5 +159,119 @@ const closeOrderModal = () => {
     height: 54px;
     margin-bottom: 30px;
 }
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; 
+}
 
+.modal-content {
+    max-width: 800px;
+    max-height: 90vh; /* Установите максимальную высоту в 90% от высоты окна */
+    background-color: #fff; 
+    border-radius: 8px;
+    padding: 50px; /* Уменьшите отступы для лучшей адаптивности */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Позволяет прокручивать содержимое, если оно превышает высоту */
+}
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        padding: 30px;
+    }
+}
+
+.close {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    float: right;
+    background-image: url("@/assets/images/black_logos/close.svg");
+    background-size: contain;
+}
+
+.subheader {
+    font-size: 16px;
+}
+.line {
+    border-top: 1px solid #B0B0B0;
+    width: 100%;
+    margin: 30px 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .boiler-image {
+        display: none;
+    }
+}
+
+.information-container {
+    display: flex;
+    gap: 38px;
+    justify-content: space-between;
+    align-items: center; /* Выравнивание по центру по вертикали */
+    padding-bottom: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .information-container {
+        flex-direction: column;
+    }
+}
+
+.modal-boiler-info {
+    line-height: 24px;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 800px) {
+    .modal-boiler-info {
+        width: 100%;
+    }
+}
+
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .form-container {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+input {
+    background-color: #EAEAEA;
+    border: none;
+    padding: 18px 22px;
+    box-sizing: border-box;
+    font-size: 18px;
+    border-radius: 8px;
+    line-height: 20px;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+input::placeholder {
+    color: #8D8D8D;
+}
+.politics {
+    font-size: 14px;
+}
+.politics a {
+    color: #000;
+}
 </style>

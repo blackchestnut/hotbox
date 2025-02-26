@@ -66,4 +66,5 @@ const decrement = () => {
     text-align: center;
     padding: 0 4px;
 }
+
 </style>
