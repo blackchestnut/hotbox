@@ -274,4 +274,6 @@ input::placeholder {
 .politics a {
     color: #000;
 }
+
+
 </style>
