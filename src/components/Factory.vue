@@ -46,49 +46,42 @@
 
                 <!-- Кнопки для мобильной версии -->
                 <div class="mobile-buttons">
-                    <!-- Первая строка -->
-                    <div class="button-row">
-                        <router-link to="/boiler-room">
-                            <button class="factory-button">
-                                <img src="\src\assets\images\white_logos\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br>
-                                Котельные
-                            </button>
-                        </router-link>
-                        <router-link to="/service">
-                            <button class="hook-button">
-                                <img src="\src\assets\images\white_logos\hook-logo.svg" alt="Hook Logo" class="hook-logo" /><br>
-                                Производство
-                            </button>
-                        </router-link>
-                        <router-link to="/news">
-                            <button class="news-button">
-                                <img src="/src/assets/images/white_logos/news-logo.svg" alt="News Logo" class="news-logo" /><br>
-                                Новости
-                            </button>
-                        </router-link><br>
-                        <router-link to="/car">
-                            <button class="car-button">
-                                <img src="\src\assets\images\white_logos\car-logo.svg" alt="Car Logo" class="car-logo" /><br>
-                                Мобильная котельная
-                            </button>
-                        </router-link>
-                    </div>
-
-                    <!-- вторая строка -->
-                    <div class="button-row">
-                        <router-link to="/service">
-                            <button class="clock-button">
-                                <img src="\src\assets\images\white_logos\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br>
-                                Аренда
-                            </button>
-                        </router-link>
-                        <router-link to="/service">    
-                            <button class="hammer-button">
-                                <img src="\src\assets\images\white_logos\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br>
-                                Ремонт и обслуживание
-                            </button>
-                        </router-link>
-                    </div>
+                    <router-link to="/boiler-room">
+                        <button class="factory-button">
+                            <img src="\src\assets\images\white_logos\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br>
+                            Котельные
+                        </button>
+                    </router-link>
+                    <router-link to="/service">
+                        <button class="hook-button">
+                            <img src="\src\assets\images\white_logos\hook-logo.svg" alt="Hook Logo" class="hook-logo" /><br>
+                            Производство
+                        </button>
+                    </router-link>
+                    <router-link to="/news">
+                        <button class="news-button">
+                            <img src="/src/assets/images/white_logos/news-logo.svg" alt="News Logo" class="news-logo" /><br>
+                            Новости
+                        </button>
+                    </router-link>
+                    <router-link to="/car">
+                        <button class="car-button">
+                            <img src="\src\assets\images\white_logos\car-logo.svg" alt="Car Logo" class="car-logo" /><br>
+                            Мобильная котельная
+                        </button>
+                    </router-link>
+                    <router-link to="/service">
+                        <button class="clock-button">
+                            <img src="\src\assets\images\white_logos\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br>
+                            Аренда
+                        </button>
+                    </router-link>
+                    <router-link to="/service">    
+                        <button class="hammer-button">
+                            <img src="\src\assets\images\white_logos\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br>
+                            Ремонт и обслуживание
+                        </button>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -154,7 +147,7 @@
 
 /* Скрываем кнопки для мобильной версии по умолчанию */
 .mobile-buttons {
-    display: flex;
+    display: none;
 }
 
 /* Мобильные стили (максимальная ширина 430px) */
@@ -202,11 +195,6 @@
         display: block;
     }
 
-    .button-row {
-        display: flex;
-        gap: 16px;
-        margin-bottom: 16px;
-    }
 
     .factory-button,
     .clock-button,

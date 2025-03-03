@@ -1,5 +1,5 @@
 <template>
-    <div class="partners-wrapper">
+    <div class="partner-wrapper">
         <div class="partners">
             <div class="production">
                 В производстве мы используем оборудование только
@@ -24,26 +24,24 @@
             <img src="\src\assets\images\partners\Vector.png" alt="Vector Logo" class="vector-logo"/>
             <img src="\src\assets\images\partners\Baltur-logo.png" alt="Baltur Logo" class="baltur-logo"/>
         </div>
-    </div> 
-    
+    </div>
 </template>
 
 <style scoped>
-
 .production {
     font-family: 'Inter', sans-serif; /* Убедитесь, что шрифт Inter подключен */
     font-weight: 600; /* Semi Bold */
     font-size: 40px; /* Размер шрифта 40px */
     width: 1123px;
     text-align: center;
-    padding-bottom: 60px;
+    margin-bottom: 60px;
 }
 .text {
     font-family: 'Regular', sans-serif;
     font-size: 30px;
     width: 1100px;
     text-align: center;
-    padding-bottom: 150px;
+    margin-bottom: 150px;
 }
 .partners {
     width: 1148px;
@@ -108,5 +106,101 @@
 .baltur-logo {
     width:300px ;
     height:94px;
+}
+
+@media (max-width: 430px) {
+    .partner-wrapper {
+        max-width: 380px;
+        margin: 0 auto;
+    }
+    .partners {
+        margin-top: 36px;
+    }
+    .production {
+        font-size: 20px;
+        font-weight: 600;
+        text-align: left;
+        max-width: 300px;
+        margin-bottom: 30px;
+    }
+    .text {
+        font-size: 15px;
+        margin-bottom: 36px;
+        text-align: left;
+        max-width: 291px;
+    }
+    .pictures {
+        display: grid; /* Используем CSS Grid */
+        grid-template-columns: repeat(2, 1fr); /* Два столбика */
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 36px;
+    }
+    .pictures img {
+        margin: 24px; /* Отступы между изображениями */
+        box-sizing: border-box; /* Учитываем отступы в ширине */
+    }
+    /* Указываем порядок логотипов */
+    .bosch-logo { order: 3; }
+    .caldera-logo { order: 2; }
+    .weishaupt-logo { order: 1; }
+    .legrand-logo { order: 5; }
+    .she-logo { order: 8; }
+    .temron-logo { order: 4; }
+    .group-logo { order: 7; }
+    .siemens-logo { order: 10; }
+    .cnp-logo { order: 6; }
+    .abb-logo { order: 11; }
+    .vector-logo { order: 12; }
+    .baltur-logo { order: 9; }
+
+    .bosch-logo{
+    width: 126px;
+    height: 26.85px;
+    }
+    .legrand-logo{
+        width: 126px;
+        height: 32px;
+    }
+    .group-logo {
+        width: 120px;
+        height: 32px;
+    }
+    .abb-logo {
+        width: 126px;
+        height: 47.7px;
+    }
+    .caldera-logo {
+        width: 128px;
+        height: 40.8px;
+    }
+    .she-logo {
+        width: 128px;
+        height: 48px;
+    }
+    .siemens-logo {
+        width: 128px;
+        height: 67.5px;
+    }
+    .vector-logo {
+        width: 120px ;
+        height: 45px;
+    }
+    .weishaupt-logo {
+        width: 126px ;
+        height: 21px;
+    }
+    .temron-logo {
+        width: 128px ;
+        height: 54px;
+    }
+    .cnp-logo {
+        width: 128px ;
+        height: 49.5px;
+    }
+    .baltur-logo {
+        width: 126px ;
+        height: 37.6px;
+    }
 }
 </style>

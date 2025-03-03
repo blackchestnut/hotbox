@@ -1,56 +1,66 @@
 <template>
-    <div class="leadform-wrapper">
-      <div class="leadform">
-        <div class="leadform-content">
-
-            <div class="welcome">
-              <h1>Оставьте заявку!</h1><br>
-              <p>Укажите свои данные и мы обязательно свяжемся с</p>
-              <p>вами для уточнения деталей вашего запроса</p>
-            </div>
-            <img src="\src\assets\images\red_logos\fire.svg" alt="Fire Logo" class="fire-logo" />
-            <div class="b-input red-background">
-              <input id="crm_lead_client" name="crm_lead[client]"
-              placeholder="Ваше имя" type="text">
-            </div>
-
-            <div class="phone-area">
-              <div class="b-input red-background select country_code custom-select">
-                <div class="b-input red-background phone">
-                  <input id="crm_lead_phone" name="crm_lead[phone]"
-                  placeholder="Телефон" type="tel">
-                </div>
-              </div>
-            </div>
-
-            <div class="email-area">
-              <div class="b-input red-background select country_code custom-select">
-                <div class="b-input red-background email">
-                  <input id="crm_lead_phone" name="crm_lead[email]"
-                  placeholder="E-mail" type="email">
-                </div>
-              </div>
-            </div>
-
-            <div class="b-input red-background">
-              <input id="crm_lead_service" name="crm_lead[service]"
-              placeholder="Услуга" type="text">
-            </div>
-
-            <div class="submit-container">
-              <input class="submit" type="submit" value="Отправить запрос">
-            </div>
-
-            <div class="note">
-              Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
-              <a href="https://hotboxrf.ru/politika">политикой конфиденциальности</a>
-            </div>
+  <div class="leadform-wrapper">
+    <div class="leadform">
+      <div class="leadform-content">
+        <div class="welcome">
+          <div class="leave-request">Оставьте заявку!</div><br>
+          <div class="your-data">Укажите свои данные и мы обязательно свяжемся с<br>
+          вами для уточнения деталей вашего запроса</div>
         </div>
+        <!-- Логотип огня для ПК версии -->
+        <img src="\src\assets\images\red_logos\fire.svg" alt="Fire Logo" class="fire-logo fire-logo-desktop" />
+        <div class="b-input red-background">
+          <input id="crm_lead_client" name="crm_lead[client]"
+          placeholder="Ваше имя" type="text">
+        </div>
+
+        <div class="phone-area">
+          <div class="b-input red-background select country_code custom-select">
+            <div class="b-input red-background phone">
+              <input id="crm_lead_phone" name="crm_lead[phone]"
+              placeholder="Телефон" type="tel">
+            </div>
+          </div>
+        </div>
+
+        <div class="email-area">
+          <div class="b-input red-background select country_code custom-select">
+            <div class="b-input red-background email">
+              <input id="crm_lead_phone" name="crm_lead[email]"
+              placeholder="E-mail" type="email">
+            </div>
+          </div>
+        </div>
+
+        <div class="b-input red-background">
+          <input id="crm_lead_service" name="crm_lead[service]"
+          placeholder="Услуга" type="text">
+        </div>
+
+        <div class="submit-container">
+          <input class="submit" type="submit" value="Отправить запрос">
+        </div>
+
+        <div class="note">
+          Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
+          <a href="https://hotboxrf.ru/politika">политикой конфиденциальности</a>
+        </div>
+
+        <!-- Логотип огня для мобильной версии -->
+        <img src="\src\assets\images\red_logos\fire.svg" alt="Fire Logo" class="fire-logo fire-logo-mobile" />
       </div>
     </div>
-  </template>
-  
+  </div>
+</template>
 <style scoped>
+.leave-request {
+  font-size: 40px;
+  font-weight: 600;
+}
+.your-data {
+  font-size: 20px;
+  margin-bottom: 26px;
+}
 .note {
   margin-top: 50px;
   font-size: 18px;
@@ -89,7 +99,6 @@
   margin-left: 650px;
   border: 4px solid #000000;
   cursor: pointer;
-
 }
 .submit:hover {
   background-color: #343638;
@@ -109,7 +118,7 @@
   padding-top: 60px;
   padding-bottom: 60px; 
 }
-.fire-logo {
+.fire-logo-desktop {
   position: absolute;
   width: 380px;
   height: 483.64px;
@@ -118,5 +127,58 @@
   color: white;
   margin-left: 650px;
 }
+.fire-logo-mobile {
+  display: none; /* Скрываем логотип для ПК версии */
+}
+/* Мобильная версия */
+@media (max-width: 430px) {
+  .leadform-content {
+    max-width: 380px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .leave-request {
+    font-size: 24px;
+    text-align: center;
+  }
+  .your-data {
+    font-size: 16px;
+    text-align: center;
+  }
+  .note {
+    font-size: 16px;
+    text-align: center;
+  }
+  .b-input input {
+    max-width: 296px;
+    max-height: 48px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .submit {
+    max-width: 296px;
+    max-height: 48px;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .fire-logo-desktop {
+    display: none; /* Скрываем логотип для ПК версии */
+  }
+  .fire-logo-mobile {
+    display: block; /* Показываем логотип для мобильной версии */
+    width: 200px;
+    height: 254.55px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .welcome {
+    margin-left: 0;
+    text-align: center;
+  }
+}
 </style>
-
