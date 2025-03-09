@@ -135,19 +135,20 @@
   .leadform-content {
     max-width: 380px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
   }
   .leave-request {
     font-size: 24px;
-    text-align: center;
+    text-align: left;
   }
   .your-data {
     font-size: 16px;
-    text-align: center;
+    max-width: 295px;
+    text-align: left;
   }
   .note {
     font-size: 16px;
-    text-align: center;
+    text-align: left;
   }
   .b-input input {
     max-width: 296px;

@@ -177,6 +177,7 @@ const showDetails = (index) => {
 </template>
 
 <style scoped>
+
 .system {
   height: 1031px;
   width: 1160px;
@@ -318,6 +319,9 @@ const showDetails = (index) => {
 }
 
 @media (max-width: 430px) {
+  .system-wrapper {
+    width: 100%;
+  }
   .system {
     margin: 0 auto;
     text-align: center;
@@ -349,29 +353,29 @@ const showDetails = (index) => {
     margin-bottom: 10px;
   }
   .slide-inner {
-    max-width: 208px;
-    max-height: 300px;
+    max-width: 280px;
+    max-height: 500px;
     justify-content: center;
     text-align: center; /* Центрируем текст внутри слайда */
     margin: 0 auto; /* Центрируем слайд по горизонтали */
   }
   .slide-image {
-    max-width: 208px;
+    max-width: 280px;
     height: auto;
   }
   .label {
     font-size: 15px;
     color: #000000;
     max-width: 122px;
-    margin-top: 1px;
+    padding-top: 20px;
     text-align: center; /* Центрируем текст */
     margin: 0 auto; /* Центрируем по горизонтали */
   }
   .description {
     font-size: 14px;
     color: #333;
-    padding-top: 6px;
-    padding-bottom: 12px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     max-width: 122px;
     text-align: center; /* Центрируем текст */
     margin: 0 auto; /* Центрируем по горизонтали */

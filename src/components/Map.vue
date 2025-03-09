@@ -38,7 +38,6 @@
         });
   
         const placemark = new ymaps.Placemark([55.449765, 37.297809], {
-          balloonContent: 'Это моя красная метка!',
         }, {
           preset: 'islands#redIcon',
         });
@@ -49,32 +48,58 @@
   };
   </script>
   
-  <style scoped>
-  .map-container {
-    position: relative;
-  }
+<style scoped>
+.map-container {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  display: flex;
+  border-radius: 20px;
+  flex-direction: column;
+  padding: 20px;
+}
+.name {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.sell-dept,
+.engineer-dept {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+.adress-dept {
+  font-size: 22px;
+}
+
+/* Мобильная версия */
+@media (max-width: 430px) {
   .overlay {
     position: absolute;
-    top: 50%;
-    left: 100px;
-    transform: translateY(-50%);
-    background-color: #fff;
-    display: flex;
-    border-radius: 20px;
-    flex-direction: column;
-    padding: 20px;
+    top: 44px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 90%;
+    max-width: 300px;
+    padding: 15px; 
+    border-radius: 15px;
+    text-align: left;
   }
   .name {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 8px;
   }
   .sell-dept,
-  .engineer-dept {
-    font-size: 22px;
-    margin-bottom: 30px;
-  }
+  .engineer-dept,
   .adress-dept {
-    font-size: 22px;
+    font-size: 14px;
+    margin-bottom: 10px;
   }
-  </style>
+}
+
+</style>

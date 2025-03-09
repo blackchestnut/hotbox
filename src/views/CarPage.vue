@@ -26,24 +26,29 @@ const closeOrderModal = () => {
 <template>
     <Menu/>
     <div class="page-container">
+        <RouterLink to="/boiler-room">
+            <div class="back">
+                <div class="back-logo"></div>
+            </div>
+        </RouterLink>
         <div class="title">
-            <h1 style="font-size: 40px;">Мобильная котельная установка на базе фургона Ford Transit</h1>
-            <p>Мобильность автомобиля позволяет оперативно приехать и подать тепло на объекты с высоким уровнем стесненности.</p>
-            <p>В производстве применяются только проверенные и надежные комплектующие для безотказной работы при аварийных ситуациях на объектах, требующих срочной подачи тепла.</p>
+            <div class="boiler-ford">Мобильная котельная установка на базе фургона Ford Transit</div>
+            <div class="boiler-ford-description-1">Мобильность автомобиля позволяет оперативно приехать и подать тепло на объекты с высоким уровнем стесненности.</div>
+            <div class="boiler-ford-description-2">В производстве применяются только проверенные и надежные комплектующие для безотказной работы при аварийных ситуациях на объектах, требующих срочной подачи тепла.</div>
         </div>
         
         <!-- Сетка для трех блоков -->
         <div class="row">
             <div class="block">
-                <img src="\src\assets\images\car\car1.png" alt="Car1" class="car1">
+                <div class="car1"></div>
                 <div class="Nameline">
                     <div class="subtitle"><img src="\src\assets\images\white_logos\power-logo.svg" alt="Power Logo" class="power-logo" />Мощность</div>
-                    <div class="description">Мощность котельной установки может варьироваться от 50 до 500 кВт,
+                    <div class="description">Мощность котельной установки может варьироваться от 50 до 500 кВт,<br>
                         в зависимости от нужд заказчика.</div>
                 </div>
             </div>
             <div class="block">
-                <img src="\src\assets\images\car\car2.png" alt="Car2" class="car2">
+                <div class="car2"></div>
                 <div class="Nameline">
                     <div class="subtitle"><img src="\src\assets\images\white_logos\curcle-logo.svg" alt="Curcle Logo" class="-logo" />Область применения</div>
                     <div class="description">Мобильная котельная на базе Ford Transit может применяться в МЧС для подачи тепла, в службе ЖКХ, в
@@ -51,7 +56,7 @@ const closeOrderModal = () => {
                 </div>
             </div>
             <div class="block">
-                <img src="\src\assets\images\car\car3.png" alt="Car3" class="car3">
+                <div class="car3"></div>
                 <div class="Nameline">
                     <div class="subtitle"><img src="\src\assets\images\white_logos\arrow-logo.svg" alt="Arrow Logo" class="arrow-logo" />Варианты реализации</div>
                     <div class="description">Возможна реализация проекта на другом транспорте
@@ -106,7 +111,19 @@ const closeOrderModal = () => {
     font-family: 'Inter', sans-serif; 
     font-size: 30px; 
 }
-
+.boiler-ford {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.boiler-ford-description-1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.boiler-ford-description-2 {
+    font-size: 30px;
+    margin-bottom: 60px;
+}
 .row {
     display: flex; 
     flex-direction: row; 
@@ -139,6 +156,30 @@ const closeOrderModal = () => {
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
+}
+.car1 {
+    background-image: url("/src/assets/images/car/car1.png");
+    width: 100%;
+    height: 359px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.car2 {
+    background-image: url("/src/assets/images/car/car2.png");
+    width: 100%;
+    height: 359px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.car3 {
+    background-image: url("/src/assets/images/car/car3.png");
+    width: 100%;
+    height: 359px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .description {
     font-size: 20px;
@@ -275,5 +316,101 @@ input::placeholder {
     color: #000;
 }
 
+/*Мобильная версия*/
+@media (max-width: 430px) {
+    .page-container {
+        max-width: 400px;
+    }
+    .topbar {
+        display: none;
+    }
+    .back {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid #696770; 
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px; 
+    }
 
+    .back-logo {
+        background-image: url('@/assets/images/back_arrow/back2.svg');
+        background-repeat: no-repeat; 
+        width: 100%; 
+        height: 100%; 
+        background-size: contain; 
+    }
+
+    .back:hover {
+        border: 2px solid #555555;
+    }
+
+    .boiler-ford {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    max-width: 296px;
+    }
+
+    .boiler-ford-description-1 {
+        font-size: 16px;
+        margin-bottom: 30px;
+        max-width: 296px;
+    }
+
+    .boiler-ford-description-2 {
+        font-size: 16px;
+        margin-bottom: 30px;
+        max-width: 296px;
+    }
+
+    .title {
+        width: 100%; /* Ширина заголовка на всю ширину экрана */
+    }
+
+    .row {
+        flex-direction: column; /* Блоки в столбик */
+        align-items: center; /* Центрируем блоки */
+    }
+
+    .block {
+        max-width: 380px;
+        max-height: 540px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .Nameline {
+        padding: 15px; /* Уменьшаем отступы внутри блоков */
+    }
+
+    .subtitle {
+        font-size: 20px; /* Уменьшаем размер шрифта */
+        margin-bottom: 10px; /* Уменьшаем отступ */
+    }
+
+    .description {
+        font-size: 16px; /* Уменьшаем размер шрифта */
+        line-height: 24px; /* Уменьшаем межстрочный интервал */
+    }
+
+    .button-container {
+        margin-top: 10px; /* Уменьшаем отступ сверху */
+        margin: 0 auto;
+    }
+
+    .buy {
+        max-width: 120px;
+        max-height: 54px;
+        margin-bottom: 20px; /* Уменьшаем отступ снизу */
+    }
+    .car1,
+    .car2,
+    .car3 {
+        border-radius: 8px 8px 0 0;
+        max-width: 360px;
+        max-height: 300px;
+    }
+}
 </style>

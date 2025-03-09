@@ -89,8 +89,8 @@
 </template>
 <style scoped>
 .award-logo {
-    margin-left: 780px;
-    margin-top: -180px; 
+    margin-left: 620px;
+    margin-top: -10px; 
 }
 
 .overlay {
@@ -113,6 +113,8 @@
     font-size: 24px;
     font-weight: 500;
     margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 670px;
 }
 
 /* Стили для контейнера кнопок */

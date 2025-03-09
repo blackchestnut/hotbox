@@ -110,11 +110,12 @@
 
 @media (max-width: 430px) {
     .partner-wrapper {
-        max-width: 380px;
+        max-width: 400px;
         margin: 0 auto;
     }
     .partners {
         margin-top: 36px;
+        max-width: 380px;
     }
     .production {
         font-size: 20px;

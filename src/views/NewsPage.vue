@@ -4,6 +4,11 @@ import Menu from '@/components/Menu.vue';
 <template>
     <Menu/>
     <div class="page-container">
+        <RouterLink to="/boiler-room">
+            <div class="back">
+                <div class="back-logo"></div>
+            </div>
+        </RouterLink>
         <div class="first-row">
             <h1 class="h1">Новости компании</h1>
             <p class="p1">Здесь мы публикуем свежие обновления внутри компании</p>
@@ -27,6 +32,7 @@ import Menu from '@/components/Menu.vue';
                 </router-link>   
             </div>
             <div class="twoLines"></div>
+            <div class="mobile-twolines"></div>
         </div>
         <div class="second-row">
             <h1 class="h1">Участие в программе Московские сезоны 2024</h1>
@@ -48,6 +54,7 @@ import Menu from '@/components/Menu.vue';
                 </router-link>   
             </div>
             <div class="twoLines"></div>
+            <div class="mobile-twolines"></div>
         </div>
         <div class="third-row">
             <div class="description">
@@ -72,6 +79,7 @@ import Menu from '@/components/Menu.vue';
             </router-link>   
         </div>
         <div class="twoLines"></div>
+        <div class="mobile-twolines"></div>
     </div>
 </template>
 
@@ -89,7 +97,9 @@ export default {
     margin: 0 auto;
     margin-bottom: 60px;
 }
-
+.mobile-twolines {
+    display: none;
+}
 .description {
     font-size: 30px;
     line-height: 50px;
@@ -156,4 +166,81 @@ export default {
     margin-bottom: 30px;
 }
 
+/*Мобильная версия*/
+@media (max-width: 430px) {
+    .page-container {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .topbar {
+        display: none;
+    }
+    .back {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        border: 2px solid #696770; 
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px; 
+    }
+    .back-logo {
+        background-image: url('@/assets/images/back_arrow/back2.svg');
+        background-repeat: no-repeat; 
+        width: 100%; 
+        height: 100%; 
+        background-size: contain; 
+    }
+    .back:hover {
+        border: 2px solid #555555;
+    }
+
+
+    .h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    .p1 {
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 0px;
+    }
+    .h2 {
+        font-size: 16px;
+        margin-bottom: 20px;
+        line-height: 30px;
+    }
+    .container,
+    .container3,
+    .container4 {
+        max-width: 400px;
+        max-height: 272px;
+    }
+    .description {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .more-container {
+        margin-bottom: 20px;
+    }
+    .more {
+        max-width: 180px;
+        max-height: 40px;
+        font-size: 12px;
+    }
+    .twoLines {
+        display: none;
+    }
+    .mobile-twolines {
+        display: block;
+        background-image: url("/src/assets/images/red_logos/mobile-twolines.svg");
+        width: 300px;
+        height: 20px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+}
 </style>

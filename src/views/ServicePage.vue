@@ -33,48 +33,54 @@ const closeOrderModal = () => {
 <template>
     <Menu />
     <div class="service-wrapper">
+        <RouterLink to="/boiler-room">
+            <div class="back">
+                <div class="back-logo"></div>
+            </div>
+        </RouterLink>
         <div class="service">
-            <div class="head-one">
-                <h1>Полный комплекс услуг по работе с котельными системами</h1>
-                <p>Проектирование, изготовление поставка, подключение, запуск, поставка дизельного топлива,
-                    мониторинг и сервисное обслуживание.</p>
-            </div>
-            <div class="head-two">
-                <h2>Аренда</h2>
-                <p>
+                <div class="full-complex">Полный комплекс услуг по работе с котельными системами</div>
+                <div class="shipment">Проектирование, изготовление поставка, подключение, запуск, поставка дизельного топлива,
+                    мониторинг и сервисное обслуживание.</div>
+
+                <div class="rent">Аренда</div>
+                <div class="rent-description">
                     Аренда автоматизированных блочно-модульных котельных установок (БМАК) для обогрева жилых и
-                    промышленных помещений, складов, ангаров и т. п. на дизельном топливе.
-                </p>
-                <p>Также возможна аренда мобильной котельной установки мощностью 500 кВт на базе автомобиля Ford Transit</p>
-            </div>
+                    промышленных помещений, складов, ангаров и т. п. на дизельном топливе.</div>
+                <div class="rent-ford">Также возможна аренда мобильной котельной установки мощностью 500 кВт на базе автомобиля Ford Transit</div>
+            
         </div>
         <div class="prices">
             <div class="button-container">
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 0,5 мВт 1К')">
                     <div class="title">БМАК 0,5 мВт 1К</div>
-                    Наружное размещение<br>
-                    Теплоснабжение и ГВС<br>
-                    Дизельное топливо<br>
-                    Мощность 500 кВт<br>
-                    Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+                    <div class="characteristic">
+                        Наружное размещение<br>
+                        Теплоснабжение и ГВС<br>
+                        Дизельное топливо<br>
+                        Мощность 500 кВт<br>
+                        Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+                    </div>
                     <div class="order-block">
                         от 150 000 руб. / месяц <div class="order-arrow"></div>
                     </div>
                 </div>
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 1,04 мВт 1К без ГВС')">
                     <div class="title">БМАК 1,04 мВт 1К без ГВС</div>
-                    Есть бензогенератор<br>
-                    Теплоснабжение<br>
-                    Дизельное топливо<br>
-                    Мощность 1040 кВт<br>
-                    Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+                    <div class="characteristic">
+                        Есть бензогенератор<br>
+                        Теплоснабжение<br>
+                        Дизельное топливо<br>
+                        Мощность 1040 кВт<br>
+                        Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+                    </div>
                     <div class="order-block">
                         от 250 000 руб. / месяц <div class="order-arrow"></div>
                     </div>
                 </div>
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 1,0 мВт 2К без ГВС')">
                     <div class="title">БМАК 1,0 мВт 2К без ГВС</div>
-                    <div>
+                    <div class="characteristic">
                         Есть бензогенератор<br>
                         Теплоснабжение<br>
                         Дизельное топливо<br>
@@ -87,11 +93,13 @@ const closeOrderModal = () => {
                 </div>
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 3,0 мВт 1К без ГВС')">
                     <div class="title">БМАК 3,0 мВт 1К без ГВС</div>
-                    Есть бензогенератор<br>
-                    Теплоснабжение<br>
-                    Дизельное топливо<br>
-                    Мощность 3000 кВт<br>
-                    Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+                    <div class="characteristic">
+                        Есть бензогенератор<br>
+                        Теплоснабжение<br>
+                        Дизельное топливо<br>
+                        Мощность 3000 кВт<br>
+                        Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+                    </div>
                     <div class="order-block">
                         от 350 000 руб. / месяц <div class="order-arrow"></div>
                     </div>
@@ -99,21 +107,19 @@ const closeOrderModal = () => {
             </div>
         </div>
         <div class="production">
-            <div class="description">
-                <h2>Проиводство</h2>
-                <p>
-                    Изготовление и поставка блочно-модульных автоматизированных
-                    котельных установок (БМАК) в соответствии с техническими требованиями
-                    заказчика необходимой мощности.
-                </p>
-                <p>
-                    Изготовление котлов наружного размещений БМАК 0,5 МВт с
-                    возможностью каскадного подключения.
-                </p>
-                <p>
-                    Изготовления мобильных котельных установок мощностью до 500 кВт на
-                    базе автомобилей.
-                </p>
+            <div class="fabrication">Проиводство</div>
+            <div class="manufacturing-and-delivery">
+                Изготовление и поставка блочно-модульных автоматизированных
+                котельных установок (БМАК) в соответствии с техническими требованиями
+                заказчика необходимой мощности.
+            </div>
+            <div class="manufacturing-boilers">
+                Изготовление котлов наружного размещений БМАК 0,5 МВт с
+                возможностью каскадного подключения.
+            </div>
+            <div class="manufacturing-mobile-boilers">
+                Изготовления мобильных котельных установок мощностью до 500 кВт на
+                базе автомобилей.
             </div>
         </div>
         <div class="plan"></div>
@@ -123,13 +129,13 @@ const closeOrderModal = () => {
 
         <div class="repair-container">
             <div class="repair-inner">
-                <h2>Ремонт и обслуживание</h2>
-                <p>
+                <div class="repair-and-maintenance">Ремонт и обслуживание</div>
+                <div class="state">
                     В штате компании постоянно работает 5 сервисных бригад, готовых на
                     высоком уровне оказать работы по обслуживанию, пуско-наладке и
                     запуску котельного оборудования.
-                </p>
-                <p>Бригада будет у Вас на объекте в течении 24 часов.</p>
+                </div>
+                <div class="brigade">Бригада будет у Вас на объекте в течении 24 часов.</div>
             </div>
             <div class="button-order">
                 <button class="order" style="margin-top: 46px;" @click="showOrderModal('Ремонт и обслуживание')">ЗАКАЗАТЬ</button>
@@ -193,18 +199,28 @@ export default {
     padding-bottom: 60px;
 }
 
-h1, h2 {
+.full-complex {
     font-size: 40px;
     font-weight: 600;
-    line-height: 50px;
     margin-bottom: 30px;
 }
-
-p {
-    padding-bottom: 30px;
+.shipment {
     font-size: 30px;
+    margin-bottom: 60px;
 }
-
+.rent {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.rent-description {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.rent-ford {
+    font-size: 30px;
+    margin-bottom: 60px;
+}
 .prices {
     background-color: black;
     display: flex;
@@ -256,7 +272,23 @@ p {
     height: 468px;
     font-size: 30px;
 }
-
+.fabrication {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.manufacturing-and-delivery {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.manufacturing-boilers {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.manufacturing-mobile-boilers {
+    font-size: 30px;
+    margin-bottom: 60px;
+}
 .plan {
     background-image: url("/src/assets/images/big_images_of_boilers/plan.png");
     height: 785px;
@@ -274,7 +306,7 @@ p {
 }
 
 .button-order {
-    padding-bottom: 60px;
+    padding-bottom: 30px;
 }
 
 .repair-container {
@@ -282,12 +314,25 @@ p {
     background-size: cover;
     padding: 126px 40px 40px;
     color: #fff;
+
 }
 
 .repair-inner {
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.199);
     border-radius: 8px;
+}
+.repair-and-maintenance {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.state {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.brigade {
+    font-size: 30px;
+    margin-bottom: 30px;
 }
 
 /* Стили для модального окна */
@@ -434,5 +479,111 @@ input::placeholder {
 }
 .order-block {
     display: flex;
+}
+@media (max-width: 430px) {
+    .service-wrapper {
+        max-width: 400px;
+    }
+    .topbar {
+        display: none;
+    }
+    .back {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        border: 2px solid #696770; 
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px; 
+    }
+    .back-logo {
+        background-image: url('@/assets/images/back_arrow/back2.svg');
+        background-repeat: no-repeat; 
+        width: 100%; 
+        height: 100%; 
+        background-size: contain; 
+    }
+    .back:hover {
+        border: 2px solid #555555;
+    }
+    .service {
+        max-width: 400px;
+    }
+    .full-complex {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .shipment {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    .rent {
+        font-size: 20px;
+        margin-bottom: 20px
+    }
+    .rent-description {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .rent-ford {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+
+    .prices {
+        flex-direction: column; /* Блоки в столбик */
+        align-items: center; /* Центрируем блоки */
+        max-width: 430px;
+        
+    }
+    .transparent-button {
+        max-width: 300px;
+        max-height: 290px;
+        margin-bottom: 20px;
+    }
+    .title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .characteristic {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .order-block {
+        font-size: 16px;
+    }
+
+
+    .production {
+        max-width: 274px;
+        
+    }
+    .fabrication {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .manufacturing-and-delivery {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .manufacturing-boilers {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .manufacturing-mobile-boilers {
+        font-size: 16px;
+    }
+    .plan {
+        background-image: url("/src/assets/images/big_images_of_boilers/plan.png");
+        background-size: cover;
+        max-width: 296px;
+        max-height: 203px;
+    }
+
+
+    .repair-container {
+        max-width: 430px;
+    }
 }
 </style>
