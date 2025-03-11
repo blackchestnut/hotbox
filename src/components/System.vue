@@ -2,6 +2,9 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/swiper-bundle.css';
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useRouter } from 'vue-router'; // Импортируем useRouter для навигации
+
+const router = useRouter(); // Получаем доступ к роутеру
 
 // Определяем isMobile как реактивную переменную
 const isMobile = ref(window.innerWidth <= 430);
@@ -28,61 +31,61 @@ const slides = [
     text: 'ПАКУ 500 кВт 1К (Н/Р)',
     image: "/src/assets/images/boilers/paku-500-kvt-1k-nr/1.png",
     description: 'Установка 0,5 МВт, 1 котел',
-    link: 'kotelnye/paku-500-kvt-1k-nr'
+    link: '/kotelnye/paku-500-kvt-1k-nr'
   },
   {
     text: 'БМАК 1000 кВт 2К',
     image: "/src/assets/images/boilers/bmak-1000-kvt-2k/1.png",
     description: 'Котельная 1,0 МВт, 2 котла',
-    link: 'kotelnye/bmak-1000-kvt-2k'
+    link: '/kotelnye/bmak-1000-kvt-2k'
   },
   {
     text: 'БМАК 1040 кВт 1К',
     image: "/src/assets/images/boilers/bmak-1040-kvt-1k/1.png",
     description: 'Котельная 1,04 МВт, 1 котел',
-    link: 'kotelnye/bmak-1040-kvt-1k'
+    link: '/kotelnye/bmak-1040-kvt-1k'
   },
   {
     text: 'БМАК 1200 кВт 1К',
     image: "/src/assets/images/boilers/bmak-1200-kvt-1k/1.png",
     description: 'Котельная 1,2 МВт, 1 котел',
-    link: 'kotelnye/bmak-1200-kvt-1k'
+    link: '/kotelnye/bmak-1200-kvt-1k'
   },
   {
     text: 'БМАК 1400 кВт 1К',
     image: "/src/assets/images/boilers/bmak-1400-kvt-1k/1.png",
     description: 'Котельная 1,4 МВт, 1 котел',
-    link: 'kotelnye/bmak-1400-kvt-1k'
+    link: '/kotelnye/bmak-1400-kvt-1k'
   },
   {
     text: 'БМАК 1600 кВт 1К',
     image: "/src/assets/images/boilers/bmak-1600-kvt-1k/1.png",
     description: 'Котельная 1,6 МВт, 1 котел',
-    link: 'kotelnye/bmak-1600-kvt-1k'
+    link: '/kotelnye/bmak-1600-kvt-1k'
   },
   {
     text: 'БМАК 4800 кВт 2К',
     image: "/src/assets/images/boilers/bmak-4800-kvt-2k/1.png",
     description: 'Котельная 4,8 МВт, 2 котла',
-    link: 'kotelnye/bmak-4800-kvt-2k' 
+    link: '/kotelnye/bmak-4800-kvt-2k'
   },
   {
     text: 'БМАК 6000 кВт 2К',
     image: "/src/assets/images/boilers/bmak-6000-kvt-2k/1.png",
     description: 'Котельная 6 МВт, 2 котла',
-    link: 'kotelnye/bmak-6000-kvt-2k' 
+    link: '/kotelnye/bmak-6000-kvt-2k'
   },
   {
     text: 'БМАК 6100 кВт 2К',
     image: "/src/assets/images/boilers/bmak-6100-kvt-2k/1.png",
     description: 'Котельная 6,1 МВт, 2 котла',
-    link: 'kotelnye/bmak-6100-kvt-2k'
+    link: '/kotelnye/bmak-6100-kvt-2k'
   },
   {
     text: 'БМАК 7400 кВт 2К',
     image: "/src/assets/images/boilers/bmak-7400-kvt-2k/1.png",
     description: 'Котельная 7,4 МВт, 2 котла',
-    link: 'kotelnye/bmak-7400-kvt-2k'
+    link: '/kotelnye/bmak-7400-kvt-2k'
   },
 ];
 
@@ -116,8 +119,7 @@ const goToPage = (index) => {
 
 const showDetails = (index) => {
   const selectedSlide = slides[index];
-  // Используйте ваш роутер для перехода на страницу
-  // this.$router.push(selectedSlide.link);
+  router.push(selectedSlide.link); // Используем роутер для перехода
 };
 </script>
 
@@ -134,14 +136,17 @@ const showDetails = (index) => {
         <div class="container">
           <swiper
             ref="mySwiper"
-            :slides-per-view="isMobile ? 1 : 3" 
-            :space-between="isMobile ? 16 : 30" 
+            :slides-per-view="isMobile ? 1 : 3"
+            :space-between="isMobile ? 16 : 30"
             :slides-per-group="1"
             class="mySwiper"
             @swiper="onSwiper"
           >
             <swiper-slide v-for="(slide, index) in slides" :key="index">
-              <div class="slide-inner">
+              <div
+                class="slide-inner"
+                @click="isMobile ? showDetails(index) : null" 
+              >
                 <img :src="slide.image" alt="Slide Image" class="slide-image" />
                 <div class="label">{{ slide.text }}</div>
                 <div class="description">{{ slide.description }}</div>
@@ -177,7 +182,6 @@ const showDetails = (index) => {
 </template>
 
 <style scoped>
-
 .system {
   height: 1031px;
   width: 1160px;
@@ -191,7 +195,7 @@ const showDetails = (index) => {
 }
 .boilers-hotbox {
   font-size: 40px;
-  font-weight: 600; /* Устанавливает жирное начертание */
+  font-weight: 600;
   line-height: 50px;
   margin-bottom: 30px;
 }
@@ -207,12 +211,13 @@ const showDetails = (index) => {
 }
 .slide-inner {
   justify-content: center;
-  width: 100%; /* Замените фиксированную ширину на 100% */
-  max-width: 357px; /* Если хотите сохранить максимальную ширину */
+  width: 100%;
+  max-width: 357px;
   height: 525px;
   background-color: #EBEBEB;
   border-radius: 8px;
   transition: transform 0.3s ease;
+  cursor: pointer; /* Добавляем курсор для интерактивности */
 }
 .label {
   font-size: 20px;
@@ -333,13 +338,13 @@ const showDetails = (index) => {
     margin: 0 auto;
     max-width: 380px;
     margin-top: 20px;
-    text-align: left; /* Текст выравнивается по левому краю */
+    text-align: left;
   }
   .subheadline {
     font-size: 16px;
     margin-top: 10px;
     margin-bottom: 10px;
-    text-align: left; /* Текст выравнивается по левому краю */
+    text-align: left;
   }
   .slider-navigation {
     display: none;
@@ -354,22 +359,22 @@ const showDetails = (index) => {
   }
   .slide-inner {
     max-width: 280px;
-    max-height: 500px;
+    max-height: 420px;
     justify-content: center;
-    text-align: center; /* Центрируем текст внутри слайда */
-    margin: 0 auto; /* Центрируем слайд по горизонтали */
+    text-align: center;
+    margin: 0 auto;
   }
   .slide-image {
     max-width: 280px;
     height: auto;
   }
   .label {
-    font-size: 15px;
+    font-size: 16px;
     color: #000000;
     max-width: 122px;
     padding-top: 20px;
-    text-align: center; /* Центрируем текст */
-    margin: 0 auto; /* Центрируем по горизонтали */
+    text-align: center;
+    margin: 0 auto;
   }
   .description {
     font-size: 14px;
@@ -377,11 +382,14 @@ const showDetails = (index) => {
     padding-top: 20px;
     padding-bottom: 20px;
     max-width: 122px;
-    text-align: center; /* Центрируем текст */
-    margin: 0 auto; /* Центрируем по горизонтали */
+    text-align: center;
+    margin: 0 auto;
   }
   .swiper-slide {
-    margin-right: 16px !important; /* Расстояние между слайдами */
+    margin-right: 16px !important;
+  }
+  .details-button {
+    display: none;
   }
 }
 </style>

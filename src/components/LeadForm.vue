@@ -151,7 +151,7 @@
     text-align: left;
   }
   .b-input input {
-    max-width: 296px;
+    max-width: 350px;
     max-height: 48px;
     padding-left: 12px;
     padding-right: 12px;
@@ -160,8 +160,8 @@
     margin-right: auto;
   }
   .submit {
-    max-width: 296px;
-    max-height: 48px;
+    width: 380px;
+    height: 54px;
     font-size: 16px;
     margin-left: auto;
     margin-right: auto;
