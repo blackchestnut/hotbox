@@ -325,20 +325,21 @@ const showDetails = (index) => {
 
 @media (max-width: 430px) {
   .system-wrapper {
-    width: 100%;
+    max-width: 100%;
   }
   .system {
     margin: 0 auto;
     text-align: center;
     justify-content: center;
     height: auto;
-    width: 100%;
+    max-width: 100%;
   }
   .header {
     margin: 0 auto;
-    max-width: 380px;
+    max-width: 100%;
     margin-top: 20px;
     text-align: left;
+    padding: 0px 16px;
   }
   .subheadline {
     font-size: 16px;
@@ -365,7 +366,7 @@ const showDetails = (index) => {
     margin: 0 auto;
   }
   .slide-image {
-    max-width: 280px;
+    max-width: 100%;
     height: auto;
   }
   .label {

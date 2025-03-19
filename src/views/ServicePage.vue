@@ -32,28 +32,26 @@ const closeOrderModal = () => {
 
 <template>
     <Menu />
+    <RouterLink to="/boiler-room">
+        <div class="back">
+            <div class="back-logo"></div>
+        </div>
+    </RouterLink>
     <div class="service-wrapper">
-        <RouterLink to="/boiler-room">
-            <div class="back">
-                <div class="back-logo"></div>
-            </div>
-        </RouterLink>
         <div class="service">
                 <div class="full-complex">Полный комплекс услуг по работе с котельными системами</div>
                 <div class="shipment">Проектирование, изготовление поставка, подключение, запуск, поставка дизельного топлива,
                     мониторинг и сервисное обслуживание.</div>
-
                 <div class="rent">Аренда</div>
                 <div class="rent-description">
                     Аренда автоматизированных блочно-модульных котельных установок (БМАК) для обогрева жилых и
                     промышленных помещений, складов, ангаров и т. п. на дизельном топливе.</div>
                 <div class="rent-ford">Также возможна аренда мобильной котельной установки мощностью 500 кВт на базе автомобиля Ford Transit</div>
-            
         </div>
         <div class="prices">
             <div class="button-container">
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 0,5 мВт 1К')">
-                    <div class="title">БМАК 0,5 мВт 1К</div>
+                    <div class="name">БМАК 0,5 мВт 1К</div>
                     <div class="characteristic">
                         Наружное размещение<br>
                         Теплоснабжение и ГВС<br>
@@ -66,7 +64,7 @@ const closeOrderModal = () => {
                     </div>
                 </div>
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 1,04 мВт 1К без ГВС')">
-                    <div class="title">БМАК 1,04 мВт 1К без ГВС</div>
+                    <div class="name">БМАК 1,04 мВт 1К без ГВС</div>
                     <div class="characteristic">
                         Есть бензогенератор<br>
                         Теплоснабжение<br>
@@ -79,7 +77,7 @@ const closeOrderModal = () => {
                     </div>
                 </div>
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 1,0 мВт 2К без ГВС')">
-                    <div class="title">БМАК 1,0 мВт 2К без ГВС</div>
+                    <div class="name">БМАК 1,0 мВт 2К без ГВС</div>
                     <div class="characteristic">
                         Есть бензогенератор<br>
                         Теплоснабжение<br>
@@ -92,7 +90,7 @@ const closeOrderModal = () => {
                     </div>
                 </div>
                 <div class="transparent-button" @click="showOrderModal('Аренда БМАК 3,0 мВт 1К без ГВС')">
-                    <div class="title">БМАК 3,0 мВт 1К без ГВС</div>
+                    <div class="name">БМАК 3,0 мВт 1К без ГВС</div>
                     <div class="characteristic">
                         Есть бензогенератор<br>
                         Теплоснабжение<br>
@@ -124,7 +122,7 @@ const closeOrderModal = () => {
         </div>
         <div class="plan"></div>
         <div class="button-order">
-            <button class="order" @click="showOrderModal('Производство котельной на заказ')">ЗАКАЗАТЬ</button>
+            <button class="order" style="margin-bottom: 30px;" @click="showOrderModal('Производство котельной на заказ')">ЗАКАЗАТЬ</button>
         </div>
 
         <div class="repair-container">
@@ -138,7 +136,7 @@ const closeOrderModal = () => {
                 <div class="brigade">Бригада будет у Вас на объекте в течении 24 часов.</div>
             </div>
             <div class="button-order">
-                <button class="order" style="margin-top: 46px;" @click="showOrderModal('Ремонт и обслуживание')">ЗАКАЗАТЬ</button>
+                <button class="order" @click="showOrderModal('Ремонт и обслуживание')">ЗАКАЗАТЬ</button>
             </div>
         </div>
 
@@ -236,7 +234,7 @@ export default {
     justify-content: center;
 }
 
-.title {
+.name {
     font-size: 30px;
     line-height: 30px;
     font-weight: 600;
@@ -314,7 +312,6 @@ export default {
     background-size: cover;
     padding: 126px 40px 40px;
     color: #fff;
-
 }
 
 .repair-inner {
@@ -482,8 +479,10 @@ input::placeholder {
 }
 @media (max-width: 430px) {
     .service-wrapper {
-        max-width: 400px;
+        max-width: 100%;
+        padding: 0px 16px;
     }
+
     .topbar {
         display: none;
     }
@@ -494,7 +493,8 @@ input::placeholder {
         border: 2px solid #696770; 
         position: relative;
         margin-top: 30px;
-        margin-bottom: 30px; 
+        margin-bottom: 30px;
+        margin-left: 16px; 
     }
     .back-logo {
         background-image: url('@/assets/images/back_arrow/back2.svg');
@@ -507,7 +507,8 @@ input::placeholder {
         border: 2px solid #555555;
     }
     .service {
-        max-width: 400px;
+        max-width: 100%;
+        padding: 0px;
     }
     .full-complex {
         font-size: 20px;
@@ -515,11 +516,11 @@ input::placeholder {
     }
     .shipment {
         font-size: 16px;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
     .rent {
         font-size: 20px;
-        margin-bottom: 20px
+        margin-bottom: 20px;
     }
     .rent-description {
         font-size: 16px;
@@ -527,37 +528,42 @@ input::placeholder {
     }
     .rent-ford {
         font-size: 16px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
-
 
     .prices {
-        flex-direction: column; /* Блоки в столбик */
-        align-items: center; /* Центрируем блоки */
-        max-width: 430px;
-        
+        padding: 0px;
+    }
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+        width: 430px;
+        background-color: #000;
+        padding-top: 36px;
+        padding-bottom: 36px;
+        gap: 36px;
     }
     .transparent-button {
-        max-width: 300px;
-        max-height: 290px;
-        margin-bottom: 20px;
+        max-width: 320px;
+        max-height: 320px;
+        gap: 0px;
+        margin: 0px;
+        padding: 20px;
     }
-    .title {
+    .name {
         font-size: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     .characteristic {
         font-size: 16px;
-        margin-bottom: 20px;
     }
     .order-block {
         font-size: 16px;
     }
 
-
     .production {
-        max-width: 274px;
-        
+        max-width: 100%;
+        max-height: 320px;
     }
     .fabrication {
         font-size: 20px;
@@ -566,24 +572,70 @@ input::placeholder {
     .manufacturing-and-delivery {
         font-size: 16px;
         margin-bottom: 20px;
+        max-width: 360px;
     }
     .manufacturing-boilers {
         font-size: 16px;
         margin-bottom: 20px;
+        max-width: 360px;
     }
     .manufacturing-mobile-boilers {
         font-size: 16px;
+        margin-bottom: 30px;
+        max-width: 360px;
     }
     .plan {
-        background-image: url("/src/assets/images/big_images_of_boilers/plan.png");
-        background-size: cover;
         max-width: 296px;
-        max-height: 203px;
+        height: 203px;
+        margin-bottom: 0px;
+        background-size: cover;
     }
-
+    
 
     .repair-container {
-        max-width: 430px;
+        padding-top: 36px;
+        padding-bottom: 36px;
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 430px;
+        background-image: url("/src/assets/images/big_images_of_boilers/repair-background-mobile.png");
+        background-size: cover;
+    }
+    @media (max-width: 375px) {
+        .repair-container {
+            max-width: 375px;
+        }
+        .button-container {
+            max-width: 375px;
+        }
+        .transparent-button {
+            max-width: 300px;
+            max-height: 320px;
+        }
+    }
+    .repair-inner {
+        padding: 20px;
+        margin-bottom: 20px;
+        max-width: 300px;
+       
+        margin-left: 45px;
+        margin-right: 45px;
+    }
+    .repair-and-maintenance {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .state {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .brigade {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .button-order {
+        padding: 0px;
+        margin-top: 0px;
     }
 }
 </style>

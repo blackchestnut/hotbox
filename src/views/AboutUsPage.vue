@@ -341,7 +341,7 @@ export default {
 }
 @media (max-width: 430px) {
     .page-container {
-        max-width: 400px;
+        max-width: 100%;
         margin: 0 auto;
     }
     .topbar {

@@ -110,12 +110,12 @@
 
 @media (max-width: 430px) {
     .partner-wrapper {
-        max-width: 400px;
+        max-width: 100%;
         margin: 0 auto;
     }
     .partners {
         margin-top: 36px;
-        max-width: 380px;
+        padding: 0px 16px;
     }
     .production {
         font-size: 20px;
@@ -136,6 +136,7 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 36px;
+        padding: 0px 16px;
     }
     .pictures img {
         margin: 24px; /* Отступы между изображениями */

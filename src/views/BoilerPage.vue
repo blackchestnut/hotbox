@@ -114,18 +114,18 @@ const toggleText = () => {
                 
                 <button class="buy" @click.prevent="showOrderModal">ЗАКАЗАТЬ</button>
 
-                <div style="font-size: 20px; padding-bottom: 16px;">ПАКУ имеет наружное размещение. Есть возможность<br>
+                <div class="pacu">ПАКУ имеет наружное размещение. Есть возможность<br>
                 каскадного подключения. Может быть оснащена ГВС.</div>
                         
                 <div class="description" :class="{ 'expanded': isExpanded }">
-                    <div class="t">{{ description() }}</div>
+                    <div class="gray-description">{{ description() }}</div>
                 </div>
                 <a href="#" @click.prevent="toggleText" class="show-more">
                     {{ isExpanded ? 'Скрыть' : 'Читать полностью' }}
                 </a>
             </div>
         </div>
-        <div class="more-infarmation">
+        <div class="more-information">
             <h3>Основные характеристики</h3>
             <div style="margin-bottom: 30px;" class="t">
                 <div v-if="boiler.typeDescription">
@@ -420,7 +420,11 @@ const toggleText = () => {
     line-height: 30px;
     padding-bottom: 10px;
 }
-
+.gray-description {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
 .fuel-container, .gvs-container {
   display: flex;
   gap: 10px;
@@ -582,5 +586,112 @@ input::placeholder {
 .politics a {
     color: #000;
 }
+.pacu {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+@media (max-width: 430px) {
+    .page-container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0px 16px;
+    }
+    .topbar {
+        display: none;
+    }
+    .back {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        border: 2px solid #696770; 
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px; 
+    }
+    .back-logo {
+        background-image: url('@/assets/images/back_arrow/back2.svg');
+        background-repeat: no-repeat; 
+        width: 100%; 
+        height: 100%; 
+        background-size: contain; 
+    }
+    .back:hover {
+        border: 2px solid #555555;
+    }
 
+    .boiler-card {
+        width: 300px;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    .wrapper {
+        flex-direction: column;
+    }
+    .arrow-button {
+        width: 30px;
+        height: 30px;
+    }
+    .characteristic {
+        margin: 0px;
+    }
+    .characteristic h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .characteristic p {
+        font-size: 16px;
+        margin-bottom: 10px;
+        padding: 0px
+    }
+    .t {
+        font-size: 14px;
+        margin-bottom: 10px;
+        padding: 0px;
+        line-height: 24px;
+    }
+    .fuel-container {
+        padding: 0px;
+        margin-bottom: 16px;
+    }
+    .fuel {
+        font-size: 13px;
+        width: 60px;
+        height: 30px;
+        padding: 0px;
+    }
+    .gvs-container{
+        padding: 0px;
+    }
+    .gvs {
+        width: 130px;
+        height: 30px;
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+    .buy {
+        max-width: 90px;
+        max-height: 40px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .pacu {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .gray-description {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 10px;    
+    }
+    .show-more {
+        font-size: 14px;
+    }
+    .more-information h3 {
+        font-size: 16px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    
+    
+}
 </style>

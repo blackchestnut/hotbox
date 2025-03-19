@@ -9,38 +9,19 @@
         </div>
         <!-- Логотип огня для ПК версии -->
         <img src="\src\assets\images\red_logos\fire.svg" alt="Fire Logo" class="fire-logo fire-logo-desktop" />
-        <div class="b-input red-background">
-          <input id="crm_lead_client" name="crm_lead[client]"
-          placeholder="Ваше имя" type="text">
+        <div class="b-input">
+          <input placeholder="Ваше имя" type="text">
         </div>
-
-        <div class="phone-area">
-          <div class="b-input red-background select country_code custom-select">
-            <div class="b-input red-background phone">
-              <input id="crm_lead_phone" name="crm_lead[phone]"
-              placeholder="Телефон" type="tel">
-            </div>
-          </div>
+        <div class="b-input">
+            <input placeholder="Телефон" type="tel">
         </div>
-
-        <div class="email-area">
-          <div class="b-input red-background select country_code custom-select">
-            <div class="b-input red-background email">
-              <input id="crm_lead_phone" name="crm_lead[email]"
-              placeholder="E-mail" type="email">
-            </div>
-          </div>
+        <div class="b-input">
+          <input placeholder="E-mail" type="email"> 
         </div>
-
-        <div class="b-input red-background">
-          <input id="crm_lead_service" name="crm_lead[service]"
-          placeholder="Услуга" type="text">
+        <div class="b-input">
+          <input placeholder="Услуга" type="text">
         </div>
-
-        <div class="submit-container">
-          <input class="submit" type="submit" value="Отправить запрос">
-        </div>
-
+        <input class="submit" type="submit" value="Отправить запрос">
         <div class="note">
           Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
           <a href="https://hotboxrf.ru/politika">политикой конфиденциальности</a>
@@ -132,10 +113,14 @@
 }
 /* Мобильная версия */
 @media (max-width: 430px) {
+  .leadform-wrapper {
+    max-width: 100%;
+  }
   .leadform-content {
-    max-width: 380px;
+    padding: 0px 16px;
     margin: 0 auto;
     text-align: left;
+    max-width: 100%;
   }
   .leave-request {
     font-size: 24px;
@@ -143,15 +128,17 @@
   }
   .your-data {
     font-size: 16px;
-    max-width: 295px;
+    max-width: 100%;
     text-align: left;
   }
   .note {
     font-size: 16px;
     text-align: left;
   }
+  
   .b-input input {
-    max-width: 350px;
+    width: 100%;
+  
     max-height: 48px;
     padding-left: 12px;
     padding-right: 12px;
@@ -160,11 +147,10 @@
     margin-right: auto;
   }
   .submit {
-    width: 380px;
+    width: 100%;
     height: 54px;
     font-size: 16px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0px;
   }
   .fire-logo-desktop {
     display: none; /* Скрываем логотип для ПК версии */

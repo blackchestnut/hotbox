@@ -70,7 +70,7 @@ const setActiveLink = (index) => {
         <div class="icon-mobile-headphones" @click="openModal"></div>
         <div class="contact-details">
           <div class="phone-number">+7 (977) 953 39 11</div>
-          <div class="email">zakaz@tehtelecom.ru</div>
+          <div class="email1">zakaz@tehtelecom.ru</div>
         </div>
       </div>
       <div class="logo" />
@@ -351,7 +351,7 @@ const setActiveLink = (index) => {
 .email-modal-content h2 {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   text-align: center;
 }
 
@@ -407,7 +407,7 @@ const setActiveLink = (index) => {
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;

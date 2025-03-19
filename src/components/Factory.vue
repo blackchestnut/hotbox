@@ -12,77 +12,31 @@
                 <img src="\src\assets\images\red_logos\award.svg" alt="Award Logo" class="award-logo" />
             </div>
             <div class="button-container">
-                <!-- Кнопки для десктопной версии -->
-                <router-link to="/boiler-room">               
-                <button class="transparent-button"><img src="\src\assets\images\white_logos\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br>Котельные блочно-модульные</button>
-                </router-link>
+              <router-link to="/boiler-room" class="transparent-button boilers">               
+                <span class="d-desktop">Котельные<br>блочно-модульные</span>
+                <span class="d-mobile">Котельные</span>
+              </router-link>
 
-                <router-link to="/service">
-                <button class="transparent-button"><img src="\src\assets\images\white_logos\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br>Аренда</button>
-                </router-link>
+              <router-link to="/service" class="transparent-button service">
+                Аренда
+              </router-link>
 
-                <router-link to="/service">    
-                <button class="transparent-button"><img src="\src\assets\images\white_logos\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br>Ремонт и обслуживание</button>
-                </router-link>
+              <router-link to="/service" class="transparent-button repaire">    
+                Ремонт и обслуживание
+              </router-link>
 
-                <router-link to="/car">
-                <button class="transparent-button">
-                    <img src="\src\assets\images\white_logos\car-logo.svg" alt="Car Logo" class="car-logo" /><br>
-                    Котельные мобильные<br>
-                    автоматизированные
-                </button>
-                </router-link>
+              <router-link to="/car" class="transparent-button car">
+                Котельные мобильные<br>
+                автоматизированные
+              </router-link>
 
-                <router-link to="/service">
-                <button class="transparent-button"><img src="\src\assets\images\white_logos\hook-logo.svg" alt="Hook Logo" class="hook-logo" /><br>Производство</button>
-                </router-link>
+              <router-link to="/service" class="transparent-button production">
+                Производство
+              </router-link>
 
-                <router-link to="/news">
-                <button class="transparent-button">
-                    <img src="/src/assets/images/white_logos/news-logo.svg" alt="News Logo" class="news-logo" /><br>
-                    Новости
-                </button>
-                </router-link>
-
-                <!-- Кнопки для мобильной версии -->
-                <div class="mobile-buttons">
-                <router-link to="/boiler-room">
-                    <button class="factory-button">
-                    <img src="\src\assets\images\white_logos\factory-logo.svg" alt="Factory Logo" class="factory-logo" /><br>
-                    Котельные
-                    </button>
-                </router-link>
-                <router-link to="/service">
-                    <button class="hook-button">
-                    <img src="\src\assets\images\white_logos\hook-logo.svg" alt="Hook Logo" class="hook-logo" /><br>
-                    Производство
-                    </button>
-                </router-link>
-                <router-link to="/news">
-                    <button class="news-button">
-                    <img src="/src/assets/images/white_logos/news-logo.svg" alt="News Logo" class="news-logo" /><br>
-                    Новости
-                    </button>
-                </router-link>
-                <router-link to="/car">
-                    <button class="car-button">
-                    <img src="\src\assets\images\white_logos\car-logo.svg" alt="Car Logo" class="car-logo" /><br>
-                    Мобильная котельная
-                    </button>
-                </router-link>
-                <router-link to="/service">
-                    <button class="clock-button">
-                    <img src="\src\assets\images\white_logos\clock-logo.svg" alt="Clock Logo" class="clock-logo" /><br>
-                    Аренда
-                    </button>
-                </router-link>
-                <router-link to="/service">    
-                    <button class="hammer-button">
-                    <img src="\src\assets\images\white_logos\hammer-logo.svg" alt="Hammer Logo" class="hammer-logo" /><br>
-                    Ремонт и обслуживание
-                    </button>
-                </router-link>
-                </div>
+              <router-link to="/news" class="transparent-button news">
+                Новости
+              </router-link>
             </div>
         </div>
   </div>
@@ -128,7 +82,8 @@
 
 /* Стили для полупрозрачных кнопок */
 .transparent-button {
-  padding: 24px;
+  padding: 70px 24px 24px 24px;
+  box-sizing: border-box;
   width: 368px;
   height: 204px;
   background-color: rgba(255, 255, 255, 0.158); /* Полупрозрачный белый фон */
@@ -136,11 +91,34 @@
   border: none; /* Убираем рамку */
   border-radius: 8px; /* Закругленные углы */
   cursor: pointer; /* Указатель при наведении */
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter';
   font-size: 28px;
   font-weight: 500;
   transition: background-color 0.3s; /* Плавный переход цвета фона */
   text-align: left;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: 24px 24px;  
+}
+
+.transparent-button.boilers {
+  background-image: url('@/assets/images/white_logos/factory-logo.svg');
+
+}
+.transparent-button.service {
+  background-image: url('@/assets/images/white_logos/clock-logo.svg');
+}
+.transparent-button.repaire {
+  background-image: url('@/assets/images/white_logos/hammer-logo.svg');
+}
+.transparent-button.car {
+  background-image: url('@/assets/images/white_logos/car-logo.svg');
+}
+.transparent-button.production {
+  background-image: url('@/assets/images/white_logos/hook-logo.svg');
+}
+.transparent-button.news {
+  background-image: url('@/assets/images/white_logos/news-logo.svg');
 }
 
 /* Эффект при наведении на кнопку */
@@ -148,13 +126,19 @@
   background-color: rgba(255, 255, 255, 0.267); /* Увеличиваем непрозрачность при наведении */
 }
 
-/* Скрываем кнопки для мобильной версии по умолчанию */
-.mobile-buttons {
+.d-mobile {
   display: none;
 }
 
 /* Мобильные стили (максимальная ширина 430px) */
 @media (max-width: 430px) {
+  .d-desktop {
+    display: none;
+  }
+  .d-mobile {
+    display: inline;
+  }
+
   .factory-wrapper {
     margin: 0 auto;
     max-width: 100%;
@@ -166,7 +150,8 @@
   }
 
   .overlay {
-    background-image: url("/src/assets/images/big_images_of_boilers/shadow-box.png");
+    max-width: 100%;
+    background-image: url("/src/assets/images/big_images_of_boilers/shadow-box-mobile.png");
     background-size: cover;
     color: #fff;
     padding-top: 50px;
@@ -176,114 +161,48 @@
   }
 
   .head-one {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     font-size: 22px;
     font-weight: 600;
     max-width: 280px;
   }
 
   .head-two {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     font-size: 14px;
     font-weight: 500;
     margin-top: 36px;
     margin-bottom: 36px;
     max-width: 280px;
   }
-
-  /* Скрываем кнопки для десктопной версии */
-  .transparent-button {
-    display: none;
-  }
   
-  /* Стили для мобильных кнопок */
-  .factory-button,
-  .clock-button,
-  .hammer-button,
-  .car-button,
-  .hook-button,
-  .news-button {
-    padding: 6px;
-    background-color: rgba(255, 255, 255, 0.158);
-    border-radius: 8px;
-    border: none;
-    color: white;
-    transition: background-color 0.3s;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 400;
-    text-decoration: none;
-  }
-
-  .factory-button:hover,
-  .clock-button:hover,
-  .hammer-button:hover,
-  .car-button:hover,
-  .hook-button:hover,
-  .news-button:hover {
-    background-color: rgba(255, 255, 255, 0.267);
-  }
-
-  .factory-button {
-    width: 94px;
-    height: 121px;
-    padding-bottom: 70px; /* Поднимаем содержимое кнопки */
-  }
-
-  .hook-button {
-    width: 118px;
-    height: 60px;   
-  }
-
-  .news-button {
-    width: 74px;
-    height: 60px;
-  }
-
-  .clock-button {
-    width: 92px;
-    height: 60px;
-  }
-
-  .hammer-button {
-    width: 202px;
-    height: 60px;
-  }
-
-  .car-button {
-    width: 202px;
-    height: 54px;
-  }
-
-  .factory-logo,
-  .clock-logo,
-  .hammer-logo,
-  .car-logo,
-  .hook-logo,
-  .news-logo {
-    width: 16px;
-    height: 16px;
-  }
-
-  /* Убираем подчеркивание у ссылок */
-  .button-container a {
-    text-decoration: none;
-  }
-  
-  .mobile-buttons {
+  .button-container {
     display: grid;
-    grid-template-columns: 94px 118px 74px; /* Ширина кнопок */
-    grid-template-rows: 60px 54px 54px; /* Фиксированная высота строк */
+    grid-template-columns: 1fr 1fr 1fr; /* Ширина кнопок */
+    grid-template-rows: 50px 70px 50px; /* Фиксированная высота строк */
     gap: 10px; /* Минимальное расстояние между кнопками */
     align-items: start; /* Выравниваем кнопки по верхнему краю */
+    grid-template-areas:
+      "a e f"
+      "a d d"
+      "b c c";
   }
 
-  /* Расположение кнопок */
-  .mobile-buttons > :nth-child(1) { grid-column: 1; grid-row: 1; } /* Котельные */
-  .mobile-buttons > :nth-child(2) { grid-column: 2; grid-row: 1; } /* Производство */
-  .mobile-buttons > :nth-child(3) { grid-column: 3; grid-row: 1; } /* Новости */
-  .mobile-buttons > :nth-child(4) { grid-column: 2 / span 2; grid-row: 2; } /* Мобильная котельная (смещена вправо) */
-  .mobile-buttons > :nth-child(5) { grid-column: 1; grid-row: 3; } /* Аренда */
-  .mobile-buttons > :nth-child(6) { grid-column: 2 / span 2; grid-row: 3; } /* Ремонт и обслуживание */
+  .transparent-button {
+    padding: 26px 6px 6px 6px;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    background-position: 6px 6px;
+    background-size: 16px;
+  }  
+
+  .button-container > .boilers { grid-area: a; } /* Котельные */
+  .button-container > .service { grid-area: b; } /* Аренда */
+  .button-container > .repaire { grid-area: c; } /* Ремонт и обслуживание */
+  .button-container > .car { grid-area: d; } /* Мобильная котельная (смещена вправо) */
+  .button-container > .production { grid-area: e; } /* Производство */
+  .button-container > .news { grid-area: f; } /* Новости */
 }
 </style>

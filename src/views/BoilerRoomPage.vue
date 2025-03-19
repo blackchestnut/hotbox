@@ -1,7 +1,11 @@
 <template>
     <Menu />
     <div class="page-container">
-        <div class="boiler">
+        <RouterLink to="/">
+            <div class="back">
+                <div class="back-logo"></div>
+            </div>
+        </RouterLink>
             <div class="head-one">
                 <h1>Автоматизированные котельные системы HotBox</h1>
                 <p>Мы разрабатываем котельные для обеспечения эффективной работой<br>
@@ -9,8 +13,11 @@
                 Мобильность наших котельных установок дает возможность в<br>
                 любой момент перевозить ее на новое место</p>
             </div>
-        </div>
-
+            <div class="two-button-container">
+                <div class="sort-mobile"></div>
+                <div class="sort-power-mobile"></div>
+            </div>
+            
         <!------------------------sort------------------------->
         <div class="sort-container">
             <div class="custom-select" @click="toggleDropdown">
@@ -59,6 +66,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="items">
                 <router-link
                     v-for="(item, index) in sortedBoilers"
@@ -88,6 +96,38 @@
                 </router-link>
             </div>
         </div>
+
+        <div class="items-mobile">
+            <div class="item-pair" v-for="(pair, index) in pairedBoilers" :key="index">
+            <router-link
+                class="item"
+                :to="{ name: 'boiler', params: { id: pair[0].path } }"
+            >
+                <div class="item-content">
+                    <img :src="pair[0].imgSrc" class="item-img" :alt="pair[0].type" />
+                    <div class="text-container"> 
+                        <div class="type">{{ pair[0].type }}</div>
+                        <div class="description">
+                            {{ pair[0].mobileDescription }}<br>
+                        </div>
+                    </div>
+                </div>
+            </router-link>
+            <router-link
+                class="item"
+                :to="{ name: 'boiler', params: { id: pair[1].path } }"
+            >
+                <div class="item-content">
+                    <img :src="pair[1].imgSrc" class="item-img" :alt="pair[1].type" />
+                        <div class="type">{{ pair[1].type }}</div>
+                        <div class="description">
+                            {{ pair[1].mobileDescription }}<br>
+                        </div>
+                </div>
+            </router-link>
+    </div>
+</div>
+
         <div class="merits">
             <div class="information">
                 <div class="time">10 лет<br></div>
@@ -112,6 +152,33 @@
                 <div class="line"></div>
                 <div class="i">Гарантийный срок со<br>
                 дня реализации</div>
+            </div>
+        </div>
+
+        <div class="mobile-container">
+            <div class="info-block">
+                <h2>10 лет</h2>
+                <div class="divider"></div>
+                <p>Наш опыт работы в<br>
+                    сфере теплоснабжения</p>
+            </div>
+            <div class="info-block">
+                <h2>48 часов</h2>
+                <div class="divider"></div>
+                <p>Срок монтажа<br>
+                    котельной на фундаменте</p>
+            </div>
+            <div class="info-block">
+                <h2>60 дней</h2>
+                <div class="divider"></div>
+                <p>Средний срок<br>
+                    изготовления котельной</p>
+            </div>
+            <div class="info-block">
+                <h2>12 месяцев</h2>
+                <div class="divider"></div>
+                <p>Гарантийный срок со<br>
+                    дня реализации</p>
             </div>
         </div>
     </div>
@@ -173,6 +240,13 @@ const sortedBoilers = computed(() => {
     return sorted;
 });
 
+const pairedBoilers = computed(() => {
+    const pairs = [];
+    for (let i = 0; i < sortedBoilers.value.length; i += 2) {
+        pairs.push(sortedBoilers.value.slice(i, i + 2));
+    }
+    return pairs;
+});
 
 const toggleDropdown = () => {
     isOpen.value = !isOpen.value;
@@ -365,7 +439,9 @@ label {
 .arrow.open {
     transform: rotate(180deg); 
 }
-
+.two-button-container {
+    display: none;
+}
 .options {
     position: absolute;
     border: none;
@@ -386,5 +462,182 @@ label {
 .sort-container {
     position: relative; /* Устанавливаем позиционирование */
 }
+.items-mobile {
+    display: none;
+}
+.mobile-container {
+    display: none;
+}
+@media (max-width: 430px) {
+    .page-container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+    .topbar {
+        display: none;
+    }
+    .back {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        border: 2px solid #696770; 
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px; 
+    }
+    .back-logo {
+        background-image: url('@/assets/images/back_arrow/back2.svg');
+        background-repeat: no-repeat; 
+        width: 100%; 
+        height: 100%; 
+        background-size: contain; 
+    }
+    .back:hover {
+        border: 2px solid #555555;
+    }
+    .head-one h1 {
+        font-size: 22px;
+        line-height: 40px;
+        margin-bottom: 10px;
+    }
+    .head-one p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        padding: 0px;
+    }
+    
+    .two-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    }
+    .sort-mobile {
+    background-image: url('@/assets/images/black_logos/sort-logo-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 36px;
+    height: 36px;
+    }
+    .sort-power-mobile {
+    background-image: url('@/assets/images/black_logos/three-lines-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 36px;
+    height: 36px;
+    }
 
+    .filters {
+        display: none;
+    }
+    .custom-select {
+        display: none;
+    }
+    
+    .item-content {
+        max-width: 140px;
+        max-height: 310px;
+    }
+   
+    .item-img {
+        width: 140px;
+        height: 140px;
+    }
+    
+
+    .items {
+        display: none;
+    }
+
+    .items-mobile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-pair {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .item {
+        width: 160px;
+        height: auto;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        border-bottom: none;
+        border-radius: 8px;
+        background-color: #EBEBEB;
+        text-decoration: none;
+    }
+
+    .item-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item-img {
+        width: 160px;
+        height: 160px;
+        border-radius: 8px 8px 0 0;
+        margin: 0px;
+        margin-left: 20px;
+    }
+
+    .type {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+        padding: 10px;
+        color: black; /* Устанавливаем цвет текста на черный */
+        text-decoration: none;
+    }
+    .description {
+        font-size: 14px;
+        color: #555555;
+        line-height: 18px;
+        padding: 0px 10px 10px 10px;
+        text-align: left;
+    }
+
+
+    .mobile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .info-block {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+        margin-bottom: 0px;
+    }
+
+    .divider {
+        width: 188px;
+        height: 2px;
+        background-color: #000;
+        margin-bottom: 12px;
+    }
+
+    p {
+    font-size: 14px;
+    color: #666;
+    padding: 0px;
+    margin-bottom: 20px;
+    }
+    .merits {
+        display: none;
+    }
+
+}
 </style>

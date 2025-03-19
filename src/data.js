@@ -36,6 +36,7 @@ const boilers = [
         boilerUnit: "1шт.",
         itemPasport: "1ком.",
         userManual: "да",
+        mobileDescription: "Передвижная котельная установка 0,5 МВт, 1 котел",
     },
     
     {
@@ -86,6 +87,7 @@ const boilers = [
         boilerPassport: "1 шт.",
         userManual: "1 шт.",
         passportAndManualOfTheControlPanel: "1 шт.",
+        mobileDescription: "Котельная 1,0 МВт, 2 котла",
     },
     {
         path: 'bmak-1040-kvt-1k',
@@ -139,6 +141,7 @@ const boilers = [
         boilerPassport: "1 шт.",
         userManual: "1 шт.",
         passportAndManualOfTheControlPanel: "1 шт.",
+        mobileDescription: "Котельная 1,04 МВт, 1 котел"
     },
     {
         path: 'bmak-1200-kvt-1k',
@@ -171,6 +174,7 @@ const boilers = [
         bmak_1_2: "1шт.",
         itemPasport: "1 шт.",
         chimneys: "специализированная нержавеющая сталь 1 шт.",
+        mobileDescription: "Котельная 1,2 МВт, 1 котел"
     },
     {
         path: 'bmak-1400-kvt-1k',
@@ -211,6 +215,7 @@ const boilers = [
         boilerPassport: "1 шт.",
         userManual: "1 шт.",
         passportAndManualOfTheControlPanel: "1 шт.",
+        mobileDescription: "Котельная 1,4 МВт, 1 котел"
     },
     {
         path: 'bmak-1600-kvt-1k',
@@ -244,6 +249,7 @@ const boilers = [
         bmak_1_6: "1 шт.",
         chimneys: "1 шт.",
         itemPasport: "1 шт.",
+        mobileDescription: "Котельная 1,6 МВт, 1 котел"
     },
     {
         path: 'bmak-4800-kvt-2k',
@@ -274,6 +280,7 @@ const boilers = [
         bmak_4_8: "1 шт.",
         chimneys: "специализированная нержавеющая сталь 2 шт.",
         itemPasport: "1 шт.",
+        mobileDescription: "Котельная 4,8 МВт, 2 котла"
     },
     {
         path: 'bmak-6000-kvt-2k',
@@ -307,6 +314,7 @@ const boilers = [
         bmak_6: "1 шт.",
         chimneys: "специализированная нержавеющая сталь 2 шт.",
         itemPasport: "1 шт.",
+        mobileDescription: "Котельная 6 МВт, 2 котла"
     },
     {
         path: 'bmak-6100-kvt-2k',
@@ -338,6 +346,7 @@ const boilers = [
         bmak_6_GWS: "1 шт.",
         chimneys: "специализированная нержавеющая сталь 2 шт.",
         itemPasport: "1 шт.",
+        mobileDescription: "Котельная 6,1 МВт, 2 котла"
     },
     {
         path: 'bmak-7400-kvt-2k',
@@ -371,6 +380,7 @@ const boilers = [
         bmak_6: "1 шт.",
         chimneys: "специализированная нержавеющая сталь 2 шт.",
         itemPasport: "1 шт.",
+        mobileDescription: "Котельная 7,4 МВт, 2 котла"
     },
 ];
 

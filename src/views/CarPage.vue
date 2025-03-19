@@ -319,7 +319,8 @@ input::placeholder {
 /*Мобильная версия*/
 @media (max-width: 430px) {
     .page-container {
-        max-width: 400px;
+        max-width: 100%;
+        padding: 0px 16px;
     }
     .topbar {
         display: none;
