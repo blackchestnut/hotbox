@@ -32,7 +32,7 @@ const closeOrderModal = () => {
 
 <template>
     <Menu />
-    <RouterLink to="/boiler-room">
+    <RouterLink to="/">
         <div class="back">
             <div class="back-logo"></div>
         </div>
@@ -256,7 +256,6 @@ export default {
     height: 330px;
     text-align: left;
     line-height: 36px;
-    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 300;
 }
@@ -532,16 +531,23 @@ input::placeholder {
     }
 
     .prices {
+        overflow: hidden;
         padding: 0px;
+        width: 100%;
+        margin-bottom: 20px;
+        width: calc(100% + 32px); /* Компенсируем padding родителя */
     }
     .button-container {
+        box-sizing: border-box;
         flex-direction: column;
         align-items: center;
-        width: 430px;
+    
+        height: auto;
         background-color: #000;
         padding-top: 36px;
         padding-bottom: 36px;
         gap: 36px;
+       
     }
     .transparent-button {
         max-width: 320px;
@@ -593,31 +599,18 @@ input::placeholder {
     
 
     .repair-container {
+        width: calc(100% + 32px); /* Компенсируем padding родителя */
         padding-top: 36px;
         padding-bottom: 36px;
         padding-left: 0px;
         padding-right: 0px;
-        width: 430px;
+        height: auto;
         background-image: url("/src/assets/images/big_images_of_boilers/repair-background-mobile.png");
-        background-size: cover;
-    }
-    @media (max-width: 375px) {
-        .repair-container {
-            max-width: 375px;
-        }
-        .button-container {
-            max-width: 375px;
-        }
-        .transparent-button {
-            max-width: 300px;
-            max-height: 320px;
-        }
     }
     .repair-inner {
         padding: 20px;
         margin-bottom: 20px;
         max-width: 300px;
-       
         margin-left: 45px;
         margin-right: 45px;
     }

@@ -58,13 +58,11 @@
 }
 
 .head-one {
-  font-family: 'Inter', sans-serif;
   font-size: 60px;
   font-weight: 600;
 }
 
 .head-two {
-  font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 500;
   margin-top: 30px;
@@ -91,7 +89,6 @@
   border: none; /* Убираем рамку */
   border-radius: 8px; /* Закругленные углы */
   cursor: pointer; /* Указатель при наведении */
-  font-family: 'Inter';
   font-size: 28px;
   font-weight: 500;
   transition: background-color 0.3s; /* Плавный переход цвета фона */
@@ -161,16 +158,16 @@
   }
 
   .head-one {
-    font-family: 'Inter';
+
     font-size: 22px;
     font-weight: 600;
     max-width: 280px;
   }
 
   .head-two {
-    font-family: 'Inter';
+   
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     margin-top: 36px;
     margin-bottom: 36px;
     max-width: 280px;

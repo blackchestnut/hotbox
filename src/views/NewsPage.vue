@@ -122,7 +122,6 @@ export default {
     background-color: black;
     color: white;
     border-color: black;
-    font-family: 'Lato', sans-serif;
     font-weight: 540; 
     font-size: 20px;
     border-radius: 8px; 
@@ -214,8 +213,8 @@ export default {
     .container,
     .container3,
     .container4 {
-        max-width: 400px;
-        max-height: 272px;
+        width: 100%;
+        height: 272px;
     }
     .description {
         font-size: 16px;

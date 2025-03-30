@@ -29,7 +29,6 @@
 
 <style scoped>
 .production {
-    font-family: 'Inter', sans-serif; /* Убедитесь, что шрифт Inter подключен */
     font-weight: 600; /* Semi Bold */
     font-size: 40px; /* Размер шрифта 40px */
     width: 1123px;
@@ -37,7 +36,6 @@
     margin-bottom: 60px;
 }
 .text {
-    font-family: 'Regular', sans-serif;
     font-size: 30px;
     width: 1100px;
     text-align: center;
@@ -116,6 +114,9 @@
     .partners {
         margin-top: 36px;
         padding: 0px 16px;
+        width: 90%;
+        margin-left: 0px;
+        margin-right: 0px;
     }
     .production {
         font-size: 20px;

@@ -6,19 +6,78 @@
                 <div class="back-logo"></div>
             </div>
         </RouterLink>
-            <div class="head-one">
-                <h1>Автоматизированные котельные системы HotBox</h1>
-                <p>Мы разрабатываем котельные для обеспечения эффективной работой<br>
-                системы отопления, вентиляции, ГВС на различных объектах.<br>
-                Мобильность наших котельных установок дает возможность в<br>
-                любой момент перевозить ее на новое место</p>
+        <div class="head-one">
+            <h1>Автоматизированные котельные системы HotBox</h1>
+            <p>Мы разрабатываем котельные для обеспечения эффективной работой<br>
+            системы отопления, вентиляции, ГВС на различных объектах.<br>
+            Мобильность наших котельных установок дает возможность в<br>
+            любой момент перевозить ее на новое место</p>
+        </div>
+        <div class="two-button-container">
+            <div class="sort-mobile" @click="showFilterModal = true"></div>
+            <div class="sort-power-mobile" @click="showPowerModal = true"></div>
+        </div>
+        
+        <!------------------------ Модальное окно сортировки по мощности ------------------------->
+        <div v-if="showPowerModal" class="modal-overlay" @click.self="showPowerModal = false">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Сортировка по мощности</h3>
+                    <div class="close" @click="showPowerModal = false"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="sort-option" 
+                         @click="selectSortOption('powerAsc'); showPowerModal = false">
+                        Мощность: по возрастанию
+                    </div>
+                    <div class="sort-option" 
+                         @click="selectSortOption('powerDesc'); showPowerModal = false">
+                        Мощность: по убыванию
+                    </div>
+                </div>
             </div>
-            <div class="two-button-container">
-                <div class="sort-mobile"></div>
-                <div class="sort-power-mobile"></div>
+        </div>
+        
+        <!------------------------ Модальное окно фильтров ------------------------->
+        <div v-if="showFilterModal" class="modal-overlay" @click.self="showFilterModal = false">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Фильтры</h3>
+                    <div class="close" @click="showFilterModal = false"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="numbers">КОЛИЧЕСТВО КОТЛОВ</div>
+                    <div class="checkbox-group">
+                        <label v-for="count in boilerCounts" :key="count" class="checkbox-label">
+                            <input
+                                type="checkbox"
+                                :value="count"
+                                v-model="selectedBoilerCounts"
+                                class="checkbox-input"
+                                @change="applyFilters"
+                            />
+                            <span class="checkbox-text">{{ count }}</span>
+                        </label>
+                    </div>
+
+                    <div class="numbers">МОЩНОСТЬ (МАКС.)</div>
+                    <div class="checkbox-group">
+                        <label v-for="power in maxPowers" :key="power" class="checkbox-label">
+                            <input
+                                type="checkbox"
+                                :value="power"
+                                v-model="selectedMaxPowers"
+                                class="checkbox-input"
+                                @change="applyFilters"
+                            />
+                            <span class="checkbox-text">{{ power }} кВт</span>
+                        </label>
+                    </div>
+                </div>
             </div>
-            
-        <!------------------------sort------------------------->
+        </div>
+        
+        <!------------------------ Десктопная сортировка ------------------------->
         <div class="sort-container">
             <div class="custom-select" @click="toggleDropdown">
                 <div class="selected">{{ selectedOption.text }}</div>
@@ -47,6 +106,7 @@
                                 :value="count"
                                 v-model="selectedBoilerCounts"
                                 class="checkbox-input"
+                                @change="applyFilters"
                             />
                             {{ count }}
                         </label>
@@ -60,6 +120,7 @@
                                 :value="power"
                                 v-model="selectedMaxPowers"
                                 class="checkbox-input"
+                                @change="applyFilters"
                             />
                             {{ power }} кВт
                         </label>
@@ -69,7 +130,7 @@
 
             <div class="items">
                 <router-link
-                    v-for="(item, index) in sortedBoilers"
+                    v-for="(item, index) in filteredAndSortedBoilers"
                     :key="index"
                     class="item"
                     :to="{ name: 'boiler', params: { id: item.path } }"
@@ -99,59 +160,48 @@
 
         <div class="items-mobile">
             <div class="item-pair" v-for="(pair, index) in pairedBoilers" :key="index">
-            <router-link
-                class="item"
-                :to="{ name: 'boiler', params: { id: pair[0].path } }"
-            >
-                <div class="item-content">
-                    <img :src="pair[0].imgSrc" class="item-img" :alt="pair[0].type" />
-                    <div class="text-container"> 
-                        <div class="type">{{ pair[0].type }}</div>
-                        <div class="description">
-                            {{ pair[0].mobileDescription }}<br>
+                <template v-for="(item, itemIndex) in pair" :key="itemIndex">
+                    <router-link
+                        class="item"
+                        :to="{ name: 'boiler', params: { id: item.path } }"
+                    >
+                        <div class="item-content">
+                            <img :src="item.imgSrc" class="item-img" :alt="item.type" />
+                            <div class="type">{{ item.type }}</div>
+                            <div class="description">
+                                {{ item.mobileDescription }}<br>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </router-link>
-            <router-link
-                class="item"
-                :to="{ name: 'boiler', params: { id: pair[1].path } }"
-            >
-                <div class="item-content">
-                    <img :src="pair[1].imgSrc" class="item-img" :alt="pair[1].type" />
-                        <div class="type">{{ pair[1].type }}</div>
-                        <div class="description">
-                            {{ pair[1].mobileDescription }}<br>
-                        </div>
-                </div>
-            </router-link>
-    </div>
-</div>
+                        <button class="details-button">ПОДРОБНЕЕ</button>
+                    </router-link>
+                </template>
+            </div>
+        </div>
 
         <div class="merits">
-            <div class="information">
-                <div class="time">10 лет<br></div>
-                <div class="line"></div>
-                <div class="i">Наш опыт работы в<br>
-                сфере теплоснабжения</div>
+            <div class="desktop-info-block">
+                <h2>10 лет</h2>
+                <div class="desktop-divider"></div>
+                <p>Наш опыт работы в<br>
+                    сфере теплоснабжения</p>
             </div>
-            <div class="information">
-                <div class="time">48 часов<br></div>
-                <div class="line"></div>
-                <div class="i">Срок монтажа<br>
-                котельной на фундаменте</div>
+            <div class="desktop-info-block">
+                <h2>48 часов</h2>
+                <div class="desktop-divider"></div>
+                <p>Срок монтажа<br>
+                    котельной на фундаменте</p>
             </div>
-            <div class="information">
-                <div class="time">60 дней<br></div>
-                <div class="line"></div>
-                <div class="i">Средний срок<br>
-                изготовления котельной</div>
+            <div class="desktop-info-block">
+                <h2>60 дней</h2>
+                <div class="desktop-divider"></div>
+                <p>Средний срок<br>
+                    изготовления котельной</p>
             </div>
-            <div class="information">
-                <div class="time">12 месяцев<br></div>
-                <div class="line"></div>
-                <div class="i">Гарантийный срок со<br>
-                дня реализации</div>
+            <div class="desktop-info-block">
+                <h2>12 месяцев</h2>
+                <div class="desktop-divider"></div>
+                <p>Гарантийный срок со<br>
+                    дня реализации</p>
             </div>
         </div>
 
@@ -192,46 +242,48 @@ import { boilers } from '@/data';
 const boilerCounts = [1, 2];
 const maxPowers = [500, 1200, 1400, 1600, 4800, 6000, 6100, 7400];
 
-
 const selectedBoilerCounts = ref([]);
 const selectedMaxPowers = ref([]);
-
-const sortOption = ref('powerAsc'); // Переменная для хранения текущей выбранной опции сортировки
+const sortOption = ref('powerAsc');
 const isOpen = ref(false);
 const selectedOption = ref({ value: 'powerAsc', text: 'Мощность: по возрастанию' });
-// Опции для сортировки в массиве
+const showPowerModal = ref(false);
+const showFilterModal = ref(false);
+
 const options = [
     { value: 'powerAsc', text: 'Мощность: по возрастанию' },
     { value: 'powerDesc', text: 'Мощность: по убыванию' },
 ];
 
-
-const sortedBoilers = computed(() => {
-    let sorted = [...boilers]; // Создаем копию массива котлов
+const filteredBoilers = computed(() => {
+    let filtered = [...boilers];
 
     // Фильтрация по количеству котлов
-    if (selectedBoilerCounts.value.length) {
-        sorted = sorted.filter(boiler => selectedBoilerCounts.value.includes(boiler.boilerCount));
+    if (selectedBoilerCounts.value.length > 0) {
+        filtered = filtered.filter(boiler => 
+            selectedBoilerCounts.value.includes(boiler.boilerCount)
+        );
     }
 
     // Фильтрация по мощности
-    if (selectedMaxPowers.value.length) {
-        sorted = sorted.filter(boiler => selectedMaxPowers.value.includes(parseInt(boiler.power)));
+    if (selectedMaxPowers.value.length > 0) {
+        filtered = filtered.filter(boiler => 
+            selectedMaxPowers.value.includes(parseInt(boiler.power))
+        );
     }
 
-    //  // Сортировка по выбранной опции
+    return filtered;
+});
+
+const filteredAndSortedBoilers = computed(() => {
+    let sorted = [...filteredBoilers.value];
+
     switch (sortOption.value) {
         case 'powerAsc':
             sorted.sort((a, b) => parseInt(a.power) - parseInt(b.power));
             break;
         case 'powerDesc':
             sorted.sort((a, b) => parseInt(b.power) - parseInt(a.power));
-            break;
-        case 'priceAsc':
-            
-            break;
-        case 'priceDesc':
-           
             break;
         default:
             break;
@@ -242,8 +294,9 @@ const sortedBoilers = computed(() => {
 
 const pairedBoilers = computed(() => {
     const pairs = [];
-    for (let i = 0; i < sortedBoilers.value.length; i += 2) {
-        pairs.push(sortedBoilers.value.slice(i, i + 2));
+    for (let i = 0; i < filteredAndSortedBoilers.value.length; i += 2) {
+        const pair = filteredAndSortedBoilers.value.slice(i, i + 2);
+        pairs.push(pair);
     }
     return pairs;
 });
@@ -255,7 +308,19 @@ const toggleDropdown = () => {
 const selectOption = (option) => {
     selectedOption.value = option;
     isOpen.value = false;
-    sortOption.value = option.value; 
+    sortOption.value = option.value;
+};
+
+const selectSortOption = (optionValue) => {
+    const option = options.find(opt => opt.value === optionValue);
+    if (option) {
+        selectedOption.value = option;
+        sortOption.value = optionValue;
+    }
+};
+
+const applyFilters = () => {
+    // Применяем фильтры автоматически через computed свойства
 };
 </script>
 
@@ -278,14 +343,12 @@ const selectOption = (option) => {
 }
 
 .numbers {
-    font-family: 'Inter', sans-serif; 
     font-size: 18px; 
     font-weight: 600; 
     margin: 20px 16px; 
 }
 
 label {
-    font-family: 'Inter', sans-serif; 
     font-size: 18px; 
     font-weight: 500; 
     margin-bottom: 20px; 
@@ -361,7 +424,6 @@ label {
 }
 
 .type {
-    font-family: 'Inter', sans-serif; 
     font-size: 18px; 
     font-weight: 500;
     padding-bottom: 27px;
@@ -379,7 +441,7 @@ label {
     color: #008029;
     background-color: #22cb5785;
     border-radius: 8px;
-    padding: 6px 10px;
+    padding: 6px 8px;
     margin-left: 10px;
     max-height: 24px;
     display: flex;
@@ -390,32 +452,55 @@ label {
 .fat {
     font-weight: 600;
 }
+
+
 .merits {
     display: flex;
     justify-content: space-between;
-    text-align: center;
+    flex-wrap: wrap; /* Позволяет блокам переноситься на маленьких экранах */
+    gap: 20px; /* Отступ между блоками */
     margin-top: 30px;
     margin-bottom: 60px;
+    text-align: center;
 }
-.information {
+
+.desktop-info-block {
+    width: 260px; /* Максимальная ширина */
+    height: 164px;
     background-color: #F4F4F4;
     border-radius: 8px;
-    padding: 20px 10px 20px 10px;
-    position: relative; 
+    padding: 10px 0px;
+    box-sizing: border-box; /* Учитывает padding в общей ширине */
+    position: relative; /* Для позиционирования разделителя */
 }
-.information .line {
-    position: absolute; /* Абсолютное позиционирование */
-    left: 0; /* Сдвигаем влево */
-    width: 100%; /* Ширина линии на 100% */
-    height: 2px; /* Высота линии */
-    background-color: #000; /* Цвет линии */
+
+.desktop-info-block h2 {
+    font-size: 22px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 8px;
 }
+
+.desktop-info-block p {
+    font-size: 18px;
+    margin-bottom: 0;
+    padding: 0px;
+}
+
+.desktop-divider {
+    height: 2px;
+    background-color: #000;
+ 
+    left: 0;
+    right: 0;
+    margin-bottom: 20px;
+}
+
+
 .i {
     margin-top: 10px;
 }
-.time {
-    margin-bottom: 10px;
-}
+
 .custom-select {
     padding: 12px;
     cursor: pointer;
@@ -426,7 +511,6 @@ label {
     font-size: 16px;
     margin-left: 800px;
     margin-bottom: 90px;
-    
 }
 
 .arrow {
@@ -460,7 +544,7 @@ label {
     cursor: pointer;
 }
 .sort-container {
-    position: relative; /* Устанавливаем позиционирование */
+    position: relative;
 }
 .items-mobile {
     display: none;
@@ -468,6 +552,78 @@ label {
 .mobile-container {
     display: none;
 }
+.details-button {
+    display: none;
+}
+
+/* Модальные окна */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    align-items: flex-start;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 0 0 12px 12px;
+    width: 100%;
+    max-width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.close {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-image: url("@/assets/images/black_logos/close.svg");
+    background-size: contain;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.sort-option {
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sort-option:last-child {
+    border-bottom: none;
+}
+
+.sort-option:hover {
+    background-color: #f5f5f5;
+}
+
+
 @media (max-width: 430px) {
     .page-container {
         max-width: 100%;
@@ -505,27 +661,28 @@ label {
         font-size: 16px;
         margin-bottom: 30px;
         padding: 0px;
+        color: #000;
     }
     
     .two-button-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
     }
     .sort-mobile {
-    background-image: url('@/assets/images/black_logos/sort-logo-mobile.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 36px;
-    height: 36px;
+        background-image: url('@/assets/images/black_logos/sort-logo-mobile.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 36px;
+        height: 36px;
     }
     .sort-power-mobile {
-    background-image: url('@/assets/images/black_logos/three-lines-mobile.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 36px;
-    height: 36px;
+        background-image: url('@/assets/images/black_logos/three-lines-mobile.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 36px;
+        height: 36px;
     }
 
     .filters {
@@ -535,11 +692,6 @@ label {
         display: none;
     }
     
-    .item-content {
-        max-width: 140px;
-        max-height: 310px;
-    }
-   
     .item-img {
         width: 140px;
         height: 140px;
@@ -563,7 +715,7 @@ label {
 
     .item {
         width: 160px;
-        height: auto;
+        height: 350px;
         margin: 0;
         display: flex;
         flex-direction: column;
@@ -577,6 +729,7 @@ label {
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-width: 140px;
     }
 
     .item-img {
@@ -588,12 +741,11 @@ label {
     }
 
     .type {
-        font-family: 'Inter', sans-serif;
         font-size: 16px;
         font-weight: 600;
         text-align: left;
         padding: 10px;
-        color: black; /* Устанавливаем цвет текста на черный */
+        color: black;
         text-decoration: none;
     }
     .description {
@@ -603,7 +755,6 @@ label {
         padding: 0px 10px 10px 10px;
         text-align: left;
     }
-
 
     .mobile-container {
         display: flex;
@@ -630,14 +781,81 @@ label {
     }
 
     p {
-    font-size: 14px;
-    color: #666;
-    padding: 0px;
-    margin-bottom: 20px;
+        font-size: 14px;
+        color: #666;
+        padding: 0px;
+        margin-bottom: 20px;
     }
     .merits {
         display: none;
     }
-
+    .details-button {
+        display: block;
+    }
+    .details-button {
+        width: 140px;
+        height: 34px;
+        background-color: #fff;
+        color: #3b3b3b;
+        border-color: #3b3b3b;
+        border-radius: 8px;
+        border: 2px solid #3b3b3b;
+        transition: background-color 0.3s ease;
+        font-size: 14px;
+        margin-top: auto;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .details-button:active {
+        border-color: #696770;
+        color: #696770;
+    }
+    
+    /* Стили для модальных окон в мобильной версии */
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0 0 12px 12px;
+        padding-bottom: 30px;
+    }
+    
+    .checkbox-group {
+        margin-bottom: 15px;
+    }
+    
+    .checkbox-label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+    
+    .checkbox-input {
+        margin-right: 12px;
+        flex-shrink: 0;
+    }
+    
+    .checkbox-text {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    .numbers {
+        font-size: 16px;
+        margin: 15px 0;
+        text-align: left;
+        font-weight: 600;
+    }
+    
+    .modal-body {
+        padding: 0 16px;
+    }
+    
+    .modal-header {
+        padding: 0 16px 20px;
+    }
+    
+    
 }
 </style>

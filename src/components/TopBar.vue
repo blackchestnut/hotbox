@@ -211,7 +211,58 @@ const setActiveLink = (index) => {
   display: block;
 }
 
-/* Модальное окно */
+
+
+/* Мобильная версия */
+
+@media (max-width: 430px) {
+  .container {
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: auto;
+  }
+
+  .menu {
+    padding: 0 16px;
+    height: 62px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .contact-details,
+  .icon-phone,
+  .call-button {
+    display: none;
+  }
+
+  .icon-mobile-headphones {
+    display: block;
+    background-image: url("@/assets/images/red_logos/call.svg");
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+  }
+
+  .icon-mobile-menu {
+    display: block;
+    background-image: url("@/assets/images/white_logos/menu.svg");
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+  }
+
+  .logo {
+    width: 102px;
+    height: 30px;
+  }
+  /* Модальное окно */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -341,11 +392,20 @@ const setActiveLink = (index) => {
 }
 
 /* Модальное окно почты */
+.email-modal {
+  background-color: white;
+  width: 430px; /* Ширина модального окна */
+  max-height: 90vh; /* Ограничиваем высоту окна */
+  overflow-y: auto; /* Включаем вертикальную прокрутку */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+}
 .email-modal-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
+  overflow-y: auto;
 }
 
 .email-modal-content h2 {
@@ -364,7 +424,7 @@ const setActiveLink = (index) => {
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+
 }
 
 .form-group input,
@@ -427,54 +487,5 @@ const setActiveLink = (index) => {
   color: #000;
   text-decoration: underline;
 }
-
-/* Мобильная версия */
-@media (max-width: 430px) {
-  .container {
-    margin: 0 auto;
-    max-width: 100%;
-    min-width: auto;
-  }
-
-  .menu {
-    padding: 0 16px;
-    height: 62px;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(255, 255, 255);
-  }
-
-  .contact-details,
-  .icon-phone,
-  .call-button {
-    display: none;
-  }
-
-  .icon-mobile-headphones {
-    display: block;
-    background-image: url("@/assets/images/red_logos/call.svg");
-    width: 30px;
-    height: 30px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-  }
-
-  .icon-mobile-menu {
-    display: block;
-    background-image: url("@/assets/images/white_logos/menu.svg");
-    width: 30px;
-    height: 30px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-  }
-
-  .logo {
-    width: 102px;
-    height: 30px;
-  }
 }
 </style>

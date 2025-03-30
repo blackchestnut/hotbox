@@ -4,22 +4,22 @@
       <div class="leadform-content">
         <div class="welcome">
           <div class="leave-request">Оставьте заявку!</div><br>
-          <div class="your-data">Укажите свои данные и мы обязательно свяжемся с<br>
-          вами для уточнения деталей вашего запроса</div>
+          <div class="your-data">Укажите свои данные и мы<br>обязательно свяжемся с
+          вами для<br>уточнения деталей вашего запроса</div>
         </div>
         <!-- Логотип огня для ПК версии -->
         <img src="\src\assets\images\red_logos\fire.svg" alt="Fire Logo" class="fire-logo fire-logo-desktop" />
         <div class="b-input">
-          <input placeholder="Ваше имя" type="text">
+          <input placeholder="Ваше имя" type="text" class="input1">
         </div>
         <div class="b-input">
-            <input placeholder="Телефон" type="tel">
+            <input placeholder="Телефон" type="tel" class="input1">
         </div>
         <div class="b-input">
-          <input placeholder="E-mail" type="email"> 
+          <input placeholder="E-mail" type="email" class="input1"> 
         </div>
         <div class="b-input">
-          <input placeholder="Услуга" type="text">
+          <input placeholder="Услуга" type="text" class="input1">
         </div>
         <input class="submit" type="submit" value="Отправить запрос">
         <div class="note">
@@ -113,12 +113,16 @@
 }
 /* Мобильная версия */
 @media (max-width: 430px) {
+  .leadform {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
   .leadform-wrapper {
     max-width: 100%;
+    padding: 0px 16px;
+    background-color: #B12117;
   }
   .leadform-content {
-    padding: 0px 16px;
-    margin: 0 auto;
     text-align: left;
     max-width: 100%;
   }
@@ -146,6 +150,9 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .input1 {
+    max-width: 92%;
+  }
   .submit {
     width: 100%;
     height: 54px;
@@ -166,6 +173,7 @@
   .welcome {
     margin-left: 0;
     text-align: center;
+    line-height: 30px;
   }
 }
 </style>

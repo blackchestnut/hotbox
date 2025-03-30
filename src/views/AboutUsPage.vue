@@ -189,7 +189,6 @@ export default {
 .text {
     width: 500px;
     height: 630px;
-    font-family: 'Inter', sans-serif; 
     font-size: 30px;
     line-height: 1.5;
 }
@@ -209,7 +208,6 @@ export default {
     color: black;
     border-radius: 8px;
     text-align: left;
-    font-family: 'Inter', sans-serif; 
     font-size: 20px; 
 }
 .Nameline {
@@ -298,7 +296,6 @@ export default {
 
 .content {
     text-align: left; /* Текст выровнен влево */
-    font-family: 'Inter', sans-serif; 
     font-size: 20px;
     margin-right: 120px; /* Отступ между текстом и изображением */
     width: 383px;
@@ -507,9 +504,9 @@ export default {
         flex-direction: column;
     }
     .map-container {
-    width: 100%; /* Карта занимает всю ширину экрана */
-    height: 300px; /* Уменьшаем высоту карты */
-    margin-top: 20px; /* Добавляем отступ сверху */
+        width: 100%; /* Карта занимает всю ширину экрана */
+        height: 300px; /* Уменьшаем высоту карты */
+        margin-top: 20px; /* Добавляем отступ сверху */
     }
     #map {
         width: 100% !important; /* Переопределяем ширину карты */

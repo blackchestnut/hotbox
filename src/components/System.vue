@@ -201,7 +201,6 @@ const showDetails = (index) => {
 }
 .subheadline {
   margin-top: 60px;
-  font-family: 'Regular', sans-serif;
   font-size: 30px;
   margin-bottom: 60px;
 }
@@ -286,7 +285,6 @@ const showDetails = (index) => {
   border-radius: 8px;
   border: 2px solid #3b3b3b;
   transition: background-color 0.3s ease;
-  font-family: 'Lato', sans-serif;
   font-size: 15px;
 }
 .details-button:hover {
@@ -307,7 +305,6 @@ const showDetails = (index) => {
   color: white;
   background-color: #000000;
   border: 3px solid #000000;
-  font-family: 'Lato', sans-serif;
   font-size: 20px;
 }
 .full-catalog:hover {
@@ -387,7 +384,7 @@ const showDetails = (index) => {
     margin: 0 auto;
   }
   .swiper-slide {
-    margin-right: 16px !important;
+    margin-right: 0px
   }
   .details-button {
     display: none;

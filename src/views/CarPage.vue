@@ -26,7 +26,7 @@ const closeOrderModal = () => {
 <template>
     <Menu/>
     <div class="page-container">
-        <RouterLink to="/boiler-room">
+        <RouterLink to="/">
             <div class="back">
                 <div class="back-logo"></div>
             </div>
@@ -108,7 +108,6 @@ const closeOrderModal = () => {
 .title {
     width: 1127px;
     margin: auto;
-    font-family: 'Inter', sans-serif; 
     font-size: 30px; 
 }
 .boiler-ford {
@@ -139,7 +138,6 @@ const closeOrderModal = () => {
     color: white;
     border-radius: 8px;
     text-align: left;
-    font-family: 'Inter', sans-serif; 
     font-size: 20px; 
 }
 .Nameline {
