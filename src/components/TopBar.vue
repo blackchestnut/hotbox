@@ -64,21 +64,16 @@ const setActiveLink = (index) => {
 
 
 // Отправка формы через mailto
-const handleSubmit = (e) => {
+// Альтернативный вариант с открытием Gmail в браузере
+const openGmail = (e) => {
   e.preventDefault();
-  
   const form = e.target;
-  const name = form.name.value;
-  const email = form.email.value;
-  const message = form.message.value;
-  
-  const subject = 'Сообщение для tehtelecom.ru';
-  const body = `Имя: ${name}\nEmail: ${email}\n\nСообщение:\n${message}`;
-  const encodedBody = body
-    .replace(/\n/g, '%0A')  // Оставляем только \n (без \r)
-    .replace(/ /g, '%20');   // Кодируем пробелы
-  window.location.href = `mailto:toucan305@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodedBody}`;
-  
+  const params = new URLSearchParams({
+    view: 'cm',
+    to: 'toucan305@gmail.com',
+    body: `Имя: ${form.name.value}\nEmail: ${form.email.value}\n\nСообщение:\n${form.message.value}`
+  });
+  window.open(`https://mail.google.com/mail/?${params.toString()}`, '_blank');
   closeEmailModal();
 };
 </script>
@@ -159,7 +154,7 @@ const handleSubmit = (e) => {
           <h2>Написать на почту</h2>
           <p>Наш менеджер свяжется с вами в течение дня</p>
           
-          <form @submit.prevent="handleSubmit">
+          <form @submit.prevent="openGmail">
             <div class="form-group">
               <input placeholder="Ваше имя" type="text" name="name" required />
             </div>
