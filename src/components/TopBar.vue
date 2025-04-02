@@ -60,6 +60,27 @@ const setActiveLink = (index) => {
   router.push(path); // Выполняем переход по пути
   closeModal(); // Закрываем модальное окно после выбора
 };
+
+
+
+// Отправка формы через mailto
+const handleSubmit = (e) => {
+  e.preventDefault();
+  
+  const form = e.target;
+  const name = form.name.value;
+  const email = form.email.value;
+  const message = form.message.value;
+  
+  const subject = 'Сообщение для tehtelecom.ru';
+  const body = `Имя: ${name}\nEmail: ${email}\n\nСообщение:\n${message}`;
+  const encodedBody = body
+    .replace(/\n/g, '%0A')  // Оставляем только \n (без \r)
+    .replace(/ /g, '%20');   // Кодируем пробелы
+  window.location.href = `mailto:toucan305@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodedBody}`;
+  
+  closeEmailModal();
+};
 </script>
 
 <template>
@@ -69,8 +90,8 @@ const setActiveLink = (index) => {
         <div class="icon-phone" />
         <div class="icon-mobile-headphones" @click="openModal"></div>
         <div class="contact-details">
-          <div class="phone-number">+7 (977) 953 39 11</div>
-          <div class="email1">zakaz@tehtelecom.ru</div>
+          <a href="tel:+79779533911" class="phone-number">+7 (977) 953 39 11</a>
+          <div class="email1" @click="openEmailModal">zakaz@tehtelecom.ru</div>
         </div>
       </div>
       <div class="logo" />
@@ -128,7 +149,7 @@ const setActiveLink = (index) => {
       </div>
     </div>
 
-    <!-- Модальное окно с формой -->
+    <!-- Модальное окно почты -->
     <div v-if="isEmailModalOpen" class="modal-overlay" @click="closeEmailModal">
       <div class="modal-content email-modal" @click.stop>
         <div class="modal-header">
@@ -137,24 +158,26 @@ const setActiveLink = (index) => {
         <div class="email-modal-content">
           <h2>Написать на почту</h2>
           <p>Наш менеджер свяжется с вами в течение дня</p>
-         
+          
+          <form @submit.prevent="handleSubmit">
             <div class="form-group">
-              <input placeholder="Ваше имя" type="text" id="name" required />
+              <input placeholder="Ваше имя" type="text" name="name" required />
             </div>
             <div class="form-group">
-              <input placeholder="E-mail" type="email" id="email" required />
+              <input placeholder="E-mail" type="email" name="email" required />
             </div>
             <div class="form-group">
-              <textarea placeholder="Сообщение" id="message" rows="10" required></textarea>
+              <textarea placeholder="Сообщение" name="message" rows="10" required></textarea>
             </div>
             <div class="submit-container">
               <button type="submit" class="submit-button">Отправить</button>
             </div>
-      
-          <p class="privacy-policy">
-            Нажимая на кнопку, вы соглашаетесь с условиями
-            <a href="#" class="privacy-link">политики конфиденциальности</a>.
-          </p>
+            
+            <p class="privacy-policy">
+              Нажимая на кнопку, вы соглашаетесь с условиями
+              <a href="#" class="privacy-link">политики конфиденциальности</a>.
+            </p>
+          </form>
         </div>
       </div>
     </div>
@@ -194,7 +217,13 @@ const setActiveLink = (index) => {
   background-image: url("@/components/icons/icon_phone.svg");
   background-size: cover;
 }
-
+.phone-number {
+  text-decoration: none;
+  color: inherit;
+}
+.email1 {
+  cursor: pointer;
+}
 .logo {
   width: 180px;
   height: 53px;
@@ -210,6 +239,133 @@ const setActiveLink = (index) => {
 .call-button {
   display: block;
 }
+
+
+
+/* модальное окно почты для пк версии*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Прилипание к верхней части */
+  z-index: 1000;
+}
+.close {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-image: url("@/assets/images/black_logos/close.svg");
+  background-size: contain;
+}
+.modal-header {
+  display: flex;
+  justify-content: flex-end; /* Крестик справа */
+  align-items: center;
+  margin: 20px;
+}
+.email-modal {
+  background-color: white;
+  width: 430px; /* Ширина модального окна */
+  max-height: 90vh; /* Ограничиваем высоту окна */
+  overflow-y: auto; /* Включаем вертикальную прокрутку */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+  border-radius: 0px 0px 8px 8px;
+}
+.email-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0px 20px 20px 20px;
+  overflow-y: auto;
+}
+
+.email-modal-content h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.email-modal-content p {
+  font-size: 16px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  background-color: #EAEAEA;
+  color: #3F3F3F;
+  outline: none;
+}
+.form-group input,
+.form-group textarea {
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  background-color: #EAEAEA;
+  color: #3F3F3F;
+  font-family: inherit; /* Наследуем шрифт от родителя */
+
+}
+.form-group textarea {
+  resize: vertical;
+  border: none;
+}
+
+/* Контейнер для кнопки отправки */
+.submit-container {
+  display: flex;
+  justify-content: center; /* Центрирование по горизонтали */
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+/* Кнопка отправки */
+.submit-button {
+  background-color: #000000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.submit-button:active {
+  background-color: #696770;
+}
+
+.privacy-policy {
+  font-size: 12px;
+  color: #000;
+  text-align: center;
+}
+
+.privacy-link {
+  color: #000;
+  text-decoration: underline;
+}
+/*----------*/
 
 
 

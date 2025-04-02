@@ -813,11 +813,14 @@ label {
     }
     
     /* Стили для модальных окон в мобильной версии */
+    .modal-overlay {
+        align-items: flex-end; /* Выравниваем модальное окно по низу */
+    }
+
     .modal-content {
         width: 100%;
         max-width: 100%;
-        border-radius: 0 0 12px 12px;
-        padding-bottom: 30px;
+        border-radius: 8px 8px 0px 0px;
     }
     
     .checkbox-group {
