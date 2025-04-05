@@ -1,3 +1,7 @@
+<script setup>
+  import { SUPPORT_EMAIL, SUPPORT_EMAIL_MAILTO } from '@/helpers/constants';
+</script>
+
 <template>
   <div class="footer-wrapper">
     <footer class="footer">
@@ -22,7 +26,7 @@
         <div class="footer-column">
           <h3>КОНТАКТЫ</h3>
             <div class="inf">
-                <a href="#">zakaz@tehtelecom.ru</a><br>
+                <a :href=SUPPORT_EMAIL_MAILTO>{{ SUPPORT_EMAIL }}</a><br>
                 <a href="#">+7 (977) 953 39 11</a>
             </div>
         </div>

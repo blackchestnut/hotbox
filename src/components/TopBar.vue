@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router'; // Импортируем useRouter для навигации
+import { SUPPORT_EMAIL, SUPPORT_EMAIL_MAILTO } from '@/helpers/constants';
 
 const router = useRouter(); // Получаем объект router
 
@@ -11,6 +12,9 @@ const isEmailModalOpen = ref(false); // Состояние для модальн
 
 // Состояние для активной ссылки
 const activeLink = ref(null);
+const formName = ref('');
+const formEmail = ref('');
+const formMessage = ref('');
 
 // Список ссылок
 const links = ref([
@@ -61,20 +65,13 @@ const setActiveLink = (index) => {
   closeModal(); // Закрываем модальное окно после выбора
 };
 
-
-
-// Отправка формы через mailto
-// Альтернативный вариант с открытием Gmail в браузере
-const openGmail = (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const params = new URLSearchParams({
-    view: 'cm',
-    to: 'toucan305@gmail.com',
-    body: `Имя: ${form.name.value}\nEmail: ${form.email.value}\n\nСообщение:\n${form.message.value}`
-  });
-  window.open(`https://mail.google.com/mail/?${params.toString()}`, '_blank');
-  closeEmailModal();
+const emailData = () => {
+  // return `${SUPPORT_EMAIL_MAILTO}?subject=${encodeURIComponent('Заявка на заказ')}` +
+  //   `&body=${encodeURIComponent(formMessage)}\n\n${encodeURIComponent(formName)}\n` +
+  //   `${encodeURIComponent(formEmail)}`;
+  return `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
+    `&body=${formMessage.value}\n\n${formName.value}\n` +
+    `${formEmail.value}`;
 };
 </script>
 
@@ -86,7 +83,7 @@ const openGmail = (e) => {
         <div class="icon-mobile-headphones" @click="openModal"></div>
         <div class="contact-details">
           <a href="tel:+79779533911" class="phone-number">+7 (977) 953 39 11</a>
-          <div class="email1" @click="openEmailModal">zakaz@tehtelecom.ru</div>
+          <a :href=SUPPORT_EMAIL_MAILTO class="support-email">{{ SUPPORT_EMAIL }}</a>
         </div>
       </div>
       <div class="logo" />
@@ -154,18 +151,20 @@ const openGmail = (e) => {
           <h2>Написать на почту</h2>
           <p>Наш менеджер свяжется с вами в течение дня</p>
           
-          <form @submit.prevent="openGmail">
+          <form @submit="sendEmail">
             <div class="form-group">
-              <input placeholder="Ваше имя" type="text" name="name" required />
+              <input v-model="formName" placeholder="Ваше имя" type="text" name="name" required />
             </div>
             <div class="form-group">
-              <input placeholder="E-mail" type="email" name="email" required />
+              <input v-model="formEmail" placeholder="E-mail" type="email" name="email" required />
             </div>
             <div class="form-group">
-              <textarea placeholder="Сообщение" name="message" rows="10" required></textarea>
+              <textarea v-model="formMessage" placeholder="Сообщение" name="message" rows="10" required></textarea>
             </div>
             <div class="submit-container">
-              <button type="submit" class="submit-button">Отправить</button>
+              <!--button type="submit" class="submit-button">Отправить</button-->
+              <!--div>{{ emailData() }}</div-->
+              <a class="submit-button" :href=emailData()>Отправить</a>
             </div>
             
             <p class="privacy-policy">
@@ -212,13 +211,18 @@ const openGmail = (e) => {
   background-image: url("@/components/icons/icon_phone.svg");
   background-size: cover;
 }
-.phone-number {
+
+.phone-number, 
+.support-email {
   text-decoration: none;
   color: inherit;
 }
-.email1 {
-  cursor: pointer;
+
+.phone-number:hover,
+.support-email:hover {
+  text-decoration: underline;
 }
+
 .logo {
   width: 180px;
   height: 53px;
@@ -337,13 +341,15 @@ const openGmail = (e) => {
 .submit-button {
   background-color: #000000;
   color: white;
-  padding: 10px 20px;
+  padding: 14px 28px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
   margin-bottom: 10px;
+  display: block;
+  text-decoration: none;
 }
 
 .submit-button:active {
@@ -610,22 +616,6 @@ const openGmail = (e) => {
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 10px;
-}
-
-/* Кнопка отправки */
-.submit-button {
-  background-color: #000000;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.submit-button:active {
-  background-color: #696770;
 }
 
 .privacy-policy {
