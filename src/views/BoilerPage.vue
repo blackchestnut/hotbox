@@ -5,7 +5,7 @@ const route = useRoute();
 import Menu from "@/components/Menu.vue";
 import { boilers } from "@/data";
 import BoilerOrder from "@/views/BoilerOrder.vue";
-import { SUPPORT_EMAIL, SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
+import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
 const currentImageIndex = ref(0);
 const isOrderModalVisible = ref(false);
 const selectedFuel = ref("Газ");
@@ -62,7 +62,7 @@ const toggleText = () => {
 };
 const emailData = () => {
   return (
-    `mailto:${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
+    `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
     `&body=Имя: ${encodeURIComponent(name)}%0A` +
     `Email: ${encodeURIComponent(email)}%0A` +
     `Телефон: ${encodeURIComponent(phone)}%0A` +
