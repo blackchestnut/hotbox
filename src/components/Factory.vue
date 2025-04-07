@@ -1,51 +1,55 @@
 <template>
   <div class="factory-wrapper">
-        <div class="overlay">
-            <div class="head-one">
-                Автоматизированные<br>
-                мобильные<br>
-                котельные
-            </div>
-            <div class="head-two">
-                Компактные передвижные станции теплоснабжения<br>
-                с полным удаленным управлением
-                <img src="\src\assets\images\red_logos\award.svg" alt="Award Logo" class="award-logo" />
-            </div>
-            <div class="button-container">
-              <router-link to="/boiler-room" class="transparent-button boilers">               
-                <span class="d-desktop">Котельные<br>блочно-модульные</span>
-                <span class="d-mobile">Котельные</span>
-              </router-link>
+    <div class="overlay">
+      <div class="head-one">
+        Автоматизированные<br />
+        мобильные<br />
+        котельные
+      </div>
+      <div class="head-two">
+        Компактные передвижные станции теплоснабжения<br />
+        с полным удаленным управлением
+        <img
+          src="\src\assets\images\red_logos\award.svg"
+          alt="Award Logo"
+          class="award-logo"
+        />
+      </div>
+      <div class="button-container">
+        <router-link to="/boiler-room" class="transparent-button boilers">
+          <span class="d-desktop">Котельные<br />блочно-модульные</span>
+          <span class="d-mobile">Котельные</span>
+        </router-link>
 
-              <router-link to="/service" class="transparent-button service">
-                Аренда
-              </router-link>
+        <router-link to="/service" class="transparent-button service">
+          Аренда
+        </router-link>
 
-              <router-link to="/service" class="transparent-button repaire">    
-                Ремонт и обслуживание
-              </router-link>
+        <router-link to="/service" class="transparent-button repaire">
+          Ремонт и обслуживание
+        </router-link>
 
-              <router-link to="/car" class="transparent-button car">
-                Котельные мобильные<br>
-                автоматизированные
-              </router-link>
+        <router-link to="/car" class="transparent-button car">
+          Котельные мобильные<br />
+          автоматизированные
+        </router-link>
 
-              <router-link to="/service" class="transparent-button production">
-                Производство
-              </router-link>
+        <router-link to="/service" class="transparent-button production">
+          Производство
+        </router-link>
 
-              <router-link to="/news" class="transparent-button news">
-                Новости
-              </router-link>
-            </div>
-        </div>
+        <router-link to="/news" class="transparent-button news">
+          Новости
+        </router-link>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .award-logo {
   margin-left: 620px;
-  margin-top: -10px; 
+  margin-top: -10px;
 }
 
 .overlay {
@@ -95,32 +99,36 @@
   text-align: left;
   text-decoration: none;
   background-repeat: no-repeat;
-  background-position: 24px 24px;  
+  background-position: 24px 24px;
 }
 
 .transparent-button.boilers {
-  background-image: url('@/assets/images/white_logos/factory-logo.svg');
-
+  background-image: url("@/assets/images/white_logos/factory-logo.svg");
 }
 .transparent-button.service {
-  background-image: url('@/assets/images/white_logos/clock-logo.svg');
+  background-image: url("@/assets/images/white_logos/clock-logo.svg");
 }
 .transparent-button.repaire {
-  background-image: url('@/assets/images/white_logos/hammer-logo.svg');
+  background-image: url("@/assets/images/white_logos/hammer-logo.svg");
 }
 .transparent-button.car {
-  background-image: url('@/assets/images/white_logos/car-logo.svg');
+  background-image: url("@/assets/images/white_logos/car-logo.svg");
 }
 .transparent-button.production {
-  background-image: url('@/assets/images/white_logos/hook-logo.svg');
+  background-image: url("@/assets/images/white_logos/hook-logo.svg");
 }
 .transparent-button.news {
-  background-image: url('@/assets/images/white_logos/news-logo.svg');
+  background-image: url("@/assets/images/white_logos/news-logo.svg");
 }
 
 /* Эффект при наведении на кнопку */
 .transparent-button:hover {
-  background-color: rgba(255, 255, 255, 0.267); /* Увеличиваем непрозрачность при наведении */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.267
+  ); /* Увеличиваем непрозрачность при наведении */
 }
 
 .d-mobile {
@@ -158,21 +166,19 @@
   }
 
   .head-one {
-
     font-size: 22px;
     font-weight: 600;
     max-width: 280px;
   }
 
   .head-two {
-   
     font-size: 14px;
     font-weight: 400;
     margin-top: 36px;
     margin-bottom: 36px;
     max-width: 280px;
   }
-  
+
   .button-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* Ширина кнопок */
@@ -193,13 +199,25 @@
     font-weight: 400;
     background-position: 6px 6px;
     background-size: 16px;
-  }  
+  }
 
-  .button-container > .boilers { grid-area: a; } /* Котельные */
-  .button-container > .service { grid-area: b; } /* Аренда */
-  .button-container > .repaire { grid-area: c; } /* Ремонт и обслуживание */
-  .button-container > .car { grid-area: d; } /* Мобильная котельная (смещена вправо) */
-  .button-container > .production { grid-area: e; } /* Производство */
-  .button-container > .news { grid-area: f; } /* Новости */
+  .button-container > .boilers {
+    grid-area: a;
+  } /* Котельные */
+  .button-container > .service {
+    grid-area: b;
+  } /* Аренда */
+  .button-container > .repaire {
+    grid-area: c;
+  } /* Ремонт и обслуживание */
+  .button-container > .car {
+    grid-area: d;
+  } /* Мобильная котельная (смещена вправо) */
+  .button-container > .production {
+    grid-area: e;
+  } /* Производство */
+  .button-container > .news {
+    grid-area: f;
+  } /* Новости */
 }
 </style>

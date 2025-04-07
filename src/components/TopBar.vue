@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router'; // Импортируем useRouter для навигации
-import { SUPPORT_EMAIL, SUPPORT_EMAIL_MAILTO } from '@/helpers/constants';
+import { ref } from "vue";
+import { useRouter } from "vue-router"; // Импортируем useRouter для навигации
+import { SUPPORT_EMAIL, SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
 
 const router = useRouter(); // Получаем объект router
 
@@ -12,18 +12,18 @@ const isEmailModalOpen = ref(false); // Состояние для модальн
 
 // Состояние для активной ссылки
 const activeLink = ref(null);
-const formName = ref('');
-const formEmail = ref('');
-const formMessage = ref('');
+const formName = ref("");
+const formEmail = ref("");
+const formMessage = ref("");
 
 // Список ссылок
 const links = ref([
-  { text: 'ГЛАВНАЯ', path: '/' },
-  { text: 'КОТЕЛЬНЫЕ', path: '/boiler-room' },
-  { text: 'УСЛУГИ', path: '/service' },
-  { text: 'МОБИЛЬНЫЕ КОТЕЛЬНЫЕ', path: '/car' },
-  { text: 'НОВОСТИ', path: '/news' },
-  { text: 'О НАС', path: '/us' },
+  { text: "ГЛАВНАЯ", path: "/" },
+  { text: "КОТЕЛЬНЫЕ", path: "/boiler-room" },
+  { text: "УСЛУГИ", path: "/service" },
+  { text: "МОБИЛЬНЫЕ КОТЕЛЬНЫЕ", path: "/car" },
+  { text: "НОВОСТИ", path: "/news" },
+  { text: "О НАС", path: "/us" },
 ]);
 
 // Открытие модального окна
@@ -69,9 +69,11 @@ const emailData = () => {
   // return `${SUPPORT_EMAIL_MAILTO}?subject=${encodeURIComponent('Заявка на заказ')}` +
   //   `&body=${encodeURIComponent(formMessage)}\n\n${encodeURIComponent(formName)}\n` +
   //   `${encodeURIComponent(formEmail)}`;
-  return `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
+  return (
+    `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
     `&body=${formMessage.value}\n\n${formName.value}\n` +
-    `${formEmail.value}`;
+    `${formEmail.value}`
+  );
 };
 </script>
 
@@ -83,7 +85,9 @@ const emailData = () => {
         <div class="icon-mobile-headphones" @click="openModal"></div>
         <div class="contact-details">
           <a href="tel:+79779533911" class="phone-number">+7 (977) 953 39 11</a>
-          <a :href=SUPPORT_EMAIL_MAILTO class="support-email">{{ SUPPORT_EMAIL }}</a>
+          <a :href="SUPPORT_EMAIL_MAILTO" class="support-email">{{
+            SUPPORT_EMAIL
+          }}</a>
         </div>
       </div>
       <div class="logo" />
@@ -150,23 +154,41 @@ const emailData = () => {
         <div class="email-modal-content">
           <h2>Написать на почту</h2>
           <p>Наш менеджер свяжется с вами в течение дня</p>
-          
+
           <form @submit="sendEmail">
             <div class="form-group">
-              <input v-model="formName" placeholder="Ваше имя" type="text" name="name" required />
+              <input
+                v-model="formName"
+                placeholder="Ваше имя"
+                type="text"
+                name="name"
+                required
+              />
             </div>
             <div class="form-group">
-              <input v-model="formEmail" placeholder="E-mail" type="email" name="email" required />
+              <input
+                v-model="formEmail"
+                placeholder="E-mail"
+                type="email"
+                name="email"
+                required
+              />
             </div>
             <div class="form-group">
-              <textarea v-model="formMessage" placeholder="Сообщение" name="message" rows="10" required></textarea>
+              <textarea
+                v-model="formMessage"
+                placeholder="Сообщение"
+                name="message"
+                rows="10"
+                required
+              ></textarea>
             </div>
             <div class="submit-container">
               <!--button type="submit" class="submit-button">Отправить</button-->
               <!--div>{{ emailData() }}</div-->
-              <a class="submit-button" :href=emailData()>Отправить</a>
+              <a class="submit-button" :href="emailData()">Отправить</a>
             </div>
-            
+
             <p class="privacy-policy">
               Нажимая на кнопку, вы соглашаетесь с условиями
               <a href="#" class="privacy-link">политики конфиденциальности</a>.
@@ -212,7 +234,7 @@ const emailData = () => {
   background-size: cover;
 }
 
-.phone-number, 
+.phone-number,
 .support-email {
   text-decoration: none;
   color: inherit;
@@ -238,8 +260,6 @@ const emailData = () => {
 .call-button {
   display: block;
 }
-
-
 
 /* модальное окно почты для пк версии*/
 .modal-overlay {
@@ -309,8 +329,8 @@ const emailData = () => {
   border: none;
   border-radius: 8px;
   font-size: 18px;
-  background-color: #EAEAEA;
-  color: #3F3F3F;
+  background-color: #eaeaea;
+  color: #3f3f3f;
   outline: none;
 }
 .form-group input,
@@ -319,41 +339,13 @@ const emailData = () => {
   border: none;
   border-radius: 8px;
   font-size: 18px;
-  background-color: #EAEAEA;
-  color: #3F3F3F;
+  background-color: #eaeaea;
+  color: #3f3f3f;
   font-family: inherit; /* Наследуем шрифт от родителя */
-
 }
 .form-group textarea {
   resize: vertical;
   border: none;
-}
-
-/* Контейнер для кнопки отправки */
-.submit-container {
-  display: flex;
-  justify-content: center; /* Центрирование по горизонтали */
-  margin: 0 auto;
-  margin-top: 10px;
-}
-
-/* Кнопка отправки */
-.submit-button {
-  background-color: #000000;
-  color: white;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  margin-bottom: 10px;
-  display: block;
-  text-decoration: none;
-}
-
-.submit-button:active {
-  background-color: #696770;
 }
 
 .privacy-policy {
@@ -367,8 +359,6 @@ const emailData = () => {
   text-decoration: underline;
 }
 /*----------*/
-
-
 
 /* Мобильная версия */
 
@@ -420,213 +410,212 @@ const emailData = () => {
     height: 30px;
   }
   /* Модальное окно */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Прилипание к верхней части */
-  z-index: 1000;
-}
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Прилипание к верхней части */
+    z-index: 1000;
+  }
 
-.modal-content {
-  background-color: white;
-  width: 430px; /* Ширина модального окна */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding-bottom: 20px;
-}
+  .modal-content {
+    background-color: white;
+    width: 430px; /* Ширина модального окна */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
+  }
 
-.modal-header {
-  display: flex;
-  justify-content: flex-end; /* Крестик справа */
-  align-items: center;
-  margin: 20px;
-}
+  .modal-header {
+    display: flex;
+    justify-content: flex-end; /* Крестик справа */
+    align-items: center;
+    margin: 20px;
+  }
 
-.close {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  background-image: url("@/assets/images/black_logos/close.svg");
-  background-size: contain;
-}
+  .close {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-image: url("@/assets/images/black_logos/close.svg");
+    background-size: contain;
+  }
 
-.modal-links {
-  display: flex;
-  flex-direction: column;
-}
+  .modal-links {
+    display: flex;
+    flex-direction: column;
+  }
 
-.modal-link {
-  padding: 20px;
-  font-size: 16px;
-  color: #333;
-  text-decoration: none;
-  border-left: 3px solid transparent;
-  transition: all 0.3s ease;
-  text-align: left;
-}
+  .modal-link {
+    padding: 20px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+    text-align: left;
+  }
 
-.modal-link.active {
-  border-left: 3px solid red; /* Красная полоска для активной ссылки */
-  color: #000;
-  font-weight: 600;
-}
+  .modal-link.active {
+    border-left: 3px solid red; /* Красная полоска для активной ссылки */
+    color: #000;
+    font-weight: 600;
+  }
 
-.modal-link:hover {
-  background-color: #f5f5f5;
-}
+  .modal-link:hover {
+    background-color: #f5f5f5;
+  }
 
-/* Мобильное меню */
-.mobile-menu {
-  padding-bottom: 30px;
-}
+  /* Мобильное меню */
+  .mobile-menu {
+    padding-bottom: 30px;
+  }
 
-.mobile-menu-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+  .mobile-menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-.mobile-menu-button {
-  width: 300px;
-  height: 42px;
-  background-color: #f3f3f3;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-  text-align: left;
-  color: #000; /* Черный цвет текста */
-  transition: background-color 0.3s ease;
-  margin: 0 auto;
-}
+  .mobile-menu-button {
+    width: 300px;
+    height: 42px;
+    background-color: #f3f3f3;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    text-align: left;
+    color: #000; /* Черный цвет текста */
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
+  }
 
-.button-text {
-  margin-left: 12px;
-  font-size: 16px;
-  font-weight: 500;
-}
+  .button-text {
+    margin-left: 12px;
+    font-size: 16px;
+    font-weight: 500;
+  }
 
-.mobile-menu-button:hover {
-  background-color: #e0e0e0;
-}
+  .mobile-menu-button:hover {
+    background-color: #e0e0e0;
+  }
 
-.call-ingener {
-  background-image: url("@/assets/images/black_logos/call-ingener.svg");
-}
+  .call-ingener {
+    background-image: url("@/assets/images/black_logos/call-ingener.svg");
+  }
 
-.call-manager {
-  background-image: url("@/assets/images/black_logos/call-manager.svg");
-}
+  .call-manager {
+    background-image: url("@/assets/images/black_logos/call-manager.svg");
+  }
 
-.email {
-  background-image: url("@/assets/images/black_logos/email.svg");
-}
+  .email {
+    background-image: url("@/assets/images/black_logos/email.svg");
+  }
 
-.telegram {
-  background-image: url("@/assets/images/black_logos/telegram.svg");
-}
+  .telegram {
+    background-image: url("@/assets/images/black_logos/telegram.svg");
+  }
 
-.whatsapp {
-  background-image: url("@/assets/images/black_logos/whatsapp.svg");
-}
+  .whatsapp {
+    background-image: url("@/assets/images/black_logos/whatsapp.svg");
+  }
 
-.call-ingener,
-.call-manager,
-.email,
-.telegram,
-.whatsapp {
-  width: 20px;
-  height: 20px;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+  .call-ingener,
+  .call-manager,
+  .email,
+  .telegram,
+  .whatsapp {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
-/* Модальное окно почты */
-.email-modal {
-  background-color: white;
-  width: 430px; /* Ширина модального окна */
-  max-height: 90vh; /* Ограничиваем высоту окна */
-  overflow-y: auto; /* Включаем вертикальную прокрутку */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding-bottom: 20px;
-}
-.email-modal-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 0px 20px 20px 20px;
-  overflow-y: auto;
-}
+  /* Модальное окно почты */
+  .email-modal {
+    background-color: white;
+    width: 430px; /* Ширина модального окна */
+    max-height: 90vh; /* Ограничиваем высоту окна */
+    overflow-y: auto; /* Включаем вертикальную прокрутку */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
+  }
+  .email-modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 20px 20px 20px;
+    overflow-y: auto;
+  }
 
-.email-modal-content h2 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 0px;
-  text-align: center;
-}
+  .email-modal-content h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    text-align: center;
+  }
 
-.email-modal-content p {
-  font-size: 16px;
-  text-align: center;
-  padding-bottom: 10px;
-}
+  .email-modal-content p {
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 10px;
+  }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
 
-}
+  .form-group input,
+  .form-group textarea {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    background-color: #eaeaea;
+    color: #3f3f3f;
+    outline: none;
+  }
+  .form-group input,
+  .form-group textarea {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    background-color: #eaeaea;
+    color: #3f3f3f;
+    font-family: inherit; /* Наследуем шрифт от родителя */
+  }
+  .form-group textarea {
+    resize: vertical;
+    border: none;
+  }
 
-.form-group input,
-.form-group textarea {
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  background-color: #EAEAEA;
-  color: #3F3F3F;
-  outline: none;
-}
-.form-group input,
-.form-group textarea {
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  background-color: #EAEAEA;
-  color: #3F3F3F;
-  font-family: inherit; /* Наследуем шрифт от родителя */
-}
-.form-group textarea {
-  resize: vertical;
-  border: none;
-}
+  /* Контейнер для кнопки отправки */
+  .submit-container {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
-/* Контейнер для кнопки отправки */
-.submit-container {
-  display: flex;
-  justify-content: center; /* Центрирование по горизонтали */
-  margin: 0 auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+  .privacy-policy {
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+  }
 
-.privacy-policy {
-  font-size: 12px;
-  color: #000;
-  text-align: center;
-}
-
-.privacy-link {
-  color: #000;
-  text-decoration: underline;
-}
+  .privacy-link {
+    color: #000;
+    text-decoration: underline;
+  }
 }
 </style>

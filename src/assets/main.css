@@ -1,101 +1,123 @@
-
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-
-
 button {
-    background: #FF0000;
-    color: #fff;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 500ms ease;
-    border:  3px solid #FF0000;
-    font-family: 'Inter'; 
-    font-weight: bold; 
-    font-size: 16px;
-    width: 200px; 
-    height: 50px;
+  background: #ff0000;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 500ms ease;
+  border: 3px solid #ff0000;
+  font-family: "Inter";
+  font-weight: bold;
+  font-size: 16px;
+  width: 200px;
+  height: 50px;
 }
 
 button:hover {
-    background-color: hsl(0, 100%, 75%);
-    border: 3px solid hsl(0, 100%, 75%);
+  background-color: hsl(0, 100%, 75%);
+  border: 3px solid hsl(0, 100%, 75%);
 }
 
 button:active {
-    background-color: hsl(0, 100%, 75%);
-    border: 3px solid #FDA29B;
+  background-color: hsl(0, 100%, 75%);
+  border: 3px solid #fda29b;
 }
 
 button.black {
-    background: #000;
-    border:  3px solid #000;
+  background: #000;
+  border: 3px solid #000;
 }
 button.black:hover {
-    background-color: #403F3F;
-    border: 3px solid #403F3F;
+  background-color: #403f3f;
+  border: 3px solid #403f3f;
 }
 button.black:active {
-    background-color: #403F3F;
-    border: 3px solid #696770;
+  background-color: #403f3f;
+  border: 3px solid #696770;
 }
 
-h1, h2 {
-    font-size: 40px; /* Устанавливает размер шрифта 40 пикселей */
-    font-weight: 600; /* Устанавливает жирное начертание */
-    line-height: 50px;
-    margin-bottom: 30px;
+h1,
+h2 {
+  font-size: 40px; /* Устанавливает размер шрифта 40 пикселей */
+  font-weight: 600; /* Устанавливает жирное начертание */
+  line-height: 50px;
+  margin-bottom: 30px;
 }
 
 h3 {
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 h4 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 p {
-    padding-bottom: 30px;
-    font-size: 30px;
+  padding-bottom: 30px;
+  font-size: 30px;
 }
 
 .page-container {
-    max-width: 1140px;
-    margin: 0 auto;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 .g {
-    color: #696770;
+  color: #696770;
 }
-
-
 
 /* Inter Regular */
 @font-face {
-    font-family: 'Inter';
-    src: url('../assets/fonts/web/Inter-Regular.woff2') format('woff2');
-        
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  /* Inter Bold */
-  @font-face {
-    font-family: 'Inter';
-    src: url('../assets/fonts/web/Inter-Bold.woff2') format('woff2');
-      
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  /* Применение шрифта */
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
+  font-family: "Inter";
+  src: url("../assets/fonts/web/Inter-Regular.woff2") format("woff2");
+
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter Bold */
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/web/Inter-Bold.woff2") format("woff2");
+
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Применение шрифта */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+/* Контейнер для кнопки отправки */
+.submit-container {
+  display: flex;
+  justify-content: center; /* Центрирование по горизонтали */
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+/* Кнопка отправки */
+.submit-button {
+  background-color: #000000;
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  display: block;
+  text-decoration: none;
+}
+
+.submit-button:active {
+  background-color: #696770;
+}

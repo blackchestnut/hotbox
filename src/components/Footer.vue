@@ -1,5 +1,10 @@
 <script setup>
-  import { SUPPORT_EMAIL, SUPPORT_EMAIL_MAILTO } from '@/helpers/constants';
+import {
+  SUPPORT_EMAIL,
+  SUPPORT_EMAIL_MAILTO,
+  SUPPORT_PHONE,
+  SUPPORT_PHONE_TEL,
+} from "@/helpers/constants";
 </script>
 
 <template>
@@ -9,11 +14,10 @@
         <div class="footer-column">
           <h3>УСЛУГИ</h3>
           <ul>
-            <li><a href="#" >Производство</a></li>
+            <li><a href="#">Производство</a></li>
             <li><a href="#">Аренда</a></li>
             <li><a href="#">Ремонт и обслуживание</a></li>
-            <li><a href="#">Мобильная котельная на базе
-                Ford Transit</a></li>
+            <li><a href="#">Мобильная котельная на базе Ford Transit</a></li>
           </ul>
         </div>
         <div class="footer-column">
@@ -25,10 +29,11 @@
         </div>
         <div class="footer-column">
           <h3>КОНТАКТЫ</h3>
-            <div class="inf">
-                <a :href=SUPPORT_EMAIL_MAILTO>{{ SUPPORT_EMAIL }}</a><br>
-                <a href="#">+7 (977) 953 39 11</a>
-            </div>
+          <div class="inf">
+            <a :href="SUPPORT_EMAIL_MAILTO">{{ SUPPORT_EMAIL }}</a
+            ><br />
+            <a :href="SUPPORT_PHONE_TEL">{{ SUPPORT_PHONE }}</a>
+          </div>
         </div>
       </div>
       <div class="footer-divider" />

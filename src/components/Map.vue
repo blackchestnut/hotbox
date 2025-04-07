@@ -1,53 +1,56 @@
 <template>
-    <div class="map-container">
-      <div id="map" style="width: 100%; height: 500px;"></div>
-      <div class="overlay">
-        <div class="sell-dept">
-          <div class="name">Отдел продаж</div>
-          +7 (977) 953 39 11
-        </div>
-        <div class="engineer-dept">
-          <div class="name">Инженер</div>
-          +7 (999) 822 11 45
-        </div>
-        <div class="adress-dept">
-          <div class="name">Юридический адрес</div>
-          г. Москва п. Краснопахарское, квартал 171
-        </div>
+  <div class="map-container">
+    <div id="map" style="width: 100%; height: 500px"></div>
+    <div class="overlay">
+      <div class="sell-dept">
+        <div class="name">Отдел продаж</div>
+        +7 (977) 953 39 11
+      </div>
+      <div class="engineer-dept">
+        <div class="name">Инженер</div>
+        +7 (999) 822 11 45
+      </div>
+      <div class="adress-dept">
+        <div class="name">Юридический адрес</div>
+        г. Москва п. Краснопахарское, квартал 171
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'YandexMap',
-    mounted() {
-      if (typeof ymaps !== 'undefined') {
-        this.initMap();
-      } else {
-        console.error('Yandex Maps API не загружен');
-      }
+  </div>
+</template>
+
+<script>
+export default {
+  name: "YandexMap",
+  mounted() {
+    if (typeof ymaps !== "undefined") {
+      this.initMap();
+    } else {
+      console.error("Yandex Maps API не загружен");
+    }
+  },
+  methods: {
+    async initMap() {
+      await ymaps.ready();
+
+      const map = new ymaps.Map("map", {
+        center: [55.449765, 37.297809],
+        zoom: 10,
+      });
+
+      const placemark = new ymaps.Placemark(
+        [55.449765, 37.297809],
+        {},
+        {
+          preset: "islands#redIcon",
+        }
+      );
+
+      map.geoObjects.add(placemark);
     },
-    methods: {
-      async initMap() {
-        await ymaps.ready();
-  
-        const map = new ymaps.Map('map', {
-          center: [55.449765, 37.297809],
-          zoom: 10,
-        });
-  
-        const placemark = new ymaps.Placemark([55.449765, 37.297809], {
-        }, {
-          preset: 'islands#redIcon',
-        });
-  
-        map.geoObjects.add(placemark);
-      },
-    },
-  };
-  </script>
-  
+  },
+};
+</script>
+
 <style scoped>
 .map-container {
   position: relative;
@@ -81,12 +84,12 @@
 @media (max-width: 430px) {
   .overlay {
     position: absolute;
-    top: 44px; 
-    left: 50%; 
-    transform: translateX(-50%); 
+    top: 44px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 90%;
     max-width: 300px;
-    padding: 15px; 
+    padding: 15px;
     border-radius: 15px;
     text-align: left;
   }
@@ -101,5 +104,4 @@
     margin-bottom: 10px;
   }
 }
-
 </style>

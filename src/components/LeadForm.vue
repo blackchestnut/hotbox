@@ -3,32 +3,46 @@
     <div class="leadform">
       <div class="leadform-content">
         <div class="welcome">
-          <div class="leave-request">Оставьте заявку!</div><br>
-          <div class="your-data">Укажите свои данные и мы<br>обязательно свяжемся с
-          вами для<br>уточнения деталей вашего запроса</div>
+          <div class="leave-request">Оставьте заявку!</div>
+          <br />
+          <div class="your-data">
+            Укажите свои данные и мы<br />обязательно свяжемся с вами для<br />уточнения
+            деталей вашего запроса
+          </div>
         </div>
         <!-- Логотип огня для ПК версии -->
-        <img src="\src\assets\images\red_logos\fire.svg" alt="Fire Logo" class="fire-logo fire-logo-desktop" />
+        <img
+          src="\src\assets\images\red_logos\fire.svg"
+          alt="Fire Logo"
+          class="fire-logo fire-logo-desktop"
+        />
         <div class="b-input">
-          <input placeholder="Ваше имя" type="text" class="input1">
+          <input placeholder="Ваше имя" type="text" class="input1" />
         </div>
         <div class="b-input">
-            <input placeholder="Телефон" type="tel" class="input1">
+          <input placeholder="Телефон" type="tel" class="input1" />
         </div>
         <div class="b-input">
-          <input placeholder="E-mail" type="email" class="input1"> 
+          <input placeholder="E-mail" type="email" class="input1" />
         </div>
         <div class="b-input">
-          <input placeholder="Услуга" type="text" class="input1">
+          <input placeholder="Услуга" type="text" class="input1" />
         </div>
-        <input class="submit" type="submit" value="Отправить запрос">
+        <input class="submit" type="submit" value="Отправить запрос" />
         <div class="note">
-          Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
-          <a href="https://hotboxrf.ru/politika">политикой конфиденциальности</a>
+          Нажимая на кнопку, вы даете согласие на обработку персональных данных
+          и соглашаетесь c
+          <a href="https://hotboxrf.ru/politika"
+            >политикой конфиденциальности</a
+          >
         </div>
 
         <!-- Логотип огня для мобильной версии -->
-        <img src="\src\assets\images\red_logos\fire.svg" alt="Fire Logo" class="fire-logo fire-logo-mobile" />
+        <img
+          src="\src\assets\images\red_logos\fire.svg"
+          alt="Fire Logo"
+          class="fire-logo fire-logo-mobile"
+        />
       </div>
     </div>
   </div>
@@ -53,8 +67,8 @@
   text-decoration: underline;
 }
 .note a:hover {
-  text-decoration: underline #FDA29B;
-  color: #FDA29B;
+  text-decoration: underline #fda29b;
+  color: #fda29b;
 }
 .b-input input {
   padding-left: 24px;
@@ -67,7 +81,7 @@
   border: 3px solid #ffffff;
 }
 .b-input input:focus {
-  border-color: #FDA29B;
+  border-color: #fda29b;
   outline: none;
 }
 .submit {
@@ -90,14 +104,14 @@
   border-color: #474a4d;
 }
 .leadform {
-  background-color: #B12117;
+  background-color: #b12117;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding-top: 60px;
-  padding-bottom: 60px; 
+  padding-bottom: 60px;
 }
 .fire-logo-desktop {
   position: absolute;
@@ -120,7 +134,7 @@
   .leadform-wrapper {
     max-width: 100%;
     padding: 0px 16px;
-    background-color: #B12117;
+    background-color: #b12117;
   }
   .leadform-content {
     text-align: left;
@@ -139,10 +153,10 @@
     font-size: 16px;
     text-align: left;
   }
-  
+
   .b-input input {
     width: 100%;
-  
+
     max-height: 48px;
     padding-left: 12px;
     padding-right: 12px;

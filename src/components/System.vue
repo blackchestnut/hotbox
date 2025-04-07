@@ -1,8 +1,8 @@
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/swiper-bundle.css';
-import { ref, onMounted, onUnmounted } from 'vue';
-import { useRouter } from 'vue-router'; // Импортируем useRouter для навигации
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/swiper-bundle.css";
+import { ref, onMounted, onUnmounted } from "vue";
+import { useRouter } from "vue-router"; // Импортируем useRouter для навигации
 
 const router = useRouter(); // Получаем доступ к роутеру
 
@@ -16,76 +16,76 @@ const updateIsMobile = () => {
 
 // Добавляем слушатель изменения размера окна
 onMounted(() => {
-  window.addEventListener('resize', updateIsMobile);
+  window.addEventListener("resize", updateIsMobile);
 });
 
 // Убираем слушатель при уничтожении компонента
 onUnmounted(() => {
-  window.removeEventListener('resize', updateIsMobile);
+  window.removeEventListener("resize", updateIsMobile);
 });
 
 const ITEMS_ON_PAGE = 3;
 
 const slides = [
   {
-    text: 'ПАКУ 500 кВт 1К (Н/Р)',
+    text: "ПАКУ 500 кВт 1К (Н/Р)",
     image: "/src/assets/images/boilers/paku-500-kvt-1k-nr/1.png",
-    description: 'Установка 0,5 МВт, 1 котел',
-    link: '/kotelnye/paku-500-kvt-1k-nr'
+    description: "Установка 0,5 МВт, 1 котел",
+    link: "/kotelnye/paku-500-kvt-1k-nr",
   },
   {
-    text: 'БМАК 1000 кВт 2К',
+    text: "БМАК 1000 кВт 2К",
     image: "/src/assets/images/boilers/bmak-1000-kvt-2k/1.png",
-    description: 'Котельная 1,0 МВт, 2 котла',
-    link: '/kotelnye/bmak-1000-kvt-2k'
+    description: "Котельная 1,0 МВт, 2 котла",
+    link: "/kotelnye/bmak-1000-kvt-2k",
   },
   {
-    text: 'БМАК 1040 кВт 1К',
+    text: "БМАК 1040 кВт 1К",
     image: "/src/assets/images/boilers/bmak-1040-kvt-1k/1.png",
-    description: 'Котельная 1,04 МВт, 1 котел',
-    link: '/kotelnye/bmak-1040-kvt-1k'
+    description: "Котельная 1,04 МВт, 1 котел",
+    link: "/kotelnye/bmak-1040-kvt-1k",
   },
   {
-    text: 'БМАК 1200 кВт 1К',
+    text: "БМАК 1200 кВт 1К",
     image: "/src/assets/images/boilers/bmak-1200-kvt-1k/1.png",
-    description: 'Котельная 1,2 МВт, 1 котел',
-    link: '/kotelnye/bmak-1200-kvt-1k'
+    description: "Котельная 1,2 МВт, 1 котел",
+    link: "/kotelnye/bmak-1200-kvt-1k",
   },
   {
-    text: 'БМАК 1400 кВт 1К',
+    text: "БМАК 1400 кВт 1К",
     image: "/src/assets/images/boilers/bmak-1400-kvt-1k/1.png",
-    description: 'Котельная 1,4 МВт, 1 котел',
-    link: '/kotelnye/bmak-1400-kvt-1k'
+    description: "Котельная 1,4 МВт, 1 котел",
+    link: "/kotelnye/bmak-1400-kvt-1k",
   },
   {
-    text: 'БМАК 1600 кВт 1К',
+    text: "БМАК 1600 кВт 1К",
     image: "/src/assets/images/boilers/bmak-1600-kvt-1k/1.png",
-    description: 'Котельная 1,6 МВт, 1 котел',
-    link: '/kotelnye/bmak-1600-kvt-1k'
+    description: "Котельная 1,6 МВт, 1 котел",
+    link: "/kotelnye/bmak-1600-kvt-1k",
   },
   {
-    text: 'БМАК 4800 кВт 2К',
+    text: "БМАК 4800 кВт 2К",
     image: "/src/assets/images/boilers/bmak-4800-kvt-2k/1.png",
-    description: 'Котельная 4,8 МВт, 2 котла',
-    link: '/kotelnye/bmak-4800-kvt-2k'
+    description: "Котельная 4,8 МВт, 2 котла",
+    link: "/kotelnye/bmak-4800-kvt-2k",
   },
   {
-    text: 'БМАК 6000 кВт 2К',
+    text: "БМАК 6000 кВт 2К",
     image: "/src/assets/images/boilers/bmak-6000-kvt-2k/1.png",
-    description: 'Котельная 6 МВт, 2 котла',
-    link: '/kotelnye/bmak-6000-kvt-2k'
+    description: "Котельная 6 МВт, 2 котла",
+    link: "/kotelnye/bmak-6000-kvt-2k",
   },
   {
-    text: 'БМАК 6100 кВт 2К',
+    text: "БМАК 6100 кВт 2К",
     image: "/src/assets/images/boilers/bmak-6100-kvt-2k/1.png",
-    description: 'Котельная 6,1 МВт, 2 котла',
-    link: '/kotelnye/bmak-6100-kvt-2k'
+    description: "Котельная 6,1 МВт, 2 котла",
+    link: "/kotelnye/bmak-6100-kvt-2k",
   },
   {
-    text: 'БМАК 7400 кВт 2К',
+    text: "БМАК 7400 кВт 2К",
     image: "/src/assets/images/boilers/bmak-7400-kvt-2k/1.png",
-    description: 'Котельная 7,4 МВт, 2 котла',
-    link: '/kotelnye/bmak-7400-kvt-2k'
+    description: "Котельная 7,4 МВт, 2 котла",
+    link: "/kotelnye/bmak-7400-kvt-2k",
   },
 ];
 
@@ -129,7 +129,8 @@ const showDetails = (index) => {
       <div class="header">
         <div class="boilers-hotbox">Котельные системы HotBox</div>
         <div class="subheadline">
-          Это современные, полностью автономные, мобильные тепловые установки. Более 10 лет мы работаем для вас
+          Это современные, полностью автономные, мобильные тепловые установки.
+          Более 10 лет мы работаем для вас
         </div>
       </div>
       <div class="background">
@@ -145,31 +146,36 @@ const showDetails = (index) => {
             <swiper-slide v-for="(slide, index) in slides" :key="index">
               <div
                 class="slide-inner"
-                @click="isMobile ? showDetails(index) : null" 
+                @click="isMobile ? showDetails(index) : null"
               >
                 <img :src="slide.image" alt="Slide Image" class="slide-image" />
                 <div class="label">{{ slide.text }}</div>
                 <div class="description">{{ slide.description }}</div>
-                <button class="details-button" @click="showDetails(index)">ПОДРОБНЕЕ</button>
+                <button class="details-button" @click="showDetails(index)">
+                  ПОДРОБНЕЕ
+                </button>
               </div>
             </swiper-slide>
           </swiper>
           <div class="slider-navigation">
             <button class="b-slider-prev" @click="goToPrevSlide">
-              <img src="\src\assets\images\arrows\Vector.svg">
+              <img src="\src\assets\images\arrows\Vector.svg" />
             </button>
             <div class="pagination-buttons">
               <button
                 v-for="(page, index) in totalPages"
                 :key="index"
                 @click="goToPage(index)"
-                :class="['pagination-button', currentPage === index ? 'active' : '']"
+                :class="[
+                  'pagination-button',
+                  currentPage === index ? 'active' : '',
+                ]"
               >
                 {{ index + 1 }}
               </button>
             </div>
             <button class="b-slider-next" @click="goToNextSlide">
-              <img src="\src\assets\images\arrows\Vector1.svg">
+              <img src="\src\assets\images\arrows\Vector1.svg" />
             </button>
           </div>
           <router-link to="/boiler-room">
@@ -213,7 +219,7 @@ const showDetails = (index) => {
   width: 100%;
   max-width: 357px;
   height: 525px;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   border-radius: 8px;
   transition: transform 0.3s ease;
   cursor: pointer; /* Добавляем курсор для интерактивности */
@@ -384,7 +390,7 @@ const showDetails = (index) => {
     margin: 0 auto;
   }
   .swiper-slide {
-    margin-right: 0px
+    margin-right: 0px;
   }
   .details-button {
     display: none;
