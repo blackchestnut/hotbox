@@ -63,14 +63,23 @@ const boilers = [
   },
 
   {
-    path: "bmak-1000-kvt-2k",
-    imgSrc: "/src/assets/images/boilers/bmak-1000-kvt-2k/1.png",
+    imgSrc: new URL(
+      "@/assets/images/boilers/bmak-1000-kvt-2k/1.png",
+      import.meta.url
+    ).href,
     images: [
-      "/src/assets/images/boilers/bmak-1000-kvt-2k/1.png",
-      "/src/assets/images/boilers/bmak-1000-kvt-2k/2.jpg",
-      "/src/assets/images/boilers/bmak-1000-kvt-2k/3.jpg",
-      "/src/assets/images/boilers/bmak-1000-kvt-2k/4.jpg",
-      "/src/assets/images/boilers/bmak-1000-kvt-2k/5.jpg",
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/1.png", import.meta.url)
+        .href,
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/2.png", import.meta.url)
+        .href,
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/3.png", import.meta.url)
+        .href,
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/4.png", import.meta.url)
+        .href,
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/5.png", import.meta.url)
+        .href,
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/6.png", import.meta.url)
+        .href,
     ],
     type: "ПАКУ 1000 кВт 2К (Н/Р)",
     purpose: "Теплоснабжение",
