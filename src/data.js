@@ -63,6 +63,7 @@ const boilers = [
   },
 
   {
+    path: "bmak-1000-kvt-2k",
     imgSrc: new URL(
       "@/assets/images/boilers/bmak-1000-kvt-2k/1.png",
       import.meta.url
@@ -70,15 +71,15 @@ const boilers = [
     images: [
       new URL("@/assets/images/boilers/bmak-1000-kvt-2k/1.png", import.meta.url)
         .href,
-      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/2.png", import.meta.url)
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/2.jpd", import.meta.url)
         .href,
-      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/3.png", import.meta.url)
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/3.jpd", import.meta.url)
         .href,
-      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/4.png", import.meta.url)
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/4.jpd", import.meta.url)
         .href,
-      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/5.png", import.meta.url)
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/5.jpd", import.meta.url)
         .href,
-      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/6.png", import.meta.url)
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/6.jpd", import.meta.url)
         .href,
     ],
     type: "ПАКУ 1000 кВт 2К (Н/Р)",
