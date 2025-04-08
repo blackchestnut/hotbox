@@ -29,7 +29,7 @@ const ITEMS_ON_PAGE = 3;
 const slides = [
   {
     text: "ПАКУ 500 кВт 1К (Н/Р)",
-    image: "/src/assets/images/boilers/paku-500-kvt-1k-nr/1.png",
+    image: new URL("@/assets/images/boilers/paku-500-kvt-1k-nr/1.png", import.meta.url).href,
     description: "Установка 0,5 МВт, 1 котел",
     link: "/kotelnye/paku-500-kvt-1k-nr",
   },
