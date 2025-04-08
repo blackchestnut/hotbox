@@ -59,6 +59,7 @@
   padding-top: 100px;
   padding-bottom: 100px;
   padding-left: 300px;
+  padding-right: 300px;
 }
 
 .head-one {
