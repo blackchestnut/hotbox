@@ -38,10 +38,14 @@ const slides = [
   },
   {
     text: "БМАК 1000 кВт 2К",
-    image: new URL(
-      "@/assets/images/boilers/bmak-1000-kvt-2k/1.png",
-      import.meta.url
-    ).href,
+    image: [
+      new URL("@/assets/images/boilers/bmak-1000-kvt-2k/1.png", import.meta.url)
+        .href,
+      new URL(
+        "@/assets/images/boilers/paku-500-kvt-1k-nr/2.png",
+        import.meta.url
+      ).href,
+    ],
     description: "Котельная 1,0 МВт, 2 котла",
     link: "/kotelnye/bmak-1000-kvt-2k",
   },
