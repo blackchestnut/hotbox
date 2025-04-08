@@ -38,7 +38,7 @@ const slides = [
   },
   {
     text: "БМАК 1000 кВт 2К",
-    image: [
+    images: [
       new URL("@/assets/images/boilers/bmak-1000-kvt-2k/1.png", import.meta.url)
         .href,
       new URL(
