@@ -264,6 +264,7 @@ const closeOrderModal = () => {
   max-height: 90vh; /* Установите максимальную высоту в 90% от высоты окна */
   background-color: #fff;
   border-radius: 8px;
+  align-items: center; /* Центрирует всё по горизонтали */
   padding: 50px; /* Уменьшите отступы для лучшей адаптивности */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   overflow-y: auto; /* Позволяет прокручивать содержимое, если оно превышает высоту */

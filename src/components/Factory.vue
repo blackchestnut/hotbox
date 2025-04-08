@@ -58,8 +58,8 @@
   color: #fff;
   padding-top: 100px;
   padding-bottom: 100px;
-  padding-left: 300px;
-  padding-right: 300px;
+  padding-left: 280px;
+  padding-right: 280px;
 }
 
 .head-one {

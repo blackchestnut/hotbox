@@ -503,8 +503,8 @@ const boilers = [
 
 const car = [
   {
-    imgSrc: "/src/assets/images/car/car1.png",
-    images: ["/src/assets/images/car/car1.png"],
+    imgSrc: new URL("@/assets/images/car/car1.png", import.meta.url).href,
+    images: [new URL("@/assets/images/car/car1.png", import.meta.url).href],
     name: "Мобильная котельная установка на базе фургона Ford Transit",
   },
 ];
