@@ -56,11 +56,12 @@ import {
 h3 {
   color: rgba(255, 255, 255, 0.6);
 }
-
+.inf {
+  margin-bottom: 6px;
+}
 .inf a {
   color: #fff;
   text-decoration: none;
-  margin-bottom: 6px;
 }
 .inf a:hover {
   text-decoration: underline;
