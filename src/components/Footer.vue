@@ -63,6 +63,7 @@ h3 {
 }
 .inf a:hover {
   text-decoration: underline;
+  margin-bottom: 6px;
 }
 
 .footer-wrapper {
@@ -85,6 +86,8 @@ h3 {
 .footer-column {
   display: flex;
   flex-direction: column; /* Устанавливаем направление для колонки */
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .footer-column h3 {
@@ -118,6 +121,8 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center; /* Центрирует элементы по вертикали */
+  font-size: 16px;
+  font-weight: 400;
 }
 
 @media (max-width: 1024px) {
@@ -130,6 +135,16 @@ h3 {
     flex-direction: column;
     gap: 16px;
     text-align: center;
+  }
+}
+@media (max-width: 430px) {
+  .footer-column {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .footer-bottom {
+    font-size: 14px;
+    font-weight: 400;
   }
 }
 </style>
