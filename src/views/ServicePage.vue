@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import Menu from "@/components/Menu.vue";
-
+import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
 // Состояние модального окна
 const isOrderModalVisible = ref(false);
 const selectedOrder = ref(null);
@@ -27,6 +27,20 @@ const showOrderModal = (order) => {
 
 const closeOrderModal = () => {
   isOrderModalVisible.value = false;
+};
+const name = ref("");
+const email = ref("");
+const phone = ref("");
+
+const emailData = () => {
+  return (
+    `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ - ${selectedOrder.value}` +
+    `&body=Имя: ${encodeURIComponent(name.value)}%0A` +
+    `Email: ${encodeURIComponent(email.value)}%0A` +
+    `Телефон: ${encodeURIComponent(phone.value)}%0A` +
+    `Количество: ${encodeURIComponent(count.value)}%0A` +
+    `Выбранный товар: ${encodeURIComponent(selectedOrder.value)}`
+  );
 };
 </script>
 
@@ -200,25 +214,14 @@ const closeOrderModal = () => {
         </div>
 
         <div class="form-container">
-          <input
-            id="crm_lead_client"
-            name="crm_lead[client]"
-            placeholder="Ваше имя"
-            type="text"
-          />
-          <input
-            id="crm_lead_phone"
-            name="crm_lead[email]"
-            placeholder="E-mail"
-            type="email"
-          />
-          <input
-            id="crm_lead_phone"
-            name="crm_lead[phone]"
-            placeholder="Телефон"
-            type="tel"
-          />
-          <button class="black" type="submit">Отправить</button>
+          <input v-model="name" placeholder="Ваше имя" type="text" />
+          <input v-model="email" placeholder="E-mail" type="email" />
+          <input v-model="phone" placeholder="Телефон" type="tel" />
+          <div class="submit-container">
+            <a class="submit-button" type="submit" :href="emailData()"
+              >Отправить</a
+            >
+          </div>
           <div class="politics">
             Нажимая на кнопку вы соглашаетесь с условиями
             <a href="#todo">политики конфиденциальности</a>
