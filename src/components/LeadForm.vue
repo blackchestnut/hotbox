@@ -1,3 +1,19 @@
+<script setup>
+import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
+
+const formName = ref("");
+const formEmail = ref("");
+const formMessage = ref("");
+const formPhone = ref("");
+
+const emailData = () => {
+  return (
+    `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
+    `&body=${formMessage.value}\n\nИмя: ${formName.value}\n` +
+    `Email: ${formEmail.value}\nТелефон: ${formPhone.value}`
+  );
+};
+</script>
 <template>
   <div class="leadform-wrapper">
     <div class="leadform">
@@ -17,18 +33,38 @@
           class="fire-logo fire-logo-desktop"
         />
         <div class="b-input">
-          <input placeholder="Ваше имя" type="text" class="input1" />
+          <input
+            v-model="formName"
+            placeholder="Ваше имя"
+            type="text"
+            class="input1"
+          />
         </div>
         <div class="b-input">
-          <input placeholder="Телефон" type="tel" class="input1" />
+          <input
+            v-model="formPhone"
+            placeholder="Телефон"
+            type="tel"
+            class="input1"
+          />
         </div>
         <div class="b-input">
-          <input placeholder="E-mail" type="email" class="input1" />
+          <input
+            v-model="formEmail"
+            placeholder="E-mail"
+            type="email"
+            class="input1"
+          />
         </div>
         <div class="b-input">
-          <input placeholder="Услуга" type="text" class="input1" />
+          <input
+            v-model="formMessage"
+            placeholder="Услуга"
+            type="text"
+            class="input1"
+          />
         </div>
-        <input class="submit" type="submit" value="Отправить запрос" />
+        <a class="submit" :href="emailData()">Отправить</a>
         <div class="note">
           Нажимая на кнопку, вы даете согласие на обработку персональных данных
           и соглашаетесь c
