@@ -23,9 +23,9 @@ const closeOrderModal = () => {
   isOrderModalVisible.value = false;
 };
 
-const name = document.getElementById("crm_lead_name")?.value || "";
-const email = document.getElementById("crm_lead_email")?.value || "";
-const phone = document.getElementById("crm_lead_phone")?.value || "";
+const name = document.getElementById("crm_lead_name1")?.value || "";
+const email = document.getElementById("crm_lead_email1")?.value || "";
+const phone = document.getElementById("crm_lead_phone1")?.value || "";
 const count = ref(1);
 
 const emailData = () => {
@@ -138,19 +138,19 @@ const emailData = () => {
 
         <div class="form-container">
           <input
-            id="crm_lead_client"
+            id="crm_lead_client1"
             name="crm_lead[client]"
             placeholder="Ваше имя"
             type="text"
           />
           <input
-            id="crm_lead_phone"
+            id="crm_lead_phone1"
             name="crm_lead[email]"
             placeholder="E-mail"
             type="email"
           />
           <input
-            id="crm_lead_phone"
+            id="crm_lead_phone1"
             name="crm_lead[phone]"
             placeholder="Телефон"
             type="tel"
