@@ -51,6 +51,7 @@ import {
   width: 180px;
   background-image: url(".\icons\footer-logo.svg");
   background-size: cover;
+  font-size: 16px;
 }
 
 h3 {
@@ -60,10 +61,10 @@ h3 {
 .inf a {
   color: #fff;
   text-decoration: none;
+  margin-bottom: 6px;
 }
 .inf a:hover {
   text-decoration: underline;
-  margin-bottom: 6px;
 }
 
 .footer-wrapper {
