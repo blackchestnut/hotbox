@@ -21,6 +21,21 @@ const showOrderModal = () => {
 const closeOrderModal = () => {
   isOrderModalVisible.value = false;
 };
+
+const name = document.getElementById("crm_lead_name")?.value || "";
+const email = document.getElementById("crm_lead_email")?.value || "";
+const phone = document.getElementById("crm_lead_phone")?.value || "";
+const count = ref(1);
+
+const emailData = () => {
+  return (
+    `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
+    `&body=Имя: ${encodeURIComponent(name)}%0A` +
+    `Email: ${encodeURIComponent(email)}%0A` +
+    `Телефон: ${encodeURIComponent(phone)}%0A` +
+    `Количество: ${encodeURIComponent(count)}`
+  );
+};
 </script>
 
 <template>
@@ -139,7 +154,11 @@ const closeOrderModal = () => {
             placeholder="Телефон"
             type="tel"
           />
-          <button class="black" type="submit">Отправить</button>
+          <div class="submit-container">
+            <a class="submit-button" type="submit" :href="emailData()"
+              >Отправить</a
+            >
+          </div>
           <div class="politics">
             Нажимая на кнопку вы соглашаетесь с условиями
             <a href="#todo">политики конфиденциальности</a>
@@ -264,7 +283,6 @@ const closeOrderModal = () => {
   max-height: 90vh; /* Установите максимальную высоту в 90% от высоты окна */
   background-color: #fff;
   border-radius: 8px;
-  align-items: center; /* Центрирует всё по горизонтали */
   padding: 50px; /* Уменьшите отступы для лучшей адаптивности */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   overflow-y: auto; /* Позволяет прокручивать содержимое, если оно превышает высоту */
@@ -328,6 +346,7 @@ const closeOrderModal = () => {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
