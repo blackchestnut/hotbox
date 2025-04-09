@@ -130,6 +130,7 @@ const emailData = () => {
   margin-left: 650px;
   border: 4px solid #000000;
   cursor: pointer;
+  text-decoration: none;
 }
 .submit:hover {
   background-color: #343638;
