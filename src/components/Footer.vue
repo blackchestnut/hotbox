@@ -92,11 +92,15 @@ h3 {
 
 .footer-column h3 {
   margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .footer-column ul {
   list-style-type: none;
   padding: 0;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .footer-column ul li {
