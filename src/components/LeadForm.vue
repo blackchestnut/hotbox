@@ -65,7 +65,9 @@ const emailData = () => {
             class="input1"
           />
         </div>
-        <a class="submit" type="submit" :href="emailData()">Отправить</a>
+        <div class="b-input">
+          <a class="submit" type="submit" :href="emailData()">Отправить</a>
+        </div>
         <div class="note">
           Нажимая на кнопку, вы даете согласие на обработку персональных данных
           и соглашаетесь c
@@ -107,6 +109,10 @@ const emailData = () => {
   text-decoration: underline #fda29b;
   color: #fda29b;
 }
+.b-input {
+  margin-bottom: 24px;
+}
+
 .b-input input {
   padding-left: 24px;
   width: 532px;
