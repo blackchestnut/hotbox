@@ -65,11 +65,7 @@ const emailData = () => {
             class="input1"
           />
         </div>
-        <div class="submit-container">
-          <!--button type="submit" class="submit-button">Отправить</button-->
-          <!--div>{{ emailData() }}</div-->
-          <a class="submit-button" :href="emailData()">Отправить</a>
-        </div>
+        <a class="submit" :href="emailData()">Отправить</a>
         <div class="note">
           Нажимая на кнопку, вы даете согласие на обработку персональных данных
           и соглашаетесь c
