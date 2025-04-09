@@ -118,7 +118,7 @@ const emailData = () => {
   width: 532px;
   height: 80px;
   border-radius: 8px;
-  margin-bottom: 24px;
+
   font-size: 30px;
   margin-left: 650px;
   border: 3px solid #ffffff;
