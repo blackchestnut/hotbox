@@ -49,9 +49,8 @@ import {
 .footer-logo {
   height: 53px;
   width: 180px;
-  background-image: url(".\icons\footer-logo.svg");
+  background-image: url("./icons/footer-logo.svg");
   background-size: cover;
-  font-size: 16px;
 }
 
 h3 {
@@ -126,6 +125,8 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center; /* Центрирует элементы по вертикали */
+}
+.footer-bottom p {
   font-size: 16px;
   font-weight: 400;
 }
