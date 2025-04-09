@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
 
 const formName = ref("");
