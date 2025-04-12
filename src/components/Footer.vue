@@ -76,12 +76,12 @@ h3 {
   text-align: left;
   margin: 0 auto;
   justify-content: space-between;
+  max-width: 1140px;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
-  max-width: 1140px;
 }
 
 .footer-column {
