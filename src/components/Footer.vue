@@ -60,7 +60,7 @@ h3 {
 .inf a {
   color: #fff;
   text-decoration: none;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   display: inline-block;
 }
 .inf a:hover {
