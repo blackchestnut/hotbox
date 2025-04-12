@@ -423,6 +423,7 @@ export default {
   .page-container {
     max-width: 100%;
     margin: 0 auto;
+    padding: 0px 16px;
   }
   .topbar {
     display: none;
@@ -456,8 +457,8 @@ export default {
     max-width: 400px;
   }
   .company {
-    width: 360px;
-    height: 360px;
+    width: 100%;
+    height: 380px;
     border-radius: 8px;
     margin-left: 0px;
   }
@@ -479,6 +480,7 @@ export default {
     flex-direction: column;
     margin-bottom: 30px;
     padding-bottom: 0px;
+    align-items: center;
   }
   .block {
     max-width: 300px;
