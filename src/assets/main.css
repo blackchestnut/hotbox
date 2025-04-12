@@ -121,3 +121,72 @@ body {
 .submit-button:active {
   background-color: #696770;
 }
+
+/*кнопка заказать*/
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.buy {
+  width: 120px;
+  height: 54px;
+  margin-bottom: 30px;
+}
+
+/*кнопка заказать*/
+.button-order {
+  display: flex;
+  justify-content: center;
+}
+
+.order {
+  width: 120px;
+  height: 54px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/*кнопка подробнее об установке*/
+.more-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 268px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border-color: black;
+  font-weight: 540;
+  font-size: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.more-container a {
+  text-decoration: none;
+}
+.more:hover {
+  background-color: #474a4d;
+  border-color: #474a4d;
+}
+.more:active {
+  background-color: #474a4d;
+  border-color: #696770;
+  color: white;
+}
+
+@media (max-width: 430px) {
+  .more-container {
+    margin-bottom: 20px;
+  }
+  .more {
+    max-width: 180px;
+    max-height: 40px;
+    font-size: 12px;
+  }
+}

@@ -115,8 +115,8 @@ const emailData = () => {
         </div>
       </div>
     </div>
-    <div class="button-container">
-      <button class="buy" @click.prevent="showOrderModal">ЗАКАЗАТЬ</button>
+    <div class="button-order">
+      <button class="order" @click.prevent="showOrderModal">ЗАКАЗАТЬ</button>
     </div>
 
     <!--------------------------------------------------------------------------------->
@@ -256,16 +256,6 @@ const emailData = () => {
   margin-right: 10px;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.buy {
-  width: 120px;
-  height: 54px;
-  margin-bottom: 30px;
-}
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -461,16 +451,6 @@ input::placeholder {
     line-height: 24px; /* Уменьшаем межстрочный интервал */
   }
 
-  .button-container {
-    margin-top: 10px; /* Уменьшаем отступ сверху */
-    margin: 0 auto;
-  }
-
-  .buy {
-    max-width: 120px;
-    max-height: 54px;
-    margin-bottom: 20px; /* Уменьшаем отступ снизу */
-  }
   .car1,
   .car2,
   .car3 {

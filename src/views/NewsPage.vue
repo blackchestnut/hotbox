@@ -133,42 +133,6 @@ export default {
   margin-bottom: 60px;
 }
 
-.more-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.more {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 268px;
-  height: 50px;
-  background-color: black;
-  color: white;
-  border-color: black;
-  font-weight: 540;
-  font-size: 20px;
-  border-radius: 8px;
-  text-decoration: none;
-}
-
-.more-container a {
-  text-decoration: none;
-}
-
-.more:hover {
-  background-color: #474a4d;
-  border-color: #474a4d;
-}
-
-.more:active {
-  background-color: #474a4d;
-  border-color: #696770;
-  color: white;
-}
-
 .container {
   background-image: url("/src/assets/images/big_images_of_boilers/container.svg");
   height: 660px;
@@ -246,14 +210,6 @@ export default {
     line-height: 24px;
     margin-bottom: 20px;
     margin-top: 20px;
-  }
-  .more-container {
-    margin-bottom: 20px;
-  }
-  .more {
-    max-width: 180px;
-    max-height: 40px;
-    font-size: 12px;
   }
   .twoLines {
     display: none;
