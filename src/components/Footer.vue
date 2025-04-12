@@ -61,6 +61,7 @@ h3 {
   color: #fff;
   text-decoration: none;
   margin-bottom: 6px;
+  display: inline-block;
 }
 .inf a:hover {
   text-decoration: underline;
