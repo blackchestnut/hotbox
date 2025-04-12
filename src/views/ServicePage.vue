@@ -348,18 +348,6 @@ export default {
   width: 1136px;
 }
 
-.button-order {
-  display: flex;
-  justify-content: center;
-}
-
-.order {
-  width: 120px;
-  height: 54px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
 .repair-container {
   background-image: url("/src/assets/images/big_images_of_boilers/repair-background.png");
   background-size: cover;
