@@ -1,15 +1,17 @@
 <template>
-  <div class="topbar">
-    <router-link
-      v-for="(button, index) in buttons"
-      :key="button.path"
-      :to="button.path"
-      class="button"
-      :class="{ active: selectedButton === index }"
-      @click.prevent="selectButton(index)"
-    >
-      {{ button.label }}
-    </router-link>
+  <div class="topbar-wrapper">
+    <div class="topbar">
+      <router-link
+        v-for="(button, index) in buttons"
+        :key="button.path"
+        :to="button.path"
+        class="button"
+        :class="{ active: selectedButton === index }"
+        @click.prevent="selectButton(index)"
+      >
+        {{ button.label }}
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -59,14 +61,19 @@ export default {
 </script>
 
 <style scoped>
+.topbar-wrapper {
+  border-bottom: 1px solid #bebebe;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
 .topbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 60px;
-  border-bottom: 1px solid #bebebe;
+  max-width: 1210px;
+  margin: 0 auto;
 }
-
 .button {
   color: #757575;
   font-weight: bold;

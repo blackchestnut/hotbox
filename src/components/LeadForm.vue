@@ -137,6 +137,7 @@ const emailData = () => {
   border: 4px solid #000000;
   cursor: pointer;
   text-decoration: none;
+  display: inline-block;
 }
 .submit:hover {
   background-color: #343638;

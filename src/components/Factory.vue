@@ -162,8 +162,8 @@
     color: #fff;
     padding-top: 50px;
     padding-bottom: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .head-one {
