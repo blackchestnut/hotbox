@@ -82,7 +82,7 @@ const emailData = () => {
     <div class="menu">
       <div class="contact-info">
         <div class="icon-phone" />
-        <div class="icon-mobile-headphones" @click="openModal"></div>
+        <div class="icon-mobile-menu" @click="openModal"></div>
         <div class="contact-details">
           <a href="tel:+79779533911" class="phone-number">+7 (977) 953 39 11</a>
           <a :href="SUPPORT_EMAIL_MAILTO" class="support-email">{{
@@ -92,7 +92,7 @@ const emailData = () => {
       </div>
       <div class="logo" />
       <button class="call-button" @click="handleClick">ЗВОНОК ИНЖЕНЕРУ</button>
-      <div class="icon-mobile-menu" @click="openMobileMenu"></div>
+      <div class="icon-mobile-headphones" @click="openMobileMenu"></div>
     </div>
 
     <!-- Модальное окно для меню -->

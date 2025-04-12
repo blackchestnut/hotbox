@@ -440,7 +440,7 @@ input::placeholder {
   .Nameline {
     padding: 15px; /* Уменьшаем отступы внутри блоков */
   }
-  /* */
+
   .subtitle {
     font-size: 20px; /* Уменьшаем размер шрифта */
     margin-bottom: 10px; /* Уменьшаем отступ */

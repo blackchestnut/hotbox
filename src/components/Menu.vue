@@ -86,4 +86,10 @@ export default {
 .button.active {
   border-bottom-color: #ff0000;
 }
+@media (max-width: 430px) {
+  .topbar-wrapper,
+  .topbar {
+    display: none;
+  }
+}
 </style>
