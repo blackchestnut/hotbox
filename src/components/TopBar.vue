@@ -5,9 +5,8 @@ import { SUPPORT_EMAIL, SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
 
 const router = useRouter(); // Получаем объект router
 
-// Состояние для модального окна
-const isModalOpen = ref(false);
-const isMobileMenuOpen = ref(false); // Состояние для мобильного меню
+const isMobileMenuOpen = ref(false);
+const isMobileContactsOpen = ref(false); // Состояние для мобильного меню
 const isEmailModalOpen = ref(false); // Состояние для модального окна с формой
 
 // Состояние для активной ссылки
@@ -26,30 +25,26 @@ const links = ref([
   { text: "О НАС", path: "/us" },
 ]);
 
-// Открытие модального окна
-const openModal = () => {
-  isModalOpen.value = true;
-};
-
-// Закрытие модального окна
-const closeModal = () => {
-  isModalOpen.value = false;
-};
-
-// Открытие мобильного меню
 const openMobileMenu = () => {
   isMobileMenuOpen.value = true;
 };
 
-// Закрытие мобильного меню
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false;
+};
+
+const openMobileContacts = () => {
+  isMobileContactsOpen.value = true;
+};
+
+const closeMobileContacts = () => {
+  isMobileContactsOpen.value = false;
 };
 
 // Открытие модального окна с формой
 const openEmailModal = () => {
   isEmailModalOpen.value = true;
-  closeMobileMenu(); // Закрываем мобильное меню
+  closeMobileContacts();
 };
 
 // Закрытие модального окна с формой
@@ -62,7 +57,7 @@ const setActiveLink = (index) => {
   activeLink.value = index;
   const path = links.value[index].path; // Получаем путь из списка ссылок
   router.push(path); // Выполняем переход по пути
-  closeModal(); // Закрываем модальное окно после выбора
+  closeMobileMenu();
 };
 
 const emailData = () => {
@@ -92,14 +87,13 @@ const emailData = () => {
       </div>
       <div class="logo" />
       <button class="call-button" @click="handleClick">ЗВОНОК ИНЖЕНЕРУ</button>
-      <div class="icon-mobile-headphones" @click="openModal"></div>
+      <div class="icon-mobile-headphones" @click="openMobileContacts"></div>
     </div>
 
-    <!-- Модальное окно для меню -->
-    <div v-if="isModalOpen" class="modal-overlay" @click="closeModal">
+    <div v-if="isMobileMenuOpen" class="modal-overlay" @click="closeMobileMenu">
       <div class="modal-content" @click.stop>
         <div class="modal-header">
-          <a class="close" @click="closeModal"></a>
+          <a class="close" @click="closeMobileMenu"></a>
         </div>
         <div class="modal-links">
           <a
@@ -114,11 +108,10 @@ const emailData = () => {
       </div>
     </div>
 
-    <!-- Мобильное меню -->
-    <div v-if="isMobileMenuOpen" class="modal-overlay" @click="closeMobileMenu">
+    <div v-if="isMobileContactsOpen" class="modal-overlay" @click="closeMobileContacts">
       <div class="modal-content mobile-menu" @click.stop>
         <div class="modal-header">
-          <a class="close" @click="closeMobileMenu"></a>
+          <a class="close" @click="closeMobileContacts"></a>
         </div>
         <div class="mobile-menu-buttons">
           <button class="mobile-menu-button">
