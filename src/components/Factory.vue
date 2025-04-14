@@ -63,8 +63,6 @@
 .head-one {
   font-size: 60px;
   font-weight: 600;
-  padding-right: 280px;
-  padding-left: 280px;
 }
 
 .head-two {
@@ -73,8 +71,6 @@
   margin-top: 30px;
   margin-bottom: 30px;
   max-width: 670px;
-  padding-right: 280px;
-  padding-left: 280px;
 }
 
 /* Стили для контейнера кнопок */
