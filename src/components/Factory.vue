@@ -73,6 +73,8 @@
   margin-top: 30px;
   margin-bottom: 30px;
   max-width: 670px;
+  padding-right: 280px;
+  padding-left: 280px;
 }
 
 /* Стили для контейнера кнопок */
@@ -81,6 +83,7 @@
   flex-wrap: wrap; /* Позволяет кнопкам переходить на новую строку */
   gap: 16px; /* Промежуток между кнопками */
   margin: 0 auto;
+  max-width: 1136px;
 }
 
 /* Стили для полупрозрачных кнопок */
