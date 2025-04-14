@@ -32,8 +32,14 @@ export default {
     async initMap() {
       await ymaps.ready();
 
+      const isMobile = window.innerWidth <= 430;
+
+      const centerCoords = isMobile
+        ? [55.447765, 37.297809] // немного сместили широту вниз (~0.002 градуса)
+        : [55.449765, 37.297809];
+
       const map = new ymaps.Map("map", {
-        center: [55.449765, 37.297809],
+        center: centerCoords,
         zoom: 10,
       });
 
