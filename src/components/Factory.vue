@@ -58,13 +58,13 @@
   color: #fff;
   padding-top: 100px;
   padding-bottom: 100px;
-  padding-left: 280px;
-  padding-right: 280px;
 }
 
 .head-one {
   font-size: 60px;
   font-weight: 600;
+  padding-right: 280px;
+  padding-left: 280px;
 }
 
 .head-two {
