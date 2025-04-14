@@ -35,7 +35,7 @@ export default {
       const isMobile = window.innerWidth <= 430;
 
       const centerCoords = isMobile
-        ? [55.447765, 37.297809] // немного сместили широту вниз (~0.002 градуса)
+        ? [55.547765, 37.297809] // немного сместили широту вниз (~0.002 градуса)
         : [55.449765, 37.297809];
 
       const map = new ymaps.Map("map", {
