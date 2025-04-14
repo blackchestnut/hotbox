@@ -63,9 +63,6 @@
 .head-one {
   font-size: 60px;
   font-weight: 600;
-  line-height: 1.2;
-  margin-left: 80px;
-  max-width: 460px;
 }
 
 .head-two {
@@ -73,9 +70,6 @@
   font-weight: 500;
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-left: 80px;
-  max-width: 460px;
-  position: relative;
 }
 /* Стили для контейнера кнопок */
 .button-container {
