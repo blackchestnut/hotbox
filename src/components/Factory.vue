@@ -1,20 +1,20 @@
 <template>
   <div class="factory-wrapper">
-    <div class="overlay">
-      <div class="head-one">
+    <div class="page-container">
+      <h1>
         Автоматизированные<br />
         мобильные<br />
         котельные
-      </div>
-      <div class="head-two">
+      </h1>
+      <h2>
         Компактные передвижные станции теплоснабжения<br />
         с полным удаленным управлением
-        <img
-          src="\src\assets\images\red_logos\award.svg"
-          alt="Award Logo"
-          class="award-logo"
-        />
-      </div>
+      </h2>
+      <img
+        src="\src\assets\images\red_logos\award.svg"
+        alt="Работаем по всей России"
+        class="award-logo"
+      />
       <div class="button-container">
         <router-link to="/boiler-room" class="transparent-button boilers">
           <span class="d-desktop">Котельные<br />блочно-модульные</span>
@@ -47,50 +47,47 @@
 </template>
 
 <style scoped>
-.award-logo {
-  margin-left: 620px;
-  margin-top: -10px;
+.page-container {
+  position: relative;
 }
 
-.overlay {
+.award-logo {
+  position: absolute;
+  top: 40px;
+  right: 300px;
+}
+
+.factory-wrapper {
   background-image: url("/src/assets/images/big_images_of_boilers/shadow-box.png");
   background-size: cover;
   color: #fff;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 100px 0;
 }
 
-.head-one {
+h1 {
   font-size: 60px;
-  font-weight: 600;
-  max-width: 673px;
-
-  margin: 0 auto;
+  line-height: 60px;
 }
 
-.head-two {
+h2 {
   font-size: 24px;
+  line-height: 28px;
   font-weight: 500;
   margin-top: 30px;
-  margin-bottom: 30px;
-  max-width: 673px;
-
-  margin: 0 auto;
+  margin-bottom: 88px;
 }
-/* Стили для контейнера кнопок */
+
 .button-container {
-  display: flex;
-  flex-wrap: wrap; /* Позволяет кнопкам переходить на новую строку */
-  gap: 16px; /* Промежуток между кнопками */
-  margin: 0 auto;
-  max-width: 1136px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 /* Стили для полупрозрачных кнопок */
 .transparent-button {
   padding: 70px 24px 24px 24px;
   box-sizing: border-box;
-  width: 368px;
+  display: block;
   height: 204px;
   background-color: rgba(255, 255, 255, 0.158); /* Полупрозрачный белый фон */
   color: white; /* Цвет текста */
@@ -139,6 +136,34 @@
   display: none;
 }
 
+@media (max-width: 1150px) {
+  .award-logo {
+    right: 0;
+  }
+
+  .button-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 780px) {
+  .award-logo {
+    display: none;
+  }
+
+  .button-container {
+    grid-template-columns: 1fr;
+  }
+
+  .transparent-button {
+    height: 90px;
+    font-size: 20px;
+    padding: 24px 24px 24px 90px;
+    display: flex;
+    align-items: center;
+  }
+}
+
 /* Мобильные стили (максимальная ширина 430px) */
 @media (max-width: 430px) {
   .d-desktop {
@@ -154,35 +179,22 @@
     min-width: auto;
   }
 
-  .award-logo {
-    display: none;
-  }
-
-  .overlay {
-    max-width: 100%;
+  .factory-wrapper {
     background-image: url("/src/assets/images/big_images_of_boilers/shadow-box-mobile.png");
-    background-size: cover;
-    color: #fff;
     padding-top: 50px;
     padding-bottom: 50px;
-    padding-left: 16px;
-    padding-right: 16px;
   }
 
-  .head-one {
+  h1 {
     font-size: 22px;
-    font-weight: 600;
-    max-width: 280px;
-    padding: 0px;
+    line-height: 24px;
   }
 
-  .head-two {
+  h2 {
     font-size: 14px;
+    line-height: 16px;
     font-weight: 400;
-    margin-top: 36px;
-    margin-bottom: 36px;
-    max-width: 280px;
-    padding: 0px;
+    margin: 30px 0;
   }
 
   .button-container {

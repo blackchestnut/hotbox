@@ -64,8 +64,9 @@ p {
 }
 
 .page-container {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 30px;
 }
 .g {
   color: #696770;
@@ -181,9 +182,14 @@ body {
 }
 
 @media (max-width: 430px) {
+  .page-container {
+    padding: 0 16px;
+  }
+
   .more-container {
     margin-bottom: 20px;
   }
+
   .more {
     max-width: 180px;
     max-height: 40px;

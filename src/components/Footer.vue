@@ -9,7 +9,7 @@ import {
 
 <template>
   <div class="footer-wrapper">
-    <footer class="footer">
+    <footer class="footer page-container">
       <div class="footer-content">
         <div class="footer-column">
           <h3>УСЛУГИ</h3>
@@ -69,15 +69,14 @@ h3 {
 
 .footer-wrapper {
   background-color: #000000;
-  padding: 60px 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .footer {
   color: #fff;
   text-align: left;
-  margin: 0 auto;
   justify-content: space-between;
-  max-width: 1140px;
 }
 
 .footer-content {
