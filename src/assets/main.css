@@ -118,7 +118,9 @@ body {
   display: block;
   text-decoration: none;
 }
-
+.submit-button:hover {
+  background-color: #474a4d;
+}
 .submit-button:active {
   background-color: #696770;
 }
@@ -180,7 +182,26 @@ body {
   border-color: #696770;
   color: white;
 }
-
+.close {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  float: right;
+  background-image: url("@/assets/images/black_logos/close.svg");
+  background-size: contain;
+}
+.close:hover {
+  width: 32px;
+  height: 32px;
+  background-image: url("@/assets/images/black_logos/close_hover.svg");
+  background-size: contain;
+}
+.close:active {
+  width: 32px;
+  height: 32px;
+  background-image: url("@/assets/images/black_logos/close_active.svg");
+  background-size: contain;
+}
 @media (max-width: 430px) {
   .page-container {
     padding: 0 16px;

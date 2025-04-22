@@ -283,6 +283,12 @@ const emailData = () => {
   background-image: url("@/assets/images/black_logos/close.svg");
   background-size: contain;
 }
+.close:hover {
+  background-image: url("@/assets/images/black_logos/close_hover.svg");
+}
+.close:active {
+  background-image: url("@/assets/images/black_logos/close_active.svg");
+}
 .modal-header {
   display: flex;
   justify-content: flex-end; /* Крестик справа */

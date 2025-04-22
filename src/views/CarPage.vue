@@ -284,15 +284,6 @@ const emailData = () => {
   }
 }
 
-.close {
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  float: right;
-  background-image: url("@/assets/images/black_logos/close.svg");
-  background-size: contain;
-}
-
 .subheader {
   font-size: 16px;
 }
