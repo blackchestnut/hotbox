@@ -407,7 +407,7 @@ const emailData = () => {
           </div>
           <div class="politics">
             Нажимая на кнопку вы соглашаетесь с условиями
-            <a href="#todo">политики конфиденциальности</a>
+            <router-link to="/privacy">политики конфиденциальности</router-link>
           </div>
         </div>
       </div>

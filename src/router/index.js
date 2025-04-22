@@ -6,6 +6,7 @@ import AboutUsPage from "@/views/AboutUsPage.vue";
 import ServicePage from "@/views/ServicePage.vue";
 import BoilerRoomPage from "@/views/BoilerRoomPage.vue";
 import BoilerPage from "@/views/BoilerPage.vue";
+import PrivacyPage from "@/views/PrivacyPage.vue";
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     path: "/kotelnye/:id",
     name: "boiler",
     component: BoilerPage,
+  },
+  {
+    path: "/privacy",
+    name: "privacy",
+    component: PrivacyPage,
   },
 ];
 

@@ -134,7 +134,7 @@ export default {
 }
 
 .container {
-  background-image: url("/src/assets/images/big_images_of_boilers/container.svg");
+  background-image: url("/src/assets/images/big_images_of_boilers/container.png");
   height: 660px;
   width: 1152px;
   background-size: cover;

@@ -1,21 +1,26 @@
 <script setup>
 import { ref } from "vue";
-import { useRouter } from "vue-router"; // Импортируем useRouter для навигации
+import { useRouter } from "vue-router";
 import { SUPPORT_EMAIL, SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
-const router = useRouter(); // Получаем объект router
+const route = useRoute();
 
+const activeLink = computed(() => {
+  const index = links.value.findIndex((link) => link.path === route.path);
+  return index !== -1 ? index : 0;
+});
+
+const router = useRouter();
 const isMobileMenuOpen = ref(false);
-const isMobileContactsOpen = ref(false); // Состояние для мобильного меню
-const isEmailModalOpen = ref(false); // Состояние для модального окна с формой
+const isMobileContactsOpen = ref(false);
+const isEmailModalOpen = ref(false);
 
-// Состояние для активной ссылки
-const activeLink = ref(null);
 const formName = ref("");
 const formEmail = ref("");
 const formMessage = ref("");
 
-// Список ссылок
 const links = ref([
   { text: "ГЛАВНАЯ", path: "/" },
   { text: "КОТЕЛЬНЫЕ", path: "/boiler-room" },
@@ -108,7 +113,11 @@ const emailData = () => {
       </div>
     </div>
 
-    <div v-if="isMobileContactsOpen" class="modal-overlay" @click="closeMobileContacts">
+    <div
+      v-if="isMobileContactsOpen"
+      class="modal-overlay"
+      @click="closeMobileContacts"
+    >
       <div class="modal-content mobile-menu" @click.stop>
         <div class="modal-header">
           <a class="close" @click="closeMobileContacts"></a>
