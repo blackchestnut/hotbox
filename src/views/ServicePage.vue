@@ -71,78 +71,80 @@ const emailData = () => {
         базе автомобиля Ford Transit
       </div>
     </div>
-    <div class="prices">
-      <div class="button-container">
-        <div
-          class="transparent-button"
-          @click="showOrderModal('Аренда БМАК 0,5 мВт 1К')"
-        >
-          <div class="name">БМАК 0,5 мВт 1К</div>
-          <div class="characteristic">
-            Наружное размещение<br />
-            Теплоснабжение и ГВС<br />
-            Дизельное топливо<br />
-            Мощность 500 кВт<br />
-            Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
-          </div>
-          <div class="order-block">
-            от 150 000 руб. / месяц
-            <div class="order-arrow"></div>
-          </div>
+  </div>
+  <div class="prices">
+    <div class="button-container">
+      <div
+        class="transparent-button"
+        @click="showOrderModal('Аренда БМАК 0,5 мВт 1К')"
+      >
+        <div class="name">БМАК 0,5 мВт 1К</div>
+        <div class="characteristic">
+          Наружное размещение<br />
+          Теплоснабжение и ГВС<br />
+          Дизельное топливо<br />
+          Мощность 500 кВт<br />
+          Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
         </div>
-        <div
-          class="transparent-button"
-          @click="showOrderModal('Аренда БМАК 1,04 мВт 1К без ГВС')"
-        >
-          <div class="name">БМАК 1,04 мВт 1К без ГВС</div>
-          <div class="characteristic">
-            Есть бензогенератор<br />
-            Теплоснабжение<br />
-            Дизельное топливо<br />
-            Мощность 1040 кВт<br />
-            Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
-          </div>
-          <div class="order-block">
-            от 250 000 руб. / месяц
-            <div class="order-arrow"></div>
-          </div>
+        <div class="order-block">
+          от 150 000 руб. / месяц
+          <div class="order-arrow"></div>
         </div>
-        <div
-          class="transparent-button"
-          @click="showOrderModal('Аренда БМАК 1,0 мВт 2К без ГВС')"
-        >
-          <div class="name">БМАК 1,0 мВт 2К без ГВС</div>
-          <div class="characteristic">
-            Есть бензогенератор<br />
-            Теплоснабжение<br />
-            Дизельное топливо<br />
-            Мощность 1000 кВт<br />
-            Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
-          </div>
-          <div class="order-block">
-            от 260 000 руб. / месяц
-            <div class="order-arrow"></div>
-          </div>
+      </div>
+      <div
+        class="transparent-button"
+        @click="showOrderModal('Аренда БМАК 1,04 мВт 1К без ГВС')"
+      >
+        <div class="name">БМАК 1,04 мВт 1К без ГВС</div>
+        <div class="characteristic">
+          Есть бензогенератор<br />
+          Теплоснабжение<br />
+          Дизельное топливо<br />
+          Мощность 1040 кВт<br />
+          Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
         </div>
-        <div
-          class="transparent-button"
-          @click="showOrderModal('Аренда БМАК 3,0 мВт 1К без ГВС')"
-        >
-          <div class="name">БМАК 3,0 мВт 1К без ГВС</div>
-          <div class="characteristic">
-            Есть бензогенератор<br />
-            Теплоснабжение<br />
-            Дизельное топливо<br />
-            Мощность 3000 кВт<br />
-            Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
-          </div>
-          <div class="order-block">
-            от 350 000 руб. / месяц
-            <div class="order-arrow"></div>
-          </div>
+        <div class="order-block">
+          от 250 000 руб. / месяц
+          <div class="order-arrow"></div>
+        </div>
+      </div>
+      <div
+        class="transparent-button"
+        @click="showOrderModal('Аренда БМАК 1,0 мВт 2К без ГВС')"
+      >
+        <div class="name">БМАК 1,0 мВт 2К без ГВС</div>
+        <div class="characteristic">
+          Есть бензогенератор<br />
+          Теплоснабжение<br />
+          Дизельное топливо<br />
+          Мощность 1000 кВт<br />
+          Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+        </div>
+        <div class="order-block">
+          от 260 000 руб. / месяц
+          <div class="order-arrow"></div>
+        </div>
+      </div>
+      <div
+        class="transparent-button"
+        @click="showOrderModal('Аренда БМАК 3,0 мВт 1К без ГВС')"
+      >
+        <div class="name">БМАК 3,0 мВт 1К без ГВС</div>
+        <div class="characteristic">
+          Есть бензогенератор<br />
+          Теплоснабжение<br />
+          Дизельное топливо<br />
+          Мощность 3000 кВт<br />
+          Доставка, демонтаж и вывоз котельной рассчитывается индивидуально
+        </div>
+        <div class="order-block">
+          от 350 000 руб. / месяц
+          <div class="order-arrow"></div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="page-container">
     <div class="production">
       <div class="fabrication">Проиводство</div>
       <div class="manufacturing-and-delivery">
@@ -168,64 +170,63 @@ const emailData = () => {
         ЗАКАЗАТЬ
       </button>
     </div>
-
-    <div class="repair-container">
-      <div class="repair-inner">
-        <div class="repair-and-maintenance">Ремонт и обслуживание</div>
-        <div class="state">
-          В штате компании постоянно работает 5 сервисных бригад, готовых на
-          высоком уровне оказать работы по обслуживанию, пуско-наладке и запуску
-          котельного оборудования.
-        </div>
-        <div class="brigade">
-          Бригада будет у Вас на объекте в течении 24 часов.
-        </div>
+  </div>
+  <div class="repair-container">
+    <div class="repair-inner">
+      <div class="repair-and-maintenance">Ремонт и обслуживание</div>
+      <div class="state">
+        В штате компании постоянно работает 5 сервисных бригад, готовых на
+        высоком уровне оказать работы по обслуживанию, пуско-наладке и запуску
+        котельного оборудования.
       </div>
-      <div class="button-order">
-        <button class="order" @click="showOrderModal('Ремонт и обслуживание')">
-          ЗАКАЗАТЬ
-        </button>
+      <div class="brigade">
+        Бригада будет у Вас на объекте в течении 24 часов.
       </div>
     </div>
+    <div class="button-order">
+      <button class="order" @click="showOrderModal('Ремонт и обслуживание')">
+        ЗАКАЗАТЬ
+      </button>
+    </div>
+  </div>
 
-    <!-- Модальное окно -->
-    <div
-      v-if="isOrderModalVisible"
-      class="modal-overlay"
-      @click="closeOrderModal"
-    >
-      <div class="modal-content" @click.stop>
-        <a class="close" @click="closeOrderModal"></a>
+  <!-- Модальное окно -->
+  <div
+    v-if="isOrderModalVisible"
+    class="modal-overlay"
+    @click="closeOrderModal"
+  >
+    <div class="modal-content" @click.stop>
+      <a class="close" @click="closeOrderModal"></a>
 
-        <h3>Заявка на заказ</h3>
-        <div class="subheader">Наш менеджер свяжется с вами в течение дня</div>
-        <div class="line"></div>
+      <h3>Заявка на заказ</h3>
+      <div class="subheader">Наш менеджер свяжется с вами в течение дня</div>
+      <div class="line"></div>
 
-        <div class="information-container">
-          <div class="modal-boiler-info">
-            <h4>{{ selectedOrder }}</h4>
-          </div>
-          <!-- Счетчик -->
-          <div class="counter">
-            <button class="circle" @click="decrement">&#8722;</button>
-            <div class="count">{{ count }}</div>
-            <button class="circle" @click="increment">&#43;</button>
-          </div>
+      <div class="information-container">
+        <div class="modal-boiler-info">
+          <h4>{{ selectedOrder }}</h4>
         </div>
+        <!-- Счетчик -->
+        <div class="counter">
+          <button class="circle" @click="decrement">&#8722;</button>
+          <div class="count">{{ count }}</div>
+          <button class="circle" @click="increment">&#43;</button>
+        </div>
+      </div>
 
-        <div class="form-container">
-          <input v-model="name" placeholder="Ваше имя" type="text" />
-          <input v-model="email" placeholder="E-mail" type="email" />
-          <input v-model="phone" placeholder="Телефон" type="tel" />
-          <div class="submit-container">
-            <a class="submit-button" type="submit" :href="emailData()"
-              >Отправить</a
-            >
-          </div>
-          <div class="politics">
-            Нажимая на кнопку вы соглашаетесь с условиями
-            <router-link to="/privacy">политики конфиденциальности</router-link>
-          </div>
+      <div class="form-container">
+        <input v-model="name" placeholder="Ваше имя" type="text" />
+        <input v-model="email" placeholder="E-mail" type="email" />
+        <input v-model="phone" placeholder="Телефон" type="tel" />
+        <div class="submit-container">
+          <a class="submit-button" type="submit" :href="emailData()"
+            >Отправить</a
+          >
+        </div>
+        <div class="politics">
+          Нажимая на кнопку вы соглашаетесь с условиями
+          <router-link to="/privacy">политики конфиденциальности</router-link>
         </div>
       </div>
     </div>
@@ -345,11 +346,7 @@ export default {
   padding: 126px 40px 40px;
   color: #fff;
 }
-.prices,
-.repair-container {
-  margin-left: -60px;
-  margin-right: -60px;
-}
+
 .repair-inner {
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.199);
@@ -568,12 +565,6 @@ input::placeholder {
     margin-bottom: 30px;
   }
 
-  .prices {
-    overflow: hidden;
-    padding: 0px;
-    width: 100%;
-    margin-bottom: 20px;
-  }
   .button-container {
     display: flex;
     box-sizing: border-box;
