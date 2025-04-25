@@ -49,7 +49,7 @@ const emailData = () => {
     </RouterLink>
     <div class="title">
       <div class="boiler-ford">
-        Мобильная котельная установка на базе фургона Ford Transit
+        Мобильная котельная установка на базе фургона Ford Transit
       </div>
       <div class="boiler-ford-description-1">
         Мобильность автомобиля позволяет оперативно приехать и подать тепло на
@@ -172,7 +172,6 @@ const emailData = () => {
 
 <style scoped>
 .title {
-  width: 1127px;
   margin: auto;
   font-size: 30px;
 }
@@ -192,13 +191,13 @@ const emailData = () => {
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .block {
   background-color: #000000;
-  margin: 10px;
-  height: 646px;
+  height: auto;
   width: 357px;
   text-align: center;
   color: white;
