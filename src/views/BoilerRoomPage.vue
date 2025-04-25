@@ -443,6 +443,8 @@ label {
 
 .fiter-items-container {
   display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
 }
 
 .items {
