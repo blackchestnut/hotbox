@@ -10,21 +10,19 @@ import Menu from "@/components/Menu.vue";
         <div class="back-logo"></div>
       </div>
     </RouterLink>
-    <div class="about-wrapper">
-      <div class="about-company">
-        <div class="text-wrapper">
-          <div class="text">
-            <div class="firm">О компании</div>
-            <div class="our-bmak">
-              Наши БМАК проектируются и изготавливаются в габаритах морского
-              контейнера 20 и 40 футов, а также котлы наружного размещения в
-              более компактных размерах 2580х1300х1900мм, что позволяет
-              оперативно и беспрепятственно доставить котельную установку по
-              дорогам общего пользования на территорию заказчика.
-            </div>
+    <h1>О компании</h1>
+    <div class="about-company">
+      <div class="text-wrapper">
+        <div class="text">
+          <div class="our-bmak">
+            Наши БМАК проектируются и изготавливаются в габаритах морского
+            контейнера 20 и 40 футов, а также котлы наружного размещения в более
+            компактных размерах 2580х1300х1900мм, что позволяет оперативно
+            и беспрепятственно доставить котельную установку по дорогам общего
+            пользования на территорию заказчика.
           </div>
-          <div class="company"></div>
         </div>
+        <div class="company-image"></div>
       </div>
     </div>
 
@@ -224,37 +222,31 @@ export default {
 };
 </script>
 <style scoped>
-.about-wrapper {
-  display: flex;
-  justify-content: center; /* Центрирование по горизонтали */
-  align-items: center; /* Центрирование по вертикали */
-  padding-bottom: 60px;
-}
-
 .about-company {
   text-align: left; /* Центрирование текста внутри контейнера */
 }
 
 .text-wrapper {
   display: flex;
-  flex-direction: row; /* Выравнивание по горизонтали */
-  justify-content: center; /* Центрирование элементов внутри text-wrapper */
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 60px;
 }
-.firm {
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 30px;
-}
+
 .our-bmak {
-  font-size: 30px;
+  font-size: 28px;
 }
-.company {
-  background-image: url("/src/assets/images/big_images_of_boilers/company.png"); /* Исправленный путь */
-  height: 589px;
-  width: 600px;
-  background-size: cover; /* Чтобы изображение занимало весь блок */
+.company-image {
+  background-image: url("/src/assets/images/big_images_of_boilers/company.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 600 / 588; /* Замените 360 на реальную высоту, если знаете её */
   margin-left: 36px;
 }
+
 .subtitle {
   font-size: 24px;
   font-weight: 600;
@@ -268,28 +260,28 @@ export default {
   line-height: 30px;
 }
 .text {
-  width: 500px;
-  height: 630px;
   font-size: 30px;
   line-height: 1.5;
+  flex: 1;
 }
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   padding-bottom: 60px;
+  gap: 24px;
 }
 
 .block {
   background-color: #ebebeb;
-  margin: 10px;
-  height: 455px;
-  width: 358px;
+  padding: 20px;
   text-align: center;
   color: black;
   border-radius: 8px;
   text-align: left;
   font-size: 20px;
+  height: auto;
+  width: 358px;
 }
 .Nameline {
   padding: 20px;
@@ -312,10 +304,11 @@ export default {
 .pictures {
   display: flex; /* Включаем Flexbox */
   flex-wrap: wrap; /* Позволяем элементам переноситься на новую строку */
-  justify-content: center;
+  justify-content: space-between;
+  gap: 160px;
+  margin-bottom: 60px;
 }
 .pictures img {
-  margin: 80px; /* Отступы между изображениями */
   box-sizing: border-box; /* Учитываем отступы в ширине */
 }
 .our-partners {
@@ -379,8 +372,6 @@ export default {
   text-align: left; /* Текст выровнен влево */
   font-size: 20px;
   margin-right: 120px; /* Отступ между текстом и изображением */
-  width: 383px;
-  height: 719px;
   line-height: 30px;
 }
 
@@ -395,7 +386,6 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   margin: 0 auto;
-  max-width: 1200px;
   padding: 20px;
 }
 
@@ -406,7 +396,6 @@ export default {
 
 .map-container {
   flex: 1;
-  max-width: 700px;
 }
 .contacts {
   margin-bottom: 30px;
@@ -421,8 +410,6 @@ export default {
 }
 @media (max-width: 430px) {
   .page-container {
-    max-width: 100%;
-    margin: 0 auto;
     padding: 0px 16px;
   }
   .topbar {
@@ -450,11 +437,10 @@ export default {
   .firm {
     font-size: 22px;
     margin-bottom: 20px;
-    max-width: 400px;
   }
   .our-bmak {
     font-size: 20px;
-    max-width: 400px;
+    margin-bottom: 30px;
   }
   .company {
     width: 100%;
@@ -482,10 +468,6 @@ export default {
     padding-bottom: 0px;
     align-items: center;
   }
-  .block {
-    max-width: 300px;
-    max-height: 360px;
-  }
   .subtitle {
     font-size: 20px;
     margin-bottom: 10px;
@@ -504,6 +486,9 @@ export default {
     height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
+  }
+  .block {
+    padding: 20px;
   }
   .pictures {
     display: grid; /* Используем CSS Grid */
