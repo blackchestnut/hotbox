@@ -58,16 +58,24 @@ h4 {
   font-weight: 600;
   margin-bottom: 4px;
 }
+
+article {
+  margin-bottom: 120px;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 p {
   padding-bottom: 30px;
   font-size: 30px;
 }
 
-.page-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 30px;
-}
 .g {
   color: #696770;
 }
@@ -205,8 +213,13 @@ body {
   background-size: contain;
 }
 @media (max-width: 430px) {
+  article {
+    margin-bottom: 40px;
+  }
+
   .page-container {
-    padding: 0 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .more-container {
