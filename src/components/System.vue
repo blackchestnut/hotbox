@@ -155,7 +155,7 @@ const showDetails = (index) => {
 </script>
 
 <template>
-  <div class="system-wrapper">
+  <article class="page-container">
     <div class="system">
       <div class="header">
         <div class="boilers-hotbox">Котельные системы HotBox</div>
@@ -215,16 +215,13 @@ const showDetails = (index) => {
         </div>
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <style scoped>
 .system {
-  height: 1031px;
-  width: 1160px;
   margin: 0 auto;
   text-align: center;
-  justify-content: center;
 }
 .header {
   margin-top: 100px;
@@ -245,11 +242,12 @@ const showDetails = (index) => {
   margin-top: 30px;
   width: 100%;
 }
+
 .slide-inner {
+  height: auto;
+  width: 358px;
   justify-content: center;
-  width: 100%;
-  max-width: 357px;
-  height: 525px;
+  padding-bottom: 30px;
   background-color: #ebebeb;
   border-radius: 8px;
   transition: transform 0.3s ease;
@@ -333,8 +331,7 @@ const showDetails = (index) => {
   color: #696770;
 }
 .slide-image {
-  width: 357px;
-  height: 359px;
+  width: 100%;
 }
 .full-catalog {
   width: 238px;
@@ -358,9 +355,6 @@ const showDetails = (index) => {
 }
 
 @media (max-width: 430px) {
-  .system-wrapper {
-    max-width: 100%;
-  }
   .system {
     margin: 0 auto;
     text-align: center;
@@ -370,7 +364,6 @@ const showDetails = (index) => {
   }
   .header {
     margin: 0 auto;
-    max-width: 100%;
     margin-top: 20px;
     text-align: left;
     padding: 0px 16px;
@@ -400,13 +393,12 @@ const showDetails = (index) => {
     margin: 0 auto;
   }
   .slide-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
   }
   .label {
     font-size: 16px;
     color: #000000;
-    max-width: 122px;
     padding-top: 20px;
     text-align: center;
     margin: 0 auto;
@@ -416,7 +408,7 @@ const showDetails = (index) => {
     color: #333;
     padding-top: 20px;
     padding-bottom: 20px;
-    max-width: 122px;
+
     text-align: center;
     margin: 0 auto;
   }
