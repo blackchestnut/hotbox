@@ -1,5 +1,6 @@
 <script setup>
 import Menu from "@/components/Menu.vue";
+import PartnersLogo from "./PartnersLogo.vue";
 </script>
 
 <template>
@@ -72,68 +73,7 @@ import Menu from "@/components/Menu.vue";
 
     <div class="partners-wrapper">
       <div class="our-partners">Наши партнеры</div>
-      <div class="pictures">
-        <img
-          src="\src\assets\images\partners\Bosch-logosvg.svg"
-          alt="Bosch Logo"
-          class="bosch-logo"
-        />
-        <img
-          src="\src\assets\images\partners\caldera-logo.png"
-          alt="caldera Logo"
-          class="caldera-logo"
-        />
-        <img
-          src="\src\assets\images\partners\Weishaupt-Logo.png"
-          alt="Weishaupt Logo"
-          class="weishaupt-logo"
-        />
-        <img
-          src="\src\assets\images\partners\Legrand-logo.png"
-          alt="Legrand Logo"
-          class="legrand-logo"
-        />
-        <img
-          src="\src\assets\images\partners\Schneider-Electric-l.png"
-          alt="Schneider-Electric-l Logo"
-          class="she-logo"
-        />
-        <img
-          src="\src\assets\images\partners\Temron-logo.png"
-          alt="Temron Logo"
-          class="temron-logo"
-        />
-        <img
-          src="\src\assets\images\partners\Group.png"
-          alt="Group Logo"
-          class="group-logo"
-        />
-        <img
-          src="\src\assets\images\partners\Siemens-logo.png"
-          alt="Siemens Logo"
-          class="siemens-logo"
-        />
-        <img
-          src="\src\assets\images\partners\CNP-logo.png"
-          alt="CNP Logo"
-          class="cnp-logo"
-        />
-        <img
-          src="\src\assets\images\partners\ABB-logo.png"
-          alt="ABB Logo"
-          class="abb-logo"
-        />
-        <img
-          src="\src\assets\images\partners\Vector.png"
-          alt="Vector Logo"
-          class="vector-logo"
-        />
-        <img
-          src="\src\assets\images\partners\Baltur-logo.png"
-          alt="Baltur Logo"
-          class="baltur-logo"
-        />
-      </div>
+      <PartnersLogo />
     </div>
 
     <div class="information-wrapper">
@@ -295,75 +235,22 @@ export default {
 .warranty-logo {
   background-image: url("/src/assets/images/black_logos/warranty.svg");
 }
+.pictures {
+  margin-bottom: 150px;
+}
 .area-logo,
 .format-logo,
 .warranty-logo {
   width: 36px;
   height: 36px;
 }
-.pictures {
-  display: flex; /* Включаем Flexbox */
-  flex-wrap: wrap; /* Позволяем элементам переноситься на новую строку */
-  justify-content: space-between;
-  gap: 160px;
-  margin-bottom: 60px;
-}
-.pictures img {
-  box-sizing: border-box; /* Учитываем отступы в ширине */
-}
+
 .our-partners {
   font-size: 40px;
   font-weight: 600;
   margin-bottom: 30px;
 }
-.bosch-logo {
-  width: 300px;
-  height: 67.13px;
-}
-.legrand-logo {
-  width: 300px;
-  height: 74.25px;
-}
-.group-logo {
-  width: 300px;
-  height: 61.44px;
-}
-.abb-logo {
-  width: 300px;
-  height: 119.25px;
-}
-.caldera-logo {
-  width: 300px;
-  height: 102px;
-}
-.she-logo {
-  width: 300px;
-  height: 120px;
-}
-.siemens-logo {
-  width: 300px;
-  height: 168.75px;
-}
-.vector-logo {
-  width: 296.63px;
-  height: 88.46px;
-}
-.weishaupt-logo {
-  width: 300px;
-  height: 52.5px;
-}
-.temron-logo {
-  width: 300px;
-  height: 162.5px;
-}
-.cnp-logo {
-  width: 300px;
-  height: 123.75px;
-}
-.baltur-logo {
-  width: 300px;
-  height: 94px;
-}
+
 .partners-wrapper {
   text-align: center;
 }

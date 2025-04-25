@@ -14,17 +14,23 @@ import {
         <div class="footer-column">
           <h3>УСЛУГИ</h3>
           <ul>
-            <li><a href="#">Производство</a></li>
-            <li><a href="#">Аренда</a></li>
-            <li><a href="#">Ремонт и обслуживание</a></li>
-            <li><a href="#">Мобильная котельная на базе Ford Transit</a></li>
+            <li><router-link to="/service">Производство</router-link></li>
+            <li><router-link to="/service">Аренда</router-link></li>
+            <li>
+              <router-link to="/service">Ремонт и обслуживание</router-link>
+            </li>
+            <li>
+              <router-link to="/car"
+                >Мобильная котельная на базе Ford Transit</router-link
+              >
+            </li>
           </ul>
         </div>
         <div class="footer-column">
           <h3>О НАС</h3>
           <ul>
-            <li><a href="#">О компании</a></li>
-            <li><a href="#">Партнеры</a></li>
+            <li><router-link to="/us">О компании</router-link></li>
+            <li><router-link to="/us">Партнеры</router-link></li>
           </ul>
         </div>
         <div class="footer-column">

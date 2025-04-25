@@ -51,7 +51,7 @@ const emailData = () => {
       <div class="back-logo"></div>
     </div>
   </RouterLink>
-  <div class="service-wrapper">
+  <div class="page-container">
     <div class="service">
       <div class="full-complex">
         Полный комплекс услуг по работе с котельными системами
@@ -239,16 +239,7 @@ export default {
 </script>
 
 <style scoped>
-.service-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
-}
-
 .service {
-  width: 1136px;
   font-size: 30px;
   padding-bottom: 60px;
 }
@@ -285,9 +276,10 @@ export default {
 }
 
 .button-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
 }
 
 .name {
@@ -304,16 +296,16 @@ export default {
   color: white;
   font-size: 20px;
   padding: 30px;
-  margin: 30px;
+  box-sizing: border-box;
   cursor: pointer;
   border-radius: 8px;
   transition: background-color 0.3s;
-  width: 538px;
-  height: 330px;
   text-align: left;
   line-height: 36px;
   font-size: 20px;
   font-weight: 300;
+  width: 100%;
+  height: 100%;
 }
 
 .transparent-button:hover {
@@ -321,8 +313,6 @@ export default {
 }
 
 .production {
-  width: 1136px;
-  height: 468px;
   font-size: 30px;
 }
 .fabrication {
@@ -346,6 +336,7 @@ export default {
   background-image: url("/src/assets/images/big_images_of_boilers/plan.png");
   height: 785px;
   width: 1136px;
+  margin: 0 auto;
 }
 
 .repair-container {
@@ -354,7 +345,11 @@ export default {
   padding: 126px 40px 40px;
   color: #fff;
 }
-
+.prices,
+.repair-container {
+  margin-left: -60px;
+  margin-right: -60px;
+}
 .repair-inner {
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.199);
@@ -547,6 +542,7 @@ input::placeholder {
   .back:hover {
     border: 2px solid #555555;
   }
+
   .service {
     max-width: 100%;
     padding: 0px;
@@ -577,13 +573,12 @@ input::placeholder {
     padding: 0px;
     width: 100%;
     margin-bottom: 20px;
-    width: calc(100% + 32px); /* Компенсируем padding родителя */
   }
   .button-container {
+    display: flex;
     box-sizing: border-box;
     flex-direction: column;
     align-items: center;
-
     height: auto;
     background-color: #000;
     padding-top: 36px;
@@ -592,7 +587,6 @@ input::placeholder {
   }
   .transparent-button {
     max-width: 320px;
-    max-height: 320px;
     gap: 0px;
     margin: 0px;
     padding: 20px;
@@ -607,7 +601,6 @@ input::placeholder {
   .order-block {
     font-size: 16px;
   }
-
   .production {
     max-width: 100%;
     max-height: 320px;
@@ -639,7 +632,6 @@ input::placeholder {
   }
 
   .repair-container {
-    width: calc(100% + 32px); /* Компенсируем padding родителя */
     padding-top: 36px;
     padding-bottom: 36px;
     padding-left: 0px;

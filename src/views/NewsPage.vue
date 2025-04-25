@@ -34,7 +34,9 @@ import Menu from "@/components/Menu.vue";
           </div>
         </router-link>
       </div>
-      <div class="twoLines"></div>
+      <div class="symbows-wrapper">
+        <div class="symbows"></div>
+      </div>
       <div class="mobile-twolines"></div>
     </div>
     <div class="second-row">
@@ -73,7 +75,9 @@ import Menu from "@/components/Menu.vue";
           </div>
         </router-link>
       </div>
-      <div class="twoLines"></div>
+      <div class="symbows-wrapper">
+        <div class="symbows"></div>
+      </div>
       <div class="mobile-twolines"></div>
     </div>
     <div class="third-row">
@@ -104,7 +108,9 @@ import Menu from "@/components/Menu.vue";
         </div>
       </router-link>
     </div>
-    <div class="twoLines"></div>
+    <div class="symbows-wrapper">
+      <div class="symbows"></div>
+    </div>
     <div class="mobile-twolines"></div>
   </div>
 </template>
@@ -116,13 +122,37 @@ export default {
 </script>
 
 <style scoped>
-.twoLines {
-  background-image: url("/src/assets/images/red_logos/two_lines.svg");
-  width: 769px;
-  height: 40px;
-  margin: 0 auto;
+.symbows-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 60px;
 }
+
+.symbows-wrapper::before,
+.symbows-wrapper::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background-color: red;
+}
+
+.symbows-wrapper::before {
+  margin-right: 12px; /* расстояние от линии до изображения */
+}
+
+.symbows-wrapper::after {
+  margin-left: 12px;
+}
+
+.symbows {
+  background-image: url("/src/assets/images/red_logos/symbows.png");
+  width: 120px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .mobile-twolines {
   display: none;
 }
@@ -135,30 +165,35 @@ export default {
 
 .container {
   background-image: url("/src/assets/images/big_images_of_boilers/container.png");
-  height: 660px;
-  width: 1152px;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  aspect-ratio: 1152 / 660; /* сохраняет пропорции 1152x660 */
 }
 
 .container3 {
   background-image: url("/src/assets/images/big_images_of_boilers/bluebox.png");
   background-size: cover;
-  width: 1131px;
-  height: 660px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  aspect-ratio: 1131 / 660;
 }
 
 .container4 {
   background-image: url("/src/assets/images/big_images_of_boilers/blackbox.png");
   background-size: cover;
-  width: 1128px;
-  height: 660px;
-  margin-bottom: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  aspect-ratio: 1128 / 660;
+  margin-bottom: 60px;
 }
 
 /*Мобильная версия*/
 @media (max-width: 430px) {
   .page-container {
-    max-width: 100%;
     margin: 0 auto;
     padding: 0 16px;
   }
