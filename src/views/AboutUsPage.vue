@@ -321,6 +321,9 @@ export default {
   .back:hover {
     border: 2px solid #555555;
   }
+  .company-image {
+    margin: 0px;
+  }
   .firm {
     font-size: 22px;
     margin-bottom: 20px;
