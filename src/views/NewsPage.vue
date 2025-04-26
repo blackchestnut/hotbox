@@ -246,7 +246,8 @@ export default {
     margin-bottom: 20px;
     margin-top: 20px;
   }
-  .symbows {
+  .symbows,
+  .symbows-wrapper {
     display: none;
   }
   .mobile-twolines {
