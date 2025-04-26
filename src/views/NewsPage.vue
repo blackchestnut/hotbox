@@ -246,7 +246,7 @@ export default {
     margin-bottom: 20px;
     margin-top: 20px;
   }
-  .twoLines {
+  .symbows {
     display: none;
   }
   .mobile-twolines {
