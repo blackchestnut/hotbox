@@ -231,4 +231,10 @@ body {
     max-height: 40px;
     font-size: 12px;
   }
+  .close,
+  .close:hover,
+  .close:hover {
+    width: 24px;
+    height: 24px;
+  }
 }
