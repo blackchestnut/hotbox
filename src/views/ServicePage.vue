@@ -280,7 +280,7 @@ export default {
   display: grid;
   gap: 40px;
   grid-template-columns: 1fr 1fr;
-  width: 100%;
+  max-width: 1200px;
 }
 
 .name {
@@ -351,6 +351,8 @@ export default {
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.199);
   border-radius: 8px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 .repair-and-maintenance {
   font-size: 40px;
