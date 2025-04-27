@@ -109,8 +109,9 @@ import PartnersLogo from "./PartnersLogo.vue";
         </div>
         <div class="phones">
           <div class="contact_information">
-            <span class="appellation">Телефоны:</span> Офис: +7(977) 953-39-11
-            Производство: +7(999) 822-11-45
+            <span class="appellation">Телефоны:</span><br />
+            Офис: <a href="tel:+79779533911">+7(977) 953-39-11</a><br />
+            Производство: <a href="tel:+79998221145">+7(999) 822-11-45</a>
           </div>
         </div>
         <div class="email">
@@ -295,6 +296,10 @@ export default {
 .appellation {
   font-weight: bold;
 }
+a[href^="tel:"] {
+  color: inherit;
+  text-decoration: none;
+}
 @media (max-width: 430px) {
   .page-container {
     padding: 0px 16px;
@@ -348,10 +353,6 @@ export default {
   .Nameline {
     padding: 12px;
   }
-  .text {
-    width: 400px;
-    height: 380px;
-  }
   .row {
     flex-direction: column;
     margin-bottom: 30px;
@@ -378,7 +379,8 @@ export default {
     background-repeat: no-repeat;
   }
   .block {
-    padding: 20px;
+    padding: 10px;
+    width: 320px;
   }
   .pictures {
     display: grid; /* Используем CSS Grid */
@@ -486,6 +488,7 @@ export default {
   }
   .information-wrapper {
     flex-direction: column;
+    padding: 0px;
   }
   .map-container {
     width: 100%; /* Карта занимает всю ширину экрана */
@@ -509,6 +512,9 @@ export default {
   }
   .kpp {
     padding: 0px;
+  }
+  .content {
+    margin-right: 0px;
   }
 }
 </style>

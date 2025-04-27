@@ -27,17 +27,17 @@ import Menu from "@/components/Menu.vue";
         🔥 Успей заказать свою котельную сейчас! ЗИМА БЛИЗКО!!!<br />
         📞Звоните или пишите нам прямо сейчас, чтобы узнать больше!<br />
       </div>
-      <div class="more-container">
-        <router-link to="/boiler-room">
-          <div class="more-container">
-            <a class="more">Подробнее об установке</a>
-          </div>
-        </router-link>
-      </div>
+
+      <router-link to="/boiler-room">
+        <div class="more-container">
+          <a class="more">Подробнее об установке</a>
+        </div>
+      </router-link>
+
       <div class="symbows-wrapper">
         <div class="symbows"></div>
       </div>
-      <div class="mobile-twolines"></div>
+      <div class="symbows-mobile"></div>
     </div>
     <div class="second-row">
       <h1 class="h1">Участие в программе Московские сезоны 2024</h1>
@@ -68,17 +68,17 @@ import Menu from "@/components/Menu.vue";
         и Московской области, а также получить новые заказы и контракты на
         будущее.<br />
       </div>
-      <div class="more-container">
-        <router-link to="/boiler-room">
-          <div class="more-container">
-            <a class="more">Подробнее об установке</a>
-          </div>
-        </router-link>
-      </div>
+
+      <router-link to="/boiler-room">
+        <div class="more-container">
+          <a class="more">Подробнее об установке</a>
+        </div>
+      </router-link>
+
       <div class="symbows-wrapper">
         <div class="symbows"></div>
       </div>
-      <div class="mobile-twolines"></div>
+      <div class="symbows-mobile"></div>
     </div>
     <div class="third-row">
       <div class="description">
@@ -101,17 +101,17 @@ import Menu from "@/components/Menu.vue";
         Масса ПАКУ: Не более 1500 кг<br />
       </div>
     </div>
-    <div class="more-container">
-      <router-link to="/boiler-room">
-        <div class="more-container">
-          <a class="more">Подробнее об установке</a>
-        </div>
-      </router-link>
-    </div>
+
+    <router-link to="/boiler-room">
+      <div class="more-container">
+        <a class="more">Подробнее об установке</a>
+      </div>
+    </router-link>
+
     <div class="symbows-wrapper">
       <div class="symbows"></div>
     </div>
-    <div class="mobile-twolines"></div>
+    <div class="symbows-mobile"></div>
   </div>
 </template>
 
@@ -122,6 +122,9 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
 .symbows-wrapper {
   display: flex;
   align-items: center;
@@ -153,7 +156,7 @@ export default {
   background-repeat: no-repeat;
 }
 
-.mobile-twolines {
+.symbows-mobile {
   display: none;
 }
 .description {
@@ -250,12 +253,15 @@ export default {
   .symbows-wrapper {
     display: none;
   }
-  .mobile-twolines {
+  .symbows-mobile {
     display: block;
-    background-image: url("/src/assets/images/red_logos/mobile-twolines.svg");
-    width: 300px;
+    background-image: url("/src/assets/images/red_logos/symbows-mobile.svg");
+    width: 60px;
     height: 20px;
     margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .more-container {
     margin-bottom: 20px;
   }
 }

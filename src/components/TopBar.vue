@@ -75,6 +75,12 @@ const emailData = () => {
     `${formEmail.value}`
   );
 };
+function callEngineer() {
+  window.location.href = "tel:+7(999) 822-11-45";
+}
+function callManager() {
+  window.location.href = "tel:+7(977) 953-39-11";
+}
 </script>
 
 <template>
@@ -91,7 +97,7 @@ const emailData = () => {
         </div>
       </div>
       <div class="logo" />
-      <button class="call-button" @click="handleClick">ЗВОНОК ИНЖЕНЕРУ</button>
+      <button class="call-button" @click="callEngineer">ЗВОНОК ИНЖЕНЕРУ</button>
       <div class="icon-mobile-headphones" @click="openMobileContacts"></div>
     </div>
 
@@ -125,11 +131,15 @@ const emailData = () => {
         <div class="mobile-menu-buttons">
           <button class="mobile-menu-button">
             <span class="call-ingener"></span>
-            <span class="button-text">Звонок инженеру</span>
+            <span class="button-text" @click="callEngineer"
+              >Звонок инженеру</span
+            >
           </button>
           <button class="mobile-menu-button">
             <span class="call-manager"></span>
-            <span class="button-text">Звонок менеджеру</span>
+            <span class="button-text" @click="callManager"
+              >Звонок менеджеру</span
+            >
           </button>
           <button class="mobile-menu-button" @click="openEmailModal">
             <span class="email"></span>
