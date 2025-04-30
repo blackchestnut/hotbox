@@ -20,6 +20,25 @@
       <div class="sort-power-mobile" @click="showPowerModal = true"></div>
     </div>
 
+    <!------------------------ Десктопная сортировка ------------------------->
+    <div class="sort-container">
+      <div class="custom-select" @click="toggleDropdown">
+        <div class="selected">{{ selectedOption.text }}</div>
+        <div class="arrow" :class="{ open: isOpen }">
+          <img src="/src/assets/images/black_logos/menu-arrow.svg" />
+        </div>
+        <ul v-if="isOpen" class="options">
+          <li
+            v-for="option in options"
+            :key="option.value"
+            @click="selectOption(option)"
+            :class="{ selected: selectedOption.value === option.value }"
+          >
+            {{ option.text }}
+          </li>
+        </ul>
+      </div>
+    </div>
     <!------------------------ Модальное окно сортировки по мощности ------------------------->
     <div
       v-if="showPowerModal"
@@ -39,7 +58,7 @@
               showPowerModal = false;
             "
           >
-            Мощность: по возрастанию
+            По возрастанию
           </div>
           <div
             class="sort-option"
@@ -48,7 +67,7 @@
               showPowerModal = false;
             "
           >
-            Мощность: по убыванию
+            По убыванию
           </div>
         </div>
       </div>
@@ -102,26 +121,6 @@
             </label>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!------------------------ Десктопная сортировка ------------------------->
-    <div class="sort-container">
-      <div class="custom-select" @click="toggleDropdown">
-        <div class="selected">{{ selectedOption.text }}</div>
-        <div class="arrow" :class="{ open: isOpen }">
-          <img src="/src/assets/images/black_logos/menu-arrow.svg" />
-        </div>
-        <ul v-if="isOpen" class="options">
-          <li
-            v-for="option in options"
-            :key="option.value"
-            @click="selectOption(option)"
-            :class="{ selected: selectedOption.value === option.value }"
-          >
-            {{ option.text }}
-          </li>
-        </ul>
       </div>
     </div>
 
@@ -179,15 +178,6 @@
                 }}<br />
                 <span class="g">Мощность:</span> {{ item.power }}
               </div>
-            </div>
-            <div
-              class="amount"
-              :style="{
-                backgroundColor: item.available < 3 ? '#FFA500' : '#22cb5785',
-                color: item.available < 3 ? '#CD4000' : '#008029',
-              }"
-            >
-              В наличии&nbsp; <span class="fat">{{ item.available }} шт</span>
             </div>
           </div>
         </router-link>
@@ -308,8 +298,8 @@ const showPowerModal = ref(false);
 const showFilterModal = ref(false);
 
 const options = [
-  { value: "powerAsc", text: "Мощность: по возрастанию" },
-  { value: "powerDesc", text: "Мощность: по убыванию" },
+  { value: "powerAsc", text: "По возрастанию" },
+  { value: "powerDesc", text: "По убыванию" },
 ];
 
 const filteredBoilers = computed(() => {
@@ -444,7 +434,7 @@ label {
 .fiter-items-container {
   display: flex;
   margin: 0 auto;
-  justify-content: space-between;
+  margin-top: 100px;
 }
 
 .items {
@@ -494,18 +484,6 @@ label {
 .description {
   line-height: 26px;
   font-size: 16px;
-}
-
-.amount {
-  color: #008029;
-  background-color: #22cb5785;
-  border-radius: 8px;
-  padding: 6px 8px;
-  margin-left: 10px;
-  max-height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .fat {
@@ -564,10 +542,8 @@ label {
   position: relative;
   background-color: #f9f9f9;
   border-radius: 8px;
-  max-width: 360px;
+  width: 360px;
   font-size: 16px;
-  margin-left: 800px;
-  margin-bottom: 90px;
 }
 
 .arrow {
@@ -600,9 +576,7 @@ label {
   padding-left: 12px;
   cursor: pointer;
 }
-.sort-container {
-  position: relative;
-}
+
 .items-mobile {
   display: none;
 }
@@ -664,7 +638,9 @@ label {
   right: 0;
   top: 0;
 }
-
+.sort-container {
+  float: right;
+}
 .sort-option {
   padding: 15px 10px;
   border-bottom: 1px solid #eee;
@@ -679,7 +655,9 @@ label {
 .sort-option:hover {
   background-color: #f5f5f5;
 }
-
+.selected {
+  font-weight: 600;
+}
 @media (max-width: 430px) {
   .page-container {
     max-width: 100%;
