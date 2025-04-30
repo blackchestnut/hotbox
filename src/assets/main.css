@@ -201,16 +201,10 @@ body {
   background-size: contain;
 }
 .close:hover {
-  width: 32px;
-  height: 32px;
   background-image: url("@/assets/images/black_logos/close_hover.svg");
-  background-size: contain;
 }
 .close:active {
-  width: 32px;
-  height: 32px;
   background-image: url("@/assets/images/black_logos/close_active.svg");
-  background-size: contain;
 }
 @media (max-width: 430px) {
   article {
@@ -231,9 +225,8 @@ body {
     max-height: 40px;
     font-size: 12px;
   }
-  .close,
-  .close:hover,
-  .close:hover {
+
+  .close {
     width: 24px;
     height: 24px;
   }
