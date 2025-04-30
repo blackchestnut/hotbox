@@ -7,7 +7,6 @@
         :to="button.path"
         class="button"
         :class="{ active: selectedButton === index }"
-        @click.prevent="selectButton(index)"
       >
         {{ button.label }}
       </router-link>
@@ -20,16 +19,16 @@ export default {
   data() {
     return {
       buttons: [
-        { label: "ГЛАВНАЯ", class: "home-button", path: "/" },
-        { label: "КОТЕЛЬНЫЕ", class: "boiler-button", path: "/boiler-room" },
-        { label: "УСЛУГИ", class: "services-button", path: "/service" },
+        { label: "ГЛАВНАЯ", path: "/" },
         {
-          label: "МОБИЛЬНАЯ КОТЕЛЬНАЯ УСТАНОВКА",
-          class: "mobile-boiler-button",
-          path: "/car",
+          label: "КОТЕЛЬНЫЕ",
+          path: "/boiler-room",
+          extraMatchPath: "kotelnye",
         },
-        { label: "НОВОСТИ", class: "news-button", path: "/news" },
-        { label: "О НАС", class: "about-button", path: "/us" },
+        { label: "УСЛУГИ", path: "/service" },
+        { label: "МОБИЛЬНАЯ КОТЕЛЬНАЯ УСТАНОВКА", path: "/car" },
+        { label: "НОВОСТИ", path: "/news" },
+        { label: "О НАС", path: "/us" },
       ],
       selectedButton: null,
     };
@@ -37,22 +36,13 @@ export default {
   mounted() {
     this.updateSelectedButton();
   },
-  watch: {
-    // Отслеживаем изменения маршрута
-    $route(to) {
-      this.updateSelectedButton();
-    },
-  },
   methods: {
-    selectButton(index) {
-      this.selectedButton = index;
-      this.$router.push(this.buttons[index].path);
-    },
     updateSelectedButton() {
-      // Устанавливаем selectedButton в зависимости от текущего маршрута
       const currentPath = this.$route.path;
       const buttonIndex = this.buttons.findIndex(
-        (button) => button.path === currentPath
+        (button) =>
+          button.path === currentPath ||
+          currentPath.includes(button.extraMatchPath)
       );
       this.selectedButton = buttonIndex !== -1 ? buttonIndex : 0; // Если не найден, устанавливаем 0
     },

@@ -7,8 +7,24 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 
+const links = [
+  { text: "ГЛАВНАЯ", path: "/" },
+  { text: "КОТЕЛЬНЫЕ", path: "/boiler-room", extraMatchPath: "kotelnye" },
+  { text: "УСЛУГИ", path: "/service" },
+  { text: "МОБИЛЬНЫЕ КОТЕЛЬНЫЕ", path: "/car" },
+  { text: "НОВОСТИ", path: "/news" },
+  { text: "О НАС", path: "/us" },
+];
+
 const activeLink = computed(() => {
-  const index = links.value.findIndex((link) => link.path === route.path);
+  const index = links.findIndex(
+    (link) =>
+      link.path === route.path || route.path.includes(link.extraMatchPath)
+  );
+
+  console.log(route.path);
+  console.log(route.path.includes("kotelnye"));
+
   return index !== -1 ? index : 0;
 });
 
@@ -20,15 +36,6 @@ const isEmailModalOpen = ref(false);
 const formName = ref("");
 const formEmail = ref("");
 const formMessage = ref("");
-
-const links = ref([
-  { text: "ГЛАВНАЯ", path: "/" },
-  { text: "КОТЕЛЬНЫЕ", path: "/boiler-room" },
-  { text: "УСЛУГИ", path: "/service" },
-  { text: "МОБИЛЬНЫЕ КОТЕЛЬНЫЕ", path: "/car" },
-  { text: "НОВОСТИ", path: "/news" },
-  { text: "О НАС", path: "/us" },
-]);
 
 const openMobileMenu = () => {
   isMobileMenuOpen.value = true;
@@ -55,14 +62,6 @@ const openEmailModal = () => {
 // Закрытие модального окна с формой
 const closeEmailModal = () => {
   isEmailModalOpen.value = false;
-};
-
-// Установка активной ссылки и переход
-const setActiveLink = (index) => {
-  activeLink.value = index;
-  const path = links.value[index].path; // Получаем путь из списка ссылок
-  router.push(path); // Выполняем переход по пути
-  closeMobileMenu();
 };
 
 const emailData = () => {
@@ -107,14 +106,15 @@ function callManager() {
           <a class="close" @click="closeMobileMenu"></a>
         </div>
         <div class="modal-links">
-          <a
+          <router-link
             v-for="(link, index) in links"
             :key="index"
             :class="['modal-link', { active: activeLink === index }]"
-            @click="setActiveLink(index)"
+            :to="link.path"
+            @click="closeMobileMenu"
           >
             {{ link.text }}
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
