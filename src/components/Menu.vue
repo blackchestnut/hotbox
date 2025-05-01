@@ -1,14 +1,17 @@
+<script setup>
+import { links } from "@/helpers/constants";
+</script>
 <template>
   <div class="topbar-wrapper">
     <div class="topbar">
       <router-link
-        v-for="(button, index) in buttons"
-        :key="button.path"
-        :to="button.path"
+        v-for="(link, index) in links"
+        :key="link.path"
+        :to="link.path"
         class="button"
         :class="{ active: selectedButton === index }"
       >
-        {{ button.label }}
+        {{ link.text }}
       </router-link>
     </div>
   </div>
@@ -18,18 +21,7 @@
 export default {
   data() {
     return {
-      buttons: [
-        { label: "ГЛАВНАЯ", path: "/" },
-        {
-          label: "КОТЕЛЬНЫЕ",
-          path: "/boiler-room",
-          extraMatchPath: "kotelnye",
-        },
-        { label: "УСЛУГИ", path: "/service" },
-        { label: "МОБИЛЬНАЯ КОТЕЛЬНАЯ УСТАНОВКА", path: "/car" },
-        { label: "НОВОСТИ", path: "/news" },
-        { label: "О НАС", path: "/us" },
-      ],
+      links,
       selectedButton: null,
     };
   },
@@ -39,12 +31,12 @@ export default {
   methods: {
     updateSelectedButton() {
       const currentPath = this.$route.path;
-      const buttonIndex = this.buttons.findIndex(
-        (button) =>
-          button.path === currentPath ||
-          currentPath.includes(button.extraMatchPath)
+      const buttonIndex = this.links.findIndex(
+        (link) =>
+          link.path === currentPath ||
+          (link.extraMatchPath && currentPath.includes(link.extraMatchPath))
       );
-      this.selectedButton = buttonIndex !== -1 ? buttonIndex : 0; // Если не найден, устанавливаем 0
+      this.selectedButton = buttonIndex !== -1 ? buttonIndex : 0;
     },
   },
 };

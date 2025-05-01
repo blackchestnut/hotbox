@@ -7,14 +7,7 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 
-const links = [
-  { text: "ГЛАВНАЯ", path: "/" },
-  { text: "КОТЕЛЬНЫЕ", path: "/boiler-room", extraMatchPath: "kotelnye" },
-  { text: "УСЛУГИ", path: "/service" },
-  { text: "МОБИЛЬНЫЕ КОТЕЛЬНЫЕ", path: "/car" },
-  { text: "НОВОСТИ", path: "/news" },
-  { text: "О НАС", path: "/us" },
-];
+import { links } from "@/helpers/constants";
 
 const activeLink = computed(() => {
   const index = links.findIndex(
