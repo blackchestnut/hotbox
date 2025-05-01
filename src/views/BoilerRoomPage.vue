@@ -434,7 +434,8 @@ label {
 .fiter-items-container {
   display: flex;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 160px;
+  justify-content: space-between;
 }
 
 .items {
@@ -489,7 +490,9 @@ label {
 .fat {
   font-weight: 600;
 }
-
+.head-one {
+  margin-bottom: 30px;
+}
 .merits {
   display: flex;
   justify-content: space-between;
@@ -655,7 +658,7 @@ label {
 .sort-option:hover {
   background-color: #f5f5f5;
 }
-.selected {
+.selected li {
   font-weight: 600;
 }
 @media (max-width: 430px) {
