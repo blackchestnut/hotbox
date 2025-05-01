@@ -1,6 +1,3 @@
-<script setup>
-import { links } from "@/helpers/constants";
-</script>
 <template>
   <div class="topbar-wrapper">
     <div class="topbar">
@@ -18,6 +15,7 @@ import { links } from "@/helpers/constants";
 </template>
 
 <script>
+import { links } from "@/helpers/constants";
 export default {
   data() {
     return {
