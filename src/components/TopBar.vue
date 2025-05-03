@@ -500,7 +500,7 @@ function callManager() {
 
   .mobile-menu-button {
     width: 300px;
-    height: 42px;
+    height: 50px;
     background-color: #f3f3f3;
     border: none;
     border-radius: 8px;
