@@ -1,17 +1,25 @@
 <script setup>
-import { ref } from "vue";
 import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
+import { ref, computed } from "vue";
 
-const formName = ref("");
-const formEmail = ref("");
 const formMessage = ref("");
-const formPhone = ref("");
+
+import {
+  clientName,
+  clientEmail,
+  clientPhone,
+  isSubmitDisabled,
+} from "@/helpers/constants";
+
+const isLocalSubmitDisabled = computed(() => {
+  return isSubmitDisabled.value || !formMessage.value.trim();
+});
 
 const emailData = () => {
   return (
     `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
-    `&body=${formMessage.value}\n\nИмя: ${formName.value}\n` +
-    `Email: ${formEmail.value}\nТелефон: ${formPhone.value}`
+    `&body=${formMessage.value}\n\nИмя: ${clientName.value}\n` +
+    `Email: ${clientEmail.value}\nТелефон: ${clientPhone.value}`
   );
 };
 </script>
@@ -35,7 +43,7 @@ const emailData = () => {
         />
         <div class="b-input">
           <input
-            v-model="formName"
+            v-model="clientName"
             placeholder="Ваше имя"
             type="text"
             class="input1"
@@ -43,7 +51,7 @@ const emailData = () => {
         </div>
         <div class="b-input">
           <input
-            v-model="formPhone"
+            v-model="clientPhone"
             placeholder="Телефон"
             type="tel"
             class="input1"
@@ -51,7 +59,7 @@ const emailData = () => {
         </div>
         <div class="b-input">
           <input
-            v-model="formEmail"
+            v-model="clientEmail"
             placeholder="E-mail"
             type="email"
             class="input1"
@@ -66,7 +74,13 @@ const emailData = () => {
           />
         </div>
         <div class="b-input">
-          <a class="submit" type="submit" :href="emailData()">Отправить</a>
+          <a
+            class="submit"
+            :class="{ disabled: isLocalSubmitDisabled }"
+            :href="isLocalSubmitDisabled ? '#' : emailData()"
+          >
+            Отправить
+          </a>
         </div>
         <div class="note">
           Нажимая на кнопку, вы даете согласие на обработку персональных данных
@@ -144,6 +158,11 @@ const emailData = () => {
 .submit:active {
   background-color: #343638;
   border-color: #474a4d;
+}
+.submit.disabled {
+  background-color: #8b8a8f;
+  border-color: #8b8a8f;
+  pointer-events: none;
 }
 .leadform {
   background-color: #b12117;

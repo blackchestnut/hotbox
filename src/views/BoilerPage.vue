@@ -5,7 +5,13 @@ const route = useRoute();
 import Menu from "@/components/Menu.vue";
 import { boilers } from "@/data";
 import BoilerOrder from "@/views/BoilerOrder.vue";
-import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
+import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants.js";
+import {
+  clientName,
+  clientEmail,
+  clientPhone,
+  isSubmitDisabled,
+} from "@/helpers/constants.js";
 const currentImageIndex = ref(0);
 const isOrderModalVisible = ref(false);
 const selectedFuel = ref("Газ");
@@ -16,9 +22,6 @@ const selectedImage = ref(""); // Изображение выбранного к
 const boiler = boilers.find((v) => v.path === route.params.id);
 const images = boiler.images;
 
-const name = document.getElementById("crm_lead_name")?.value || "";
-const email = document.getElementById("crm_lead_email")?.value || "";
-const phone = document.getElementById("crm_lead_phone")?.value || "";
 const count = ref(1);
 
 const nextImage = () => {
@@ -38,6 +41,10 @@ const showOrderModal = () => {
 
 const closeOrderModal = () => {
   isOrderModalVisible.value = false;
+  clientName.value = "";
+  clientEmail.value = "";
+  clientPhone.value = "";
+  count.value = 1;
 };
 
 const toggleFuel = (fuel) => {
@@ -63,10 +70,10 @@ const toggleText = () => {
 const emailData = () => {
   return (
     `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
-    `&body=Имя: ${encodeURIComponent(name)}%0A` +
-    `Email: ${encodeURIComponent(email)}%0A` +
-    `Телефон: ${encodeURIComponent(phone)}%0A` +
-    `Количество: ${encodeURIComponent(count)}`
+    `&body=Имя: ${encodeURIComponent(clientName.value)}%0A` +
+    `Email: ${encodeURIComponent(clientEmail.value)}%0A` +
+    `Телефон: ${encodeURIComponent(clientPhone.value)}%0A` +
+    `Количество: ${encodeURIComponent(count.value)}`
   );
 };
 </script>
@@ -383,27 +390,36 @@ const emailData = () => {
         </div>
         <div class="form-container">
           <input
+            v-model="clientName"
             id="crm_lead_client"
             name="crm_lead[client]"
             placeholder="Ваше имя"
             type="text"
           />
           <input
+            v-model="clientEmail"
             id="crm_lead_email"
             name="crm_lead[email]"
             placeholder="E-mail"
             type="email"
           />
           <input
+            v-model="clientPhone"
             id="crm_lead_phone"
             name="crm_lead[phone]"
             placeholder="Телефон"
             type="tel"
           />
           <div class="submit-container">
-            <a class="submit-button" type="submit" :href="emailData()"
-              >Отправить</a
+            <a
+              class="submit-button"
+              type="submit"
+              :href="emailData()"
+              :class="{ disabled: isSubmitDisabled }"
+              :disabled="isSubmitDisabled"
             >
+              Отправить
+            </a>
           </div>
           <div class="politics">
             Нажимая на кнопку вы соглашаетесь с условиями

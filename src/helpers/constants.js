@@ -13,3 +13,19 @@ export const links = [
   { text: "НОВОСТИ", path: "/news" },
   { text: "О НАС", path: "/us" },
 ];
+
+import { ref, computed } from "vue";
+
+export const clientName = ref("");
+export const clientEmail = ref("");
+export const clientPhone = ref("");
+export const count = ref(1);
+export const fields = [clientName, clientEmail, clientPhone];
+
+export const isSubmitDisabled = computed(() => {
+  return (
+    !clientName.value.trim() ||
+    !clientEmail.value.trim() ||
+    !clientPhone.value.trim()
+  );
+});
