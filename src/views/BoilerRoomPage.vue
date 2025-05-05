@@ -894,5 +894,8 @@ label {
   .modal-header {
     padding: 0 16px 20px;
   }
+  .fiter-items-container {
+    margin-top: 0px;
+  }
 }
 </style>

@@ -88,7 +88,9 @@ function callManager() {
           }}</a>
         </div>
       </div>
-      <div class="logo" />
+      <router-link to="/">
+        <div class="logo"></div>
+      </router-link>
       <button class="call-button" @click="callEngineer">ЗВОНОК ИНЖЕНЕРУ</button>
       <div class="icon-mobile-headphones" @click="openMobileContacts"></div>
     </div>
