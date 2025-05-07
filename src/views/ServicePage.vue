@@ -1,14 +1,20 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Menu from "@/components/Menu.vue";
 import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
-// Состояние модального окна
+
 const isOrderModalVisible = ref(false);
 const selectedOrder = ref(null);
 
 // Счетчик
 const count = ref(1);
+const clientName = ref("");
+const clientEmail = ref("");
+const clientPhone = ref("");
 
+const isSubmitDisabled = computed(() => {
+  return !clientName.value || !clientEmail.value || !clientPhone.value;
+});
 // Функции для управления счетчиком
 const increment = () => {
   count.value++;
@@ -27,17 +33,18 @@ const showOrderModal = (order) => {
 
 const closeOrderModal = () => {
   isOrderModalVisible.value = false;
+  clientName.value = "";
+  clientEmail.value = "";
+  clientPhone.value = "";
+  count.value = 1;
 };
-const name = ref("");
-const email = ref("");
-const phone = ref("");
 
 const emailData = () => {
   return (
     `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ - ${selectedOrder.value}` +
-    `&body=Имя: ${encodeURIComponent(name.value)}%0A` +
-    `Email: ${encodeURIComponent(email.value)}%0A` +
-    `Телефон: ${encodeURIComponent(phone.value)}%0A` +
+    `&body=Имя: ${encodeURIComponent(clientName.value)}%0A` +
+    `Email: ${encodeURIComponent(clientEmail.value)}%0A` +
+    `Телефон: ${encodeURIComponent(clientPhone.value)}%0A` +
     `Количество: ${encodeURIComponent(count.value)}%0A` +
     `Выбранный товар: ${encodeURIComponent(selectedOrder.value)}`
   );
@@ -216,13 +223,19 @@ const emailData = () => {
       </div>
 
       <div class="form-container">
-        <input v-model="name" placeholder="Ваше имя" type="text" />
-        <input v-model="email" placeholder="E-mail" type="email" />
-        <input v-model="phone" placeholder="Телефон" type="tel" />
+        <input v-model="clientName" placeholder="Ваше имя" type="text" />
+        <input v-model="clientEmail" placeholder="E-mail" type="email" />
+        <input v-model="clientPhone" placeholder="Телефон" type="tel" />
         <div class="submit-container">
-          <a class="submit-button" type="submit" :href="emailData()"
-            >Отправить</a
+          <a
+            class="submit-button"
+            type="submit"
+            :href="emailData()"
+            :class="{ disabled: isSubmitDisabled }"
+            :disabled="isSubmitDisabled"
           >
+            Отправить
+          </a>
         </div>
         <div class="politics">
           Нажимая на кнопку вы соглашаетесь с условиями

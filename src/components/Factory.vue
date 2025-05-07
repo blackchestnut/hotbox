@@ -218,7 +218,12 @@ h2 {
     background-position: 6px 6px;
     background-size: 16px;
   }
-
+  .transparent-button.boilers {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
   .button-container > .boilers {
     grid-area: a;
   } /* Котельные */

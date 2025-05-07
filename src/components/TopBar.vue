@@ -30,6 +30,10 @@ const formName = ref("");
 const formEmail = ref("");
 const formMessage = ref("");
 
+const isSubmitDisabled = computed(() => {
+  return !formName.value || !formEmail.value || !formMessage.value;
+});
+
 const openMobileMenu = () => {
   isMobileMenuOpen.value = true;
 };
@@ -88,7 +92,9 @@ function callManager() {
           }}</a>
         </div>
       </div>
-      <div class="logo" />
+      <router-link to="/">
+        <div class="logo"></div>
+      </router-link>
       <button class="call-button" @click="callEngineer">ЗВОНОК ИНЖЕНЕРУ</button>
       <div class="icon-mobile-headphones" @click="openMobileContacts"></div>
     </div>
@@ -197,7 +203,15 @@ function callManager() {
             <div class="submit-container">
               <!--button type="submit" class="submit-button">Отправить</button-->
               <!--div>{{ emailData() }}</div-->
-              <a class="submit-button" :href="emailData()">Отправить</a>
+              <a
+                class="submit-button"
+                type="submit"
+                :href="emailData()"
+                :class="{ disabled: isSubmitDisabled }"
+                :disabled="isSubmitDisabled"
+              >
+                Отправить
+              </a>
             </div>
 
             <p class="privacy-policy">
@@ -500,7 +514,7 @@ function callManager() {
 
   .mobile-menu-button {
     width: 300px;
-    height: 42px;
+    height: 50px;
     background-color: #f3f3f3;
     border: none;
     border-radius: 8px;

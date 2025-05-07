@@ -578,6 +578,15 @@ label {
   padding-top: 12px;
   padding-left: 12px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.options li:hover {
+  color: #535151;
+}
+
+.options li.selected {
+  font-weight: 600;
 }
 
 .items-mobile {
@@ -893,6 +902,9 @@ label {
 
   .modal-header {
     padding: 0 16px 20px;
+  }
+  .fiter-items-container {
+    margin-top: 0px;
   }
 }
 </style>

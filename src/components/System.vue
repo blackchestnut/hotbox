@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
 import { ref, onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router"; // Импортируем useRouter для навигации
+import { Pagination } from "swiper/modules";
 
 const router = useRouter(); // Получаем доступ к роутеру
 
@@ -23,7 +24,7 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("resize", updateIsMobile);
 });
-
+const modules = [Pagination];
 const ITEMS_ON_PAGE = 3;
 
 const slides = [
@@ -166,28 +167,37 @@ const showDetails = (index) => {
       </div>
       <div class="background">
         <div class="container">
-          <swiper
-            ref="mySwiper"
-            :slides-per-view="isMobile ? 1 : 3"
-            :space-between="isMobile ? 16 : 30"
-            :slides-per-group="1"
-            class="mySwiper"
-            @swiper="onSwiper"
-          >
-            <swiper-slide v-for="(slide, index) in slides" :key="index">
-              <div
-                class="slide-inner"
-                @click="isMobile ? showDetails(index) : null"
-              >
-                <img :src="slide.image" alt="Slide Image" class="slide-image" />
-                <div class="label">{{ slide.text }}</div>
-                <div class="description">{{ slide.description }}</div>
-                <button class="details-button" @click="showDetails(index)">
-                  ПОДРОБНЕЕ
-                </button>
-              </div>
-            </swiper-slide>
-          </swiper>
+          <div class="swiper-wrapper-container">
+            <swiper
+              :modules="modules"
+              :slides-per-view="isMobile ? 1 : 3"
+              :space-between="isMobile ? 16 : 30"
+              :slides-per-group="1"
+              :pagination="{ el: '.custom-pagination', clickable: true }"
+              class="mySwiper"
+              @swiper="onSwiper"
+            >
+              <swiper-slide v-for="(slide, index) in slides" :key="index">
+                <div
+                  class="slide-inner"
+                  @click="isMobile ? showDetails(index) : null"
+                >
+                  <img
+                    :src="slide.image"
+                    alt="Slide Image"
+                    class="slide-image"
+                  />
+                  <div class="label">{{ slide.text }}</div>
+                  <div class="description">{{ slide.description }}</div>
+                  <button class="details-button" @click="showDetails(index)">
+                    ПОДРОБНЕЕ
+                  </button>
+                </div>
+              </swiper-slide>
+            </swiper>
+            <div class="custom-pagination"></div>
+          </div>
+
           <div class="slider-navigation">
             <button class="b-slider-prev" @click="goToPrevSlide">
               <img src="\src\assets\images\arrows\Vector.svg" />
@@ -353,6 +363,9 @@ const showDetails = (index) => {
   padding-top: 25px;
   padding-bottom: 25px;
 }
+.custom-pagination {
+  display: none;
+}
 
 @media (max-width: 430px) {
   .system {
@@ -377,9 +390,7 @@ const showDetails = (index) => {
   .slider-navigation {
     display: none;
   }
-  .full-catalog {
-    display: none;
-  }
+
   .boilers-hotbox {
     font-size: 20px;
     margin-top: 10px;
@@ -418,5 +429,34 @@ const showDetails = (index) => {
   .details-button {
     display: none;
   }
+
+  .custom-pagination {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .full-catalog {
+    width: 192px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+</style>
+<style>
+.custom-pagination .swiper-pagination-bullet {
+  background: #c8c7ca;
+  width: 8px;
+  height: 8px;
+  opacity: 1;
+  margin: 0 8px;
+  border-radius: 50%;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background: #000000;
+}
+.custom-pagination {
+  --swiper-pagination-bullet-horizontal-gap: 6px;
 }
 </style>

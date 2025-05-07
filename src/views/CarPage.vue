@@ -1,10 +1,9 @@
 <script setup>
 import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Menu from "@/components/Menu.vue";
 import { car } from "@/data";
 import CarOrder from "@/views/CarOrder.vue";
-
 const currentImageIndex = ref(0);
 const selectedCar = ref("");
 const selectedImage = ref("");
@@ -18,22 +17,28 @@ const showOrderModal = () => {
   isOrderModalVisible.value = true;
   console.log("isOrderModalVisible:", isOrderModalVisible.value); // Отладка
 };
-
 const closeOrderModal = () => {
   isOrderModalVisible.value = false;
+  clientName.value = "";
+  clientEmail.value = "";
+  clientPhone.value = "";
+  count.value = 1;
 };
 
-const name = document.getElementById("crm_lead_name1")?.value || "";
-const email = document.getElementById("crm_lead_email1")?.value || "";
-const phone = document.getElementById("crm_lead_phone1")?.value || "";
 const count = ref(1);
+const clientName = ref("");
+const clientEmail = ref("");
+const clientPhone = ref("");
 
+const isSubmitDisabled = computed(() => {
+  return !clientName.value || !clientEmail.value || !clientPhone.value;
+});
 const emailData = () => {
   return (
     `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
-    `&body=Имя: ${encodeURIComponent(name)}%0A` +
-    `Email: ${encodeURIComponent(email)}%0A` +
-    `Телефон: ${encodeURIComponent(phone)}%0A` +
+    `&body=Имя: ${encodeURIComponent(clientName)}%0A` +
+    `Email: ${encodeURIComponent(clientEmail)}%0A` +
+    `Телефон: ${encodeURIComponent(clientPhone)}%0A` +
     `Количество: ${encodeURIComponent(count)}`
   );
 };
@@ -138,27 +143,36 @@ const emailData = () => {
 
         <div class="form-container">
           <input
-            id="crm_lead_client1"
+            v-model="clientName"
+            id="crm_lead_client"
             name="crm_lead[client]"
             placeholder="Ваше имя"
             type="text"
           />
           <input
-            id="crm_lead_phone1"
+            v-model="clientEmail"
+            id="crm_lead_email"
             name="crm_lead[email]"
             placeholder="E-mail"
             type="email"
           />
           <input
-            id="crm_lead_phone1"
+            v-model="clientPhone"
+            id="crm_lead_phone"
             name="crm_lead[phone]"
             placeholder="Телефон"
             type="tel"
           />
           <div class="submit-container">
-            <a class="submit-button" type="submit" :href="emailData()"
-              >Отправить</a
+            <a
+              class="submit-button"
+              type="submit"
+              :href="emailData()"
+              :class="{ disabled: isSubmitDisabled }"
+              :disabled="isSubmitDisabled"
             >
+              Отправить
+            </a>
           </div>
           <div class="politics">
             Нажимая на кнопку вы соглашаетесь с условиями
@@ -396,19 +410,16 @@ input::placeholder {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 30px;
-    max-width: 296px;
   }
 
   .boiler-ford-description-1 {
     font-size: 16px;
     margin-bottom: 30px;
-    max-width: 296px;
   }
 
   .boiler-ford-description-2 {
     font-size: 16px;
     margin-bottom: 30px;
-    max-width: 296px;
   }
 
   .title {
@@ -421,8 +432,8 @@ input::placeholder {
   }
 
   .block {
-    max-width: 380px;
-    max-height: 540px;
+    width: 100%;
+    height: 540px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
@@ -445,8 +456,8 @@ input::placeholder {
   .car2,
   .car3 {
     border-radius: 8px 8px 0 0;
-    max-width: 360px;
-    max-height: 300px;
+    max-width: 100%;
+    max-height: auto;
   }
 }
 </style>
