@@ -150,7 +150,7 @@ const emailData = () => {
 }
 .leadform-content {
   max-width: 1200px;
-  padding: 0px 60px;
+  padding: 0px 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
