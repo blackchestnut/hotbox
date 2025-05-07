@@ -30,6 +30,10 @@ const formName = ref("");
 const formEmail = ref("");
 const formMessage = ref("");
 
+const isSubmitDisabled = computed(() => {
+  return !formName.value || !formEmail.value || !formMessage.value;
+});
+
 const openMobileMenu = () => {
   isMobileMenuOpen.value = true;
 };
@@ -199,7 +203,15 @@ function callManager() {
             <div class="submit-container">
               <!--button type="submit" class="submit-button">Отправить</button-->
               <!--div>{{ emailData() }}</div-->
-              <a class="submit-button" :href="emailData()">Отправить</a>
+              <a
+                class="submit-button"
+                type="submit"
+                :href="emailData()"
+                :class="{ disabled: isSubmitDisabled }"
+                :disabled="isSubmitDisabled"
+              >
+                Отправить
+              </a>
             </div>
 
             <p class="privacy-policy">

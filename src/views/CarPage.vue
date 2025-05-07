@@ -1,6 +1,6 @@
 <script setup>
 import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Menu from "@/components/Menu.vue";
 import { car } from "@/data";
 import CarOrder from "@/views/CarOrder.vue";
@@ -9,12 +9,7 @@ const selectedCar = ref("");
 const selectedImage = ref("");
 const isOrderModalVisible = ref(false);
 const images = car[0].images;
-import {
-  clientName,
-  clientEmail,
-  clientPhone,
-  isSubmitDisabled,
-} from "@/helpers/constants.js";
+
 const showOrderModal = () => {
   console.log("Opening modal..."); // Отладка
   selectedCar.value = car[0].name;
@@ -31,7 +26,13 @@ const closeOrderModal = () => {
 };
 
 const count = ref(1);
+const clientName = ref("");
+const clientEmail = ref("");
+const clientPhone = ref("");
 
+const isSubmitDisabled = computed(() => {
+  return !clientName.value || !clientEmail.value || !clientPhone.value;
+});
 const emailData = () => {
   return (
     `${SUPPORT_EMAIL_MAILTO}?subject=Заявка на заказ` +
@@ -434,8 +435,8 @@ input::placeholder {
   }
 
   .block {
-    max-width: 380px;
-    max-height: 540px;
+    width: 100%;
+    height: 540px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
@@ -458,8 +459,8 @@ input::placeholder {
   .car2,
   .car3 {
     border-radius: 8px 8px 0 0;
-    max-width: 360px;
-    max-height: 300px;
+    max-width: 100%;
+    max-height: auto;
   }
 }
 </style>

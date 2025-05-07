@@ -1,17 +1,13 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+
 import { useRoute } from "vue-router";
 const route = useRoute();
 import Menu from "@/components/Menu.vue";
 import { boilers } from "@/data";
 import BoilerOrder from "@/views/BoilerOrder.vue";
 import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants.js";
-import {
-  clientName,
-  clientEmail,
-  clientPhone,
-  isSubmitDisabled,
-} from "@/helpers/constants.js";
+
 const currentImageIndex = ref(0);
 const isOrderModalVisible = ref(false);
 const selectedFuel = ref("Газ");
@@ -23,6 +19,13 @@ const boiler = boilers.find((v) => v.path === route.params.id);
 const images = boiler.images;
 
 const count = ref(1);
+const clientName = ref("");
+const clientEmail = ref("");
+const clientPhone = ref("");
+
+const isSubmitDisabled = computed(() => {
+  return !clientName.value || !clientEmail.value || !clientPhone.value;
+});
 
 const nextImage = () => {
   currentImageIndex.value = (currentImageIndex.value + 1) % images.length;

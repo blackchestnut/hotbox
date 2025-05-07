@@ -1,19 +1,20 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Menu from "@/components/Menu.vue";
 import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
-import {
-  clientName,
-  clientEmail,
-  clientPhone,
-  isSubmitDisabled,
-} from "@/helpers/constants.js";
+
 const isOrderModalVisible = ref(false);
 const selectedOrder = ref(null);
 
 // Счетчик
 const count = ref(1);
+const clientName = ref("");
+const clientEmail = ref("");
+const clientPhone = ref("");
 
+const isSubmitDisabled = computed(() => {
+  return !clientName.value || !clientEmail.value || !clientPhone.value;
+});
 // Функции для управления счетчиком
 const increment = () => {
   count.value++;
@@ -44,7 +45,7 @@ const emailData = () => {
     `&body=Имя: ${encodeURIComponent(clientName.value)}%0A` +
     `Email: ${encodeURIComponent(clientEmail.value)}%0A` +
     `Телефон: ${encodeURIComponent(clientPhone.value)}%0A` +
-    `Количество: ${encodeURIComponent(clientPhone.value)}%0A` +
+    `Количество: ${encodeURIComponent(count.value)}%0A` +
     `Выбранный товар: ${encodeURIComponent(selectedOrder.value)}`
   );
 };

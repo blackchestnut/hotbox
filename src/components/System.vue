@@ -390,9 +390,7 @@ const showDetails = (index) => {
   .slider-navigation {
     display: none;
   }
-  .full-catalog {
-    display: none;
-  }
+
   .boilers-hotbox {
     font-size: 20px;
     margin-top: 10px;
@@ -436,6 +434,12 @@ const showDetails = (index) => {
     display: block;
     margin-top: 12px;
     text-align: center;
+    margin-bottom: 30px;
+  }
+  .full-catalog {
+    width: 192px;
+    height: 40px;
+    font-size: 16px;
   }
 }
 </style>
