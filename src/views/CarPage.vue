@@ -410,19 +410,16 @@ input::placeholder {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 30px;
-    max-width: 296px;
   }
 
   .boiler-ford-description-1 {
     font-size: 16px;
     margin-bottom: 30px;
-    max-width: 296px;
   }
 
   .boiler-ford-description-2 {
     font-size: 16px;
     margin-bottom: 30px;
-    max-width: 296px;
   }
 
   .title {
