@@ -92,6 +92,7 @@ const emailData = () => {
   font-size: 18px;
   color: white;
   text-align: center;
+  padding: 0px 30px;
 }
 .note a {
   color: white;
@@ -211,6 +212,8 @@ const emailData = () => {
   .note {
     font-size: 16px;
     text-align: left;
+    padding: 0px;
+    margin-top: 0px;
   }
 
   .b-input input {
@@ -233,13 +236,8 @@ const emailData = () => {
     display: block; /* Показываем логотип для мобильной версии */
     width: 200px;
     height: 254.55px;
-
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .note {
-    margin-top: 0px;
   }
 }
 </style>
