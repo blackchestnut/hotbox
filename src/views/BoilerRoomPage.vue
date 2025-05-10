@@ -22,7 +22,12 @@
 
     <!------------------------ Десктопная сортировка ------------------------->
     <div class="sort-container">
-      <div class="custom-select" @click="toggleDropdown">
+      <div
+        class="custom-select"
+        tabindex="0"
+        @click="toggleDropdown"
+        @focusout="isOpen = false"
+      >
         <div class="selected">{{ selectedOption.text }}</div>
         <div class="arrow" :class="{ open: isOpen }">
           <img src="/src/assets/images/black_logos/menu-arrow.svg" />
@@ -31,7 +36,7 @@
           <li
             v-for="option in options"
             :key="option.value"
-            @click="selectOption(option)"
+            @mousedown.prevent="selectOption(option)"
             :class="{ selected: selectedOption.value === option.value }"
           >
             {{ option.text }}
@@ -298,8 +303,8 @@ const showPowerModal = ref(false);
 const showFilterModal = ref(false);
 
 const options = [
-  { value: "powerAsc", text: "По возрастанию" },
-  { value: "powerDesc", text: "По убыванию" },
+  { value: "powerAsc", text: "Мощность: по возрастанию" },
+  { value: "powerDesc", text: "Мощность: по убыванию" },
 ];
 
 const filteredBoilers = computed(() => {
