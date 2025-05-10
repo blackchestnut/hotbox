@@ -261,7 +261,8 @@ const showDetails = (index) => {
   background-color: #ebebeb;
   border-radius: 8px;
   transition: transform 0.3s ease;
-  cursor: pointer; /* Добавляем курсор для интерактивности */
+  cursor: pointer;
+  border: 1px solid #e2e1e7;
 }
 .label {
   font-size: 20px;

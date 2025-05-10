@@ -103,7 +103,7 @@ const emailData = () => {
 }
 .b-input {
   margin-bottom: 24px;
-  width: 92%;
+  width: 100%;
 }
 
 .b-input input {
@@ -113,6 +113,7 @@ const emailData = () => {
   border: 3px solid #ffffff;
   width: 100%;
   padding: 0px 20px;
+  box-sizing: border-box;
 }
 .b-input input:focus {
   border-color: #fda29b;
