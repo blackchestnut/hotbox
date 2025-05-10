@@ -58,21 +58,23 @@
         <div class="modal-body">
           <div
             class="sort-option"
+            :class="{ selected: sortOption === 'powerAsc' }"
             @click="
               selectSortOption('powerAsc');
               showPowerModal = false;
             "
           >
-            По возрастанию
+            Мощность: по возрастанию
           </div>
           <div
             class="sort-option"
+            :class="{ selected: sortOption === 'powerDesc' }"
             @click="
               selectSortOption('powerDesc');
               showPowerModal = false;
             "
           >
-            По убыванию
+            Мощность: по убыванию
           </div>
         </div>
       </div>
@@ -683,6 +685,9 @@ label {
   }
   .topbar {
     display: none;
+  }
+  .sort-option.selected {
+    font-weight: 600;
   }
   .back {
     width: 40px;
