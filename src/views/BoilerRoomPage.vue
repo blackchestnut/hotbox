@@ -167,8 +167,8 @@
         v-if="filteredAndSortedBoilers.length === 0"
         class="no-results-message"
       >
-        <span style="font-weight: bold">Подходящих котельных нет.</span><br />
-        Выберите другие фильтры.
+        <div class="no-results-title">Подходящих котельных нет</div>
+        <div>Выберите другие фильтры</div>
       </div>
 
       <div class="items">
@@ -214,7 +214,7 @@
               <div class="type">{{ item.type }}</div>
               <div class="description">{{ item.mobileDescription }}<br /></div>
             </div>
-            <button class="details-button">ПОДРОБНЕЕ</button>
+            <div class="details-button">ПОДРОБНЕЕ</div>
           </router-link>
         </template>
       </div>
@@ -386,15 +386,10 @@ const applyFilters = () => {
 </script>
 
 <style scoped>
-.filters {
-  display: flex;
-}
-
 .checkbox-container {
   background-color: #f9f9f9;
   padding: 10px;
   border-radius: 8px;
-  margin-right: 30px;
   max-height: 600px;
 }
 
@@ -449,13 +444,14 @@ label {
   display: flex;
   margin: 0 auto;
   margin-top: 160px;
-  justify-content: space-between;
+  gap: 60px;
 }
 
 .items {
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  flex-grow: 1;
 }
 
 .item {
@@ -479,6 +475,10 @@ label {
   margin-bottom: 30px;
   max-width: 240px;
   max-height: 240px;
+}
+
+.filters {
+  display: flex;
 }
 
 .text-container {
@@ -681,14 +681,23 @@ label {
 .sort-option:hover {
   background-color: #f5f5f5;
 }
+
 .selected li {
   font-weight: 600;
 }
+
 .no-results-message {
-  color: #000000;
-  font-size: 16px;
-  text-align: center;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  flex-grow: 1;
+}
+
+.no-results-title {
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 @media (max-width: 430px) {
