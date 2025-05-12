@@ -131,7 +131,7 @@
       </div>
     </div>
 
-    <div class="fiter-items-container">
+    <div class="filter-items-container">
       <div class="filters">
         <div class="checkbox-container">
           <div class="numbers">КОЛИЧЕСТВО КОТЛОВ</div>
@@ -162,6 +162,13 @@
             </label>
           </div>
         </div>
+      </div>
+      <div
+        v-if="filteredAndSortedBoilers.length === 0"
+        class="no-results-message"
+      >
+        <span style="font-weight: bold">Подходящих котельных нет.</span><br />
+        Выберите другие фильтры.
       </div>
 
       <div class="items">
@@ -438,7 +445,7 @@ label {
   line-height: 26px;
 }
 
-.fiter-items-container {
+.filter-items-container {
   display: flex;
   margin: 0 auto;
   margin-top: 160px;
@@ -677,6 +684,13 @@ label {
 .selected li {
   font-weight: 600;
 }
+.no-results-message {
+  color: #000000;
+  font-size: 16px;
+  text-align: center;
+  margin: 0 auto;
+}
+
 @media (max-width: 430px) {
   .page-container {
     max-width: 100%;
@@ -913,7 +927,7 @@ label {
   .modal-header {
     padding: 0 16px 20px;
   }
-  .fiter-items-container {
+  .filter-items-container {
     margin-top: 0px;
   }
 }
