@@ -328,9 +328,8 @@ const filteredBoilers = computed(() => {
 
   // Фильтрация по мощности
   if (selectedMaxPowers.value.length > 0) {
-    const maxAllowed = Math.min(...selectedMaxPowers.value);
-    filtered = filtered.filter(
-      (boiler) => parseFloat(boiler.power) <= maxAllowed
+    filtered = filtered.filter((boiler) =>
+      selectedMaxPowers.value.includes(parseInt(boiler.power))
     );
   }
 
