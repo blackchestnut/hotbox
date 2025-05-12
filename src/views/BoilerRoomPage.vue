@@ -869,9 +869,6 @@ label {
   }
   .details-button {
     display: block;
-  }
-  .details-button {
-    width: 140px;
     height: 34px;
     background-color: #fff;
     color: #3b3b3b;
@@ -880,10 +877,13 @@ label {
     border: 2px solid #3b3b3b;
     transition: background-color 0.3s ease;
     font-size: 14px;
+    font-weight: 600;
     margin-top: auto;
     margin-bottom: 10px;
     margin-left: 10px;
     margin-right: 10px;
+    line-height: 34px;
+    text-align: center;
   }
   .details-button:active {
     border-color: #696770;
