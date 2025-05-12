@@ -771,11 +771,6 @@ label {
     display: none;
   }
 
-  .item-img {
-    width: 140px;
-    height: 140px;
-  }
-
   .items {
     display: none;
   }
@@ -789,11 +784,12 @@ label {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    gap: 20px;
   }
 
   .item {
-    width: 160px;
-    height: 350px;
+    width: 100%;
+    height: auto;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -807,15 +803,15 @@ label {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 140px;
   }
 
   .item-img {
-    width: 160px;
-    height: 160px;
+    width: 100%;
+    height: auto;
     border-radius: 8px 8px 0 0;
     margin: 0px;
-    margin-left: 20px;
+    max-width: 1000px; /*придумать как убрать костыль*/
+    max-height: 1000px;
   }
 
   .type {
