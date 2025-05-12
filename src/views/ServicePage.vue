@@ -593,7 +593,7 @@ input::placeholder {
     gap: 24px;
   }
   .transparent-button {
-    gap: 0px;
+    gap: 1px;
     margin: 0px;
     padding: 20px;
   }
