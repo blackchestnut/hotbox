@@ -542,7 +542,7 @@ input::placeholder {
     max-width: 100%;
     padding: 0px;
   }
-  .prices {
+  .prices-wrapper {
     padding: 24px 16px;
   }
   .full-complex {
@@ -566,7 +566,7 @@ input::placeholder {
     margin-bottom: 30px;
   }
 
-  .button-container1 {
+  .prices {
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
