@@ -79,8 +79,8 @@ const emailData = () => {
       </div>
     </div>
   </div>
-  <div class="prices">
-    <div class="button-container1">
+  <div class="prices-wrapper">
+    <div class="prices">
       <div
         class="transparent-button"
         @click="showOrderModal('Аренда БМАК 0,5 мВт 1К')"
@@ -269,16 +269,13 @@ export default {
   font-size: 30px;
   margin-bottom: 60px;
 }
-.prices {
+.prices-wrapper {
   background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 36px;
   margin-bottom: 60px;
 }
 
-.button-container1 {
+.prices {
   display: grid;
   gap: 40px;
   grid-template-columns: 1fr 1fr;
@@ -293,11 +290,10 @@ export default {
 
 .transparent-button {
   display: grid;
-  /*gap: 20px;*/
+  gap: 20px;
   background-color: rgba(255, 255, 255, 0.144);
   border: none;
   color: white;
-  font-size: 20px;
   padding: 30px;
   box-sizing: border-box;
   cursor: pointer;
@@ -306,9 +302,6 @@ export default {
   text-align: left;
   line-height: 36px;
   font-size: 20px;
-  font-weight: 300;
-  width: 100%;
-  height: 100%;
 }
 
 .transparent-button:hover {
