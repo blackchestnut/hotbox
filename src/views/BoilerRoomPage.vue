@@ -174,7 +174,7 @@
         </button>
       </div>
 
-      <div class="items">
+      <div v-if="filteredAndSortedBoilers.length > 0" class="items">
         <router-link
           v-for="(item, index) in filteredAndSortedBoilers"
           :key="index"
@@ -201,7 +201,7 @@
       </div>
     </div>
 
-    <div class="items-mobile">
+    <div v-if="filteredAndSortedBoilers.length > 0" class="items-mobile">
       <div
         class="item-pair"
         v-for="(pair, index) in pairedBoilers"
@@ -383,7 +383,6 @@ const selectSortOption = (optionValue) => {
   }
 };
 
-const applyFilters = () => {};
 const resetFilters = () => {
   selectedBoilerCounts.value = [];
   selectedMaxPowers.value = [];
