@@ -477,8 +477,8 @@ label {
 .item-img {
   margin-right: 22px;
   margin-bottom: 30px;
-  max-width: 240px;
-  max-height: 240px;
+  width: 240px;
+  height: 240px;
 }
 
 .filters {
@@ -834,8 +834,7 @@ label {
     height: auto;
     border-radius: 8px 8px 0 0;
     margin: 0px;
-    max-width: 1000px; /*придумать как убрать костыль*/
-    max-height: 1000px;
+    object-fit: cover;
   }
 
   .type {
