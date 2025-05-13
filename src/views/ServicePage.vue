@@ -293,7 +293,7 @@ export default {
 
 .transparent-button {
   display: grid;
-  gap: 20px;
+  /*gap: 20px;*/
   background-color: rgba(255, 255, 255, 0.144);
   border: none;
   color: white;
@@ -583,7 +583,7 @@ input::placeholder {
     gap: 24px;
   }
   .transparent-button {
-    gap: 1px;
+    /*gap: 1px;*/
     margin: 0px;
     padding: 20px;
   }
