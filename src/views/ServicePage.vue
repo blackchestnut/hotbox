@@ -269,6 +269,7 @@ export default {
   font-size: 30px;
   margin-bottom: 60px;
 }
+
 .prices-wrapper {
   background-color: black;
   padding: 36px;
@@ -542,9 +543,6 @@ input::placeholder {
     max-width: 100%;
     padding: 0px;
   }
-  .prices-wrapper {
-    padding: 24px 16px;
-  }
   .full-complex {
     font-size: 20px;
     margin-bottom: 20px;
@@ -566,13 +564,11 @@ input::placeholder {
     margin-bottom: 30px;
   }
 
+  .prices-wrapper {
+    padding: 24px 16px;
+  }
   .prices {
-    display: flex;
-    box-sizing: border-box;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    background-color: #000;
+    grid-template-columns: 1fr;
     gap: 24px;
   }
   .transparent-button {
