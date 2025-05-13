@@ -169,6 +169,9 @@
       >
         <div class="no-results-title">Подходящих котельных нет</div>
         <div>Выберите другие фильтры</div>
+        <button class="reset-button" @click="resetFilters">
+          Сбросить фильтры
+        </button>
       </div>
 
       <div class="items">
@@ -380,8 +383,10 @@ const selectSortOption = (optionValue) => {
   }
 };
 
-const applyFilters = () => {
-  // Применяем фильтры автоматически через computed свойства
+const applyFilters = () => {};
+const resetFilters = () => {
+  selectedBoilerCounts.value = [];
+  selectedMaxPowers.value = [];
 };
 </script>
 
@@ -698,6 +703,26 @@ label {
 .no-results-title {
   font-weight: 600;
   margin-bottom: 4px;
+}
+.reset-button {
+  margin-top: 40px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: solid 3px #000;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #474a4d;
+  border-color: #474a4d;
+}
+.reset-button:active {
+  background-color: #474a4d;
+  border-color: #696770;
 }
 
 @media (max-width: 430px) {
