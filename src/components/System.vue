@@ -6,13 +6,14 @@ import { useRouter } from "vue-router"; // Импортируем useRouter дл
 import { Pagination } from "swiper/modules";
 
 const router = useRouter(); // Получаем доступ к роутеру
+const MOBILE_WIDTH_LIMIT = 1024;
 
 // Определяем isMobile как реактивную переменную
-const isMobile = ref(window.innerWidth <= 430);
+const isMobile = ref(window.innerWidth <= MOBILE_WIDTH_LIMIT);
 
 // Функция для обновления isMobile при изменении размера окна
 const updateIsMobile = () => {
-  isMobile.value = window.innerWidth <= 430;
+  isMobile.value = window.innerWidth <= MOBILE_WIDTH_LIMIT;
 };
 
 // Добавляем слушатель изменения размера окна
@@ -368,7 +369,7 @@ const showDetails = (index) => {
   display: none;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .system {
     margin: 0 auto;
     text-align: center;

@@ -211,7 +211,7 @@ body {
 .close:active {
   background-image: url("@/assets/images/black_logos/close_active.svg");
 }
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   article {
     margin-bottom: 40px;
   }

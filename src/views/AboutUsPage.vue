@@ -300,7 +300,7 @@ a[href^="tel:"] {
   color: inherit;
   text-decoration: none;
 }
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .page-container {
     padding: 0px 16px;
   }

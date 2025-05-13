@@ -37,7 +37,7 @@ import PartnersLogo from "@/views/PartnersLogo.vue";
   justify-content: center;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .partners {
     margin-top: 36px;
     padding: 0px 16px;

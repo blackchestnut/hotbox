@@ -376,7 +376,7 @@ input::placeholder {
 }
 
 /*Мобильная версия*/
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .page-container {
     max-width: 100%;
     padding: 0px 16px;

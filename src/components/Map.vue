@@ -87,7 +87,7 @@ export default {
 }
 
 /* Мобильная версия */
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .overlay {
     position: absolute;
     top: 44px;

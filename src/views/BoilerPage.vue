@@ -687,7 +687,7 @@ input::placeholder {
   font-size: 20px;
   margin-bottom: 20px;
 }
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .page-container {
     max-width: 100%;
     margin: 0 auto;

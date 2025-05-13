@@ -74,7 +74,7 @@
 .pictures img {
   width: 100%;
 }
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .pictures {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 34px;

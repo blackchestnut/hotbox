@@ -393,7 +393,7 @@ function callManager() {
 
 /* Мобильная версия */
 
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .container {
     margin: 0 auto;
     max-width: 100%;

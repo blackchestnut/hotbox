@@ -146,7 +146,7 @@ h2 {
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 1024px) {
   .award-logo {
     display: none;
   }
@@ -164,8 +164,7 @@ h2 {
   }
 }
 
-/* Мобильные стили (максимальная ширина 430px) */
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .d-desktop {
     display: none;
   }

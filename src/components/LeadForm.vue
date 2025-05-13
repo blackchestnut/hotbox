@@ -181,7 +181,7 @@ const emailData = () => {
   }
 }
 /* Мобильная версия */
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .leadform-content h1 {
     font-size: 24px;
     margin-bottom: 0px;

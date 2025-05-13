@@ -515,7 +515,7 @@ input::placeholder {
   display: flex;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .service-wrapper {
     max-width: 100%;
     padding: 0px 16px;

@@ -195,7 +195,7 @@ a {
 }
 
 /*Мобильная версия*/
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .page-container {
     margin: 0 auto;
     padding: 0 16px;

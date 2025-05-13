@@ -724,7 +724,7 @@ label {
   border-color: #696770;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .page-container {
     max-width: 100%;
     margin: 0 auto;

@@ -150,7 +150,7 @@ h3 {
     text-align: center;
   }
 }
-@media (max-width: 430px) {
+@media (max-width: 1024px) {
   .footer-column {
     font-size: 14px;
     font-weight: 400;
