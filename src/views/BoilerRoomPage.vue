@@ -418,7 +418,6 @@ label {
 }
 
 .checkbox-input {
-  position: relative;
   width: 26px;
   height: 26px;
   appearance: none;
@@ -430,18 +429,16 @@ label {
 }
 
 .checkbox-input:checked {
-  background-color: #000000;
-  border-color: #000000;
+  background-color: #000;
+  border-color: #000;
 }
 
-.checkbox-input:checked::after {
-  content: "✔";
-  color: #ffffff;
-  font-size: 20px;
-  position: absolute;
-  left: 5px;
-  top: 1px;
-  line-height: 26px;
+.checkbox-input:checked::before {
+  content: "";
+  display: block;
+  background-image: url("@/assets/images/arrows/checkbox-arrow.svg");
+  height: 26px;
+  width: 26px;
 }
 
 .filter-items-container {
