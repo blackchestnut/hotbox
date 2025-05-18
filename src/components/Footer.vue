@@ -29,8 +29,8 @@ import {
         <div class="footer-column">
           <h3>О НАС</h3>
           <ul>
-            <li><router-link to="/us">О компании</router-link></li>
-            <li><router-link to="/us">Партнеры</router-link></li>
+            <li><router-link to="/about">О компании</router-link></li>
+            <li><router-link to="/about">Партнеры</router-link></li>
           </ul>
         </div>
         <div class="footer-column">

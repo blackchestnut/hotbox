@@ -11,5 +11,5 @@ export const links = [
   { text: "УСЛУГИ", path: "/service" },
   { text: "МОБИЛЬНЫЕ КОТЕЛЬНЫЕ", path: "/car" },
   { text: "НОВОСТИ", path: "/news" },
-  { text: "О НАС", path: "/us" },
+  { text: "О НАС", path: "/about" },
 ];
