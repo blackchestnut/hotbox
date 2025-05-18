@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import HomePage from "@/views/HomePage.vue"; // Импортируйте вашу домашнюю страницу
-import NewsPage from "@/views/NewsPage.vue"; // Импортируйте компонент страницы новостей
+import HomePage from "@/views/HomePage.vue";
+import NewsPage from "@/views/NewsPage.vue";
 import CarPage from "@/views/CarPage.vue";
 import AboutUsPage from "@/views/AboutUsPage.vue";
 import ServicePage from "@/views/ServicePage.vue";
@@ -12,22 +12,22 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: HomePage, // Укажите компонент для домашней страницы
+    component: HomePage,
   },
   {
     path: "/news",
     name: "news",
-    component: NewsPage, // Укажите компонент для страницы новостей
+    component: NewsPage,
   },
-  // Другие маршруты...
+
   {
     path: "/car",
     name: "car",
     component: CarPage,
   },
   {
-    path: "/us",
-    name: "us",
+    path: "/about",
+    name: "about",
     component: AboutUsPage,
   },
   {
@@ -56,7 +56,7 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    return { top: 0 }; // Прокручиваем к началу страницы
+    return { top: 0 };
   },
 });
 
