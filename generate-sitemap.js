@@ -6,7 +6,6 @@ import xmlFormatter from "xml-formatter";
 const pages = [
   { url: "/", changefreq: "daily", priority: 1.0 },
   { url: "/about", changefreq: "monthly", priority: 0.8 },
-  // оставшиеся урлы.
 ];
 
 const hostname = "https://hotboxrf.ru";

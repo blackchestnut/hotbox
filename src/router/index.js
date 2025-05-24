@@ -1,61 +1,28 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-import HomePage from "@/views/HomePage.vue";
-import NewsPage from "@/views/NewsPage.vue";
-import CarPage from "@/views/CarPage.vue";
-import AboutUsPage from "@/views/AboutUsPage.vue";
-import ServicePage from "@/views/ServicePage.vue";
-import BoilerRoomPage from "@/views/BoilerRoomPage.vue";
-import BoilerPage from "@/views/BoilerPage.vue";
-import PrivacyPage from "@/views/PrivacyPage.vue";
+import { createRouter, createWebHistory } from "vue-router";
+import home from "@/views/home.vue";
+import news from "@/views/news.vue";
+import boiler_ford_transit from "@/views/boiler_ford_transit.vue";
+import about_us from "@/views/about_us.vue";
+import service from "@/views/service.vue";
+import product_room from "@/views/product_room.vue";
+import product from "@/views/product.vue";
+import privacy from "@/views/privacy.vue";
 
 const routes = [
-  {
-    path: "/",
-    name: "home",
-    component: HomePage,
-  },
-  {
-    path: "/news",
-    name: "news",
-    component: NewsPage,
-  },
-
-  {
-    path: "/car",
-    name: "car",
-    component: CarPage,
-  },
-  {
-    path: "/about",
-    name: "about",
-    component: AboutUsPage,
-  },
-  {
-    path: "/service",
-    name: "service",
-    component: ServicePage,
-  },
-  {
-    path: "/boiler-room",
-    name: "boiler-room",
-    component: BoilerRoomPage,
-  },
-  {
-    path: "/kotelnye/:id",
-    name: "boiler",
-    component: BoilerPage,
-  },
-  {
-    path: "/privacy",
-    name: "privacy",
-    component: PrivacyPage,
-  },
+  { path: "/", name: "home", component: home },
+  { path: "/news", name: "news", component: news },
+  { path: "/car", name: "car", component: boiler_ford_transit },
+  { path: "/about", name: "about", component: about_us },
+  { path: "/service", name: "service", component: service },
+  { path: "/boiler-room", name: "boiler_room", component: product_room },
+  { path: "/kotelnye/:id", name: "boiler", component: product },
+  { path: "/privacy", name: "privacy", component: privacy },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory("/hotbox/"),
   routes,
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     return { top: 0 };
   },
 });

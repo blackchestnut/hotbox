@@ -3,7 +3,7 @@ import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants";
 import { ref, computed } from "vue";
 import Menu from "@/components/Menu.vue";
 import { car } from "@/data";
-import CarOrder from "@/views/CarOrder.vue";
+import order_boiler_ford_transit from "@/views/order_boiler_ford_transit.vue";
 const currentImageIndex = ref(0);
 const selectedCar = ref("");
 const selectedImage = ref("");
@@ -138,7 +138,10 @@ const emailData = () => {
         <div class="line"></div>
 
         <div class="information-container">
-          <CarOrder :selectedCar="selectedCar" :selectedImage="selectedImage" />
+          <order_boiler_ford_transit
+            :selectedCar="selectedCar"
+            :selectedImage="selectedImage"
+          />
         </div>
 
         <div class="form-container">

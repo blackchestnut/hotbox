@@ -274,6 +274,8 @@ export default {
   background-color: black;
   padding: 36px;
   margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
 }
 
 .prices {

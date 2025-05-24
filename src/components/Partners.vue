@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PartnersLogo from "@/views/PartnersLogo.vue";
+import partners_logo from "@/views/partners_logo.vue";
 </script>
 
 <template>
@@ -15,7 +15,7 @@ import PartnersLogo from "@/views/PartnersLogo.vue";
         соответствует нормативным документам
       </div>
     </div>
-    <PartnersLogo />
+    <partners_logo />
   </article>
 </template>
 

@@ -5,7 +5,7 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 import Menu from "@/components/Menu.vue";
 import { boilers } from "@/data";
-import BoilerOrder from "@/views/BoilerOrder.vue";
+import BoilerOrder from "@/views/order_product.vue";
 import { SUPPORT_EMAIL_MAILTO } from "@/helpers/constants.js";
 
 const currentImageIndex = ref(0);

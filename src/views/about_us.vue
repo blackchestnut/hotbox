@@ -1,6 +1,6 @@
 <script setup>
 import Menu from "@/components/Menu.vue";
-import PartnersLogo from "./PartnersLogo.vue";
+import partners_logo from "./partners_logo.vue";
 </script>
 
 <template>
@@ -73,7 +73,7 @@ import PartnersLogo from "./PartnersLogo.vue";
 
     <div class="partners-wrapper">
       <div class="our-partners">Наши партнеры</div>
-      <PartnersLogo />
+      <partners_logo />
     </div>
 
     <div class="information-wrapper">
